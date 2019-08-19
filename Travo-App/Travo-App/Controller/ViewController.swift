@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDelegate {
+class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
+    let items = ["0","1","2","3","4","5","6","7","8","9","10"]
+    @IBOutlet var label1: UILabel!
     @IBOutlet var popularViewsCollections: UICollectionView!
     @IBOutlet var profileImageView: UIButton!
     override func viewDidLoad() {
@@ -20,23 +22,31 @@ class ViewController: UIViewController,UICollectionViewDelegate {
         profileImageView.backgroundColor = UIColor.gray
         profileImageView.layer.borderColor = UIColor.black.cgColor
         profileImageView.layer.borderWidth = 1.0
-        popularViewsCollections.layer.cornerRadius = 10
-        popularViewsCollections.delegate = self
-        loadMultipleViews()
+//        popularViewsCollections.layer.cornerRadius = 10
     }
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = popularViewsCollections.dequeueReusableCell(withReuseIdentifier: "popularViewCell", for: indexPath)
-        cell.backgroundColor = UIColor.green
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
     }
     
-    private func loadMultipleViews(){
-//        popularViewsCollections.dequeueReusableCell(withReuseIdentifier: "popularViewCell", for: IndexPath)
-        for _ in 0...4 {
-            popularViewsCollections.frame.origin.x = popularViewsCollections.frame.origin.x + 20
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.layer.cornerRadius = 10
+        cell.backgroundImage.image = UIImage(named: "fed")
+        cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFit
+        cell.label1.textColor = UIColor.white
+        cell.label1.numberOfLines = 0
+        cell.label1.text = "Federation Square"
+        cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.label1.sizeToFit()
+        
+        return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
+
     
     @IBAction func profileBtnPressed(_ sender: UIButton) {
         print("Image Pressed")
@@ -45,3 +55,12 @@ class ViewController: UIViewController,UICollectionViewDelegate {
 
 }
 
+
+/*    private func loadMultipleViews(){
+ //        popularViewsCollections.dequeueReusableCell(withReuseIdentifier: "popularViewCell", for: IndexPath)
+ 
+ for _ in 0...4 {
+ popularViewsCollections.frame.origin.x = popularViewsCollections.frame.origin.x + 20
+ }
+ }
+*/
