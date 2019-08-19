@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
 		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
-		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
 		7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65723036FFC00ED25F3 /* Assets.xcassets */; };
 		7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */; };
+		77AA7AC9230A59DB006815AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AA7AC8230A59DB006815AE /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7783A65523036FFA00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7783A65723036FFC00ED25F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7783A65A23036FFC00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7783A65C23036FFC00ED25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77AA7AC8230A59DB006815AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,38 @@
 		7783A64F23036FFA00ED25F3 /* Travo-App */ = {
 			isa = PBXGroup;
 			children = (
-				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
-				7783A65223036FFA00ED25F3 /* ViewController.swift */,
-				7783A65423036FFA00ED25F3 /* Main.storyboard */,
+				77AA7AC7230A57FE006815AE /* Controller */,
+				77AA7AC6230A57F9006815AE /* View */,
+				77AA7AC5230A57EE006815AE /* Model */,
 				7783A65723036FFC00ED25F3 /* Assets.xcassets */,
-				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
 				7783A65C23036FFC00ED25F3 /* Info.plist */,
 			);
 			path = "Travo-App";
+			sourceTree = "<group>";
+		};
+		77AA7AC5230A57EE006815AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77AA7AC6230A57F9006815AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77AA7AC8230A59DB006815AE /* Main.storyboard */,
+				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77AA7AC7230A57FE006815AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
+				7783A65223036FFA00ED25F3 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +146,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AA7AC9230A59DB006815AE /* Main.storyboard in Resources */,
 				7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */,
 				7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */,
-				7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,14 +167,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7783A65423036FFA00ED25F3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7783A65523036FFA00ED25F3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
