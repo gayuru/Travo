@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553BF78E230C19A30016FE70 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF78D230C19A30016FE70 /* CardView.swift */; };
+		553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */; };
+		553BF79A230C36C40016FE70 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF799230C36C40016FE70 /* Favourites.swift */; };
+		553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */; };
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
 		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		553BF78D230C19A30016FE70 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		553BF799230C36C40016FE70 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; usesTabs = 0; };
+		553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +74,7 @@
 		77AA7AC5230A57EE006815AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				553BF799230C36C40016FE70 /* Favourites.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -73,8 +82,11 @@
 		77AA7AC6230A57F9006815AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
 				7783A65423036FFA00ED25F3 /* Main.storyboard */,
 				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
+				553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */,
+				553BF78D230C19A30016FE70 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,7 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */,
+				553BF79A230C36C40016FE70 /* Favourites.swift in Sources */,
+				553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */,
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
+				553BF78E230C19A30016FE70 /* CardView.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
