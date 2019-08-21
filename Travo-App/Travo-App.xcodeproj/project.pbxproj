@@ -12,6 +12,9 @@
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
 		7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65723036FFC00ED25F3 /* Assets.xcassets */; };
 		7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */; };
+		BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E4230CFB39004F28DF /* Login.storyboard */; };
+		BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */; };
+		BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E8230D45E3004F28DF /* Register.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		7783A65723036FFC00ED25F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7783A65A23036FFC00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7783A65C23036FFC00ED25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
+		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 		77AA7AC5230A57EE006815AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -75,6 +82,8 @@
 			children = (
 				7783A65423036FFA00ED25F3 /* Main.storyboard */,
 				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
+				BDD041E4230CFB39004F28DF /* Login.storyboard */,
+				BDD041E8230D45E3004F28DF /* Register.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,9 +155,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */,
 				7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */,
 				7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */,
 				7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */,
+				BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
+				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6XNC2755U2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -325,7 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6XNC2755U2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
