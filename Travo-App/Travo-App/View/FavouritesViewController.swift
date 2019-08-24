@@ -19,7 +19,6 @@ class FavouritesViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScaling)
         let cellHeight = floor(screenSize.height * 0.25)

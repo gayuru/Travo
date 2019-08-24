@@ -12,8 +12,6 @@ import UIKit
 
     @IBInspectable var cornerradius : CGFloat = 15
     
-    
-    
     override func layoutSubviews() {
         layer.cornerRadius = cornerradius
         

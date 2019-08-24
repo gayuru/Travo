@@ -18,19 +18,14 @@ class Favourites {
     var starRatingImg:UIImage!
     var starRating:String
     
-    
     init(featuredImageView:UIImage, place:String, city:String,openTime:String, starRatingImg:UIImage,starRating:String) {
-        
         self.featuredImageView = featuredImageView
         self.place = place
         self.city = city
         self.openTime = openTime
         self.starRatingImg = starRatingImg
         self.starRating = starRating
-    
     }
-    
-    
     
     static func fetchFavourites() -> [Favourites]
     {
