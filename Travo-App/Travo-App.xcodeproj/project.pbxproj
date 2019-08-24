@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		553BF78E230C19A30016FE70 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF78D230C19A30016FE70 /* CardView.swift */; };
+		553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */; };
+		553BF79A230C36C40016FE70 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF799230C36C40016FE70 /* Favourites.swift */; };
+		553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */; };
+		770B85032310D0E900A431E5 /* Places.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85012310D0E900A431E5 /* Places.storyboard */; };
+		770B85052310D0FD00A431E5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85042310D0FD00A431E5 /* Home.storyboard */; };
+		770B85082310D12100A431E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85062310D12100A431E5 /* HomeViewController.swift */; };
+		770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85072310D12100A431E5 /* CollectionViewCell.swift */; };
+		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
+		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
+		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
+		7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65723036FFC00ED25F3 /* Assets.xcassets */; };
+		7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */; };
+		BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E4230CFB39004F28DF /* Login.storyboard */; };
+		BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */; };
+		BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E8230D45E3004F28DF /* Register.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		553BF78D230C19A30016FE70 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		553BF799230C36C40016FE70 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; usesTabs = 0; };
+		553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		770B85022310D0E900A431E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Travo-App/View/Base.lproj/Places.storyboard"; sourceTree = "<group>"; };
+		770B85042310D0FD00A431E5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		770B85062310D12100A431E5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../../../../../../../HomeViewController.swift; sourceTree = "<group>"; };
+		770B85072310D12100A431E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7783A65523036FFA00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7783A65723036FFC00ED25F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7783A65A23036FFC00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7783A65C23036FFC00ED25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
+		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7783A64A23036FFA00ED25F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7783A64423036FFA00ED25F3 = {
+			isa = PBXGroup;
+			children = (
+				7783A64F23036FFA00ED25F3 /* Travo-App */,
+				7783A64E23036FFA00ED25F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7783A64E23036FFA00ED25F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7783A64D23036FFA00ED25F3 /* Travo-App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7783A64F23036FFA00ED25F3 /* Travo-App */ = {
+			isa = PBXGroup;
+			children = (
+				77AA7AC7230A57FE006815AE /* Controller */,
+				77AA7AC6230A57F9006815AE /* View */,
+				77AA7AC5230A57EE006815AE /* Model */,
+				7783A65723036FFC00ED25F3 /* Assets.xcassets */,
+				7783A65C23036FFC00ED25F3 /* Info.plist */,
+			);
+			path = "Travo-App";
+			sourceTree = "<group>";
+		};
+		77AA7AC5230A57EE006815AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
+				553BF799230C36C40016FE70 /* Favourites.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77AA7AC6230A57F9006815AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				770B85012310D0E900A431E5 /* Places.storyboard */,
+				770B85042310D0FD00A431E5 /* Home.storyboard */,
+				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
+				7783A65423036FFA00ED25F3 /* Main.storyboard */,
+				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
+				BDD041E4230CFB39004F28DF /* Login.storyboard */,
+				BDD041E8230D45E3004F28DF /* Register.storyboard */,
+				553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */,
+				553BF78D230C19A30016FE70 /* CardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77AA7AC7230A57FE006815AE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				770B85072310D12100A431E5 /* CollectionViewCell.swift */,
+				770B85062310D12100A431E5 /* HomeViewController.swift */,
+				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
+				7783A65223036FFA00ED25F3 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7783A64C23036FFA00ED25F3 /* Travo-App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7783A65F23036FFC00ED25F3 /* Build configuration list for PBXNativeTarget "Travo-App" */;
+			buildPhases = (
+				7783A64923036FFA00ED25F3 /* Sources */,
+				7783A64A23036FFA00ED25F3 /* Frameworks */,
+				7783A64B23036FFA00ED25F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Travo-App";
+			productName = "Travo-App";
+			productReference = 7783A64D23036FFA00ED25F3 /* Travo-App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7783A64523036FFA00ED25F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Sogyal Thundup Sherpa";
+				TargetAttributes = {
+					7783A64C23036FFA00ED25F3 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 7783A64823036FFA00ED25F3 /* Build configuration list for PBXProject "Travo-App" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7783A64423036FFA00ED25F3;
+			productRefGroup = 7783A64E23036FFA00ED25F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7783A64C23036FFA00ED25F3 /* Travo-App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7783A64B23036FFA00ED25F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */,
+				770B85032310D0E900A431E5 /* Places.storyboard in Resources */,
+				7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */,
+				7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */,
+				7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */,
+				BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */,
+				770B85052310D0FD00A431E5 /* Home.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7783A64923036FFA00ED25F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */,
+				553BF79A230C36C40016FE70 /* Favourites.swift in Sources */,
+				770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */,
+				553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */,
+				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
+				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
+				553BF78E230C19A30016FE70 /* CardView.swift in Sources */,
+				770B85082310D12100A431E5 /* HomeViewController.swift in Sources */,
+				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		770B85012310D0E900A431E5 /* Places.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				770B85022310D0E900A431E5 /* Base */,
+			);
+			name = Places.storyboard;
+			sourceTree = "<group>";
+		};
+		7783A65423036FFA00ED25F3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7783A65523036FFA00ED25F3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7783A65A23036FFC00ED25F3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7783A65D23036FFC00ED25F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7783A65E23036FFC00ED25F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7783A66023036FFC00ED25F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Travo-App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "au.edu.rmit.s3692351.Travo-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7783A66123036FFC00ED25F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Travo-App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "au.edu.rmit.s3692351.Travo-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7783A64823036FFA00ED25F3 /* Build configuration list for PBXProject "Travo-App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7783A65D23036FFC00ED25F3 /* Debug */,
+				7783A65E23036FFC00ED25F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7783A65F23036FFC00ED25F3 /* Build configuration list for PBXNativeTarget "Travo-App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7783A66023036FFC00ED25F3 /* Debug */,
+				7783A66123036FFC00ED25F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7783A64523036FFA00ED25F3 /* Project object */;
+}
