@@ -11,6 +11,10 @@
 		553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */; };
 		553BF79A230C36C40016FE70 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF799230C36C40016FE70 /* Favourites.swift */; };
 		553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */; };
+		770B85032310D0E900A431E5 /* Places.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85012310D0E900A431E5 /* Places.storyboard */; };
+		770B85052310D0FD00A431E5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85042310D0FD00A431E5 /* Home.storyboard */; };
+		770B85082310D12100A431E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85062310D12100A431E5 /* HomeViewController.swift */; };
+		770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85072310D12100A431E5 /* CollectionViewCell.swift */; };
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
 		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 		553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		553BF799230C36C40016FE70 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; usesTabs = 0; };
 		553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		770B85022310D0E900A431E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Travo-App/View/Base.lproj/Places.storyboard"; sourceTree = "<group>"; };
+		770B85042310D0FD00A431E5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		770B85062310D12100A431E5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../../../../../../../HomeViewController.swift; sourceTree = "<group>"; };
+		770B85072310D12100A431E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +88,8 @@
 		77AA7AC5230A57EE006815AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-
 				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
 				553BF799230C36C40016FE70 /* Favourites.swift */,
-
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,16 +97,15 @@
 		77AA7AC6230A57F9006815AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				770B85012310D0E900A431E5 /* Places.storyboard */,
+				770B85042310D0FD00A431E5 /* Home.storyboard */,
 				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
 				7783A65423036FFA00ED25F3 /* Main.storyboard */,
 				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
-
 				BDD041E4230CFB39004F28DF /* Login.storyboard */,
 				BDD041E8230D45E3004F28DF /* Register.storyboard */,
-
 				553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */,
 				553BF78D230C19A30016FE70 /* CardView.swift */,
-
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +113,8 @@
 		77AA7AC7230A57FE006815AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				770B85072310D12100A431E5 /* CollectionViewCell.swift */,
+				770B85062310D12100A431E5 /* HomeViewController.swift */,
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
 				7783A65223036FFA00ED25F3 /* ViewController.swift */,
 			);
@@ -173,10 +180,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */,
+				770B85032310D0E900A431E5 /* Places.storyboard in Resources */,
 				7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */,
 				7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */,
 				7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */,
 				BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */,
+				770B85052310D0FD00A431E5 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,13 +198,12 @@
 			files = (
 				553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */,
 				553BF79A230C36C40016FE70 /* Favourites.swift in Sources */,
+				770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */,
 				553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */,
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
-
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
-
 				553BF78E230C19A30016FE70 /* CardView.swift in Sources */,
-
+				770B85082310D12100A431E5 /* HomeViewController.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +211,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		770B85012310D0E900A431E5 /* Places.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				770B85022310D0E900A431E5 /* Base */,
+			);
+			name = Places.storyboard;
+			sourceTree = "<group>";
+		};
 		7783A65423036FFA00ED25F3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
