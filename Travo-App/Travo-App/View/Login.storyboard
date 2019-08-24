@@ -71,6 +71,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="wLD-lb-Fy4" kind="show" id="zZl-Hd-HfL"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="jmT-ye-31W">
                                 <rect key="frame" x="16" y="20" width="77" height="47"/>
@@ -84,6 +87,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TU5-Lv-Bly" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46.875" y="20.070422535211268"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="2XQ-tL-aIz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="wLD-lb-Fy4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lB-mG-QKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692" y="20"/>
         </scene>
     </scenes>
     <resources>

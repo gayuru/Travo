@@ -147,6 +147,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <connections>
                                                     <action selector="btnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n3j-92-n7q"/>
+                                                    <segue destination="R0P-io-GGH" kind="show" id="p0k-lx-jm9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -188,6 +189,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1128.75" y="137.32394366197184"/>
+        </scene>
+        <!--Places-->
+        <scene sceneID="aSr-lg-AKh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Places" id="R0P-io-GGH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873" y="221"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UWX-bu-53w">
