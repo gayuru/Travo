@@ -13,8 +13,8 @@
 		553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */; };
 		770B85032310D0E900A431E5 /* Places.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85012310D0E900A431E5 /* Places.storyboard */; };
 		770B85052310D0FD00A431E5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85042310D0FD00A431E5 /* Home.storyboard */; };
-		770B85082310D12100A431E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85062310D12100A431E5 /* HomeViewController.swift */; };
 		770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85072310D12100A431E5 /* CollectionViewCell.swift */; };
+		770B850D2310D81800A431E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B850C2310D81700A431E5 /* HomeViewController.swift */; };
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
 		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
@@ -32,8 +32,8 @@
 		553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		770B85022310D0E900A431E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Travo-App/View/Base.lproj/Places.storyboard"; sourceTree = "<group>"; };
 		770B85042310D0FD00A431E5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		770B85062310D12100A431E5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../../../../../../../HomeViewController.swift; sourceTree = "<group>"; };
 		770B85072310D12100A431E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		770B850C2310D81700A431E5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 		77AA7AC7230A57FE006815AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				770B850C2310D81700A431E5 /* HomeViewController.swift */,
 				770B85072310D12100A431E5 /* CollectionViewCell.swift */,
-				770B85062310D12100A431E5 /* HomeViewController.swift */,
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
 				7783A65223036FFA00ED25F3 /* ViewController.swift */,
 			);
@@ -201,9 +201,9 @@
 				770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */,
 				553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */,
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
+				770B850D2310D81800A431E5 /* HomeViewController.swift in Sources */,
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
 				553BF78E230C19A30016FE70 /* CardView.swift in Sources */,
-				770B85082310D12100A431E5 /* HomeViewController.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6XNC2755U2;
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -377,7 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6XNC2755U2;
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
