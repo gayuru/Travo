@@ -182,7 +182,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="50" height="35"/>
+        <image name="logo" width="500" height="338"/>
         <image name="profile" width="512" height="512"/>
     </resources>
 </document>
