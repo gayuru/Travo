@@ -78,7 +78,7 @@
 		7783A64F23036FFA00ED25F3 /* Travo-App */ = {
 			isa = PBXGroup;
 			children = (
-				77AA7AC7230A57FE006815AE /* Controller */,
+				77AA7AC7230A57FE006815AE /* ViewModel */,
 				77AA7AC6230A57F9006815AE /* View */,
 				77AA7AC5230A57EE006815AE /* Model */,
 				7783A65723036FFC00ED25F3 /* Assets.xcassets */,
@@ -101,18 +101,15 @@
 			children = (
 				770B85012310D0E900A431E5 /* Places.storyboard */,
 				770B85042310D0FD00A431E5 /* Home.storyboard */,
-				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
 				7783A65423036FFA00ED25F3 /* Main.storyboard */,
 				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
 				BDD041E4230CFB39004F28DF /* Login.storyboard */,
 				BDD041E8230D45E3004F28DF /* Register.storyboard */,
-				553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */,
-				553BF78D230C19A30016FE70 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		77AA7AC7230A57FE006815AE /* Controller */ = {
+		77AA7AC7230A57FE006815AE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				770B850A2310D7B200A431E5 /* HomeViewController.swift */,
@@ -120,8 +117,11 @@
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
 				7783A65223036FFA00ED25F3 /* ViewController.swift */,
 				7714A1C3231FD7030014202E /* TestViewController.swift */,
+				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
+				553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */,
+				553BF78D230C19A30016FE70 /* CardView.swift */,
 			);
-			path = Controller;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
