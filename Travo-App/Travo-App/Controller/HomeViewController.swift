@@ -21,7 +21,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
         profileImageView.clipsToBounds = true
         profileImageView.backgroundColor = UIColor.gray
-        profileImageView.layer.borderColor = UIColor.black.cgColor
         profileImageView.layer.borderWidth = 1.0
 //        popularViewsCollections.layer.cornerRadius = 10
     }
