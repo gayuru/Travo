@@ -71,11 +71,17 @@
                                                 <rect key="frame" x="110" y="180" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Hill"/>
+                                                <connections>
+                                                    <segue destination="aBl-J7-pBO" kind="show" id="Ew6-Us-ES4"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-sC-9Gf">
                                                 <rect key="frame" x="148" y="180" width="51" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Cycling"/>
+                                                <connections>
+                                                    <segue destination="DoQ-y4-2PO" kind="show" id="9Pp-Oz-HtW"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Most Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-ba-3lN">
                                                 <rect key="frame" x="21" y="228" width="102" height="21"/>
@@ -141,13 +147,21 @@
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AjQ-yg-QcI"/>
                                                 </connections>
                                             </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2y-cI-Y1o">
-                                                <rect key="frame" x="137" y="447" width="46" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SJ-m2-jPk">
+                                                <rect key="frame" x="147" y="457" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
+                                                    <action selector="btnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0gq-qG-SqD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2y-cI-Y1o">
+                                                <rect key="frame" x="189" y="400" width="71" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Favourites"/>
+                                                <connections>
                                                     <action selector="btnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n3j-92-n7q"/>
-                                                    <segue destination="R0P-io-GGH" kind="show" id="p0k-lx-jm9"/>
+                                                    <segue destination="MHt-61-dlG" kind="showDetail" id="ZEs-NW-Fcy"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -190,13 +204,37 @@
             </objects>
             <point key="canvasLocation" x="1128.75" y="137.32394366197184"/>
         </scene>
+        <!--Camera-->
+        <scene sceneID="pkz-9v-zI6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Camera" id="aBl-J7-pBO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CfO-H8-sJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="-135"/>
+        </scene>
+        <!--FeelingLucky-->
+        <scene sceneID="wVW-PX-apq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FeelingLucky" id="DoQ-y4-2PO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4z-Ba-VX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="-9"/>
+        </scene>
         <!--Places-->
         <scene sceneID="aSr-lg-AKh">
             <objects>
                 <viewControllerPlaceholder storyboardName="Places" id="R0P-io-GGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1873" y="221"/>
+            <point key="canvasLocation" x="1834" y="182"/>
+        </scene>
+        <!--Favourites-->
+        <scene sceneID="jJD-a7-Y59">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favourites" id="MHt-61-dlG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KHD-Bc-sZc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1813" y="354"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UWX-bu-53w">
