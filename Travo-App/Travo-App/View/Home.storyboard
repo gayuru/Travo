@@ -66,6 +66,9 @@
                                                 <rect key="frame" x="59" y="180" width="43" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Beach"/>
+                                                <connections>
+                                                    <segue destination="R0P-io-GGH" kind="showDetail" id="Ndl-K4-GPR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlY-KB-ncr">
                                                 <rect key="frame" x="110" y="180" width="30" height="30"/>
@@ -226,7 +229,7 @@
                 <viewControllerPlaceholder storyboardName="Places" id="R0P-io-GGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="182"/>
+            <point key="canvasLocation" x="1714" y="161"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="jJD-a7-Y59">
