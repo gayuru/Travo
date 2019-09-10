@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		552BAA892318AB210000BBC4 /* FeelingLucky.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */; };
 		552BAA8B2318AB390000BBC4 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA8A2318AB390000BBC4 /* Camera.storyboard */; };
-		552BAA94231965BF0000BBC4 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552BAA93231965BF0000BBC4 /* CameraViewController.swift */; };
-		553BF78E230C19A30016FE70 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF78D230C19A30016FE70 /* CardView.swift */; };
-		553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */; };
 		553BF79A230C36C40016FE70 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF799230C36C40016FE70 /* Favourites.swift */; };
 		553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */; };
 		5571DBCF2325D29D00C9BE2F /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */; };
@@ -20,6 +17,10 @@
 		770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85072310D12100A431E5 /* CollectionViewCell.swift */; };
 		770B850B2310D7B200A431E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B850A2310D7B200A431E5 /* HomeViewController.swift */; };
 		7714A1C4231FD7030014202E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714A1C3231FD7030014202E /* TestViewController.swift */; };
+		77425D0523272E4C00C6B844 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0423272E4C00C6B844 /* Places.swift */; };
+		77425D0723272EEC00C6B844 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0623272EEC00C6B844 /* CardCollectionViewCell.swift */; };
+		77425D0923272EF300C6B844 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0823272EF300C6B844 /* CardView.swift */; };
+		77425D0B23272F0800C6B844 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0A23272F0700C6B844 /* FavouritesViewController.swift */; };
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
 		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
@@ -33,9 +34,6 @@
 /* Begin PBXFileReference section */
 		552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeelingLucky.storyboard; sourceTree = "<group>"; };
 		552BAA8A2318AB390000BBC4 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
-		552BAA93231965BF0000BBC4 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		553BF78D230C19A30016FE70 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		553BF799230C36C40016FE70 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; usesTabs = 0; };
 		553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
@@ -44,6 +42,10 @@
 		770B85072310D12100A431E5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		770B850A2310D7B200A431E5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7714A1C3231FD7030014202E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		77425D0423272E4C00C6B844 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		77425D0623272EEC00C6B844 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		77425D0823272EF300C6B844 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		77425D0A23272F0700C6B844 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,14 +69,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		553BF7A52310DEE60016FE70 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		7783A64423036FFA00ED25F3 = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +88,6 @@
 		7783A64F23036FFA00ED25F3 /* Travo-App */ = {
 			isa = PBXGroup;
 			children = (
-
 				77AA7AC7230A57FE006815AE /* ViewModel */,
 				77AA7AC6230A57F9006815AE /* View */,
 				77AA7AC5230A57EE006815AE /* Model */,
@@ -109,6 +102,7 @@
 			children = (
 				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
 				553BF799230C36C40016FE70 /* Favourites.swift */,
+				77425D0423272E4C00C6B844 /* Places.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,12 +116,9 @@
 				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
 				BDD041E4230CFB39004F28DF /* Login.storyboard */,
 				BDD041E8230D45E3004F28DF /* Register.storyboard */,
-				553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */,
-				553BF78D230C19A30016FE70 /* CardView.swift */,
 				552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */,
 				552BAA8A2318AB390000BBC4 /* Camera.storyboard */,
 				5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */,
-
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,14 +129,12 @@
 				770B850A2310D7B200A431E5 /* HomeViewController.swift */,
 				770B85072310D12100A431E5 /* CollectionViewCell.swift */,
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
+				77425D0623272EEC00C6B844 /* CardCollectionViewCell.swift */,
+				77425D0823272EF300C6B844 /* CardView.swift */,
 				7783A65223036FFA00ED25F3 /* ViewController.swift */,
-
+				77425D0A23272F0700C6B844 /* FavouritesViewController.swift */,
 				7714A1C3231FD7030014202E /* TestViewController.swift */,
 				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
-				553BF797230C358F0016FE70 /* CardCollectionViewCell.swift */,
-				553BF78D230C19A30016FE70 /* CardView.swift */,
-				552BAA93231965BF0000BBC4 /* CameraViewController.swift */,
-
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -228,17 +217,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77425D0B23272F0800C6B844 /* FavouritesViewController.swift in Sources */,
 				7714A1C4231FD7030014202E /* TestViewController.swift in Sources */,
 				553BF79E230C3BD40016FE70 /* FavouritesViewController.swift in Sources */,
-				552BAA94231965BF0000BBC4 /* CameraViewController.swift in Sources */,
 				553BF79A230C36C40016FE70 /* Favourites.swift in Sources */,
 				770B85092310D12100A431E5 /* CollectionViewCell.swift in Sources */,
-				553BF798230C358F0016FE70 /* CardCollectionViewCell.swift in Sources */,
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
 				770B850B2310D7B200A431E5 /* HomeViewController.swift in Sources */,
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
-				553BF78E230C19A30016FE70 /* CardView.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
+				77425D0723272EEC00C6B844 /* CardCollectionViewCell.swift in Sources */,
+				77425D0923272EF300C6B844 /* CardView.swift in Sources */,
+				77425D0523272E4C00C6B844 /* Places.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
