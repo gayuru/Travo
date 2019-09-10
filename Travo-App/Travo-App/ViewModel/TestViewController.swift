@@ -8,14 +8,15 @@
 
 import UIKit
 
-class TestViewController: UIViewController {
+class TestViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
-    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var placesButton: UIButton!
     @IBOutlet var sunsetButton: UIButton!
     @IBOutlet var hillButton: UIButton!
     @IBOutlet var cyclingButton: UIButton!
     @IBOutlet var bottomNav: UIView!
+    @IBOutlet var popularPlaces: UICollectionView!
+    @IBOutlet var recommendedPlaces: UICollectionView!
     
     
     override func viewDidLoad() {
@@ -26,6 +27,22 @@ class TestViewController: UIViewController {
         hillButton.imageView?.contentMode = .scaleAspectFit
         cyclingButton.imageView?.contentMode = .scaleAspectFit
         bottomNav.layer.cornerRadius = 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.backgroundImage.image = UIImage(named: "eiffel-tower")
+        cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFit
+        cell.label1.text = "Paris"
+        cell.label1.textColor = UIColor.white
+        cell.label1.numberOfLines = 0
+        cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.label1.sizeToFit()
+        return cell
     }
     
 
