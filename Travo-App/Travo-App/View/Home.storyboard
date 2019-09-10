@@ -110,6 +110,7 @@ today?</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dw0-E8-ImP">
                                                 <rect key="frame" x="266" y="233" width="46" height="30"/>
                                                 <state key="normal" title="See all">
@@ -163,6 +164,7 @@ today?</string>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fso-bb-QaC">
                                                 <rect key="frame" x="8" y="414" width="103.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -300,6 +302,22 @@ today?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEV-ba-uyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-71.25" y="247.18309859154931"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="pkz-9v-zI6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Camera" id="aBl-J7-pBO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CfO-H8-sJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="-135"/>
+        </scene>
+        <!--FeelingLucky-->
+        <scene sceneID="wVW-PX-apq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FeelingLucky" id="DoQ-y4-2PO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4z-Ba-VX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="-9"/>
         </scene>
         <!--Places-->
         <scene sceneID="aSr-lg-AKh">

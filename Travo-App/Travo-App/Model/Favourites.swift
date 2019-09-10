@@ -30,11 +30,11 @@ class Favourites {
     static func fetchFavourites() -> [Favourites]
     {
         return [
-            Favourites(featuredImageView: UIImage.init(named: "royal_botanical_gardens")!, place: "Botanical Gardens", city: "Melbourne", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5"),
+            Favourites(featuredImageView: UIImage.init(named: "eiffel-tower")!, place: "Botanical Gardens", city: "Melbourne", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5"),
             Favourites(featuredImageView: UIImage.init(named: "eiffel-tower")!, place: "Eiffel Tower", city: "Sydney", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5"),
-            Favourites(featuredImageView: UIImage.init(named: "federation-square")!, place: "Federation Square", city: "Perth", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5"),
-            Favourites(featuredImageView: UIImage.init(named: "royal_botanical_gardens")!, place: "Eiffel Tower", city: "Cairns", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5"),
-            Favourites(featuredImageView: UIImage.init(named: "royal_botanical_gardens")!, place: "Art Gallery", city: "Melbourne", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5")
+            Favourites(featuredImageView: UIImage.init(named: "eiffel-tower")!, place: "Federation Square", city: "Perth", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5"),
+            Favourites(featuredImageView: UIImage.init(named: "eiffel-tower")!, place: "Eiffel Tower", city: "Cairns", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5"),
+            Favourites(featuredImageView: UIImage.init(named: "eiffel-tower")!, place: "Art Gallery", city: "Melbourne", openTime: "5:00AM - 8:00PM", starRatingImg:UIImage.init(named: "star (2)")!, starRating: "4.5")
         ]
     }
 }
