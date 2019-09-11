@@ -26,6 +26,7 @@
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
 		7783A65823036FFC00ED25F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65723036FFC00ED25F3 /* Assets.xcassets */; };
 		7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */; };
+		BD0AE78623294567002CD790 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78523294567002CD790 /* CheckboxButton.swift */; };
 		BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E4230CFB39004F28DF /* Login.storyboard */; };
 		BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */; };
 		BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E8230D45E3004F28DF /* Register.storyboard */; };
@@ -53,6 +54,7 @@
 		7783A65723036FFC00ED25F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7783A65A23036FFC00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7783A65C23036FFC00ED25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD0AE78523294567002CD790 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
 		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 		77AA7AC5230A57EE006815AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
 				553BF799230C36C40016FE70 /* Favourites.swift */,
 				77425D0423272E4C00C6B844 /* Places.swift */,
 			);
@@ -126,6 +127,7 @@
 		77AA7AC7230A57FE006815AE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
 				770B850A2310D7B200A431E5 /* HomeViewController.swift */,
 				770B85072310D12100A431E5 /* CollectionViewCell.swift */,
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
@@ -135,6 +137,7 @@
 				77425D0A23272F0700C6B844 /* FavouritesViewController.swift */,
 				7714A1C3231FD7030014202E /* TestViewController.swift */,
 				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
+				BD0AE78523294567002CD790 /* CheckboxButton.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				770B850B2310D7B200A431E5 /* HomeViewController.swift in Sources */,
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
+				BD0AE78623294567002CD790 /* CheckboxButton.swift in Sources */,
 				77425D0723272EEC00C6B844 /* CardCollectionViewCell.swift in Sources */,
 				77425D0923272EF300C6B844 /* CardView.swift in Sources */,
 				77425D0523272E4C00C6B844 /* Places.swift in Sources */,
