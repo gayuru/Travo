@@ -9,5 +9,10 @@
 import Foundation
 
 struct Places {
-    var name:String
+    private let name:String
+    private let location:String
+    private let address:String
+    private let image:String
+    
+    
 }

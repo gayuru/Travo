@@ -110,7 +110,6 @@ today?</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dw0-E8-ImP">
                                                 <rect key="frame" x="266" y="233" width="46" height="30"/>
                                                 <state key="normal" title="See all">
@@ -168,7 +167,6 @@ today?</string>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fso-bb-QaC">
                                                 <rect key="frame" x="8" y="414" width="103.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
