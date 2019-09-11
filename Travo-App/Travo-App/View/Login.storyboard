@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqd-r7-9eR">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqd-r7-9eR">
                                 <rect key="frame" x="60" y="361" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.43137254899999999" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -63,10 +63,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7l-fC-wCs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7l-fC-wCs">
                                 <rect key="frame" x="16" y="90" width="213" height="69.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="WaU-JH-yQU"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="WaU-JH-yQU">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" constant="213" id="m0C-iR-AHa"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ozv-kZ-Xgf"/>
                                 </constraints>
@@ -157,7 +159,9 @@
                         <constraints>
                             <constraint firstItem="h7l-fC-wCs" firstAttribute="leading" secondItem="0OO-pF-b3g" secondAttribute="leading" id="1Z0-PL-RsY"/>
                             <constraint firstItem="aqd-r7-9eR" firstAttribute="top" relation="lessThanOrEqual" secondItem="nUg-70-vg7" secondAttribute="bottom" constant="30" id="3Wf-CR-YcX"/>
+                            <constraint firstItem="aqd-r7-9eR" firstAttribute="leading" secondItem="7S8-wI-giu" secondAttribute="leading" constant="60" id="9Xz-hC-9Nx"/>
                             <constraint firstItem="lYa-nt-lCp" firstAttribute="leading" secondItem="16w-mo-wGN" secondAttribute="leading" id="BrY-Qg-RSp"/>
+                            <constraint firstItem="aqd-r7-9eR" firstAttribute="leading" secondItem="nUg-70-vg7" secondAttribute="leading" id="CTC-Hk-OSJ"/>
                             <constraint firstItem="jyj-ao-RtP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="h7l-fC-wCs" secondAttribute="bottom" constant="8" id="DGi-fS-kjD"/>
                             <constraint firstItem="lYa-nt-lCp" firstAttribute="height" secondItem="jyj-ao-RtP" secondAttribute="height" id="EPo-W8-cj5"/>
                             <constraint firstItem="sUo-1M-btl" firstAttribute="leading" secondItem="7S8-wI-giu" secondAttribute="leading" constant="60" id="F29-bP-GxP"/>
@@ -172,6 +176,7 @@
                             <constraint firstItem="16w-mo-wGN" firstAttribute="top" secondItem="jyj-ao-RtP" secondAttribute="bottom" id="dSz-Ep-baq"/>
                             <constraint firstItem="0OO-pF-b3g" firstAttribute="leading" secondItem="7S8-wI-giu" secondAttribute="leading" constant="16" id="fHp-pm-Rw5"/>
                             <constraint firstItem="jyj-ao-RtP" firstAttribute="leading" secondItem="h7l-fC-wCs" secondAttribute="leading" id="fSJ-oi-bAI"/>
+                            <constraint firstItem="sUo-1M-btl" firstAttribute="leading" secondItem="aqd-r7-9eR" secondAttribute="leading" id="lai-wu-GTY"/>
                             <constraint firstItem="sUo-1M-btl" firstAttribute="width" secondItem="aqd-r7-9eR" secondAttribute="width" id="mo9-YT-wd0"/>
                             <constraint firstItem="16w-mo-wGN" firstAttribute="leading" secondItem="jyj-ao-RtP" secondAttribute="leading" id="wDG-j1-G7O"/>
                             <constraint firstItem="h7l-fC-wCs" firstAttribute="top" secondItem="0OO-pF-b3g" secondAttribute="bottom" constant="10" id="wns-PX-GMQ"/>
@@ -180,6 +185,23 @@
                             <constraint firstItem="lYa-nt-lCp" firstAttribute="top" secondItem="16w-mo-wGN" secondAttribute="bottom" constant="7.5" id="yex-1t-jvQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7S8-wI-giu"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Xz-hC-9Nx"/>
+                                <exclude reference="CTC-Hk-OSJ"/>
+                                <exclude reference="lai-wu-GTY"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="9Xz-hC-9Nx"/>
+                                <include reference="CTC-Hk-OSJ"/>
+                                <exclude reference="bWX-gB-ZXu"/>
+                                <exclude reference="F29-bP-GxP"/>
+                                <exclude reference="ckI-Js-Gok"/>
+                                <include reference="lai-wu-GTY"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ri-Sx-tNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
