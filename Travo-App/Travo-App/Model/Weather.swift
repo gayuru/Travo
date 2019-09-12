@@ -1,5 +1,5 @@
 //
-//  Places.swift
+//  Weather.swift
 //  Travo-App
 //
 //  Created by Gayuru Gunawardana on 11/9/19.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Places{
+class Weather{
     
 }

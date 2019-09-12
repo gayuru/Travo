@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class PlacesCollectionViewCell: UICollectionViewCell {
     @IBOutlet var label1: UILabel!
     @IBOutlet var backgroundImage: UIImageView!
     
