@@ -60,7 +60,7 @@
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-C1-R0S">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-C1-R0S">
                                                             <rect key="frame" x="81" y="42" width="11" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="Alt-oV-bFh"/>
@@ -68,7 +68,7 @@
                                                                 <constraint firstAttribute="width" secondItem="yMo-C1-R0S" secondAttribute="height" multiplier="11:10" id="tJj-w7-aPQ"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="Sl9-ck-Dre">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Sl9-ck-Dre">
                                                             <rect key="frame" x="95" y="42" width="11" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="3gy-HS-ZEK"/>
@@ -76,7 +76,7 @@
                                                                 <constraint firstAttribute="height" constant="10" id="wDq-CZ-ALR"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="JmN-9c-Zjz">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="JmN-9c-Zjz">
                                                             <rect key="frame" x="109" y="42" width="11" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="5Ca-eA-gB2"/>
@@ -84,7 +84,7 @@
                                                                 <constraint firstAttribute="width" secondItem="JmN-9c-Zjz" secondAttribute="height" multiplier="11:10" id="opO-TR-anC"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-jH-saa">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-jH-saa">
                                                             <rect key="frame" x="123" y="42" width="11" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="d3a-o5-zGo"/>
@@ -92,7 +92,7 @@
                                                                 <constraint firstAttribute="height" constant="10" id="wEJ-ZC-t7P"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="8aq-GP-T2H">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="8aq-GP-T2H">
                                                             <rect key="frame" x="137" y="42" width="11" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="1E3-fk-tGV"/>
@@ -221,6 +221,6 @@
     </scenes>
     <resources>
         <image name="like" width="500" height="500"/>
-        <image name="star (2)" width="512" height="512"/>
+        <image name="star" width="512" height="512"/>
     </resources>
 </document>
