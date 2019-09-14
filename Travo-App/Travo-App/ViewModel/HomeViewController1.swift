@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeViewController1: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
     let items = ["0","1","2","3","4","5","6","7","8","9","10"]
     @IBOutlet var label1: UILabel!
@@ -21,7 +21,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
         profileImageView.clipsToBounds = true
         profileImageView.backgroundColor = UIColor.gray
-        profileImageView.layer.borderColor = UIColor.black.cgColor
         profileImageView.layer.borderWidth = 1.0
 //        popularViewsCollections.layer.cornerRadius = 10
     }
@@ -34,7 +33,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
         cell.layer.cornerRadius = 10
         cell.backgroundImage.image = UIImage(named: "fed")
         cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFit
