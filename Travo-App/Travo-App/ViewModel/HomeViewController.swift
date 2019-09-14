@@ -23,6 +23,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        popularPlaces.backgroundColor = UIColor.white
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
         placesButton.imageView?.contentMode = .scaleAspectFit
@@ -38,15 +39,20 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 0.5
         cell.backgroundImage.image = UIImage(named: "federation-square")
-        cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFit
+        cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         cell.label1.text = "Federation Square"
         cell.label1.textColor = UIColor.white
-        cell.label1.numberOfLines = 0
+        cell.label1.numberOfLines = 2
         cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.label1.sizeToFit()
         return cell
     }
+    
+    
     
 
 }

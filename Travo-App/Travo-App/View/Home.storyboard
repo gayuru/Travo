@@ -83,21 +83,21 @@ today?</string>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKO-dY-fHq" userLabel="Places">
                                                         <rect key="frame" x="0.0" y="0.0" width="70.5" height="34"/>
-                                                        <state key="normal" image="placeholder-on-map-paper-in-perspective">
+                                                        <state key="normal" image="category_general_enabled">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgL-GK-WYt" userLabel="Sunset">
                                                         <rect key="frame" x="77.5" y="0.0" width="70.5" height="34"/>
-                                                        <state key="normal" image="sunset"/>
+                                                        <state key="normal" image="category_beach"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4i-Lu-DT7">
                                                         <rect key="frame" x="155" y="0.0" width="70.5" height="34"/>
-                                                        <state key="normal" title="Hill" image="adventurer"/>
+                                                        <state key="normal" title="Hill" image="category_hike"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoS-9w-GS7">
                                                         <rect key="frame" x="232.5" y="0.0" width="70.5" height="34"/>
-                                                        <state key="normal" title="Cycling" image="bike (1)"/>
+                                                        <state key="normal" title="Cycling" image="category_bike"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -118,7 +118,6 @@ today?</string>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
                                                 <rect key="frame" x="8" y="265" width="303" height="141"/>
-                                                <color key="backgroundColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="141" id="1u0-Jm-iH7"/>
                                                 </constraints>
@@ -351,15 +350,15 @@ today?</string>
     </scenes>
     <resources>
         <image name="Logo" width="500" height="338"/>
-        <image name="adventurer" width="500" height="455"/>
         <image name="aiony-haust-3TLl_97HNJo-unsplash" width="500" height="500"/>
-        <image name="bike (1)" width="500" height="500"/>
+        <image name="category_beach" width="500" height="500"/>
+        <image name="category_bike" width="500" height="500"/>
+        <image name="category_general_enabled" width="500" height="500"/>
+        <image name="category_hike" width="500" height="500"/>
         <image name="heart" width="21" height="19"/>
         <image name="home" width="23" height="21"/>
         <image name="lucky" width="21" height="21"/>
         <image name="photo-camera" width="22" height="20"/>
-        <image name="placeholder-on-map-paper-in-perspective" width="500" height="409"/>
         <image name="star" width="512" height="512"/>
-        <image name="sunset" width="500" height="500"/>
     </resources>
 </document>
