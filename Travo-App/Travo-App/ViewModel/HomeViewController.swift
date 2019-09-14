@@ -18,12 +18,15 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var popularPlaces: UICollectionView!
     @IBOutlet var recommendedPlaces: UICollectionView!
+    @IBOutlet var homeButton: UIButton!
+    @IBOutlet var scrollView: UIScrollView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        popularPlaces.backgroundColor = UIColor.white
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height)
+        popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
         placesButton.imageView?.contentMode = .scaleAspectFit
@@ -31,6 +34,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         hillButton.imageView?.contentMode = .scaleAspectFit
         cyclingButton.imageView?.contentMode = .scaleAspectFit
         bottomNav.layer.cornerRadius = 10
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="580"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-p5-aEi" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-cW-hRh" userLabel="Top Nav">
                                                 <rect key="frame" x="8" y="8" width="304" height="65"/>
@@ -235,7 +235,7 @@ today?</string>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="leading" secondItem="KgU-p5-aEi" secondAttribute="leading" constant="8" id="Bwf-n2-8uJ"/>
                                             <constraint firstAttribute="trailing" secondItem="YYr-SR-Ets" secondAttribute="trailing" constant="9" id="CfD-Gv-4bF"/>
                                             <constraint firstItem="5Fh-cW-hRh" firstAttribute="leading" secondItem="KgU-p5-aEi" secondAttribute="leading" constant="8" id="ELN-M5-pc3"/>
-                                            <constraint firstAttribute="bottom" secondItem="YYr-SR-Ets" secondAttribute="bottom" constant="8" id="Gg7-mJ-xJc"/>
+                                            <constraint firstAttribute="bottom" secondItem="YYr-SR-Ets" secondAttribute="bottom" constant="20" id="Gg7-mJ-xJc"/>
                                             <constraint firstItem="H6O-Rf-5Z7" firstAttribute="top" secondItem="40j-5g-lKm" secondAttribute="bottom" constant="4" id="HjA-b4-HTf"/>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="top" secondItem="H6O-Rf-5Z7" secondAttribute="bottom" constant="37" id="Imd-ob-Uh5"/>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="top" secondItem="dw0-E8-ImP" secondAttribute="bottom" constant="2" id="ahW-eq-Oez"/>
@@ -263,24 +263,33 @@ today?</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0X-F6-ncz" userLabel="BottomNav">
                                 <rect key="frame" x="8" y="559" width="303" height="38"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="7pO-TZ-eEL">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7pO-TZ-eEL">
                                         <rect key="frame" x="0.0" y="0.0" width="305" height="38"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXo-28-P6B">
-                                                <rect key="frame" x="0.0" y="0.0" width="54.5" height="38"/>
-                                                <state key="normal" image="home"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="38"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" image="nav_home">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-ib-532">
-                                                <rect key="frame" x="83.5" y="0.0" width="54.5" height="38"/>
-                                                <state key="normal" image="heart"/>
+                                                <rect key="frame" x="84" y="0.0" width="53.5" height="38"/>
+                                                <state key="normal" image="nav_heart">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-sY-9m0">
-                                                <rect key="frame" x="167" y="0.0" width="54.5" height="38"/>
-                                                <state key="normal" image="photo-camera"/>
+                                                <rect key="frame" x="167.5" y="0.0" width="54" height="38"/>
+                                                <state key="normal" image="nav_camera">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QF-pD-hEh">
-                                                <rect key="frame" x="250.5" y="0.0" width="54.5" height="38"/>
-                                                <state key="normal" image="lucky"/>
+                                                <rect key="frame" x="251.5" y="0.0" width="53.5" height="38"/>
+                                                <state key="normal" image="nav_lucky">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -313,15 +322,25 @@ today?</string>
                         <outlet property="bottomNav" destination="D0X-F6-ncz" id="8Xg-PE-MXv"/>
                         <outlet property="cyclingButton" destination="QoS-9w-GS7" id="IdO-g4-jhu"/>
                         <outlet property="hillButton" destination="h4i-Lu-DT7" id="ELi-n2-h45"/>
+                        <outlet property="homeButton" destination="pXo-28-P6B" id="ALw-qA-OYC"/>
                         <outlet property="placesButton" destination="KKO-dY-fHq" id="Cz6-oq-0Ea"/>
                         <outlet property="popularPlaces" destination="RLY-w5-eWQ" id="2Ds-ae-8OU"/>
                         <outlet property="recommendedPlaces" destination="YYr-SR-Ets" id="XT2-fb-yWT"/>
+                        <outlet property="scrollView" destination="BkG-db-pQB" id="iTa-yz-P0y"/>
                         <outlet property="sunsetButton" destination="sgL-GK-WYt" id="LtJ-fR-0ES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEV-ba-uyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-71.25" y="247.18309859154931"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Hbb-nT-Ojy">
+            <objects>
+                <viewControllerPlaceholder id="bWV-wY-XIY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NWH-U6-T8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="-145"/>
         </scene>
         <!--Camera-->
         <scene sceneID="pkz-9v-zI6">
@@ -351,14 +370,14 @@ today?</string>
     <resources>
         <image name="Logo" width="500" height="338"/>
         <image name="aiony-haust-3TLl_97HNJo-unsplash" width="500" height="500"/>
-        <image name="category_beach" width="500" height="500"/>
-        <image name="category_bike" width="500" height="500"/>
-        <image name="category_general_enabled" width="500" height="500"/>
-        <image name="category_hike" width="500" height="500"/>
-        <image name="heart" width="21" height="19"/>
-        <image name="home" width="23" height="21"/>
-        <image name="lucky" width="21" height="21"/>
-        <image name="photo-camera" width="22" height="20"/>
+        <image name="category_beach" width="166.5" height="166.5"/>
+        <image name="category_bike" width="166.5" height="166.5"/>
+        <image name="category_general_enabled" width="166.5" height="166.5"/>
+        <image name="category_hike" width="166.5" height="166.5"/>
+        <image name="nav_camera" width="166.5" height="150.5"/>
+        <image name="nav_heart" width="166.5" height="150.5"/>
+        <image name="nav_home" width="166.5" height="152"/>
+        <image name="nav_lucky" width="166.5" height="183"/>
         <image name="star" width="512" height="512"/>
     </resources>
 </document>
