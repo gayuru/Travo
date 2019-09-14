@@ -9,11 +9,12 @@
 import Foundation
 
 struct Place{
-    var name:String
-    var desc:String
-    var location:String
-    var address:String
-    var imageURL:String
-    var openTime:String
-    var starRating:Double
+    private let name:String
+    private let location:String
+    private let image:String
+    private let starRating:Int
+    private let openTimes:String
+    private let weather:Weather
+    
+    
 }

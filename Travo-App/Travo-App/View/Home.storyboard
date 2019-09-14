@@ -10,16 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favourites-->
-        <scene sceneID="qya-Pg-vlZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Favourites" id="Sha-ae-hge" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aBh-c2-fsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="34" y="747"/>
-        </scene>
-        <!--Test View Controller-->
-
+        <!--Home View Controller-->
         <scene sceneID="VyX-mp-LQR">
             <objects>
                 <viewController id="VVl-dG-LDB" customClass="HomeViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,9 +86,6 @@ today?</string>
                                                         <state key="normal" image="placeholder-on-map-paper-in-perspective">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
-                                                        <connections>
-                                                            <segue destination="R0P-io-GGH" kind="showDetail" id="dya-BO-P8u"/>
-                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgL-GK-WYt" userLabel="Sunset">
                                                         <rect key="frame" x="77.5" y="0.0" width="70.5" height="34"/>
@@ -286,23 +274,14 @@ today?</string>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-ib-532">
                                                 <rect key="frame" x="83.5" y="0.0" width="54.5" height="38"/>
                                                 <state key="normal" image="heart"/>
-                                                <connections>
-                                                    <segue destination="Sha-ae-hge" kind="showDetail" id="Vae-8b-Nxs"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-sY-9m0">
                                                 <rect key="frame" x="167" y="0.0" width="54.5" height="38"/>
                                                 <state key="normal" image="photo-camera"/>
-                                                <connections>
-                                                    <segue destination="gwX-WZ-Fm8" kind="showDetail" id="XbG-bg-EZK"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QF-pD-hEh">
                                                 <rect key="frame" x="250.5" y="0.0" width="54.5" height="38"/>
                                                 <state key="normal" image="lucky"/>
-                                                <connections>
-                                                    <segue destination="LWm-A2-OxD" kind="showDetail" id="9Jw-eB-52a"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -367,23 +346,7 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="Places" id="R0P-io-GGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="265"/>
-        </scene>
-        <!--Camera-->
-        <scene sceneID="lPU-v2-LbX">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Camera" id="gwX-WZ-Fm8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FKD-hL-Fhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="364" y="686"/>
-        </scene>
-        <!--FeelingLucky-->
-        <scene sceneID="G8X-ZM-hZe">
-            <objects>
-                <viewControllerPlaceholder storyboardName="FeelingLucky" id="LWm-A2-OxD" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gnS-H0-yzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="480" y="595"/>
+            <point key="canvasLocation" x="1136" y="266"/>
         </scene>
     </scenes>
     <resources>

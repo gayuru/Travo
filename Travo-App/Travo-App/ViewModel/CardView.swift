@@ -14,6 +14,8 @@ import UIKit
     
     override func layoutSubviews() {
         layer.cornerRadius = cornerradius
+//        layer.backgroundColor = backColor as! CGColor
+        
     }
     
     
