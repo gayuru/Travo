@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-140" y="306"/>
         </scene>
-        <!--View Controller-->
+        <!--Users View Controller-->
         <scene sceneID="oPc-RD-aGO">
             <objects>
-                <viewController id="YXM-F1-8Dt" sceneMemberID="viewController">
+                <viewController id="YXM-F1-8Dt" customClass="UsersViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ztX-L4-Qvn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,6 +52,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="loginButtonClicked:" destination="YXM-F1-8Dt" eventType="touchUpInside" id="BcN-ZR-VSB"/>
                                     <segue destination="wLD-lb-Fy4" kind="show" id="3g2-pQ-8VA"/>
                                 </connections>
                             </button>
@@ -214,6 +215,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="16w-mo-wGN" id="blP-Ok-QkO"/>
+                        <outlet property="loginButton" destination="aqd-r7-9eR" id="fVT-eg-Ojs"/>
+                        <outlet property="passwordTextField" destination="nUg-70-vg7" id="NRV-2p-fI3"/>
+                        <outlet property="registerButton" destination="T0U-Bl-YFY" id="Sqy-ox-oTJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ri-Sx-tNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
