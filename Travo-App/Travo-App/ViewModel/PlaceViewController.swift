@@ -32,8 +32,8 @@ class PlaceViewController: UIViewController {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = viewModel.getTitleFor(index: index!)
         mapItem.openInMaps(launchOptions: options)
-        
     }
+    
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeTitle: UILabel!
     @IBOutlet weak var placeDescription: UILabel!
@@ -46,8 +46,8 @@ class PlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        index = 3;
-        placeImage.contentMode = .scaleToFill
+        index = 4;
+        placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index!)
         placeDescription.text = viewModel.getDescFor(index: index!)
         placeOpenHours.text = viewModel.getOpenTimeFor(index: index!)

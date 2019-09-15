@@ -51,6 +51,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="T7N-sZ-zxx"/>
                                                         </constraints>
                                                         <state key="normal" image="aiony-haust-3TLl_97HNJo-unsplash"/>
+                                                        <connections>
+                                                            <segue destination="R0P-io-GGH" kind="showDetail" id="u0f-aE-Sfm"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -94,9 +97,6 @@ today?</string>
                                                         <state key="normal" image="placeholder-on-map-paper-in-perspective">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
-                                                        <connections>
-                                                            <segue destination="R0P-io-GGH" kind="showDetail" id="dya-BO-P8u"/>
-                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgL-GK-WYt" userLabel="Sunset">
                                                         <rect key="frame" x="77.5" y="0.0" width="70.5" height="34"/>
@@ -366,7 +366,7 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="Place" id="R0P-io-GGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="265"/>
+            <point key="canvasLocation" x="627" y="209"/>
         </scene>
         <!--Camera-->
         <scene sceneID="lPU-v2-LbX">
