@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,20 +10,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Place View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PlaceViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_federation" translatesAutoresizingMaskIntoConstraints="NO" id="z6I-YS-Gxd">
-                                <rect key="frame" x="0.0" y="0.0" width="429" height="766"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z6I-YS-Gxd">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-wj-oQj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ig-3l-s1a">
                                 <rect key="frame" x="33" y="125" width="50" height="28"/>
@@ -41,9 +41,12 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="visitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TqC-Vh-5Pi"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSZ-wz-53G">
-                                <rect key="frame" x="16" y="30" width="159" height="38"/>
+                                <rect key="frame" x="16" y="30" width="104" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="left-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="ibm-dv-wKT">
                                         <rect key="frame" x="0.0" y="0.0" width="63.000000000000227" height="38"/>
@@ -53,7 +56,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1No-hS-pw7">
-                                        <rect key="frame" x="63" y="0.0" width="96" height="38"/>
+                                        <rect key="frame" x="63" y="0.0" width="41" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -68,7 +71,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Y3L-8S-4cp">
-                                <rect key="frame" x="57" y="392" width="17" height="21"/>
+                                <rect key="frame" x="57" y="423" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Q3e-Lj-0Of"/>
                                     <constraint firstAttribute="width" constant="17" id="Tis-KG-t3n"/>
@@ -76,7 +79,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-u5-yCC">
-                                <rect key="frame" x="81" y="392" width="17" height="21"/>
+                                <rect key="frame" x="81" y="423" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="TGg-20-VWd"/>
                                     <constraint firstAttribute="width" secondItem="1Cx-u5-yCC" secondAttribute="height" multiplier="17:21" id="dwl-VT-PhR"/>
@@ -84,7 +87,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="z2y-kV-TAy">
-                                <rect key="frame" x="106" y="392" width="17" height="21"/>
+                                <rect key="frame" x="106" y="423" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="17" id="4Wh-dk-nUZ"/>
                                     <constraint firstAttribute="height" constant="21" id="aSv-ak-seV"/>
@@ -92,7 +95,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="4Rd-dw-JN6">
-                                <rect key="frame" x="131" y="392" width="17" height="21"/>
+                                <rect key="frame" x="131" y="423" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="17" id="dqN-Gh-AfE"/>
                                     <constraint firstAttribute="width" secondItem="4Rd-dw-JN6" secondAttribute="height" multiplier="17:21" id="ixA-cA-cFk"/>
@@ -100,7 +103,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTu-dk-4w8">
-                                <rect key="frame" x="156" y="394" width="22" height="18"/>
+                                <rect key="frame" x="156" y="425" width="22" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="GEu-Wh-N98"/>
                                     <constraint firstAttribute="height" constant="18" id="Zxf-YO-uUp"/>
@@ -111,20 +114,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Federation  Square" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whv-PX-cJI">
-                                <rect key="frame" x="33" y="161" width="191.5" height="91"/>
+                                <rect key="frame" x="33" y="161" width="267" height="91"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARy-f3-tvM">
-                                <rect key="frame" x="33" y="260" width="309" height="93.5"/>
+                                <rect key="frame" x="33" y="260" width="254" height="124.5"/>
                                 <string key="text">Federation Square is a venue for arts, culture and public events on the edge of the Melbourne central business district. It covers an area of 3.2 ha (7.9 acres) at the intersection of Flinders and Swanston Streets built above busy railway lines and across the road from Flinders Street station.</string>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="aOV-aV-au4">
-                                <rect key="frame" x="33" y="392" width="17" height="21"/>
+                                <rect key="frame" x="33" y="423" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aOV-aV-au4" secondAttribute="height" multiplier="17:21" id="80a-tE-3t5"/>
                                     <constraint firstAttribute="width" constant="17" id="IwF-Ra-o5r"/>
@@ -132,7 +135,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open 24 Hours." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBh-qo-XRt">
-                                <rect key="frame" x="33" y="361" width="106" height="17"/>
+                                <rect key="frame" x="33" y="392" width="106" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -166,6 +169,7 @@
                             <constraint firstItem="1Cx-u5-yCC" firstAttribute="leading" secondItem="Y3L-8S-4cp" secondAttribute="trailing" constant="7" id="b1u-qP-Rwv"/>
                             <constraint firstItem="Whv-PX-cJI" firstAttribute="top" secondItem="8Ig-3l-s1a" secondAttribute="bottom" constant="8" id="bUs-vN-Lg0"/>
                             <constraint firstItem="LTu-dk-4w8" firstAttribute="leading" secondItem="4Rd-dw-JN6" secondAttribute="trailing" constant="8" id="gKr-cc-W7D"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Whv-PX-cJI" secondAttribute="trailing" constant="20" id="iI4-QA-pL4"/>
                             <constraint firstItem="z6I-YS-Gxd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iK9-xr-VMB"/>
                             <constraint firstItem="z2y-kV-TAy" firstAttribute="top" secondItem="SBh-qo-XRt" secondAttribute="bottom" constant="14" id="ktH-X5-Geh"/>
                             <constraint firstItem="8Ig-3l-s1a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="lld-gs-TNJ"/>
@@ -178,6 +182,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="placeDescription" destination="ARy-f3-tvM" id="xxy-Ht-JP7"/>
+                        <outlet property="placeImage" destination="z6I-YS-Gxd" id="dRX-r5-DDH"/>
+                        <outlet property="placeOpenHours" destination="SBh-qo-XRt" id="5Se-X8-wYg"/>
+                        <outlet property="placeRating" destination="LTu-dk-4w8" id="2dE-UE-bgU"/>
+                        <outlet property="placeTitle" destination="Whv-PX-cJI" id="q09-We-nfx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,7 +197,6 @@
     </scenes>
     <resources>
         <image name="left-arrow" width="1195" height="512"/>
-        <image name="place_federation" width="2048" height="1152"/>
         <image name="rectangle" width="300" height="168"/>
         <image name="star" width="512" height="512"/>
     </resources>

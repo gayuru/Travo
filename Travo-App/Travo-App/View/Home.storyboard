@@ -18,8 +18,7 @@
             </objects>
             <point key="canvasLocation" x="34" y="747"/>
         </scene>
-        <!--Test View Controller-->
-
+        <!--Home View Controller-->
         <scene sceneID="VyX-mp-LQR">
             <objects>
                 <viewController id="VVl-dG-LDB" customClass="HomeViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -361,10 +360,10 @@ today?</string>
             </objects>
             <point key="canvasLocation" x="1118" y="114"/>
         </scene>
-        <!--Places-->
+        <!--Place-->
         <scene sceneID="aSr-lg-AKh">
             <objects>
-                <viewControllerPlaceholder storyboardName="Places" id="R0P-io-GGH" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Place" id="R0P-io-GGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="480" y="265"/>
