@@ -9,7 +9,6 @@
 import Foundation
 
 class Places{
-    
     private var _places:[Place] = []
     
     var places:[Place]{
@@ -47,6 +46,5 @@ class Places{
         self._places.append(placeEight)
         
         dump(places)
-    }
-    
+    }    
 }
