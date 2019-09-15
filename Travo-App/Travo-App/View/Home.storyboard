@@ -208,7 +208,7 @@ today?</string>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DHG-Dh-5Wi">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="DHG-Dh-5Wi">
                                                         <rect key="frame" x="0.0" y="0.0" width="102" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -320,6 +320,7 @@ today?</string>
                     <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="bottomNav" destination="D0X-F6-ncz" id="8Xg-PE-MXv"/>
+                        <outlet property="contentView" destination="KgU-p5-aEi" id="49l-nj-pUc"/>
                         <outlet property="cyclingButton" destination="QoS-9w-GS7" id="IdO-g4-jhu"/>
                         <outlet property="hillButton" destination="h4i-Lu-DT7" id="ELi-n2-h45"/>
                         <outlet property="homeButton" destination="pXo-28-P6B" id="ALw-qA-OYC"/>

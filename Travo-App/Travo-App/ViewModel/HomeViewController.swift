@@ -20,12 +20,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var recommendedPlaces: UICollectionView!
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
-    
+    @IBOutlet var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height)
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height) 
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
