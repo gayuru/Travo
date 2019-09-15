@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,18 +15,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_federation" translatesAutoresizingMaskIntoConstraints="NO" id="z6I-YS-Gxd">
-                                <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="622" height="419"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-wj-oQj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ig-3l-s1a">
-                                <rect key="frame" x="33" y="125" width="50" height="28"/>
+                                <rect key="frame" x="33" y="32" width="50" height="28"/>
                                 <color key="backgroundColor" red="0.11414418831949846" green="0.39125216544369762" blue="0.78912321891191706" alpha="0.55254181338028174" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Ig-3l-s1a" secondAttribute="height" multiplier="25:14" id="6eH-uL-pnV"/>
@@ -43,17 +43,17 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSZ-wz-53G">
-                                <rect key="frame" x="16" y="30" width="104" height="38"/>
+                                <rect key="frame" x="16" y="10" width="352" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="left-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="ibm-dv-wKT">
-                                        <rect key="frame" x="0.0" y="0.0" width="63" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="63.000000000000227" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="63" id="3Kx-p6-PO8"/>
                                             <constraint firstAttribute="height" constant="38" id="QJx-eF-gPY"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1No-hS-pw7">
-                                        <rect key="frame" x="63" y="0.0" width="41" height="38"/>
+                                        <rect key="frame" x="63" y="0.0" width="289" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -67,32 +67,32 @@
                                     <constraint firstItem="1No-hS-pw7" firstAttribute="leading" secondItem="ibm-dv-wKT" secondAttribute="trailing" id="qkb-9o-oWd"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="Y3L-8S-4cp">
-                                <rect key="frame" x="57" y="441" width="17" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Y3L-8S-4cp">
+                                <rect key="frame" x="57" y="286" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Q3e-Lj-0Of"/>
                                     <constraint firstAttribute="width" constant="17" id="Tis-KG-t3n"/>
                                     <constraint firstAttribute="width" secondItem="Y3L-8S-4cp" secondAttribute="height" multiplier="17:21" id="ygm-VX-IjE"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-u5-yCC">
-                                <rect key="frame" x="81" y="441" width="17" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-u5-yCC">
+                                <rect key="frame" x="81" y="286" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="TGg-20-VWd"/>
                                     <constraint firstAttribute="width" secondItem="1Cx-u5-yCC" secondAttribute="height" multiplier="17:21" id="dwl-VT-PhR"/>
                                     <constraint firstAttribute="width" constant="17" id="nEK-Qb-OMo"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="z2y-kV-TAy">
-                                <rect key="frame" x="106" y="441" width="17" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="z2y-kV-TAy">
+                                <rect key="frame" x="106" y="286" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="17" id="4Wh-dk-nUZ"/>
                                     <constraint firstAttribute="height" constant="21" id="aSv-ak-seV"/>
                                     <constraint firstAttribute="width" secondItem="z2y-kV-TAy" secondAttribute="height" multiplier="17:21" id="tQb-q1-EbI"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="4Rd-dw-JN6">
-                                <rect key="frame" x="131" y="441" width="17" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="4Rd-dw-JN6">
+                                <rect key="frame" x="131" y="286" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="17" id="dqN-Gh-AfE"/>
                                     <constraint firstAttribute="width" secondItem="4Rd-dw-JN6" secondAttribute="height" multiplier="17:21" id="ixA-cA-cFk"/>
@@ -100,7 +100,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTu-dk-4w8">
-                                <rect key="frame" x="156" y="442" width="22" height="18"/>
+                                <rect key="frame" x="156" y="287" width="22" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="GEu-Wh-N98"/>
                                     <constraint firstAttribute="height" constant="18" id="Zxf-YO-uUp"/>
@@ -110,8 +110,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star (2)" translatesAutoresizingMaskIntoConstraints="NO" id="aOV-aV-au4">
-                                <rect key="frame" x="33" y="441" width="17" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="aOV-aV-au4">
+                                <rect key="frame" x="33" y="286" width="17" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aOV-aV-au4" secondAttribute="height" multiplier="17:21" id="80a-tE-3t5"/>
                                     <constraint firstAttribute="width" constant="17" id="IwF-Ra-o5r"/>
@@ -119,7 +119,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="izJ-Xd-04S">
-                                <rect key="frame" x="33" y="168" width="254" height="246.5"/>
+                                <rect key="frame" x="33" y="75" width="502" height="184.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Federation  Square" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whv-PX-cJI">
                                         <rect key="frame" x="0.0" y="0.0" width="191.5" height="91"/>
@@ -128,14 +128,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARy-f3-tvM">
-                                        <rect key="frame" x="0.0" y="98" width="254" height="124.5"/>
+                                        <rect key="frame" x="0.0" y="98" width="502" height="62.5"/>
                                         <string key="text">Federation Square is a venue for arts, culture and public events on the edge of the Melbourne central business district. It covers an area of 3.2 ha (7.9 acres) at the intersection of Flinders and Swanston Streets built above busy railway lines and across the road from Flinders Street station.</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open 24 Hours." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBh-qo-XRt">
-                                        <rect key="frame" x="0.0" y="229.5" width="106" height="17"/>
+                                        <rect key="frame" x="0.0" y="167.5" width="106" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -153,7 +153,6 @@
                             <constraint firstItem="4Rd-dw-JN6" firstAttribute="top" secondItem="izJ-Xd-04S" secondAttribute="bottom" constant="26.5" id="9JA-Hc-taS"/>
                             <constraint firstItem="aOV-aV-au4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="D39-Jt-5W0"/>
                             <constraint firstItem="4Rd-dw-JN6" firstAttribute="leading" secondItem="z2y-kV-TAy" secondAttribute="trailing" constant="8" id="GvX-WD-xiP"/>
-                            <constraint firstItem="izJ-Xd-04S" firstAttribute="top" secondItem="8Ig-3l-s1a" secondAttribute="bottom" constant="15" id="H1P-vJ-wj1"/>
                             <constraint firstItem="LTu-dk-4w8" firstAttribute="top" secondItem="izJ-Xd-04S" secondAttribute="bottom" constant="27.5" id="Hi2-FP-4mA"/>
                             <constraint firstItem="izJ-Xd-04S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I8o-AN-k3U"/>
                             <constraint firstItem="aOV-aV-au4" firstAttribute="top" secondItem="izJ-Xd-04S" secondAttribute="bottom" constant="26.5" id="Izd-CX-KHF"/>
@@ -201,6 +200,6 @@
         <image name="left-arrow" width="1195" height="512"/>
         <image name="place_federation" width="2048" height="1152"/>
         <image name="rectangle" width="300" height="168"/>
-        <image name="star (2)" width="512" height="512"/>
+        <image name="star" width="512" height="512"/>
     </resources>
 </document>
