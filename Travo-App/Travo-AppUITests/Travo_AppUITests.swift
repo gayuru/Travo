@@ -42,6 +42,23 @@ class Travo_AppUITests: XCTestCase {
     
     
     //Tests _ Place storyboard
+    func testPlace_lablesExist(){
+        //pre-condition
+        let app = XCUIApplication()
+        app.buttons["Login"].tap()
+        
+        //action
+        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
+        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
+        
+        //testing
+        let presentTitle = app.staticTexts["National Gallery of Victoria"].exists
+        let presentOpenTime = app.staticTexts["10AM - 5PM"].exists
+        let presentRating = app.staticTexts["4.7"].exists
+        
+        XCTAssertTrue(presentTitle && presentOpenTime && presentRating)
+    }
+    
     func testPlace_withCorrectDetails(){
         
         let validTitle = "National Gallery of Victoria"
@@ -64,29 +81,12 @@ class Travo_AppUITests: XCTestCase {
         XCTAssertEqual(validTitle, presentTitle.label)
         XCTAssertEqual(validOpenTime, presentOpenTime.label)
         XCTAssertEqual(validRating, presentRating.label)
-        
-        
     }
     
     func testPlace_CorrectImage(){
        
     }
     
-    func testPlace_withLablesVisible(){
-        //pre-condition
-        let app = XCUIApplication()
-        app.buttons["Login"].tap()
-        
-        //action
-        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
-        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
-        
-        let presentTitle = app.staticTexts["National Gallery of Victoria"].exists
-        let presentOpenTime = app.staticTexts["10AM - 5PM"].exists
-        let presentRating = app.staticTexts["4.7"].exists
-        
-         XCTAssertTrue(presentTitle && presentOpenTime && presentRating)
-    }
     
     func testPlace_getDirections(){
         
