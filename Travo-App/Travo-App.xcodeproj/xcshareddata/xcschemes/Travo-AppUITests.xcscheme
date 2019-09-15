@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-               BuildableName = "Travo-App.app"
-               BlueprintName = "Travo-App"
+               BlueprintIdentifier = "55971C71232E7AEF0018ABF8"
+               BuildableName = "Travo-AppUITests.xctest"
+               BlueprintName = "Travo-AppUITests"
                ReferencedContainer = "container:Travo-App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-            BuildableName = "Travo-App.app"
-            BlueprintName = "Travo-App"
+            BlueprintIdentifier = "55971C71232E7AEF0018ABF8"
+            BuildableName = "Travo-AppUITests.xctest"
+            BlueprintName = "Travo-AppUITests"
             ReferencedContainer = "container:Travo-App.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,16 +61,21 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-            BuildableName = "Travo-App.app"
-            BlueprintName = "Travo-App"
+            BlueprintIdentifier = "55971C71232E7AEF0018ABF8"
+            BuildableName = "Travo-AppUITests.xctest"
+            BlueprintName = "Travo-AppUITests"
             ReferencedContainer = "container:Travo-App.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = ""
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,16 +85,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-            BuildableName = "Travo-App.app"
-            BlueprintName = "Travo-App"
+            BlueprintIdentifier = "55971C71232E7AEF0018ABF8"
+            BuildableName = "Travo-AppUITests.xctest"
+            BlueprintName = "Travo-AppUITests"
             ReferencedContainer = "container:Travo-App.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
