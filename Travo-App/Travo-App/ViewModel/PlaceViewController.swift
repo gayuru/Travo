@@ -8,15 +8,31 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class PlaceViewController: UIViewController {
     
     //this is how you should pass the data into the controller
 //    detailViewController.contact = contacts[index]
     
-    
+    //head to google maps app
     @IBAction func visitButton(_ sender: Any) {
-        //head to google maps app
+        //hardcoded for MELBOURNE
+        let latitude: CLLocationDegrees = -37.8136
+        let longitude: CLLocationDegrees = 144.9631
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = viewModel.getTitleFor(index: index!)
+        mapItem.openInMaps(launchOptions: options)
+        
     }
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeTitle: UILabel!
@@ -30,8 +46,7 @@ class PlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        index = 2;
+        index = 3;
         placeImage.contentMode = .scaleToFill
         placeTitle.text = viewModel.getTitleFor(index: index!)
         placeDescription.text = viewModel.getDescFor(index: index!)
