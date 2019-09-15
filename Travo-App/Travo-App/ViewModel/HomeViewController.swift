@@ -17,11 +17,11 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var cyclingButton: UIButton!
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var popularPlaces: UICollectionView!
-    @IBOutlet var recommendedPlaces: UICollectionView!
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
-    @IBOutlet var placesCollectionView: UICollectionView!
+    @IBOutlet var categoryCollection: UICollectionView!
+    @IBOutlet var recommendedCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,24 +30,60 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
-        placesCollectionView.delegate = self
-        placesCollectionView.dataSource = self
+        categoryCollection.delegate = self
+        categoryCollection.dataSource = self
         bottomNav.layer.cornerRadius = 10
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.popularPlaces{
             return items.count
-        }else if(collectionView == self.placesCollectionView){
+        }else if(collectionView == self.categoryCollection){
             return 6
+        }else if(collectionView == self.recommendedCollection){
+            return 4
         }
-        
         return 0
     }
-    
+
+        //        let cell1 = recommendedPlacesCollection.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath)
+        //        collectionView.register(PlacesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        //        if collectionView == self.popularPlaces{
+        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
+        ////            let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
+        //            cell.layer.cornerRadius = 10
+        //            cell.layer.borderColor = UIColor.black.cgColor
+        //            cell.layer.borderWidth = 0.5
+        ////            cell.backgroundImage.image = UIImage(named: "royal_botanical_gardens")
+        ////            cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        //            cell.label1.text = "Federation Square"
+        //            cell.label1.textColor = UIColor.white
+        //            cell.label1.numberOfLines = 2
+        //            cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
+        //            cell.label1.sizeToFit()
+        //            return cell
+        //        }
+        //        else if collectionView == self.placesCollectionView{
+        //            let cell = placesCollectionView.dequeueReusableCell(withReuseIdentifier: "placesCell", for: indexPath)
+        //            cell.backgroundColor = UIColor.gray
+        //            return cell
+        //        }
+        //        else if collectionView == self.recommendedPlacesCollection{
+        //            let cell = recommendedPlacesCollection.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
+        //            cell.locationLabel.text = "Fed Square"
+        //            cell.locationLabel.textColor = UIColor.white
+        //            cell.backgroundColor = UIColor.blue
+        //            return cell
+        //        }
+        //        return cell1
+
+}
+
+extension HomeViewController{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
-        if collectionView == self.popularPlaces{
+        print(collectionView == recommendedCollection)
+        if collectionView == popularPlaces {
+            let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             cell.layer.cornerRadius = 10
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 0.5
@@ -59,16 +95,16 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.label1.sizeToFit()
             return cell
-        }
-        else if collectionView == self.placesCollectionView{
-            let cell = placesCollectionView.dequeueReusableCell(withReuseIdentifier: "placesCell", for: indexPath)
-            cell.backgroundColor = UIColor.gray
+        }else if collectionView == categoryCollection{
+            let cell = categoryCollection.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            cell.category.imageView?.image = UIImage(named: "category_general_enabled")
+            
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
+            cell.backgroundColor = UIColor.white
+            cell.cityLabel.text = "Welcome"
             return cell
         }
-        return cell
     }
-    
-    
-    
-
 }

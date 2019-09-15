@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="VVl-dG-LDB" customClass="HomeViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0aw-Ik-bbw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkG-db-pQB">
-                                <rect key="frame" x="0.0" y="20" width="320" height="580"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="880"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-p5-aEi" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="880"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-cW-hRh" userLabel="Top Nav">
                                                 <rect key="frame" x="8" y="8" width="304" height="65"/>
@@ -90,13 +90,23 @@ today?</string>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="placesCell" id="XDs-Xx-8Pj">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="XDs-Xx-8Pj" customClass="CategoryCollectionViewCell" customModule="Travo_App" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="-0.5" width="63" height="63"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2d-a3-Yqo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                </button>
+                                                            </subviews>
                                                         </view>
+                                                        <connections>
+                                                            <outlet property="category" destination="D2d-a3-Yqo" id="ux2-qp-1Sp"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -133,7 +143,7 @@ today?</string>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="FKD-Oz-CDq" customClass="PlacesCollectionViewCell" customModule="Travo_App" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="popularCell" id="FKD-Oz-CDq" customClass="PlacesCollectionViewCell" customModule="Travo_App" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="2" width="102" height="137"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -209,26 +219,97 @@ today?</string>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-SR-Ets">
-                                                <rect key="frame" x="26" y="503" width="303" height="120"/>
-                                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="26" y="503" width="303" height="142"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="0rB-3B-ot3"/>
+                                                    <constraint firstAttribute="height" constant="142" id="0rB-3B-ot3"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WUz-F9-lPT">
-                                                    <size key="itemSize" width="102" height="120"/>
+                                                    <size key="itemSize" width="287" height="139"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="DHG-Dh-5Wi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="102" height="120"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recommendedCell" id="DHG-Dh-5Wi" userLabel="recommendedCell" customClass="RecommendedCollectionViewCell" customModule="Travo_App" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="0.0" width="287" height="139"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="102" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="287" height="139"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zY2-jE-PG0">
+                                                                    <rect key="frame" x="28" y="20" width="247" height="110"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-dv-Nf0">
+                                                                            <rect key="frame" x="-15" y="-14" width="97" height="110"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf7-IW-50g">
+                                                                            <rect key="frame" x="96" y="15" width="48.5" height="14.5"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="14.5" id="MjR-Hj-Tff"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9U-nN-3N0">
+                                                                            <rect key="frame" x="226" y="14" width="15" height="15"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <state key="normal" image="like"/>
+                                                                        </button>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBE-M8-UG3" userLabel="stars">
+                                                                            <rect key="frame" x="96" y="33" width="80" height="16"/>
+                                                                            <color key="backgroundColor" red="0.31764705879999999" green="0.3411764706" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="80" id="LOn-dl-TNS"/>
+                                                                                <constraint firstAttribute="height" constant="16" id="o1m-ts-50v"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2L-Fq-Y2K">
+                                                                            <rect key="frame" x="96" y="57" width="23" height="15"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lz-KB-DYp">
+                                                                            <rect key="frame" x="96" y="87" width="28" height="15"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="zBE-M8-UG3" firstAttribute="leading" secondItem="dKH-dv-Nf0" secondAttribute="trailing" constant="14" id="2Jd-57-6nH"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="dKH-dv-Nf0" secondAttribute="bottom" constant="14" id="BrP-4c-kuM"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="3lz-KB-DYp" secondAttribute="trailing" constant="123" id="H48-Mx-wOM"/>
+                                                                        <constraint firstItem="3lz-KB-DYp" firstAttribute="leading" secondItem="dKH-dv-Nf0" secondAttribute="trailing" constant="14" id="IJ0-0d-wMD"/>
+                                                                        <constraint firstItem="3lz-KB-DYp" firstAttribute="top" secondItem="y2L-Fq-Y2K" secondAttribute="bottom" constant="15" id="OlJ-mz-mAy"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="zBE-M8-UG3" secondAttribute="trailing" constant="71" id="X3Q-sT-Xhj"/>
+                                                                        <constraint firstItem="y2L-Fq-Y2K" firstAttribute="top" secondItem="zBE-M8-UG3" secondAttribute="bottom" constant="8" id="abN-Ww-avy"/>
+                                                                        <constraint firstItem="Bf7-IW-50g" firstAttribute="leading" secondItem="dKH-dv-Nf0" secondAttribute="trailing" constant="14" id="buW-Ku-jWu"/>
+                                                                        <constraint firstItem="y2L-Fq-Y2K" firstAttribute="leading" secondItem="dKH-dv-Nf0" secondAttribute="trailing" constant="14" id="cYQ-Hp-8Ze"/>
+                                                                        <constraint firstItem="Bf7-IW-50g" firstAttribute="top" secondItem="zY2-jE-PG0" secondAttribute="top" constant="15" id="dBd-SZ-Kit"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="y2L-Fq-Y2K" secondAttribute="trailing" constant="128" id="eJp-MY-NV4"/>
+                                                                        <constraint firstItem="dKH-dv-Nf0" firstAttribute="leading" secondItem="zY2-jE-PG0" secondAttribute="leading" constant="-15" id="eMr-Z1-Obd"/>
+                                                                        <constraint firstItem="zBE-M8-UG3" firstAttribute="top" secondItem="Bf7-IW-50g" secondAttribute="bottom" constant="3.5" id="gA6-1C-s0G"/>
+                                                                        <constraint firstItem="dKH-dv-Nf0" firstAttribute="top" secondItem="zY2-jE-PG0" secondAttribute="top" constant="-14" id="n7u-rM-unI"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
                                                         </view>
-                                                        <color key="backgroundColor" red="0.15686274510000001" green="0.66666666669999997" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="zY2-jE-PG0" firstAttribute="leading" secondItem="DHG-Dh-5Wi" secondAttribute="leading" constant="28" id="KOp-5M-R5h"/>
+                                                            <constraint firstItem="zY2-jE-PG0" firstAttribute="top" secondItem="DHG-Dh-5Wi" secondAttribute="top" constant="20" id="Xrs-0r-NoG"/>
+                                                            <constraint firstAttribute="bottom" secondItem="zY2-jE-PG0" secondAttribute="bottom" constant="9" id="f7u-kN-6Zo"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zY2-jE-PG0" secondAttribute="trailing" constant="12" id="gzy-En-k7F"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="cityLabel" destination="y2L-Fq-Y2K" id="hxY-kH-76a"/>
+                                                            <outlet property="locationLabel" destination="Bf7-IW-50g" id="bdV-Dv-0zB"/>
+                                                            <outlet property="placeImage" destination="dKH-dv-Nf0" id="yDi-Xo-IEJ"/>
+                                                            <outlet property="timeLabel" destination="3lz-KB-DYp" id="rDk-f3-5pT"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -247,7 +328,7 @@ today?</string>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="leading" secondItem="KgU-p5-aEi" secondAttribute="leading" constant="26" id="Bwf-n2-8uJ"/>
                                             <constraint firstAttribute="trailing" secondItem="YYr-SR-Ets" secondAttribute="trailing" constant="-9" id="CfD-Gv-4bF"/>
                                             <constraint firstItem="5Fh-cW-hRh" firstAttribute="leading" secondItem="KgU-p5-aEi" secondAttribute="leading" constant="8" id="ELN-M5-pc3"/>
-                                            <constraint firstAttribute="bottom" secondItem="YYr-SR-Ets" secondAttribute="bottom" constant="-43" id="Gg7-mJ-xJc"/>
+                                            <constraint firstAttribute="bottom" secondItem="YYr-SR-Ets" secondAttribute="bottom" constant="235" id="Gg7-mJ-xJc"/>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="top" secondItem="dw0-E8-ImP" secondAttribute="bottom" constant="4.5" id="ahW-eq-Oez"/>
                                             <constraint firstItem="KMs-lk-pc2" firstAttribute="top" secondItem="xjg-vy-Cu6" secondAttribute="bottom" constant="16.5" id="bA7-mp-UmV"/>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="top" secondItem="KMs-lk-pc2" secondAttribute="bottom" constant="13.5" id="bb1-5v-Frn"/>
@@ -272,7 +353,7 @@ today?</string>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0X-F6-ncz" userLabel="BottomNav">
-                                <rect key="frame" x="8" y="549" width="304" height="42"/>
+                                <rect key="frame" x="8" y="849" width="304" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKS-jE-ran">
                                         <rect key="frame" x="30" y="10" width="24" height="22"/>
@@ -313,13 +394,13 @@ today?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="79a-DP-mP7"/>
                     </view>
-                    <size key="freeformSize" width="320" height="600"/>
+                    <size key="freeformSize" width="320" height="900"/>
                     <connections>
                         <outlet property="bottomNav" destination="D0X-F6-ncz" id="8Xg-PE-MXv"/>
+                        <outlet property="categoryCollection" destination="xjg-vy-Cu6" id="A1z-kb-LHg"/>
                         <outlet property="contentView" destination="KgU-p5-aEi" id="49l-nj-pUc"/>
-                        <outlet property="placesCollectionView" destination="xjg-vy-Cu6" id="A1z-kb-LHg"/>
-                        <outlet property="popularPlaces" destination="RLY-w5-eWQ" id="2Ds-ae-8OU"/>
-                        <outlet property="recommendedPlaces" destination="YYr-SR-Ets" id="XT2-fb-yWT"/>
+                        <outlet property="popularPlaces" destination="RLY-w5-eWQ" id="SQK-4S-Qf9"/>
+                        <outlet property="recommendedCollection" destination="YYr-SR-Ets" id="bfo-ce-gFe"/>
                         <outlet property="scrollView" destination="BkG-db-pQB" id="iTa-yz-P0y"/>
                     </connections>
                 </viewController>
@@ -363,6 +444,7 @@ today?</string>
     <resources>
         <image name="Logo" width="500" height="338"/>
         <image name="aiony-haust-3TLl_97HNJo-unsplash" width="500" height="500"/>
+        <image name="like" width="500" height="500"/>
         <image name="nav_camera" width="166.5" height="150.5"/>
         <image name="nav_heart" width="166.5" height="150.5"/>
         <image name="nav_home_enabled" width="166.5" height="152"/>
