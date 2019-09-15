@@ -25,6 +25,7 @@
 		77425D0923272EF300C6B844 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0823272EF300C6B844 /* CardView.swift */; };
 		77425D0B23272F0800C6B844 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0A23272F0700C6B844 /* FavouritesViewController.swift */; };
 		7745DA9D232CE1EB006C2E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7745DA9C232CE1EB006C2E0E /* Assets.xcassets */; };
+		7745DA9F232E2B20006C2E0E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7745DA9E232E2B20006C2E0E /* Profile.storyboard */; };
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
 		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		77425D0823272EF300C6B844 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		77425D0A23272F0700C6B844 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		7745DA9C232CE1EB006C2E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7745DA9E232E2B20006C2E0E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */,
 				552BAA8A2318AB390000BBC4 /* Camera.storyboard */,
 				5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */,
+				7745DA9E232E2B20006C2E0E /* Profile.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */,
+				7745DA9F232E2B20006C2E0E /* Profile.storyboard in Resources */,
 				552BAA892318AB210000BBC4 /* FeelingLucky.storyboard in Resources */,
 				7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */,
 				5571DBCF2325D29D00C9BE2F /* Favourites.storyboard in Resources */,

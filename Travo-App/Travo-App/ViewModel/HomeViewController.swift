@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-
+    
     let items = ["0","1","2","3","4","5","6","7","8","9","10"]
     @IBOutlet var placesButton: UIButton!
     @IBOutlet var sunsetButton: UIButton!
@@ -21,6 +21,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var placesCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,30 +30,41 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
-        placesButton.imageView?.contentMode = .scaleAspectFit
-        sunsetButton.imageView?.contentMode = .scaleAspectFit
-        hillButton.imageView?.contentMode = .scaleAspectFit
-        cyclingButton.imageView?.contentMode = .scaleAspectFit
+        placesCollectionView.delegate = self
+        placesCollectionView.dataSource = self
         bottomNav.layer.cornerRadius = 10
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        if collectionView == self.popularPlaces{
+            return items.count
+        }else if(collectionView == self.placesCollectionView){
+            return 6
+        }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
-        cell.layer.cornerRadius = 10
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 0.5
-        cell.backgroundImage.image = UIImage(named: "federation-square")
-        cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
-        cell.label1.text = "Federation Square"
-        cell.label1.textColor = UIColor.white
-        cell.label1.numberOfLines = 2
-        cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.label1.sizeToFit()
+        if collectionView == self.popularPlaces{
+            cell.layer.cornerRadius = 10
+            cell.layer.borderColor = UIColor.black.cgColor
+            cell.layer.borderWidth = 0.5
+            cell.backgroundImage.image = UIImage(named: "federation-square")
+            cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+            cell.label1.text = "Federation Square"
+            cell.label1.textColor = UIColor.white
+            cell.label1.numberOfLines = 2
+            cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.label1.sizeToFit()
+            return cell
+        }
+        else if collectionView == self.placesCollectionView{
+            let cell = placesCollectionView.dequeueReusableCell(withReuseIdentifier: "placesCell", for: indexPath)
+            cell.backgroundColor = UIColor.gray
+            return cell
+        }
         return cell
     }
     
