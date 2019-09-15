@@ -263,45 +263,56 @@ today?</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0X-F6-ncz" userLabel="BottomNav">
                                 <rect key="frame" x="8" y="559" width="303" height="38"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7pO-TZ-eEL">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="38"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-Hu-5e4">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="38"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXo-28-P6B">
-                                                <rect key="frame" x="0.0" y="0.0" width="54" height="38"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" image="nav_home">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTP-LG-WxP">
+                                                <rect key="frame" x="8" y="4" width="35" height="30"/>
+                                                <state key="normal" title="Button" image="nav_home"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-ib-532">
-                                                <rect key="frame" x="84" y="0.0" width="53.5" height="38"/>
-                                                <state key="normal" image="nav_heart">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sad-Hi-AEc">
+                                                <rect key="frame" x="176" y="4" width="35" height="30"/>
+                                                <state key="normal" image="nav_camera"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-sY-9m0">
-                                                <rect key="frame" x="167.5" y="0.0" width="54" height="38"/>
-                                                <state key="normal" image="nav_camera">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YS8-f3-U1z">
+                                                <rect key="frame" x="260" y="4" width="35" height="30"/>
+                                                <state key="normal" image="nav_lucky"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QF-pD-hEh">
-                                                <rect key="frame" x="251.5" y="0.0" width="53.5" height="38"/>
-                                                <state key="normal" image="nav_lucky">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8p-1G-pus">
+                                                <rect key="frame" x="91" y="4" width="35" height="30"/>
+                                                <state key="normal" image="nav_heart"/>
                                             </button>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Sad-Hi-AEc" firstAttribute="width" secondItem="t8p-1G-pus" secondAttribute="width" id="5hf-pO-xgD"/>
+                                            <constraint firstItem="YS8-f3-U1z" firstAttribute="top" secondItem="mvi-Hu-5e4" secondAttribute="top" constant="4" id="8Xj-vm-TNF"/>
+                                            <constraint firstItem="oTP-LG-WxP" firstAttribute="width" secondItem="t8p-1G-pus" secondAttribute="width" id="OOK-B6-6dT"/>
+                                            <constraint firstAttribute="bottom" secondItem="Sad-Hi-AEc" secondAttribute="bottom" constant="4" id="QKG-bM-4sV"/>
+                                            <constraint firstItem="Sad-Hi-AEc" firstAttribute="leading" secondItem="t8p-1G-pus" secondAttribute="trailing" constant="50" id="RHc-n7-bH0"/>
+                                            <constraint firstItem="oTP-LG-WxP" firstAttribute="leading" secondItem="mvi-Hu-5e4" secondAttribute="leading" constant="8" id="TIz-3I-WDv"/>
+                                            <constraint firstItem="YS8-f3-U1z" firstAttribute="width" secondItem="Sad-Hi-AEc" secondAttribute="width" id="WrS-J4-nrk"/>
+                                            <constraint firstItem="t8p-1G-pus" firstAttribute="top" secondItem="mvi-Hu-5e4" secondAttribute="top" constant="4" id="dBN-Pw-q1f"/>
+                                            <constraint firstAttribute="bottom" secondItem="t8p-1G-pus" secondAttribute="bottom" constant="4" id="deH-V5-gn9"/>
+                                            <constraint firstItem="oTP-LG-WxP" firstAttribute="top" secondItem="mvi-Hu-5e4" secondAttribute="top" constant="4" id="ehF-Va-nIn"/>
+                                            <constraint firstAttribute="bottom" secondItem="oTP-LG-WxP" secondAttribute="bottom" constant="4" id="em1-nQ-WPE"/>
+                                            <constraint firstItem="Sad-Hi-AEc" firstAttribute="top" secondItem="mvi-Hu-5e4" secondAttribute="top" constant="4" id="hjI-cw-rkc"/>
+                                            <constraint firstItem="YS8-f3-U1z" firstAttribute="leading" secondItem="Sad-Hi-AEc" secondAttribute="trailing" constant="49" id="tpl-KY-4HJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="YS8-f3-U1z" secondAttribute="trailing" constant="8" id="vwL-t1-I2F"/>
+                                            <constraint firstItem="t8p-1G-pus" firstAttribute="leading" secondItem="oTP-LG-WxP" secondAttribute="trailing" constant="48" id="xTh-g4-hhs"/>
+                                            <constraint firstAttribute="bottom" secondItem="YS8-f3-U1z" secondAttribute="bottom" constant="4" id="yAW-oW-oAE"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="7pO-TZ-eEL" firstAttribute="width" secondItem="D0X-F6-ncz" secondAttribute="width" constant="2" id="1M5-qd-dep"/>
-                                    <constraint firstItem="7pO-TZ-eEL" firstAttribute="top" secondItem="D0X-F6-ncz" secondAttribute="top" id="8Ex-VV-m07"/>
-                                    <constraint firstAttribute="bottom" secondItem="7pO-TZ-eEL" secondAttribute="bottom" id="Ycv-g0-Zea"/>
+                                    <constraint firstItem="mvi-Hu-5e4" firstAttribute="width" secondItem="D0X-F6-ncz" secondAttribute="width" id="4MY-WP-RjZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="mvi-Hu-5e4" secondAttribute="trailing" id="Qdy-7Z-RBz"/>
+                                    <constraint firstItem="mvi-Hu-5e4" firstAttribute="height" secondItem="D0X-F6-ncz" secondAttribute="height" id="dQQ-gh-4gA"/>
                                     <constraint firstAttribute="height" constant="38" id="eA3-qi-Dzi"/>
-                                    <constraint firstItem="7pO-TZ-eEL" firstAttribute="leading" secondItem="D0X-F6-ncz" secondAttribute="leading" id="hfS-pc-hQV"/>
-                                    <constraint firstItem="7pO-TZ-eEL" firstAttribute="height" secondItem="D0X-F6-ncz" secondAttribute="height" id="zsC-Xz-kxH"/>
+                                    <constraint firstItem="mvi-Hu-5e4" firstAttribute="leading" secondItem="D0X-F6-ncz" secondAttribute="leading" id="hnL-3b-Y7r"/>
+                                    <constraint firstItem="mvi-Hu-5e4" firstAttribute="top" secondItem="D0X-F6-ncz" secondAttribute="top" id="oeN-lk-jL2"/>
+                                    <constraint firstAttribute="bottom" secondItem="mvi-Hu-5e4" secondAttribute="bottom" id="wQ3-3t-wSJ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -323,7 +334,6 @@ today?</string>
                         <outlet property="contentView" destination="KgU-p5-aEi" id="49l-nj-pUc"/>
                         <outlet property="cyclingButton" destination="QoS-9w-GS7" id="IdO-g4-jhu"/>
                         <outlet property="hillButton" destination="h4i-Lu-DT7" id="ELi-n2-h45"/>
-                        <outlet property="homeButton" destination="pXo-28-P6B" id="ALw-qA-OYC"/>
                         <outlet property="placesButton" destination="KKO-dY-fHq" id="Cz6-oq-0Ea"/>
                         <outlet property="popularPlaces" destination="RLY-w5-eWQ" id="2Ds-ae-8OU"/>
                         <outlet property="recommendedPlaces" destination="YYr-SR-Ets" id="XT2-fb-yWT"/>
