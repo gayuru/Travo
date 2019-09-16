@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
-        print("Test")
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     /*
