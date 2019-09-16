@@ -53,7 +53,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="YXM-F1-8Dt" eventType="touchUpInside" id="BcN-ZR-VSB"/>
-                                    <segue destination="wLD-lb-Fy4" kind="show" id="3g2-pQ-8VA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyj-ao-RtP">

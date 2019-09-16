@@ -16,16 +16,21 @@ class UsersViewModel {
         users = Users.init()
     }
     
-    func authenticate(username:String, password:String)->Bool{
-        // User Exists
-        let attemptedUser:User? = users.findUserByUsername(username: username)
+    func authenticate(email:String?, password:String?)->Bool{
+        if (email == nil || password == nil) {
+            return false
+        }
+        
+        // Above already checks for nil presence
+        let attemptedUser:User? = users.findUserByEmail(email: email!)
         
         if (attemptedUser != nil) {
-            // TODO Fix this unwrap
+            // Above already checks for nil presence
             if (attemptedUser!.getPassword() == password) {
                 loggedInUser = attemptedUser
                 return true
             }
+            // Return error that says bad password?
             return false
         }
         return false

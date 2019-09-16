@@ -26,7 +26,7 @@ class Users {
     }
     
     func addUser(user:User)->Bool{
-        let dictionaryKey = user.getUsername()
+        let dictionaryKey = user.getEmail()
         if (users[dictionaryKey]  != nil) {
             return false
         }
@@ -35,7 +35,7 @@ class Users {
     }
     
     func removeUser(user:User)->Bool{
-        let dictionaryKey = user.getUsername()
+        let dictionaryKey = user.getEmail()
         if (users[dictionaryKey] != nil) {
             users.removeValue(forKey: dictionaryKey)
             return true
@@ -43,7 +43,7 @@ class Users {
         return false
     }
     
-    func findUserByUsername(username:String)->User{
-        return users[username]!
+    func findUserByEmail(email:String)->User?{
+        return users[email]
     }
 }

@@ -19,12 +19,21 @@ class UsersViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
+    private let usersViewModel:UsersViewModel = UsersViewModel.init()
+    
+    // Storyboard setup
+    let storyBoard:UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
-        
+        if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
+            // forward to home -- Still broken
+            let nextViewController:UIViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+            self.present(nextViewController, animated:true, completion:nil)
+        }
     }
     
 }
