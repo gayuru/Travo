@@ -28,10 +28,13 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         // Do any additional setup after loading the view.
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height) 
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
         categoryCollection.delegate = self
         categoryCollection.dataSource = self
+        recommendedCollection.dataSource = self
+        recommendedCollection.delegate = self
         bottomNav.layer.cornerRadius = 10
     }
     
@@ -81,7 +84,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
 
 extension HomeViewController{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(collectionView == recommendedCollection)
         if collectionView == popularPlaces {
             let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             cell.layer.cornerRadius = 10
@@ -101,10 +103,11 @@ extension HomeViewController{
             
             return cell
         }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
-            cell.backgroundColor = UIColor.white
-            cell.cityLabel.text = "Welcome"
+            let cell = recommendedCollection.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
+            cell.locationLabel.text = "Welcome"
+            cell.placeImage.image = UIImage(named: "eiffel-tower")
             return cell
         }
+        
     }
 }
