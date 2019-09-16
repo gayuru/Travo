@@ -43,6 +43,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="T7N-sZ-zxx"/>
                                                         </constraints>
                                                         <state key="normal" image="aiony-haust-3TLl_97HNJo-unsplash"/>
+                                                        <connections>
+                                                            <segue destination="2bj-ZS-aTp" kind="show" id="erF-aq-fOU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -369,13 +372,9 @@ today?</string>
                                             <constraint firstAttribute="width" constant="20" id="6Bj-mF-nCa"/>
                                         </constraints>
                                         <state key="normal" image="nav_heart"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMC-QZ-Ch6">
-                                        <rect key="frame" x="249" y="10" width="19" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="19" id="Fx1-mJ-gOU"/>
-                                        </constraints>
-                                        <state key="normal" image="nav_lucky"/>
+                                        <connections>
+                                            <segue destination="R0P-io-GGH" kind="show" id="AD0-TY-it4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc4-CE-Hi5">
                                         <rect key="frame" x="176" y="12" width="22" height="19"/>
@@ -383,6 +382,19 @@ today?</string>
                                             <constraint firstAttribute="width" constant="22" id="G8X-tS-bBd"/>
                                         </constraints>
                                         <state key="normal" image="nav_camera"/>
+                                        <connections>
+                                            <segue destination="aBl-J7-pBO" kind="show" id="cXd-Ft-tqF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMC-QZ-Ch6">
+                                        <rect key="frame" x="249" y="10" width="19" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="19" id="Fx1-mJ-gOU"/>
+                                        </constraints>
+                                        <state key="normal" image="nav_lucky"/>
+                                        <connections>
+                                            <segue destination="DoQ-y4-2PO" kind="show" id="g6j-SO-sqI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -429,13 +441,13 @@ today?</string>
             </objects>
             <point key="canvasLocation" x="-71.25" y="247.18309859154931"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="Hbb-nT-Ojy">
+        <!--Profile-->
+        <scene sceneID="RBn-8P-uyJ">
             <objects>
-                <viewControllerPlaceholder id="bWV-wY-XIY" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NWH-U6-T8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Profile" id="2bj-ZS-aTp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwa-gw-TRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="-145"/>
+            <point key="canvasLocation" x="1105" y="86"/>
         </scene>
         <!--Camera-->
         <scene sceneID="pkz-9v-zI6">
@@ -443,7 +455,7 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="Camera" id="aBl-J7-pBO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CfO-H8-sJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="25"/>
+            <point key="canvasLocation" x="1002" y="268"/>
         </scene>
         <!--FeelingLucky-->
         <scene sceneID="wVW-PX-apq">
@@ -451,15 +463,15 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="FeelingLucky" id="DoQ-y4-2PO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4z-Ba-VX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="114"/>
+            <point key="canvasLocation" x="990" y="357"/>
         </scene>
-        <!--Places-->
+        <!--Favourites-->
         <scene sceneID="aSr-lg-AKh">
             <objects>
-                <viewControllerPlaceholder storyboardName="Places" id="R0P-io-GGH" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Favourites" id="R0P-io-GGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="266"/>
+            <point key="canvasLocation" x="1007" y="509"/>
         </scene>
     </scenes>
     <resources>
