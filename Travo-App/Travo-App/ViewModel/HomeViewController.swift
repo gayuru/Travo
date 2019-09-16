@@ -19,6 +19,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var popularPlaces: UICollectionView!
     @IBOutlet var recommendedPlaces: UICollectionView!
     
+    var loggedInUser:User?
     
     override func viewDidLoad() {
         super.viewDidLoad()

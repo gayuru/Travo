@@ -30,8 +30,11 @@ class UsersViewController: UIViewController {
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
-            // forward to home
-            let nextViewController:UIViewController = storyBoard.instantiateViewController(withIdentifier: "Home")
+            // Already Exists if the above passes
+            let loggedInUser:User? = usersViewModel.getCurrentUser()
+            // TODO would prefer to avoid this forced cast
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
+            nextViewController.loggedInUser = loggedInUser!
             self.present(nextViewController, animated:true, completion:nil)
         }
         
