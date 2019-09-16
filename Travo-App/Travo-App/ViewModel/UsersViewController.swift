@@ -30,10 +30,11 @@ class UsersViewController: UIViewController {
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
-            // forward to home -- Still broken
-            let nextViewController:UIViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+            // forward to home
+            let nextViewController:UIViewController = storyBoard.instantiateViewController(withIdentifier: "Home")
             self.present(nextViewController, animated:true, completion:nil)
         }
+        
     }
     
 }
