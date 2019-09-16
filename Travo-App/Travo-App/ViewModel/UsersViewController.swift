@@ -28,6 +28,7 @@ class UsersViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // Preferrable to use segue, but this gives greater flexibility
     @IBAction func loginButtonClicked(_ sender: Any) {
         if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
             // Already Exists if the above passes
@@ -36,8 +37,11 @@ class UsersViewController: UIViewController {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
             nextViewController.loggedInUser = loggedInUser!
             self.present(nextViewController, animated:true, completion:nil)
+        } else {
+            let loginAlert = UIAlertController(title: "Incorrect Login", message: "Login Credentials incorrect", preferredStyle: UIAlertController.Style.alert)
+            loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
+            self.present(loginAlert, animated: true, completion: nil)
         }
-        
     }
     
 }
