@@ -20,11 +20,12 @@
 		770B85092310D12100A431E5 /* PlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B85072310D12100A431E5 /* PlacesCollectionViewCell.swift */; };
 		770B850B2310D7B200A431E5 /* HomeViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B850A2310D7B200A431E5 /* HomeViewController1.swift */; };
 		7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714A1C3231FD7030014202E /* HomeViewController.swift */; };
+		773EACE0232F72190009808A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773EACDF232F72190009808A /* ProfileViewController.swift */; };
+		773EACE2232F734A0009808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773EACE1232F734A0009808A /* Assets.xcassets */; };
 		77425D0523272E4C00C6B844 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0423272E4C00C6B844 /* Place.swift */; };
 		77425D0723272EEC00C6B844 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0623272EEC00C6B844 /* CardCollectionViewCell.swift */; };
 		77425D0923272EF300C6B844 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0823272EF300C6B844 /* CardView.swift */; };
 		77425D0B23272F0800C6B844 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0A23272F0700C6B844 /* FavouritesViewController.swift */; };
-		7745DA9D232CE1EB006C2E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7745DA9C232CE1EB006C2E0E /* Assets.xcassets */; };
 		7745DA9F232E2B20006C2E0E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7745DA9E232E2B20006C2E0E /* Profile.storyboard */; };
 		7745DAA1232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7745DAA0232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift */; };
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
@@ -51,11 +52,12 @@
 		770B85072310D12100A431E5 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
 		770B850A2310D7B200A431E5 /* HomeViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController1.swift; sourceTree = "<group>"; };
 		7714A1C3231FD7030014202E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		773EACDF232F72190009808A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		773EACE1232F734A0009808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77425D0423272E4C00C6B844 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		77425D0623272EEC00C6B844 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		77425D0823272EF300C6B844 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		77425D0A23272F0700C6B844 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
-		7745DA9C232CE1EB006C2E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7745DA9E232E2B20006C2E0E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		7745DAA0232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCollectionViewCell.swift; sourceTree = "<group>"; };
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				7783A64F23036FFA00ED25F3 /* Travo-App */,
+				773EACE1232F734A0009808A /* Assets.xcassets */,
 				7783A64E23036FFA00ED25F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,7 +107,6 @@
 				77AA7AC6230A57F9006815AE /* View */,
 				77AA7AC5230A57EE006815AE /* Model */,
 				7783A65C23036FFC00ED25F3 /* Info.plist */,
-				7745DA9C232CE1EB006C2E0E /* Assets.xcassets */,
 			);
 			path = "Travo-App";
 			sourceTree = "<group>";
@@ -153,6 +155,7 @@
 				553BF79D230C3BD40016FE70 /* FavouritesViewController.swift */,
 				7745DAA0232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift */,
 				779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */,
+				773EACDF232F72190009808A /* ProfileViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -217,10 +220,10 @@
 			files = (
 				BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */,
 				7745DA9F232E2B20006C2E0E /* Profile.storyboard in Resources */,
+				773EACE2232F734A0009808A /* Assets.xcassets in Resources */,
 				552BAA892318AB210000BBC4 /* FeelingLucky.storyboard in Resources */,
 				7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */,
 				5571DBCF2325D29D00C9BE2F /* Favourites.storyboard in Resources */,
-				7745DA9D232CE1EB006C2E0E /* Assets.xcassets in Resources */,
 				7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */,
 				5571DBD32325E03F00C9BE2F /* Places.storyboard in Resources */,
 				BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */,
@@ -242,6 +245,7 @@
 				779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */,
 				553BF79A230C36C40016FE70 /* Favourites.swift in Sources */,
 				770B85092310D12100A431E5 /* PlacesCollectionViewCell.swift in Sources */,
+				773EACE0232F72190009808A /* ProfileViewController.swift in Sources */,
 				55E330F923291190009514CC /* Places.swift in Sources */,
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
 				55E330F72329084F009514CC /* User.swift in Sources */,

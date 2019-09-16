@@ -85,7 +85,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
 extension HomeViewController{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == popularPlaces {
-            let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             cell.layer.cornerRadius = 10
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 0.5
@@ -98,12 +98,12 @@ extension HomeViewController{
             cell.label1.sizeToFit()
             return cell
         }else if collectionView == categoryCollection{
-            let cell = categoryCollection.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
             cell.category.imageView?.image = UIImage(named: "category_general_enabled")
             
             return cell
         }else{
-            let cell = recommendedCollection.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
             cell.locationLabel.text = "Welcome"
             cell.placeImage.image = UIImage(named: "eiffel-tower")
             return cell
