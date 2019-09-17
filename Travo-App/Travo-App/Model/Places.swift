@@ -10,7 +10,7 @@ import Foundation
 
 class Places{
     
-     private var _places:[Place] = []
+    private var _places:[Place] = []
     
     var places:[Place]{
         return _places;
@@ -20,7 +20,7 @@ class Places{
         populatePlaces()
     }
     
-    func sortFavourites() -> [Place]{
+    func sortPopularity() -> [Place]{
         return places.sorted(by: { $0.popularityScale > $1.popularityScale })
     }
     
@@ -30,7 +30,7 @@ class Places{
     
     //temporary hard coded data for the places
     private func populatePlaces(){
-        let placeOne = Place(name: "Federation Square",desc: "Federation Square is a venue for arts, culture and public events on the edge of the Melbourne central business district. It covers an area of 3.2 ha (7.9 acres) at the intersection of Flinders and Swanston Streets built above busy railway lines and across the road from Flinders Street station.", location: "Melbourne", address: "Corner Swanston and Flinders Streets, Melbourne", imageURL: "place_federation", openTime: "Open 24 Hours", starRating: 4.5,popularityScale: 10)
+        let placeOne = Place(name: "Federation Square",desc: "Federation Square is a venue for arts, culture and public events on the edge of the Melbourne central business district. It covers an area of 3.2 ha (7.9 acres) at the intersection of Flinders and Swanston Streets built above busy railway lines and across the road from Flinders Street station.", location: "Melbourne", address: "Corner Swanston and Flinders Streets, Melbourne", imageURL: "place_federation", openTime: "Open 24 Hours", starRating: 5.0,popularityScale: 10)
         self._places.append(placeOne)
         
         let placeTwo = Place(name: "Royal Botanical Garden",desc: "In the heart of green parkland extending south of the Yarra River, about two kilometers from the CBD, the Royal Botanic Gardens are among the finest of their kind in the world. Established in 1846, the gardens encompass two locations: Melbourne and Cranbourne. The Melbourne Gardens cover an area of 38 hectares with more than 8,500 species of plants, including many rare specimens.", location: "Melbourne", address: "Birdwood Ave, South Yarra", imageURL: "place_botanical_garden", openTime: "7.30AM - 6.30PM", starRating: 4.8,popularityScale: 8)

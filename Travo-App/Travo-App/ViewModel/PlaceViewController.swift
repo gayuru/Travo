@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import Cosmos
 
 class PlaceViewController: UIViewController {
     
@@ -38,7 +39,8 @@ class PlaceViewController: UIViewController {
     @IBOutlet weak var placeTitle: UILabel!
     @IBOutlet weak var placeDescription: UILabel!
     @IBOutlet weak var placeOpenHours: UILabel!
-    @IBOutlet weak var placeRating: UILabel!
+    @IBOutlet weak var placeRating: CosmosView!
+    
     
     var index:Int?
     
@@ -46,13 +48,17 @@ class PlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        index = 3;
+        index = 1;
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index!)
         placeDescription.text = viewModel.getDescFor(index: index!)
         placeOpenHours.text = viewModel.getOpenTimeFor(index: index!)
-        placeRating.text = String(viewModel.getStarRating(index: index!))
+//        placeRating.text = String(viewModel.getStarRating(index: index!))
         placeImage.image = viewModel.getImageURLFor(index: index!)
+        placeRating.settings.updateOnTouch = false
+        placeRating.settings.fillMode = .precise
+        placeRating.rating = viewModel.getStarRating(index: index!)
+        placeRating.text = String(viewModel.getStarRating(index: index!))
     }
     
 }

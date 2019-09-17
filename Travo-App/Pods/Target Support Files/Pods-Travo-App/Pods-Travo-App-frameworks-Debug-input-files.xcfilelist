@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Travo-App/Pods-Travo-App-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
+${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework

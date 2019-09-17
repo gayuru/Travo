@@ -21,8 +21,8 @@ struct PlacesViewModel{
     return places.count
     }
     
-    func getFavourites() -> [Place]{
-        return model.sortFavourites()
+    func getPopularity() -> [Place]{
+        return model.sortPopularity()
     }
     
     func getRecommended() -> [Place]{

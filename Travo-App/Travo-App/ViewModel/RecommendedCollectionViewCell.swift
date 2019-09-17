@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class RecommendedCollectionViewCell: UICollectionViewCell {
     @IBOutlet var placeImage: UIImageView!
@@ -14,5 +15,5 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var likeBtn: UIButton!
-    
+    @IBOutlet weak var placeRating: CosmosView!
 }
