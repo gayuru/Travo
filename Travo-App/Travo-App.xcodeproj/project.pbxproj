@@ -76,7 +76,7 @@
 		770B850A2310D7B200A431E5 /* HomeViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController1.swift; sourceTree = "<group>"; };
 		7714A1C3231FD7030014202E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		773EACDF232F72190009808A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		773EACE1232F734A0009808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		773EACE1232F734A0009808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Travo-AppUITests/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVisitedCollectionViewCell.swift; sourceTree = "<group>"; };
 		77425D0423272E4C00C6B844 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		77425D0823272EF300C6B844 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 			children = (
 				770B850A2310D7B200A431E5 /* HomeViewController1.swift */,
 				55E33125232BA8BE009514CC /* Places.swift */,
-				773EACE1232F734A0009808A /* Assets.xcassets */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -166,6 +165,7 @@
 		7783A64F23036FFA00ED25F3 /* Travo-App */ = {
 			isa = PBXGroup;
 			children = (
+				773EACE1232F734A0009808A /* Assets.xcassets */,
 				77AA7AC7230A57FE006815AE /* ViewModel */,
 				77AA7AC6230A57F9006815AE /* View */,
 				77AA7AC5230A57EE006815AE /* Model */,

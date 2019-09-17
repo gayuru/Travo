@@ -44,13 +44,13 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4x-9K-byz" customClass="CardView" customModule="Travo_App" customModuleProvider="target">
                                                     <rect key="frame" x="28" y="13" width="260" height="105"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Royal Botanical Gardens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW4-jU-Zch">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Royal Botanical Gardens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW4-jU-Zch">
                                                             <rect key="frame" x="81" y="16" width="147" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 AM - 6:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wo-8B-OKl">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 AM - 6:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wo-8B-OKl">
                                                             <rect key="frame" x="80.5" y="79" width="98" height="14"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="0Wo-8B-OKl" secondAttribute="height" multiplier="7:1" id="CGY-QH-Iaj"/>
@@ -100,13 +100,13 @@
                                                                 <constraint firstAttribute="height" constant="10" id="h50-rM-41E"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-Tk-dbg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-Tk-dbg">
                                                             <rect key="frame" x="153" y="42" width="14" height="10"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <color key="textColor" red="0.99607843139999996" green="0.72156862749999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u5-gP-i8A">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u5-gP-i8A">
                                                             <rect key="frame" x="81" y="60" width="64" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="5u5-gP-i8A" secondAttribute="height" multiplier="64:15" id="Y7b-JY-02e"/>
@@ -122,7 +122,7 @@
                                                             </constraints>
                                                             <state key="normal" image="like"/>
                                                         </button>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rPu-vn-E8W">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rPu-vn-E8W">
                                                             <rect key="frame" x="-15" y="-11" width="88" height="100"/>
                                                             <color key="backgroundColor" red="0.99607843139999996" green="0.72156862749999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
@@ -186,14 +186,6 @@
                                             <constraint firstItem="b4x-9K-byz" firstAttribute="leading" secondItem="1eh-c2-xpb" secondAttribute="leadingMargin" constant="20" id="ehf-cd-2mR"/>
                                             <constraint firstItem="b4x-9K-byz" firstAttribute="trailing" secondItem="1eh-c2-xpb" secondAttribute="trailingMargin" id="gch-Ve-L7Y"/>
                                         </constraints>
-                                        <connections>
-                                            <outlet property="cityLabel" destination="5u5-gP-i8A" id="s1Y-65-Abs"/>
-                                            <outlet property="featuredImageView" destination="rPu-vn-E8W" id="P05-fe-Q9V"/>
-                                            <outlet property="openTimeLabel" destination="0Wo-8B-OKl" id="DzF-0l-t8W"/>
-                                            <outlet property="placeLabel" destination="PW4-jU-Zch" id="uES-jY-tLS"/>
-                                            <outlet property="starRating" destination="yMo-C1-R0S" id="6i6-RV-Tth"/>
-                                            <outlet property="startRatingLabel" destination="t7d-Tk-dbg" id="OYZ-0b-tER"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
