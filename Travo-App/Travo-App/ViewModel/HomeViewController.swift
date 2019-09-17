@@ -38,6 +38,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         bottomNav.layer.cornerRadius = 10
     }
     
+    //MARK:- Collection View Size
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.popularPlaces{
             return items.count
@@ -83,6 +84,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
 }
 
 extension HomeViewController{
+    
+    //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
