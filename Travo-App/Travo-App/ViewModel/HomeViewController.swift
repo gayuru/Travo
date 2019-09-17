@@ -27,7 +27,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height) 
+//        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height)
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         categoryCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)

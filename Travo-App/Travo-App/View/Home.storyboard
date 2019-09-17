@@ -108,7 +108,7 @@ today?</string>
                                                             </subviews>
                                                         </view>
                                                         <connections>
-                                                            <outlet property="category" destination="D2d-a3-Yqo" id="ux2-qp-1Sp"/>
+                                                            <outlet property="category" destination="D2d-a3-Yqo" id="nUL-px-Por"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>

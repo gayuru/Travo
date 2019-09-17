@@ -13,6 +13,10 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet var profileBackground: UIView!
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var cityCollection: UICollectionView!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var currentCityLabel: UILabel!
+    @IBOutlet var intresetsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

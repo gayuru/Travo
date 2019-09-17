@@ -10,14 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Storyboard Reference-->
-        <scene sceneID="nud-uc-4wF">
-            <objects>
-                <viewControllerPlaceholder id="JAu-IB-Otj" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sRj-Wp-lju" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2260" y="316"/>
-        </scene>
         <!--Profile View Controller-->
         <scene sceneID="JzW-OM-N1y">
             <objects>
@@ -194,6 +186,7 @@
                                         <constraints>
                                             <constraint firstItem="XV9-F5-yzO" firstAttribute="top" secondItem="VOF-HX-5Jz" secondAttribute="bottom" constant="33" id="3zB-VQ-SMR"/>
                                             <constraint firstAttribute="trailing" secondItem="XV9-F5-yzO" secondAttribute="trailing" constant="16" id="5Kn-NK-c90"/>
+                                            <constraint firstAttribute="bottom" secondItem="0Vp-Lx-WHB" secondAttribute="bottom" constant="20" id="5df-Ag-Hbe"/>
                                             <constraint firstItem="CzC-9d-58S" firstAttribute="top" secondItem="jJB-wz-5ez" secondAttribute="top" constant="8" id="6Ru-mv-Ubg"/>
                                             <constraint firstItem="0Vp-Lx-WHB" firstAttribute="top" secondItem="wjn-8p-80G" secondAttribute="bottom" constant="8" id="Cfy-l9-t9S"/>
                                             <constraint firstItem="0Vp-Lx-WHB" firstAttribute="leading" secondItem="jJB-wz-5ez" secondAttribute="leading" constant="16" id="DAi-pP-jMT"/>
@@ -229,10 +222,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DUx-Or-4SX"/>
                     </view>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="cityCollection" destination="0Vp-Lx-WHB" id="mpe-iZ-BEe"/>
+                        <outlet property="currentCityLabel" destination="54z-Hj-2Qv" id="bfd-uB-7Tw"/>
+                        <outlet property="intresetsLabel" destination="XV9-F5-yzO" id="ce6-T9-x4q"/>
                         <outlet property="profileBackground" destination="XtO-pX-0Ae" id="0iN-yE-JIH"/>
                         <outlet property="profileImage" destination="Yh7-gX-vz5" id="AEG-cr-ee3"/>
+                        <outlet property="scrollView" destination="JAz-yh-IyO" id="scW-Z5-Ha2"/>
+                        <outlet property="userNameLabel" destination="tNJ-DC-N5q" id="tqt-XS-asY"/>
                         <segue destination="BFh-Hv-ndx" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="sWI-2a-bI7"/>
                     </connections>
                 </viewController>
