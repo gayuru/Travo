@@ -10,19 +10,13 @@ import UIKit
 
 class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    let items = ["0","1","2","3","4","5","6","7","8","9","10"]
-    @IBOutlet var placesButton: UIButton!
-    @IBOutlet var sunsetButton: UIButton!
-    @IBOutlet var hillButton: UIButton!
-    @IBOutlet var cyclingButton: UIButton!
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var popularPlaces: UICollectionView!
-    @IBOutlet var homeButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
-    
+//    private var recommendButton : UIButton!
     var loggedInUser:User?
     
     var viewModel = PlacesViewModel()
@@ -57,7 +51,15 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         }
         return 0
     }
-
+    
+    @IBAction func unwindToHome(segue:UIStoryboardSegue){
+        
+    }
+    
+    
+//    @objc func likeBtnClicked(sender: UIButton){
+//        recommendButton.imageView?.image = UIImage(named: "like")
+//    }
 }
 
 extension HomeViewController{
@@ -97,8 +99,11 @@ extension HomeViewController{
             cell.placeRating.rating = tempRecommended[indexPath.row].starRating
             cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+//            recommendButton = cell.likeBtn
+//            cell.likeBtn.addTarget(self, action: #selector(likeBtnClicked(sender:)), for: .touchUpInside)
             return cell
         }
+      
         
     }
 }
