@@ -20,7 +20,6 @@ class FavouritesViewController: UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         collectionView?.dataSource = self as? UICollectionViewDataSource
         collectionView?.delegate = self as? UICollectionViewDelegate
     }
