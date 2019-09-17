@@ -21,6 +21,14 @@ struct PlacesViewModel{
     return places.count
     }
     
+    func getFavourites() -> [Place]{
+        return model.sortFavourites()
+    }
+    
+    func getRecommended() -> [Place]{
+        return model.sortRecommended()
+    }
+    
     func getTitleFor(index:Int) -> String{
         return places[index].name
     }
@@ -48,4 +56,6 @@ struct PlacesViewModel{
     func getStarRating(index:Int) -> Double{
         return places[index].starRating
     }
+    
+
 }

@@ -46,7 +46,7 @@ class PlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        index = 4;
+        index = 3;
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index!)
         placeDescription.text = viewModel.getDescFor(index: index!)

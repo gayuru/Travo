@@ -16,4 +16,5 @@ struct Place{
     var imageURL:String
     var openTime:String
     var starRating:Double
+    var popularityScale:Int
 }
