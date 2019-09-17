@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class FavouritesViewController: UIViewController
 {
@@ -15,6 +16,7 @@ class FavouritesViewController: UIViewController
 //    var favourites = Favourites.fetchFavourites()
     
     var viewModel = PlacesViewModel()
+
     
     let cellScaling:CGFloat = 1.0
 
@@ -43,12 +45,13 @@ extension FavouritesViewController : UICollectionViewDataSource
         let location = cell.viewWithTag((1001)) as! UILabel
         let openTime = cell.viewWithTag((1002)) as! UILabel
         let imageView = cell.viewWithTag((1003)) as! UIImageView
-        let starRating = cell.viewWithTag((1004)) as! UILabel
+        let starRating = cell.viewWithTag((1004)) as! CosmosView
         
         title.text = viewModel.getTitleFor(index: indexPath.row)
         location.text = viewModel.getLocationFor(index: indexPath.row)
         openTime.text = viewModel.getOpenTimeFor(index: indexPath.row)
         imageView.image = viewModel.getImageURLFor(index: indexPath.row)
+        starRating.rating = viewModel.getStarRating(index: indexPath.row)
         starRating.text = String(viewModel.getStarRating(index: indexPath.row))
         
         return cell
