@@ -99,8 +99,7 @@ extension HomeViewController{
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-            cell.category.imageView?.image = UIImage(named: "category_general_enabled")
-            
+            cell.category.setImage(UIImage(named: "category_general_enabled"), for: .normal)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
