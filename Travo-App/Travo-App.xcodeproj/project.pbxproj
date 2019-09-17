@@ -22,6 +22,7 @@
 		7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714A1C3231FD7030014202E /* HomeViewController.swift */; };
 		773EACE0232F72190009808A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773EACDF232F72190009808A /* ProfileViewController.swift */; };
 		773EACE2232F734A0009808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773EACE1232F734A0009808A /* Assets.xcassets */; };
+		773EAD02233051B00009808A /* CityVisitedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */; };
 		77425D0523272E4C00C6B844 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0423272E4C00C6B844 /* Place.swift */; };
 		77425D0723272EEC00C6B844 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0623272EEC00C6B844 /* CardCollectionViewCell.swift */; };
 		77425D0923272EF300C6B844 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0823272EF300C6B844 /* CardView.swift */; };
@@ -54,6 +55,7 @@
 		7714A1C3231FD7030014202E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		773EACDF232F72190009808A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		773EACE1232F734A0009808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVisitedCollectionViewCell.swift; sourceTree = "<group>"; };
 		77425D0423272E4C00C6B844 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		77425D0623272EEC00C6B844 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		77425D0823272EF300C6B844 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				7745DAA0232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift */,
 				779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */,
 				773EACDF232F72190009808A /* ProfileViewController.swift */,
+				773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				770B850B2310D7B200A431E5 /* HomeViewController1.swift in Sources */,
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
 				55E330F52329073D009514CC /* Weather.swift in Sources */,
+				773EAD02233051B00009808A /* CityVisitedCollectionViewCell.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
 				77425D0723272EEC00C6B844 /* CardCollectionViewCell.swift in Sources */,
 				77425D0923272EF300C6B844 /* CardView.swift in Sources */,
