@@ -21,22 +21,25 @@ class UsersViewController: UIViewController {
     
     private let usersViewModel:UsersViewModel = UsersViewModel.init()
     
-    // Storyboard setup
-    let storyBoard:UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // Preferrable to use segue, but this gives greater flexibility
+    // LOGIN VIEW METHODS
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "SegueToHome") {
+            let homeViewController = segue.destination as! HomeViewController
+            homeViewController.loggedInUser = usersViewModel.getCurrentUser()
+        } else if (segue.identifier == "SegueToRegister") {
+            let registerUserViewController = segue.destination as! RegisterUserViewController
+            registerUserViewController.usersViewModel = self.usersViewModel
+        }
+    }
+    
     @IBAction func loginButtonClicked(_ sender: Any) {
+        
         if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
-            // Already Exists if the above passes
-            let loggedInUser:User? = usersViewModel.getCurrentUser()
-            // TODO would prefer to avoid this forced cast
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
-            nextViewController.loggedInUser = loggedInUser!
-            self.present(nextViewController, animated:true, completion:nil)
+            self.performSegue(withIdentifier: "SegueToHome", sender: self)
         } else {
             let loginAlert = UIAlertController(title: "Incorrect Login", message: "Login Credentials incorrect", preferredStyle: UIAlertController.Style.alert)
             loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
@@ -44,4 +47,7 @@ class UsersViewController: UIViewController {
         }
     }
     
+    @IBAction func signUpButtonClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: "SegueToRegister", sender: self)
+    }
 }

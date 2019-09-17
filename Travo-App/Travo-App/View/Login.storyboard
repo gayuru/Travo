@@ -53,6 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="YXM-F1-8Dt" eventType="touchUpInside" id="BcN-ZR-VSB"/>
+                                    <segue destination="wLD-lb-Fy4" kind="show" identifier="SegueToHome" id="Oh5-wu-Dj4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyj-ao-RtP">
@@ -154,6 +155,10 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonClicked:" destination="YXM-F1-8Dt" eventType="touchUpInside" id="YaG-sY-Fu6"/>
+                                            <segue destination="FAE-q2-y05" kind="show" identifier="SegueToRegister" id="Ti5-gw-Zaj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
