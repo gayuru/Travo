@@ -23,6 +23,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
     
+    var loggedInUser:User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

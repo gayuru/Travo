@@ -35,6 +35,10 @@
 		7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */; };
 		779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */; };
 		BD0AE78623294567002CD790 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78523294567002CD790 /* CheckboxButton.swift */; };
+		BD0AE788232C8B9A002CD790 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE787232C8B9A002CD790 /* Users.swift */; };
+		BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE789232C8BC6002CD790 /* UsersViewController.swift */; };
+		BD0AE78C232C8BDC002CD790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */; };
+		BD0AE78E232C8D1D002CD790 /* HardcodedUsersCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */; };
 		BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E4230CFB39004F28DF /* Login.storyboard */; };
 		BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */; };
 		BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E8230D45E3004F28DF /* Register.storyboard */; };
@@ -86,6 +90,10 @@
 		7783A65C23036FFC00ED25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD0AE78523294567002CD790 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		BD0AE787232C8B9A002CD790 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		BD0AE789232C8BC6002CD790 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedUsersCoreData.swift; sourceTree = "<group>"; };
 		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
 		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -174,6 +182,8 @@
 				77425D0423272E4C00C6B844 /* Place.swift */,
 				55E330F42329073D009514CC /* Weather.swift */,
 				55E330F62329084F009514CC /* User.swift */,
+				BD0AE787232C8B9A002CD790 /* Users.swift */,
+				BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +219,8 @@
 				7714A1C3231FD7030014202E /* HomeViewController.swift */,
 				55971C6C232E62400018ABF8 /* PlaceViewController.swift */,
 				BD0AE78523294567002CD790 /* CheckboxButton.swift */,
+				BD0AE789232C8BC6002CD790 /* UsersViewController.swift */,
+				BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */,
 				7745DAA0232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift */,
 				779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */,
 				773EACDF232F72190009808A /* ProfileViewController.swift */,
@@ -344,15 +356,19 @@
 				779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */,
 				773EACE0232F72190009808A /* ProfileViewController.swift in Sources */,
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
+				BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */,
 				55E330F72329084F009514CC /* User.swift in Sources */,
 				55971C6D232E62400018ABF8 /* PlaceViewController.swift in Sources */,
 				7745DAA1232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift in Sources */,
+				BD0AE788232C8B9A002CD790 /* Users.swift in Sources */,
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
+				BD0AE78C232C8BDC002CD790 /* UsersViewModel.swift in Sources */,
 				55E330F52329073D009514CC /* Weather.swift in Sources */,
 				773EAD02233051B00009808A /* CityVisitedCollectionViewCell.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
 				BD0AE78623294567002CD790 /* CheckboxButton.swift in Sources */,
 				77425D0923272EF300C6B844 /* CardView.swift in Sources */,
+				BD0AE78E232C8D1D002CD790 /* HardcodedUsersCoreData.swift in Sources */,
 				77425D0523272E4C00C6B844 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
