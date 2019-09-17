@@ -23,6 +23,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
     
+    var loggedInUser:User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -93,7 +95,7 @@ extension HomeViewController{
             cell.layer.cornerRadius = 10
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 0.5
-            cell.backgroundImage.image = UIImage(named: "federation-square")
+            cell.backgroundImage.image = UIImage(named: "place_botanical_garden")
             cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
             cell.label1.text = "Federation Square"
             cell.label1.textColor = UIColor.white
@@ -108,7 +110,7 @@ extension HomeViewController{
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
             cell.locationLabel.text = "Federation Square"
-            cell.placeImage.image = UIImage(named: "federation-square")
+            cell.placeImage.image = UIImage(named: "place_federation")
             cell.cityLabel.text = "Melbourne"
             cell.timeLabel.text = "7AM - 5PM"
             return cell
