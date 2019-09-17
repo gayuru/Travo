@@ -53,37 +53,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         return 0
     }
 
-        //        let cell1 = recommendedPlacesCollection.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath)
-        //        collectionView.register(PlacesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        //        if collectionView == self.popularPlaces{
-        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
-        ////            let cell = popularPlaces.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlacesCollectionViewCell
-        //            cell.layer.cornerRadius = 10
-        //            cell.layer.borderColor = UIColor.black.cgColor
-        //            cell.layer.borderWidth = 0.5
-        ////            cell.backgroundImage.image = UIImage(named: "royal_botanical_gardens")
-        ////            cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
-        //            cell.label1.text = "Federation Square"
-        //            cell.label1.textColor = UIColor.white
-        //            cell.label1.numberOfLines = 2
-        //            cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
-        //            cell.label1.sizeToFit()
-        //            return cell
-        //        }
-        //        else if collectionView == self.placesCollectionView{
-        //            let cell = placesCollectionView.dequeueReusableCell(withReuseIdentifier: "placesCell", for: indexPath)
-        //            cell.backgroundColor = UIColor.gray
-        //            return cell
-        //        }
-        //        else if collectionView == self.recommendedPlacesCollection{
-        //            let cell = recommendedPlacesCollection.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
-        //            cell.locationLabel.text = "Fed Square"
-        //            cell.locationLabel.textColor = UIColor.white
-        //            cell.backgroundColor = UIColor.blue
-        //            return cell
-        //        }
-        //        return cell1
-
 }
 
 extension HomeViewController{
