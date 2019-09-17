@@ -29,6 +29,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height) 
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        categoryCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
         categoryCollection.delegate = self
