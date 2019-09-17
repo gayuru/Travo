@@ -125,6 +125,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="registerSignUpButtonClicked:" destination="oJs-PL-cT3" eventType="touchUpInside" id="u5n-pd-Ynw"/>
                                     <segue destination="lkr-yc-nzh" kind="show" identifier="SegueToHome" id="ibt-wV-5br"/>
                                 </connections>
                             </button>
