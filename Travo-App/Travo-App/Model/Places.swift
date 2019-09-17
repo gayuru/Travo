@@ -1,15 +1,14 @@
 //
-//  File.swift
+//  Places.swift
 //  Travo-App
 //
-//  Created by Gayuru Gunawardana on 13/9/19.
+//  Created by Gayuru Gunawardana on 11/9/19.
 //  Copyright © 2019 Sogyal Thundup Sherpa. All rights reserved.
 //
 
 import Foundation
 
 class Places{
-    private var _places:[Place] = []
     
     var places:[Place]{
         return _places;
