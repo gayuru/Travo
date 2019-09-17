@@ -104,8 +104,10 @@ extension HomeViewController{
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
-            cell.locationLabel.text = "Welcome"
-            cell.placeImage.image = UIImage(named: "eiffel-tower")
+            cell.locationLabel.text = "Federation Square"
+            cell.placeImage.image = UIImage(named: "federation-square")
+            cell.cityLabel.text = "Melbourne"
+            cell.timeLabel.text = "7AM - 5PM"
             return cell
         }
         
