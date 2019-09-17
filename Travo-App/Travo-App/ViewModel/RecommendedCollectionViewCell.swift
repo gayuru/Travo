@@ -13,5 +13,6 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var likeBtn: UIButton!
     
 }
