@@ -114,8 +114,6 @@ extension HomeViewController{
             cell.cityLabel.text = "Melbourne"
             cell.timeLabel.text = "7AM - 5PM"
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-            
-            
             return cell
         }
         
