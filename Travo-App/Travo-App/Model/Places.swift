@@ -10,6 +10,8 @@ import Foundation
 
 class Places{
     
+     private var _places:[Place] = []
+    
     var places:[Place]{
         return _places;
     }
@@ -52,5 +54,5 @@ class Places{
         let placeEight = Place(name: "Melbourne Museum", desc: "A short tram ride from the CBD, the Melbourne Museum is surrounded by beautiful gardens and parkland. This modern purpose-built museum houses a diverse collection depicting society and cultures. Highlights include Bunjilaka Aboriginal Cultural Centre; the Phar Lap exhibit, about Australia's greatest racehorse; and the Children's Gallery, a series of hands-on activities designed to stimulate and engage youngsters.", location: "Melbourne", address: "11 Nicholson Street, Carlton", imageURL: "place_melbourne_museum", openTime: "10AM - 5PM", starRating: 4.6,popularityScale: 3)
         self._places.append(placeEight)
         
-    }    
+    }
 }
