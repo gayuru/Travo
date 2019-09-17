@@ -245,7 +245,11 @@ today?</string>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-mU-O3y">
                                                                     <rect key="frame" x="0.0" y="5" width="139" height="151.5"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_botanical_gardens" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-gq-MUZ">
+                                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsg-hr-avY">
+                                                                            <rect key="frame" x="8" y="86" width="109" height="30"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </button>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_botanical_garden" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-gq-MUZ">
                                                                             <rect key="frame" x="6" y="5" width="128" height="76"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="76" id="5rp-Lb-EJU"/>
@@ -310,13 +314,14 @@ today?</string>
                                                                                 <constraint firstAttribute="width" constant="9" id="hHI-fi-MPk"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="nVZ-Qx-tqB">
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYj-Il-gnP">
                                                                             <rect key="frame" x="122" y="87" width="9" height="14"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="14" id="3SJ-6N-TvF"/>
-                                                                                <constraint firstAttribute="width" constant="9" id="Ldt-1O-iUn"/>
+                                                                                <constraint firstAttribute="height" constant="14" id="QyR-Gc-qkT"/>
+                                                                                <constraint firstAttribute="width" constant="9" id="cmH-KJ-oPV"/>
                                                                             </constraints>
-                                                                        </imageView>
+                                                                            <state key="normal" image="like"/>
+                                                                        </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="open time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ew-yZ-xu0">
                                                                             <rect key="frame" x="8" y="120" width="128" height="12"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
@@ -330,7 +335,6 @@ today?</string>
                                                                         <constraint firstItem="Zgw-Ix-qds" firstAttribute="leading" secondItem="AMq-Nn-Epk" secondAttribute="trailing" constant="5" id="2Yk-Eh-aMc"/>
                                                                         <constraint firstAttribute="bottom" secondItem="U2j-SZ-jgx" secondAttribute="bottom" constant="3.5" id="2cP-xL-m1C"/>
                                                                         <constraint firstItem="6rW-37-GdR" firstAttribute="leading" secondItem="U2j-SZ-jgx" secondAttribute="trailing" constant="5" id="2ra-Nm-kt5"/>
-                                                                        <constraint firstItem="nVZ-Qx-tqB" firstAttribute="leading" secondItem="a7J-rh-bqE" secondAttribute="trailing" constant="5" id="8Fc-fV-g6A"/>
                                                                         <constraint firstAttribute="bottom" secondItem="AMq-Nn-Epk" secondAttribute="bottom" constant="4" id="Ade-BY-0LU"/>
                                                                         <constraint firstAttribute="bottom" secondItem="Zgw-Ix-qds" secondAttribute="bottom" constant="3.5" id="DAt-ro-gK2"/>
                                                                         <constraint firstAttribute="bottom" secondItem="eb5-eE-hrB" secondAttribute="bottom" constant="6" id="Gil-bG-Of1"/>
@@ -339,21 +343,22 @@ today?</string>
                                                                         <constraint firstAttribute="trailing" secondItem="6oy-gq-MUZ" secondAttribute="trailing" constant="5" id="LvY-c5-UIC"/>
                                                                         <constraint firstItem="U2j-SZ-jgx" firstAttribute="leading" secondItem="Zgw-Ix-qds" secondAttribute="trailing" constant="5" id="Nqi-Ez-LZT"/>
                                                                         <constraint firstItem="H2O-cE-axe" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="Pt2-dY-fSF"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="nVZ-Qx-tqB" secondAttribute="trailing" constant="8" id="RhV-Q9-BmL"/>
                                                                         <constraint firstItem="6oy-gq-MUZ" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="6" id="XLV-FC-quD"/>
                                                                         <constraint firstAttribute="bottom" secondItem="6rW-37-GdR" secondAttribute="bottom" constant="4" id="Z9P-6e-9pq"/>
                                                                         <constraint firstItem="a7J-rh-bqE" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="ZTq-EV-K9p"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="EYj-Il-gnP" secondAttribute="trailing" constant="8" id="ajq-eV-fc9"/>
                                                                         <constraint firstAttribute="trailing" secondItem="0Ew-yZ-xu0" secondAttribute="trailing" constant="3" id="cUJ-1P-GGG"/>
                                                                         <constraint firstAttribute="bottom" secondItem="eiy-hp-NAz" secondAttribute="bottom" constant="3.5" id="cep-24-d6z"/>
                                                                         <constraint firstItem="eb5-eE-hrB" firstAttribute="leading" secondItem="eiy-hp-NAz" secondAttribute="trailing" constant="5" id="dsI-os-yJ0"/>
                                                                         <constraint firstAttribute="trailing" secondItem="H2O-cE-axe" secondAttribute="trailing" constant="22" id="isc-6k-jgv"/>
                                                                         <constraint firstItem="6rW-37-GdR" firstAttribute="top" secondItem="0Ew-yZ-xu0" secondAttribute="bottom" constant="1.5" id="kH4-jO-zzs"/>
                                                                         <constraint firstItem="a7J-rh-bqE" firstAttribute="top" secondItem="6oy-gq-MUZ" secondAttribute="bottom" constant="8" id="p1v-Jq-IjF"/>
+                                                                        <constraint firstItem="EYj-Il-gnP" firstAttribute="top" secondItem="6oy-gq-MUZ" secondAttribute="bottom" constant="6" id="qZ0-x6-jt0"/>
                                                                         <constraint firstItem="0Ew-yZ-xu0" firstAttribute="top" secondItem="H2O-cE-axe" secondAttribute="bottom" constant="5" id="riM-lW-23Z"/>
                                                                         <constraint firstItem="eiy-hp-NAz" firstAttribute="leading" secondItem="6rW-37-GdR" secondAttribute="trailing" constant="5" id="s69-Nw-d1U"/>
                                                                         <constraint firstItem="6oy-gq-MUZ" firstAttribute="top" secondItem="ThT-mU-O3y" secondAttribute="top" constant="5" id="uT1-KI-HjT"/>
                                                                         <constraint firstItem="H2O-cE-axe" firstAttribute="top" secondItem="a7J-rh-bqE" secondAttribute="bottom" constant="5" id="wWt-Zu-Wcz"/>
-                                                                        <constraint firstItem="nVZ-Qx-tqB" firstAttribute="top" secondItem="6oy-gq-MUZ" secondAttribute="bottom" constant="6" id="zaW-cP-Kdn"/>
+                                                                        <constraint firstItem="EYj-Il-gnP" firstAttribute="leading" secondItem="a7J-rh-bqE" secondAttribute="trailing" constant="5" id="zRx-2K-bL3"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
@@ -368,6 +373,7 @@ today?</string>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="cityLabel" destination="H2O-cE-axe" id="mMz-bv-iym"/>
+                                                            <outlet property="likeBtn" destination="EYj-Il-gnP" id="Ytn-EI-e9m"/>
                                                             <outlet property="locationLabel" destination="a7J-rh-bqE" id="Miv-lc-Np1"/>
                                                             <outlet property="placeImage" destination="6oy-gq-MUZ" id="rwg-D2-v8O"/>
                                                             <outlet property="timeLabel" destination="0Ew-yZ-xu0" id="f4V-iQ-usQ"/>
@@ -549,7 +555,7 @@ today?</string>
         <image name="nav_heart" width="166.5" height="150.5"/>
         <image name="nav_home_enabled" width="166.5" height="152"/>
         <image name="nav_lucky" width="166.5" height="183"/>
-        <image name="place_botanical_gardens" width="2047" height="1152"/>
+        <image name="place_botanical_garden" width="2047" height="1152"/>
         <image name="star" width="512" height="512"/>
     </resources>
 </document>
