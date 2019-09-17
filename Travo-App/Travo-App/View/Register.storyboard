@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Users View Controller-->
+        <!--Register User View Controller-->
         <scene sceneID="x8z-Fj-WqC">
             <objects>
-                <viewController id="oJs-PL-cT3" customClass="UsersViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oJs-PL-cT3" customClass="RegisterUserViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ANv-Fj-KFp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,9 +100,9 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3A4-dX-tZl" customClass="UnderlinedTextField" customModule="Travo_App" customModuleProvider="target">
                                 <rect key="frame" x="16" y="300" width="288" height="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqx-6o-xdt">
                                 <rect key="frame" x="16" y="390" width="239" height="50"/>
@@ -124,6 +124,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="lkr-yc-nzh" kind="show" identifier="SegueToHome" id="ibt-wV-5br"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM2-gc-do3" customClass="CheckboxButton" customModule="Travo_App" customModuleProvider="target">
                                 <rect key="frame" x="16" y="350" width="20" height="20"/>
@@ -204,23 +207,24 @@
                         <viewLayoutGuide key="safeArea" id="Udc-EM-yQq"/>
                     </view>
                     <connections>
-                        <outlet property="registerEmailTextField" destination="BOp-rp-9gy" id="4R4-1s-quw"/>
-                        <outlet property="registerNameTextField" destination="ikN-BK-KyO" id="Gyt-tM-PwM"/>
-                        <outlet property="registerPasswordTextField" destination="3A4-dX-tZl" id="CH6-2U-kZB"/>
-                        <outlet property="registerUploadImageButton" destination="qvi-en-6K1" id="f1t-Mv-Xsq"/>
+                        <outlet property="emailTextField" destination="BOp-rp-9gy" id="xfD-9o-2mJ"/>
+                        <outlet property="faceIDCheckbox" destination="wM2-gc-do3" id="dWK-SG-V84"/>
+                        <outlet property="imageUpload" destination="qvi-en-6K1" id="peJ-9u-0Hp"/>
+                        <outlet property="nameTextField" destination="ikN-BK-KyO" id="ZK9-CN-jBm"/>
+                        <outlet property="passwordTextField" destination="3A4-dX-tZl" id="BMR-kT-hZU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lo8-16-Cxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="373.125" y="105.63380281690141"/>
         </scene>
-        <!--Login-->
-        <scene sceneID="tSQ-CU-Lzz">
+        <!--Home-->
+        <scene sceneID="ois-TB-gsi">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Login" storyboardName="Login" id="fDs-Oh-4TW" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kWO-G8-z7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Home" id="lkr-yc-nzh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sn0-EE-Okd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="99"/>
+            <point key="canvasLocation" x="937" y="90"/>
         </scene>
     </scenes>
     <resources>
