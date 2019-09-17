@@ -39,6 +39,7 @@
 		BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE789232C8BC6002CD790 /* UsersViewController.swift */; };
 		BD0AE78C232C8BDC002CD790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */; };
 		BD0AE78E232C8D1D002CD790 /* HardcodedUsersCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */; };
+		BD1D08872330F14E00B5BA64 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */; };
 		BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E4230CFB39004F28DF /* Login.storyboard */; };
 		BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */; };
 		BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E8230D45E3004F28DF /* Register.storyboard */; };
@@ -94,6 +95,7 @@
 		BD0AE789232C8BC6002CD790 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedUsersCoreData.swift; sourceTree = "<group>"; };
+		BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
 		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */,
 				773EACDF232F72190009808A /* ProfileViewController.swift */,
 				773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */,
+				BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				55E330F52329073D009514CC /* Weather.swift in Sources */,
 				773EAD02233051B00009808A /* CityVisitedCollectionViewCell.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,
+				BD1D08872330F14E00B5BA64 /* RegisterUserViewController.swift in Sources */,
 				BD0AE78623294567002CD790 /* CheckboxButton.swift in Sources */,
 				77425D0923272EF300C6B844 /* CardView.swift in Sources */,
 				BD0AE78E232C8D1D002CD790 /* HardcodedUsersCoreData.swift in Sources */,

@@ -30,7 +30,6 @@ class UsersViewModel {
                 loggedInUser = attemptedUser
                 return true
             }
-            // Return error that says bad password?
             return false
         }
         return false
@@ -43,6 +42,7 @@ class UsersViewModel {
             // TODO throw bigger error
             return false
         }
+        loggedInUser = newUser
         return true
     }
     
