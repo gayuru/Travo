@@ -245,7 +245,7 @@ today?</string>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-mU-O3y">
                                                                     <rect key="frame" x="0.0" y="5" width="139" height="151.5"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_botanical_gardens" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-gq-MUZ">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_botanical_garden" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-gq-MUZ">
                                                                             <rect key="frame" x="6" y="5" width="128" height="76"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="76" id="5rp-Lb-EJU"/>
@@ -549,7 +549,7 @@ today?</string>
         <image name="nav_heart" width="166.5" height="150.5"/>
         <image name="nav_home_enabled" width="166.5" height="152"/>
         <image name="nav_lucky" width="166.5" height="183"/>
-        <image name="place_botanical_gardens" width="2047" height="1152"/>
+        <image name="place_botanical_garden" width="2047" height="1152"/>
         <image name="star" width="512" height="512"/>
     </resources>
 </document>
