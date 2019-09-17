@@ -52,9 +52,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         return 0
     }
     
-    @IBAction func unwindToHome(segue:UIStoryboardSegue){
-        
-    }
+    @IBAction func unwindToHome(segue:UIStoryboardSegue){}
     
     
 //    @objc func likeBtnClicked(sender: UIButton){
