@@ -13,16 +13,16 @@
         <!--Home-->
         <scene sceneID="2XQ-tL-aIz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2lB-mG-QKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="Home" storyboardName="Home" id="wLD-lb-Fy4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lB-mG-QKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-270" y="62"/>
         </scene>
         <!--Register-->
         <scene sceneID="tqG-yQ-PC3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p5p-qK-qYf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="Register" storyboardName="Register" id="FAE-q2-y05" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5p-qK-qYf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-256" y="295"/>
         </scene>
@@ -129,7 +129,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUo-1M-btl">
                                 <rect key="frame" x="60" y="518" width="200" height="30"/>
