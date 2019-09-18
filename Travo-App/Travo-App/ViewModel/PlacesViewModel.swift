@@ -11,10 +11,11 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private var model = Places()
+    private let placeModel = Places()
+    private var weatherModel = Weather()
     
     var places:[Place]{
-        return model.places
+        return placeModel.places
     }
     
     var count:Int{
@@ -22,11 +23,11 @@ struct PlacesViewModel{
     }
     
     func getPopularity() -> [Place]{
-        return model.sortPopularity()
+        return placeModel.sortPopularity()
     }
-    
+ 
     func getRecommended() -> [Place]{
-        return model.sortRecommended()
+        return placeModel.sortRecommended()
     }
     
     func getTitleFor(index:Int) -> String{
@@ -55,6 +56,12 @@ struct PlacesViewModel{
     
     func getStarRating(index:Int) -> Double{
         return places[index].starRating
+    }
+    
+    func getWeather(index:Int) -> UIImage?{
+        let weatherCondition = places[index].weatherCondition
+        let iconName = weatherModel.updateWeatherIcon(condition: weatherCondition)
+        return UIImage.init(named: iconName)
     }
     
 

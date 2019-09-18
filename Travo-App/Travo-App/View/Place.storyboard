@@ -112,6 +112,13 @@
                                 </constraints>
                                 <state key="normal" image="like"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow5" translatesAutoresizingMaskIntoConstraints="NO" id="AY2-Zp-sEY">
+                                <rect key="frame" x="258" y="109" width="45" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="TFd-dc-sk1"/>
+                                    <constraint firstAttribute="height" constant="44" id="UEc-Vh-KJn"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -131,6 +138,7 @@
                             <constraint firstItem="ag9-1b-lf5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="TYE-Rz-BhA"/>
                             <constraint firstItem="z6I-YS-Gxd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="99" id="Tza-wq-n90"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ARy-f3-tvM" secondAttribute="trailing" constant="33" id="V5H-uy-3Bz"/>
+                            <constraint firstItem="AY2-Zp-sEY" firstAttribute="top" secondItem="d6Z-qY-x1R" secondAttribute="bottom" constant="49" id="Z8V-gs-lte"/>
                             <constraint firstItem="Whv-PX-cJI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="ZCz-0C-lVv"/>
                             <constraint firstItem="z6I-YS-Gxd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="54" id="a1C-GG-1gU"/>
                             <constraint firstItem="ARy-f3-tvM" firstAttribute="top" secondItem="Whv-PX-cJI" secondAttribute="bottom" constant="8" id="adb-D1-aw7"/>
@@ -138,6 +146,7 @@
                             <constraint firstItem="ag9-1b-lf5" firstAttribute="top" secondItem="SBh-qo-XRt" secondAttribute="bottom" constant="11" id="dRY-Yg-OUI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Whv-PX-cJI" secondAttribute="trailing" constant="20" id="iI4-QA-pL4"/>
                             <constraint firstItem="z6I-YS-Gxd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iK9-xr-VMB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AY2-Zp-sEY" secondAttribute="trailing" constant="17" id="j9M-3y-sZl"/>
                             <constraint firstItem="8Ig-3l-s1a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="lld-gs-TNJ"/>
                             <constraint firstItem="MYP-wj-oQj" firstAttribute="top" secondItem="z6I-YS-Gxd" secondAttribute="top" id="udG-gq-Eb7"/>
                             <constraint firstAttribute="trailing" secondItem="qSZ-wz-53G" secondAttribute="trailing" constant="200" id="vvJ-No-5Nl"/>
@@ -153,6 +162,7 @@
                         <outlet property="placeRating" destination="ag9-1b-lf5" id="Sxc-8z-Qup"/>
                         <outlet property="placeTitle" destination="Whv-PX-cJI" id="q09-We-nfx"/>
                         <segue destination="NBk-y5-2dc" kind="unwind" identifier="backHome" unwindAction="unwindToHomeWithSegue:" id="Scv-Ll-zmY"/>
+                        <outlet property="placeWeather" destination="AY2-Zp-sEY" id="Ogg-BY-Laa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -165,5 +175,6 @@
         <image name="left-arrow" width="1195" height="512"/>
         <image name="like" width="500" height="500"/>
         <image name="rectangle" width="300" height="168"/>
+        <image name="snow5" width="64" height="64"/>
     </resources>
 </document>
