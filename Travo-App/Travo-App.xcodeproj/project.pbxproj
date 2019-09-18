@@ -41,6 +41,9 @@
 		BD0AE78C232C8BDC002CD790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */; };
 		BD0AE78E232C8D1D002CD790 /* HardcodedUsersCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */; };
 		BD1D08872330F14E00B5BA64 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */; };
+		BD1D08892331C10300B5BA64 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D08882331C10300B5BA64 /* Category.swift */; };
+		BD1D088B2331C18000B5BA64 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D088A2331C18000B5BA64 /* Categories.swift */; };
+		BD1D088D2331C64800B5BA64 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D088C2331C64800B5BA64 /* CategoryViewModel.swift */; };
 		BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E4230CFB39004F28DF /* Login.storyboard */; };
 		BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */; };
 		BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E8230D45E3004F28DF /* Register.storyboard */; };
@@ -102,6 +105,9 @@
 		BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedUsersCoreData.swift; sourceTree = "<group>"; };
 		BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		BD1D08882331C10300B5BA64 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		BD1D088A2331C18000B5BA64 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		BD1D088C2331C64800B5BA64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
 		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -207,6 +213,8 @@
 				55E330F62329084F009514CC /* User.swift */,
 				BD0AE787232C8B9A002CD790 /* Users.swift */,
 				BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */,
+				BD1D08882331C10300B5BA64 /* Category.swift */,
+				BD1D088A2331C18000B5BA64 /* Categories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 				773EACDF232F72190009808A /* ProfileViewController.swift */,
 				773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */,
 				BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */,
+				BD1D088C2331C64800B5BA64 /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -449,15 +458,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1D088D2331C64800B5BA64 /* CategoryViewModel.swift in Sources */,
 				55C26A68233075FB00DD0580 /* Places.swift in Sources */,
 				55971C68232E56970018ABF8 /* PlacesCollectionViewCell.swift in Sources */,
 				55971C6A232E56A40018ABF8 /* FavouritesViewController.swift in Sources */,
 				7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */,
 				55E33124232BA853009514CC /* PlacesViewModel.swift in Sources */,
+				BD1D088B2331C18000B5BA64 /* Categories.swift in Sources */,
 				55E330FB23292669009514CC /* CameraViewController.swift in Sources */,
 				7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */,
 				779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */,
 				773EACE0232F72190009808A /* ProfileViewController.swift in Sources */,
+				BD1D08892331C10300B5BA64 /* Category.swift in Sources */,
 				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
 				BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */,
 				55E330F72329084F009514CC /* User.swift in Sources */,
