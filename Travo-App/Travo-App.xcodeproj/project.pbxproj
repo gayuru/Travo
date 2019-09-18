@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -214,7 +214,6 @@
 		77AA7AC6230A57F9006815AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5571DBD22325E03F00C9BE2F /* Place.storyboard */,
 				770B85042310D0FD00A431E5 /* Home.storyboard */,
 				7783A65423036FFA00ED25F3 /* Main.storyboard */,
 				7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */,
@@ -224,6 +223,7 @@
 				552BAA8A2318AB390000BBC4 /* Camera.storyboard */,
 				5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */,
 				7745DA9E232E2B20006C2E0E /* Profile.storyboard */,
+				5571DBD22325E03F00C9BE2F /* Place.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,7 +261,6 @@
 				2897C1F998D97B21F1F40238 /* Pods-Travo-AppUITests.debug.xcconfig */,
 				7740432AD8EAA6C2EA8E4F4B /* Pods-Travo-AppUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

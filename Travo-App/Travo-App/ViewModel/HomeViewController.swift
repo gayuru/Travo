@@ -53,9 +53,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
     
     
-//    @objc func likeBtnClicked(sender: UIButton){
-//        recommendButton.imageView?.image = UIImage(named: "like")
-//    }
     lazy var tempRecommended = viewModel.getRecommended()
     lazy var tempPopular = viewModel.getPopularity()
 }
@@ -94,8 +91,6 @@ extension HomeViewController{
             cell.placeRating.rating = tempRecommended[indexPath.row].starRating
             cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-//            recommendButton = cell.likeBtn
-//            cell.likeBtn.addTarget(self, action: #selector(likeBtnClicked(sender:)), for: .touchUpInside)
             return cell
         }
     }
