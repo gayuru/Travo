@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SVProgressHUD
 
 class CameraViewController: UIViewController{
     
@@ -120,12 +121,20 @@ class CameraViewController: UIViewController{
     
     
     @IBAction func imageCapture(_ sender: Any) {
-        
+        //call the HUD
+        SVProgressHUD.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+          SVProgressHUD.dismiss()
+            let placeVC = PlaceViewController()
+            placeVC.indexPass = "Federation Square"
+        }
+        self.performSegue(withIdentifier: "captureImage", sender: self)
         guard let capturePhotoOutput = self.capturePhotoOutput else {return}
         let photoSettings = AVCapturePhotoSettings()
         photoSettings.isAutoStillImageStabilizationEnabled = true
         photoSettings.isHighResolutionPhotoEnabled = true
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self as! AVCapturePhotoCaptureDelegate)
+        
     }
     
     @IBAction func backButton(_ sender: Any) {

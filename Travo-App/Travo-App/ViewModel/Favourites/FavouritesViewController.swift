@@ -17,7 +17,7 @@ class FavouritesViewController: UIViewController
     var viewModel = PlacesViewModel()
     
     //pass value into this
-    var currentCollection = collections.recommended
+    var currentCollection:collections = collections.favourites
     
     lazy var tempRecommended = viewModel.getRecommended()
     lazy var tempPopular = viewModel.getPopularity()
@@ -43,7 +43,6 @@ class FavouritesViewController: UIViewController
 
 extension FavouritesViewController : UICollectionViewDataSource
 {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

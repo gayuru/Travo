@@ -21,6 +21,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
     
+    var currTitle:String = ""
+    
     let CAROUSEL_MAX:Int = 5
     let CATEGORIES_MAX:Int = 10
     
@@ -54,7 +56,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
     
-    
     lazy var tempRecommended = viewModel.getRecommended()
     lazy var tempPopular = viewModel.getPopularity()
 }
@@ -76,11 +77,13 @@ extension HomeViewController{
             cell.label1.numberOfLines = 2
             cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.label1.sizeToFit()
+           
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
             var tempCategory = categoryViewModel.getCategories()
             cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
+            
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
@@ -94,14 +97,37 @@ extension HomeViewController{
             cell.placeRating.rating = tempRecommended[indexPath.row].starRating
             cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+            
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == recommendedCollection{
-//            let placeVC = PlaceViewController()
-//            placeVC.index = indexPath.row
-//            self.performSegue(withIdentifier: "viewPlace", sender: self)
+            currTitle = tempRecommended[indexPath.row].name
+            performSegue(withIdentifier: "viewPlace", sender: self)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "viewPlace"){
+            let secondController = segue.destination as! PlaceViewController
+            secondController.indexPass = currTitle
+        }else if(segue.identifier == "recommendedSeeAll"){
+            let generalController = segue.destination as! FavouritesViewController
+            generalController.currentCollection = FavouritesViewController.collections.recommended
+        }else if(segue.identifier ==  "popularSeeAll"){
+            let generalController = segue.destination as! FavouritesViewController
+            generalController.currentCollection = FavouritesViewController.collections.popular
+        }
+    }
+    
+    @IBAction func recommendedSeeAll(_ sender: Any) {
+        performSegue(withIdentifier: "recommendedSeeAll", sender: self)
+    }
+    
+    @IBAction func popularSeeAll(_ sender: Any) {
+        performSegue(withIdentifier: "popularSeeAll", sender: self)
+    }
+
 }
