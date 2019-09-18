@@ -16,7 +16,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBOutlet var contentView: UIView!
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
-//    private var recommendButton : UIButton!
     var loggedInUser:User?
     
     var viewModel = PlacesViewModel()
@@ -27,7 +26,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height)
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         categoryCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
@@ -58,15 +56,14 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
 //    @objc func likeBtnClicked(sender: UIButton){
 //        recommendButton.imageView?.image = UIImage(named: "like")
 //    }
+    lazy var tempRecommended = viewModel.getRecommended()
+    lazy var tempPopular = viewModel.getPopularity()
 }
 
 extension HomeViewController{
     
     //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let tempRecommended = viewModel.getRecommended()
-        let tempPopular = viewModel.getPopularity()
         
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
@@ -101,7 +98,12 @@ extension HomeViewController{
 //            cell.likeBtn.addTarget(self, action: #selector(likeBtnClicked(sender:)), for: .touchUpInside)
             return cell
         }
-      
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if collectionView == recommendedCollection{
+            print(tempRecommended[indexPath.row])
+        }
     }
 }
