@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="VVl-dG-LDB" customClass="HomeViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0aw-Ik-bbw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkG-db-pQB">
-                                <rect key="frame" x="0.0" y="20" width="320" height="780"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-p5-aEi" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="780"/>
@@ -135,7 +135,7 @@ today?</string>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
-                                                <rect key="frame" x="26" y="310" width="286" height="141"/>
+                                                <rect key="frame" x="26" y="309.5" width="286" height="141"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="141" id="1u0-Jm-iH7"/>
                                                 </constraints>
@@ -392,7 +392,7 @@ today?</string>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0X-F6-ncz" userLabel="BottomNav">
-                                <rect key="frame" x="8" y="749" width="304" height="42"/>
+                                <rect key="frame" x="8" y="517" width="304" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKS-jE-ran">
                                         <rect key="frame" x="30" y="10" width="24" height="22"/>
@@ -437,6 +437,7 @@ today?</string>
                                 <constraints>
                                     <constraint firstItem="QKS-jE-ran" firstAttribute="top" secondItem="D0X-F6-ncz" secondAttribute="top" constant="10" id="5LF-qx-hhh"/>
                                     <constraint firstItem="KMC-QZ-Ch6" firstAttribute="leading" secondItem="nc4-CE-Hi5" secondAttribute="trailing" constant="51" id="7rY-km-vI9"/>
+                                    <constraint firstItem="RhL-uJ-oNZ" firstAttribute="leading" secondItem="QKS-jE-ran" secondAttribute="trailing" constant="49" id="NCE-JJ-Do5"/>
                                     <constraint firstItem="nc4-CE-Hi5" firstAttribute="top" secondItem="D0X-F6-ncz" secondAttribute="top" constant="12" id="UNU-T8-Qin"/>
                                     <constraint firstAttribute="height" constant="42" id="eA3-qi-Dzi"/>
                                     <constraint firstAttribute="bottom" secondItem="nc4-CE-Hi5" secondAttribute="bottom" constant="11" id="exh-ET-zUg"/>
@@ -462,7 +463,6 @@ today?</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="79a-DP-mP7"/>
                     </view>
-                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
                         <outlet property="bottomNav" destination="D0X-F6-ncz" id="8Xg-PE-MXv"/>
                         <outlet property="categoryCollection" destination="xjg-vy-Cu6" id="A1z-kb-LHg"/>
