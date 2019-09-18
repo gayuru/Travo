@@ -27,6 +27,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        bottomNav.layer.cornerRadius = 10.0
+        bottomNav.layer.masksToBounds = true
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         categoryCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
@@ -36,7 +38,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
-        bottomNav.layer.cornerRadius = 10
     }
     
     //MARK:- Collection View Size
@@ -98,9 +99,11 @@ extension HomeViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if collectionView == recommendedCollection{
-            print(tempRecommended[indexPath.row])
+            let placeVC = PlaceViewController()
+            placeVC.index = indexPath.row
+            self.performSegue(withIdentifier: "viewPlace", sender: self)
+            
         }
     }
     

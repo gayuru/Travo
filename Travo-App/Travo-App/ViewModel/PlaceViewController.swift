@@ -42,13 +42,17 @@ class PlaceViewController: UIViewController {
     @IBOutlet weak var placeRating: CosmosView!
     
     
-    var index:Int?
+    var index:Int? = 0
+    
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "backHome", sender: self)
+    }
     
     var viewModel = PlacesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        index = 1;
+//        index = 0;
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index!)
         placeDescription.text = viewModel.getDescFor(index: index!)

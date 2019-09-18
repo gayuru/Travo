@@ -49,7 +49,7 @@
                                 <rect key="frame" x="16" y="30" width="104" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="left-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="ibm-dv-wKT">
-                                        <rect key="frame" x="0.0" y="0.0" width="63" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="63.000000000000227" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="63" id="3Kx-p6-PO8"/>
                                             <constraint firstAttribute="height" constant="38" id="QJx-eF-gPY"/>
@@ -63,12 +63,6 @@
                                     </label>
                                 </subviews>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.34999999999999998"/>
-                                <constraints>
-                                    <constraint firstItem="1No-hS-pw7" firstAttribute="leading" secondItem="ibm-dv-wKT" secondAttribute="trailing" id="fVh-PV-ibb"/>
-                                    <constraint firstItem="ibm-dv-wKT" firstAttribute="leading" secondItem="qSZ-wz-53G" secondAttribute="leading" id="i1z-Cf-xK3"/>
-                                    <constraint firstItem="ibm-dv-wKT" firstAttribute="leading" secondItem="qSZ-wz-53G" secondAttribute="leading" id="iVl-7u-yJD"/>
-                                    <constraint firstItem="1No-hS-pw7" firstAttribute="leading" secondItem="ibm-dv-wKT" secondAttribute="trailing" id="qkb-9o-oWd"/>
-                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Federation  Square" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whv-PX-cJI">
                                 <rect key="frame" x="33" y="161" width="267" height="84"/>
@@ -158,9 +152,11 @@
                         <outlet property="placeOpenHours" destination="SBh-qo-XRt" id="5Se-X8-wYg"/>
                         <outlet property="placeRating" destination="ag9-1b-lf5" id="Sxc-8z-Qup"/>
                         <outlet property="placeTitle" destination="Whv-PX-cJI" id="q09-We-nfx"/>
+                        <segue destination="NBk-y5-2dc" kind="unwind" identifier="backHome" unwindAction="unwindToHomeWithSegue:" id="Scv-Ll-zmY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="NBk-y5-2dc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-75" y="-21.12676056338028"/>
         </scene>

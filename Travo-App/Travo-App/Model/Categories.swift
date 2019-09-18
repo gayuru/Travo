@@ -9,7 +9,7 @@
 import Foundation
 
 class Categories {
-    private var categoryNameList = ["art", "bar", "beach", "cafe", "coffee", "general", "hike", "library", "monument", "park"]
+    private var categoryNameList = ["general","art", "bar", "beach", "cafe", "coffee", "hike", "library", "monument", "park"]
     private var categoryList:[Category]
     
     init() {
