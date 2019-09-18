@@ -17,6 +17,10 @@ class CategoryViewModel {
         categoryList = categories.getCategoryList()
     }
     
+    func getCategories() -> [Category]{
+        return categoryList
+    }
+    
     func getCategoryByName(name: String)->Category? {
         return categories.getCategoryByName(name: name)
     }

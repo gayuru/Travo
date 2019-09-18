@@ -19,6 +19,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var loggedInUser:User?
     
     var viewModel = PlacesViewModel()
+    var categoryViewModel = CategoryViewModel()
     
     let CAROUSEL_MAX:Int = 5
     let CATEGORIES_MAX:Int = 10
@@ -77,7 +78,9 @@ extension HomeViewController{
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-            cell.category.setImage(UIImage(named: "category_general_enabled"), for: .normal)
+//            cell.category.setImage(UIImage(named: "category_general_enabled"), for: .normal)
+            var tempCategory = categoryViewModel.getCategories()
+            cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
