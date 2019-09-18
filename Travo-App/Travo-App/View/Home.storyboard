@@ -245,12 +245,8 @@ today?</string>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-mU-O3y">
                                                                     <rect key="frame" x="0.0" y="5" width="139" height="155.5"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsg-hr-avY">
-                                                                            <rect key="frame" x="8" y="86" width="109" height="30"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <connections>
-                                                                                <segue destination="ipI-tv-Spi" kind="show" identifier="viewPlace" id="HeH-WT-pCG"/>
-                                                                            </connections>
+                                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAr-6T-oAu">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="101"/>
                                                                         </button>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_botanical_garden" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-gq-MUZ">
                                                                             <rect key="frame" x="6" y="5" width="128" height="76"/>
@@ -316,9 +312,13 @@ today?</string>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
+                                                                        <constraint firstItem="H2O-cE-axe" firstAttribute="top" secondItem="uAr-6T-oAu" secondAttribute="bottom" constant="25" id="8fB-4d-8Ug"/>
+                                                                        <constraint firstItem="uAr-6T-oAu" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" id="Ei8-Xb-Kre"/>
                                                                         <constraint firstItem="0Ew-yZ-xu0" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="Gjn-9y-yHi"/>
                                                                         <constraint firstAttribute="trailing" secondItem="6oy-gq-MUZ" secondAttribute="trailing" constant="5" id="LvY-c5-UIC"/>
+                                                                        <constraint firstItem="EYj-Il-gnP" firstAttribute="leading" secondItem="uAr-6T-oAu" secondAttribute="trailing" constant="-17" id="PT8-Gd-ihX"/>
                                                                         <constraint firstItem="H2O-cE-axe" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="Pt2-dY-fSF"/>
+                                                                        <constraint firstItem="uAr-6T-oAu" firstAttribute="top" secondItem="ThT-mU-O3y" secondAttribute="top" id="RN0-6R-lK3"/>
                                                                         <constraint firstItem="ccC-ZN-k32" firstAttribute="top" secondItem="0Ew-yZ-xu0" secondAttribute="bottom" constant="6" id="WiQ-fv-Rd3"/>
                                                                         <constraint firstItem="6oy-gq-MUZ" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="6" id="XLV-FC-quD"/>
                                                                         <constraint firstItem="a7J-rh-bqE" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="ZTq-EV-K9p"/>
@@ -538,6 +538,7 @@ today?</string>
                         <outlet property="popularPlaces" destination="RLY-w5-eWQ" id="SQK-4S-Qf9"/>
                         <outlet property="recommendedCollection" destination="YYr-SR-Ets" id="bfo-ce-gFe"/>
                         <outlet property="scrollView" destination="BkG-db-pQB" id="iTa-yz-P0y"/>
+                        <segue destination="ipI-tv-Spi" kind="show" identifier="viewPlace" id="ouO-SV-64x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEV-ba-uyt" userLabel="First Responder" sceneMemberID="firstResponder"/>

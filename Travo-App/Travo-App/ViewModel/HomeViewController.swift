@@ -100,12 +100,8 @@ extension HomeViewController{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == recommendedCollection{
-            let placeVC = PlaceViewController()
-            placeVC.index = indexPath.row
-            self.performSegue(withIdentifier: "viewPlace", sender: self)
-            
+//            let placeVC = PlaceViewController()
+//            placeVC.index = indexPath.row
+//            self.performSegue(withIdentifier: "viewPlace", sender: self)
         }
-    }
-    
-    
 }
