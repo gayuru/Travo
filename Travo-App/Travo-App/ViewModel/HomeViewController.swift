@@ -10,22 +10,16 @@ import UIKit
 
 class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    let items = ["0","1","2","3","4","5","6","7","8","9","10"]
-    @IBOutlet var placesButton: UIButton!
-    @IBOutlet var sunsetButton: UIButton!
-    @IBOutlet var hillButton: UIButton!
-    @IBOutlet var cyclingButton: UIButton!
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var popularPlaces: UICollectionView!
-    @IBOutlet var homeButton: UIButton!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
-    
     var loggedInUser:User?
     
     var viewModel = PlacesViewModel()
+    var categoryViewModel = CategoryViewModel()
     
     let CAROUSEL_MAX:Int = 5
     let CATEGORIES_MAX:Int = 10
@@ -33,7 +27,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        scrollView.contentSize = CGSize(width: self.view.frame.width, height: 2 * self.view.frame.height) 
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         categoryCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
@@ -57,16 +50,18 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         }
         return 0
     }
-
+    
+    @IBAction func unwindToHome(segue:UIStoryboardSegue){}
+    
+    
+    lazy var tempRecommended = viewModel.getRecommended()
+    lazy var tempPopular = viewModel.getPopularity()
 }
 
 extension HomeViewController{
     
     //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let tempRecommended = viewModel.getRecommended()
-        let tempPopular = viewModel.getPopularity()
         
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
@@ -83,7 +78,9 @@ extension HomeViewController{
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-            cell.category.setImage(UIImage(named: "category_general_enabled"), for: .normal)
+//            cell.category.setImage(UIImage(named: "category_general_enabled"), for: .normal)
+            var tempCategory = categoryViewModel.getCategories()
+            cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
@@ -99,6 +96,12 @@ extension HomeViewController{
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if collectionView == recommendedCollection{
+            print(tempRecommended[indexPath.row])
+        }
     }
 }

@@ -56,11 +56,53 @@
                                     <constraint firstItem="3Vb-w5-rlG" firstAttribute="centerX" secondItem="994-Qv-pC6" secondAttribute="centerX" id="nmU-x3-ETt"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0E-zg-NhG" userLabel="BottomNav">
+                                <rect key="frame" x="7" y="519" width="306" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptH-2W-SIr">
+                                        <rect key="frame" x="30" y="10" width="24" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="PPA-rn-K4p"/>
+                                        </constraints>
+                                        <state key="normal" image="nav_home_enabled"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-a7-8aF">
+                                        <rect key="frame" x="172" y="12" width="24" height="19"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="nav_camera"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zt3-AE-snu">
+                                        <rect key="frame" x="245" y="10" width="19" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="nav_lucky"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FN-St-RNp">
+                                        <rect key="frame" x="98" y="12" width="20" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="snL-kk-1Zr"/>
+                                        </constraints>
+                                        <state key="normal" image="nav_heart"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5FN-St-RNp" firstAttribute="top" secondItem="a0E-zg-NhG" secondAttribute="top" constant="12" id="0tD-tU-Bjd"/>
+                                    <constraint firstItem="5FN-St-RNp" firstAttribute="leading" secondItem="ptH-2W-SIr" secondAttribute="trailing" constant="44" id="298-9V-pEm"/>
+                                    <constraint firstAttribute="height" constant="42" id="87n-hu-fW6"/>
+                                    <constraint firstAttribute="bottom" secondItem="5FN-St-RNp" secondAttribute="bottom" constant="11" id="Qvc-Sw-neR"/>
+                                    <constraint firstItem="ptH-2W-SIr" firstAttribute="leading" secondItem="a0E-zg-NhG" secondAttribute="leading" constant="30" id="d2Z-g7-1NG"/>
+                                    <constraint firstItem="ptH-2W-SIr" firstAttribute="top" secondItem="a0E-zg-NhG" secondAttribute="top" constant="10" id="pxm-wI-hVw"/>
+                                    <constraint firstAttribute="bottom" secondItem="ptH-2W-SIr" secondAttribute="bottom" constant="10" id="qz0-Fk-oN0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="994-Qv-pC6" firstAttribute="centerX" secondItem="nnB-Q5-FyW" secondAttribute="centerX" id="Po7-zi-zmg"/>
+                            <constraint firstItem="rQC-JH-qgm" firstAttribute="trailing" secondItem="a0E-zg-NhG" secondAttribute="trailing" constant="7" id="SAM-yq-Nfk"/>
                             <constraint firstItem="994-Qv-pC6" firstAttribute="centerY" secondItem="nnB-Q5-FyW" secondAttribute="centerY" id="SLf-CO-gve"/>
+                            <constraint firstItem="a0E-zg-NhG" firstAttribute="leading" secondItem="rQC-JH-qgm" secondAttribute="leading" constant="7" id="cjx-iJ-C9f"/>
+                            <constraint firstItem="rQC-JH-qgm" firstAttribute="bottom" secondItem="a0E-zg-NhG" secondAttribute="bottom" constant="7" id="dPf-Lb-COP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rQC-JH-qgm"/>
                     </view>
@@ -72,6 +114,10 @@
     </scenes>
     <resources>
         <image name="globe" width="1159" height="1130"/>
+        <image name="nav_camera" width="166.5" height="150.5"/>
+        <image name="nav_heart" width="166.5" height="150.5"/>
+        <image name="nav_home_enabled" width="166.5" height="152"/>
+        <image name="nav_lucky" width="166.5" height="183"/>
         <image name="travel" width="1729" height="1199"/>
     </resources>
 </document>

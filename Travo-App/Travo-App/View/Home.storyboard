@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="780"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-p5-aEi" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="723"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="780"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fh-cW-hRh" userLabel="Top Nav">
                                                 <rect key="frame" x="8" y="8" width="304" height="65"/>
@@ -101,14 +101,14 @@ today?</string>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2d-a3-Yqo">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                                                    <rect key="frame" x="10" y="10" width="43" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <state key="normal" title="Button"/>
                                                                 </button>
                                                             </subviews>
                                                         </view>
                                                         <connections>
-                                                            <outlet property="category" destination="D2d-a3-Yqo" id="ux2-qp-1Sp"/>
+                                                            <outlet property="category" destination="D2d-a3-Yqo" id="nUL-px-Por"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -135,7 +135,7 @@ today?</string>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
-                                                <rect key="frame" x="26" y="309.5" width="303" height="141"/>
+                                                <rect key="frame" x="26" y="310" width="286" height="141"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="141" id="1u0-Jm-iH7"/>
                                                 </constraints>
@@ -156,7 +156,7 @@ today?</string>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CUO-B8-RS3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="102" height="137"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBM-kl-Dld">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBM-kl-Dld">
                                                                     <rect key="frame" x="6" y="111" width="90" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="90" id="NNs-z3-CuJ"/>
@@ -279,7 +279,7 @@ today?</string>
                                                                                 <constraint firstAttribute="height" constant="14" id="QyR-Gc-qkT"/>
                                                                                 <constraint firstAttribute="width" constant="9" id="cmH-KJ-oPV"/>
                                                                             </constraints>
-                                                                            <state key="normal" image="like"/>
+                                                                            <state key="normal" image="heart"/>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="open time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ew-yZ-xu0">
                                                                             <rect key="frame" x="8" y="123" width="128" height="12"/>
@@ -343,7 +343,7 @@ today?</string>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="cityLabel" destination="H2O-cE-axe" id="mMz-bv-iym"/>
-                                                            <outlet property="likeBtn" destination="EYj-Il-gnP" id="Ytn-EI-e9m"/>
+                                                            <outlet property="likeBtn" destination="EYj-Il-gnP" id="doH-mN-fRf"/>
                                                             <outlet property="locationLabel" destination="a7J-rh-bqE" id="Miv-lc-Np1"/>
                                                             <outlet property="placeImage" destination="6oy-gq-MUZ" id="rwg-D2-v8O"/>
                                                             <outlet property="placeRating" destination="ccC-ZN-k32" id="Zye-Oa-6ax"/>
@@ -362,12 +362,12 @@ today?</string>
                                             <constraint firstAttribute="trailing" secondItem="5Fh-cW-hRh" secondAttribute="trailing" constant="8" id="5le-FD-OJA"/>
                                             <constraint firstItem="YYr-SR-Ets" firstAttribute="top" secondItem="tYg-Ok-sXs" secondAttribute="bottom" constant="7" id="7BV-Qa-XMC"/>
                                             <constraint firstItem="40j-5g-lKm" firstAttribute="top" secondItem="5Fh-cW-hRh" secondAttribute="bottom" id="A7e-XK-eIa"/>
-                                            <constraint firstAttribute="trailing" secondItem="RLY-w5-eWQ" secondAttribute="trailing" constant="-9" id="AFQ-cT-pZ1"/>
+                                            <constraint firstAttribute="trailing" secondItem="RLY-w5-eWQ" secondAttribute="trailing" constant="8" id="AFQ-cT-pZ1"/>
                                             <constraint firstAttribute="trailing" secondItem="40j-5g-lKm" secondAttribute="trailing" constant="78" id="BAe-pf-2YL"/>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="leading" secondItem="KgU-p5-aEi" secondAttribute="leading" constant="26" id="Bwf-n2-8uJ"/>
                                             <constraint firstAttribute="trailing" secondItem="YYr-SR-Ets" secondAttribute="trailing" id="CfD-Gv-4bF"/>
                                             <constraint firstItem="5Fh-cW-hRh" firstAttribute="leading" secondItem="KgU-p5-aEi" secondAttribute="leading" constant="8" id="ELN-M5-pc3"/>
-                                            <constraint firstAttribute="bottom" secondItem="YYr-SR-Ets" secondAttribute="bottom" constant="62" id="Gg7-mJ-xJc"/>
+                                            <constraint firstAttribute="bottom" secondItem="YYr-SR-Ets" secondAttribute="bottom" constant="119" id="Gg7-mJ-xJc"/>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="top" secondItem="dw0-E8-ImP" secondAttribute="bottom" constant="4.5" id="ahW-eq-Oez"/>
                                             <constraint firstItem="KMs-lk-pc2" firstAttribute="top" secondItem="xjg-vy-Cu6" secondAttribute="bottom" constant="16.5" id="bA7-mp-UmV"/>
                                             <constraint firstItem="RLY-w5-eWQ" firstAttribute="top" secondItem="KMs-lk-pc2" secondAttribute="bottom" constant="13.5" id="bb1-5v-Frn"/>
@@ -438,7 +438,6 @@ today?</string>
                                     <constraint firstItem="QKS-jE-ran" firstAttribute="top" secondItem="D0X-F6-ncz" secondAttribute="top" constant="10" id="5LF-qx-hhh"/>
                                     <constraint firstItem="KMC-QZ-Ch6" firstAttribute="leading" secondItem="nc4-CE-Hi5" secondAttribute="trailing" constant="51" id="7rY-km-vI9"/>
                                     <constraint firstItem="nc4-CE-Hi5" firstAttribute="top" secondItem="D0X-F6-ncz" secondAttribute="top" constant="12" id="UNU-T8-Qin"/>
-                                    <constraint firstItem="RhL-uJ-oNZ" firstAttribute="leading" secondItem="QKS-jE-ran" secondAttribute="trailing" constant="49" id="ZBh-Jc-UjO"/>
                                     <constraint firstAttribute="height" constant="42" id="eA3-qi-Dzi"/>
                                     <constraint firstAttribute="bottom" secondItem="nc4-CE-Hi5" secondAttribute="bottom" constant="11" id="exh-ET-zUg"/>
                                     <constraint firstItem="nc4-CE-Hi5" firstAttribute="leading" secondItem="RhL-uJ-oNZ" secondAttribute="trailing" constant="53" id="fkN-R0-oKX"/>
@@ -521,7 +520,7 @@ today?</string>
     <resources>
         <image name="Logo" width="500" height="338"/>
         <image name="aiony-haust-3TLl_97HNJo-unsplash" width="500" height="500"/>
-        <image name="like" width="500" height="500"/>
+        <image name="heart" width="21" height="19"/>
         <image name="nav_camera" width="166.5" height="150.5"/>
         <image name="nav_heart" width="166.5" height="150.5"/>
         <image name="nav_home_enabled" width="166.5" height="152"/>
