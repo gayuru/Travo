@@ -10,6 +10,7 @@
 		32A19D808285A9F88854BA3C /* Pods_Travo_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B6421737912049669A6181 /* Pods_Travo_AppUITests.framework */; };
 		552BAA892318AB210000BBC4 /* FeelingLucky.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */; };
 		552BAA8B2318AB390000BBC4 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA8A2318AB390000BBC4 /* Camera.storyboard */; };
+		556015912331F93600302676 /* FeelingLuckyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015902331F93600302676 /* FeelingLuckyViewController.swift */; };
 		5571DBCF2325D29D00C9BE2F /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */; };
 		5571DBD32325E03F00C9BE2F /* Place.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571DBD22325E03F00C9BE2F /* Place.storyboard */; };
 		55971C68232E56970018ABF8 /* PlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */; };
@@ -67,6 +68,7 @@
 		552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeelingLucky.storyboard; sourceTree = "<group>"; };
 		552BAA8A2318AB390000BBC4 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		554FA11C233074E000BD5156 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		556015902331F93600302676 /* FeelingLuckyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingLuckyViewController.swift; sourceTree = "<group>"; };
 		5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		5571DBD22325E03F00C9BE2F /* Place.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Place.storyboard; sourceTree = "<group>"; };
 		55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */,
 				BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */,
 				BD1D088C2331C64800B5BA64 /* CategoryViewModel.swift */,
+				556015902331F93600302676 /* FeelingLuckyViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				55971C6D232E62400018ABF8 /* PlaceViewController.swift in Sources */,
 				7745DAA1232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift in Sources */,
 				BD0AE788232C8B9A002CD790 /* Users.swift in Sources */,
+				556015912331F93600302676 /* FeelingLuckyViewController.swift in Sources */,
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
 				BD0AE78C232C8BDC002CD790 /* UsersViewModel.swift in Sources */,
 				55E330F52329073D009514CC /* Weather.swift in Sources */,
