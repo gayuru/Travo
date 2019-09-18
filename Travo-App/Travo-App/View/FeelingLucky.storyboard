@@ -22,7 +22,7 @@
                                 <rect key="frame" x="7" y="64.5" width="306" height="439"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travel" translatesAutoresizingMaskIntoConstraints="NO" id="3Vb-w5-rlG">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="177"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="306.00000000000045" height="177"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3Vb-w5-rlG" secondAttribute="height" multiplier="102:59" id="UJL-RF-3gk"/>
                                             <constraint firstAttribute="width" constant="306" id="Y1O-hC-frA"/>
@@ -62,12 +62,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0E-zg-NhG" userLabel="BottomNav">
                                 <rect key="frame" x="7" y="519" width="306" height="42"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptH-2W-SIr">
-                                        <rect key="frame" x="30" y="10" width="24" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptH-2W-SIr">
+                                        <rect key="frame" x="30" y="11" width="24" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="PPA-rn-K4p"/>
                                         </constraints>
-                                        <state key="normal" image="nav_home_enabled"/>
+                                        <state key="normal" image="nav_home"/>
+                                        <connections>
+                                            <action selector="homeBtnPressed:" destination="EJY-vb-SjX" eventType="touchUpInside" id="EIb-VO-32Z"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-a7-8aF">
                                         <rect key="frame" x="172" y="12" width="24" height="19"/>
@@ -77,7 +80,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zt3-AE-snu">
                                         <rect key="frame" x="245" y="10" width="19" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="nav_lucky"/>
+                                        <state key="normal" image="nav_lucky_enabled"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FN-St-RNp">
                                         <rect key="frame" x="98" y="12" width="20" height="19"/>
@@ -85,6 +88,9 @@
                                             <constraint firstAttribute="width" constant="20" id="snL-kk-1Zr"/>
                                         </constraints>
                                         <state key="normal" image="nav_heart"/>
+                                        <connections>
+                                            <segue destination="4iC-YM-OKM" kind="show" id="5rj-mq-hbx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,19 +117,29 @@
                     </view>
                     <connections>
                         <outlet property="btn" destination="UfR-gA-i3l" id="j8E-N8-gmp"/>
+                        <segue destination="lBf-n1-EVV" kind="unwind" identifier="goToHome" unwindAction="unwindToHomeWithSegue:" id="8g0-YB-3Hz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0D3-9o-JFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lBf-n1-EVV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="108.75" y="152.11267605633802"/>
+        </scene>
+        <!--Favourites-->
+        <scene sceneID="lOX-5k-j8r">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favourites" id="4iC-YM-OKM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjn-Ug-LkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776" y="191"/>
         </scene>
     </scenes>
     <resources>
         <image name="globe" width="1159" height="1130"/>
         <image name="nav_camera" width="166.5" height="150.5"/>
         <image name="nav_heart" width="166.5" height="150.5"/>
-        <image name="nav_home_enabled" width="166.5" height="152"/>
-        <image name="nav_lucky" width="166.5" height="183"/>
+        <image name="nav_home" width="166.5" height="152"/>
+        <image name="nav_lucky_enabled" width="166.5" height="182.5"/>
         <image name="travel" width="1729" height="1199"/>
     </resources>
 </document>

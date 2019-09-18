@@ -38,5 +38,11 @@ class FeelingLuckyViewController: UIViewController {
         super.viewDidLoad()
         
 }
+    
+    @IBAction func homeBtnPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToHome", sender: self)
+    }
+    
+    @IBAction func showLuckyView(segue:UIStoryboardSegue){}
 
 }

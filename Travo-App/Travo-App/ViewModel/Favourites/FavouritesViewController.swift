@@ -36,6 +36,9 @@ class FavouritesViewController: UIViewController
         collectionView?.delegate = self as? UICollectionViewDelegate
     }
     
+    @IBAction func homeBtnPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToHome", sender: self)
+    }
 }
 
 extension FavouritesViewController : UICollectionViewDataSource
