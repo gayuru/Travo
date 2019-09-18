@@ -50,6 +50,7 @@
                                         <state key="normal" image="globe"/>
                                         <connections>
                                             <action selector="btnTapped:" destination="EJY-vb-SjX" eventType="touchUpInside" id="ZVU-fu-hnE"/>
+                                            <segue destination="g0a-Gh-h91" kind="show" identifier="feltLucky" id="GSi-7s-AAm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -132,6 +133,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjn-Ug-LkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="776" y="191"/>
+        </scene>
+        <!--Place-->
+        <scene sceneID="GM0-j3-XWa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Place" id="g0a-Gh-h91" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k8w-Qy-ygp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="718" y="274"/>
         </scene>
     </scenes>
     <resources>

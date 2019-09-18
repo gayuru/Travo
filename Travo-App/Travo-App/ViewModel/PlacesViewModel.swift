@@ -64,5 +64,17 @@ struct PlacesViewModel{
         return UIImage.init(named: iconName)
     }
     
+    func feltLucky() -> Int{
+        let randomNumber = Int.random(in: 0..<places.count)
+        return randomNumber
+    }
+
+    //better way to do this
+    func getIndex(title:String) -> Int{
+        let index = places.firstIndex { (Place) -> Bool in
+            Place.name == title
+        }!
+        return index
+    }
 
 }

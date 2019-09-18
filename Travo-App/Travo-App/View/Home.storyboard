@@ -136,6 +136,10 @@ today?</string>
                                                 <state key="normal" title="See all">
                                                     <color key="titleColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="popularSeeAll:" destination="VVl-dG-LDB" eventType="touchUpInside" id="TiU-vy-T7N"/>
+                                                    <segue destination="R0P-io-GGH" kind="show" identifier="popularSeeAll" id="gYw-9B-X0j"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
                                                 <rect key="frame" x="26" y="309.5" width="286" height="141"/>
@@ -222,6 +226,10 @@ today?</string>
                                                 <state key="normal" title="See all">
                                                     <color key="titleColor" red="0.35686274509803922" green="0.47450980392156861" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="recommendedSeeAll:" destination="VVl-dG-LDB" eventType="touchUpInside" id="Q4s-CL-q10"/>
+                                                    <segue destination="R0P-io-GGH" kind="show" identifier="recommendedSeeAll" id="Cb1-37-gNJ"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-SR-Ets">
                                                 <rect key="frame" x="26" y="496" width="294" height="165"/>
@@ -597,6 +605,7 @@ today?</string>
         <image name="star" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gYw-9B-X0j"/>
         <segue reference="erF-aq-fOU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,8 @@ import UIKit
 
 class FeelingLuckyViewController: UIViewController {
     
-    
+    let viewModel = PlacesViewModel()
+      let placeVC = PlaceViewController()
     @IBOutlet weak var btn: UIButton!
     
     @IBAction func btnTapped(_ sender: Any) {
@@ -25,14 +26,25 @@ class FeelingLuckyViewController: UIViewController {
                                 self.btn.transform = CGAffineTransform.identity
                             }
             })
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.btn.layer.removeAllAnimations()
-            print("goes to the next controller")
         }
-       
-       
+        
+        if viewModel.feltLucky() != nil {
+            performSegue(withIdentifier: "feltLucky", sender: self)
+        }
+
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "feltLucky"){
+            var secondController = segue.destination as! PlaceViewController
+            
+            secondController.indexPass = viewModel.getTitleFor(index: viewModel.feltLucky())
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

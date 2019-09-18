@@ -55,6 +55,7 @@
                                                 <connections>
                                                     <action selector="imageCapture:" destination="3Xy-i0-2bK" eventType="touchUpInside" id="HwY-1n-cpj"/>
                                                     <action selector="imageCapture:" destination="taj-La-lob" eventType="touchUpInside" id="mCM-KT-f3C"/>
+                                                    <segue destination="Q8b-An-zb3" kind="showDetail" identifier="captureImage" id="Mza-OQ-jmC"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnr-uo-xlx">
@@ -133,6 +134,14 @@
                 <exit id="3Xy-i0-2bK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="287.19999999999999" y="124.58770614692655"/>
+        </scene>
+        <!--Place-->
+        <scene sceneID="T26-z6-Sh8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Place" id="Q8b-An-zb3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iT4-O5-ujx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="69"/>
         </scene>
     </scenes>
     <resources>
