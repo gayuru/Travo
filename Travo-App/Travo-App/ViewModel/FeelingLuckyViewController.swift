@@ -14,6 +14,7 @@ class FeelingLuckyViewController: UIViewController {
     let viewModel = PlacesViewModel()
       let placeVC = PlaceViewController()
     @IBOutlet weak var btn: UIButton!
+    @IBOutlet var bottomNav: UIView!
     
     @IBAction func btnTapped(_ sender: Any) {
         
@@ -39,8 +40,7 @@ class FeelingLuckyViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "feltLucky"){
-            var secondController = segue.destination as! PlaceViewController
-            
+            let secondController = segue.destination as! PlaceViewController
             secondController.indexPass = viewModel.getTitleFor(index: viewModel.feltLucky())
         }
         
@@ -48,8 +48,9 @@ class FeelingLuckyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-}
+        bottomNav.layer.cornerRadius = 10
+        bottomNav.layer.masksToBounds = true
+    }
     
     @IBAction func homeBtnPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "goToHome", sender: self)

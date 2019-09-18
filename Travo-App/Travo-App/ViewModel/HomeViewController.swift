@@ -74,7 +74,7 @@ extension HomeViewController{
             cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
             cell.label1.text = tempPopular[indexPath.row].name
             cell.label1.textColor = UIColor.white
-            cell.label1.numberOfLines = 2
+            cell.label1.numberOfLines = 3
             cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.label1.sizeToFit()
            
@@ -82,8 +82,12 @@ extension HomeViewController{
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
             var tempCategory = categoryViewModel.getCategories()
-            cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
-            
+            if indexPath.row == 0 {
+                let tempCatVM = categoryViewModel.getCategoryEnabledImage(name: tempCategory[indexPath.row].getName())
+                cell.category.setImage(UIImage(named: tempCatVM!), for: .normal)
+            }else{
+                cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
+            }
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
@@ -105,6 +109,9 @@ extension HomeViewController{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == recommendedCollection{
             currTitle = tempRecommended[indexPath.row].name
+            performSegue(withIdentifier: "viewPlace", sender: self)
+        }else if collectionView == popularPlaces {
+            currTitle = tempPopular[indexPath.row].name
             performSegue(withIdentifier: "viewPlace", sender: self)
         }
     }
