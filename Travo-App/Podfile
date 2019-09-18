@@ -8,6 +8,7 @@ target 'Travo-App' do
   # Pods for Travo-App
     pod 'Cosmos'
     pod 'TinyConstraints'
+    pod 'SVProgressHUD'
 
   target 'Travo-AppUITests' do
     inherit! :search_paths
