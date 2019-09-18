@@ -23,9 +23,14 @@ class CameraViewController: UIViewController{
         super.viewDidLoad()
         
         if #available(iOS 10.2, *){
-            let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+            guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else{
+                let alert = UIAlertController(title: "Camera not available", message: "The camera does not exist.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert,animated: true)
+                return
+            }
             do{
-                let input = try AVCaptureDeviceInput(device: captureDevice!)
+                let input = try AVCaptureDeviceInput(device: captureDevice)
                 captureSession = AVCaptureSession()
                 captureSession?.addInput(input)
                 videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
@@ -124,7 +129,7 @@ class CameraViewController: UIViewController{
     }
     
     @IBAction func backButton(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "showHome", sender: self)
     }
     
     @IBAction func flashButton(_ sender: Any) {

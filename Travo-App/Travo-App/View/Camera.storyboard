@@ -126,6 +126,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="eqX-cL-frJ" id="Z95-zk-cFO"/>
+                        <segue destination="3Xy-i0-2bK" kind="unwind" identifier="showHome" unwindAction="unwindToHomeWithSegue:" id="pen-Sa-zAh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbY-fi-nvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
