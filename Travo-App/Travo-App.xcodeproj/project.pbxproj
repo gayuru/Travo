@@ -241,8 +241,8 @@
 		77AA7AC7230A57FE006815AE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				770B85072310D12100A431E5 /* PlacesCollectionViewCell.swift */,
 				55E33127232BC82D009514CC /* Favourites */,
+				770B85072310D12100A431E5 /* PlacesCollectionViewCell.swift */,
 				55E330FA23292669009514CC /* CameraViewController.swift */,
 				55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */,
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,

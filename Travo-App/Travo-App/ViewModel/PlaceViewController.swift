@@ -40,7 +40,7 @@ class PlaceViewController: UIViewController {
     @IBOutlet weak var placeDescription: UILabel!
     @IBOutlet weak var placeOpenHours: UILabel!
     @IBOutlet weak var placeRating: CosmosView!
-    
+    @IBOutlet weak var placeWeather: UIImageView!
     
     var index:Int?
     
@@ -59,6 +59,7 @@ class PlaceViewController: UIViewController {
         placeRating.settings.fillMode = .precise
         placeRating.rating = viewModel.getStarRating(index: index!)
         placeRating.text = String(viewModel.getStarRating(index: index!))
+        placeWeather.image = viewModel.getWeather(index: index!)
     }
     
 }
