@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Feeling Lucky View Controller-->
         <scene sceneID="5Nu-ua-H1q">
             <objects>
-                <viewController id="EJY-vb-SjX" sceneMemberID="viewController">
+                <viewController id="EJY-vb-SjX" customClass="FeelingLuckyViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnB-Q5-FyW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,6 +48,9 @@
                                             <constraint firstAttribute="width" constant="180" id="doc-kL-I5B"/>
                                         </constraints>
                                         <state key="normal" image="globe"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="EJY-vb-SjX" eventType="touchUpInside" id="ZVU-fu-hnE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -106,6 +109,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rQC-JH-qgm"/>
                     </view>
+                    <connections>
+                        <outlet property="btn" destination="UfR-gA-i3l" id="j8E-N8-gmp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0D3-9o-JFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
