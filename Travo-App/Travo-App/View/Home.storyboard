@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="VyX-mp-LQR">
             <objects>
-                <viewController id="VVl-dG-LDB" customClass="HomeViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeView" id="VVl-dG-LDB" customClass="HomeViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0aw-Ik-bbw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="740"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,6 @@ today?</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="popularSeeAll:" destination="VVl-dG-LDB" eventType="touchUpInside" id="TiU-vy-T7N"/>
-                                                    <segue destination="R0P-io-GGH" kind="show" identifier="popularSeeAll" id="gYw-9B-X0j"/>
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
@@ -228,7 +227,6 @@ today?</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="recommendedSeeAll:" destination="VVl-dG-LDB" eventType="touchUpInside" id="Q4s-CL-q10"/>
-                                                    <segue destination="R0P-io-GGH" kind="show" identifier="recommendedSeeAll" id="Cb1-37-gNJ"/>
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-SR-Ets">
@@ -253,8 +251,8 @@ today?</string>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-mU-O3y">
                                                                     <rect key="frame" x="0.0" y="5" width="139" height="155.5"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAr-6T-oAu">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="101"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAr-6T-oAu">
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </button>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_botanical_garden" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-gq-MUZ">
                                                                             <rect key="frame" x="6" y="5" width="128" height="76"/>
@@ -268,15 +266,15 @@ today?</string>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7J-rh-bqE">
-                                                                            <rect key="frame" x="8" y="89" width="109" height="12"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7J-rh-bqE">
+                                                                            <rect key="frame" x="8" y="89" width="109" height="11"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="city" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2O-cE-axe">
-                                                                            <rect key="frame" x="8" y="106" width="109" height="12"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                                                            <rect key="frame" x="8" y="105" width="109" height="11"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                                                                             <color key="textColor" red="0.31811469793319702" green="0.33644410967826843" blue="0.38039842247962952" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -289,17 +287,15 @@ today?</string>
                                                                             <state key="normal" image="heart"/>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="open time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ew-yZ-xu0">
-                                                                            <rect key="frame" x="8" y="123" width="128" height="12"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                                                            <rect key="frame" x="8" y="121" width="128" height="11"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
                                                                             <color key="textColor" red="0.31811469790000002" green="0.33644410969999999" blue="0.3803984225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
-                                                                            <rect key="frame" x="8" y="141" width="124" height="21"/>
+                                                                            <rect key="frame" x="8" y="135" width="76" height="11"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="hUT-S4-tgm"/>
-                                                                                <constraint firstAttribute="width" constant="124" id="lQO-xx-CTb"/>
-                                                                                <constraint firstAttribute="height" constant="21" id="xOU-FA-1gF"/>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="11" id="xke-g2-8Ap"/>
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
@@ -320,14 +316,10 @@ today?</string>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="H2O-cE-axe" firstAttribute="top" secondItem="uAr-6T-oAu" secondAttribute="bottom" constant="5" id="8fB-4d-8Ug"/>
-                                                                        <constraint firstItem="uAr-6T-oAu" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" id="Ei8-Xb-Kre"/>
                                                                         <constraint firstItem="0Ew-yZ-xu0" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="Gjn-9y-yHi"/>
                                                                         <constraint firstAttribute="trailing" secondItem="6oy-gq-MUZ" secondAttribute="trailing" constant="5" id="LvY-c5-UIC"/>
-                                                                        <constraint firstItem="EYj-Il-gnP" firstAttribute="leading" secondItem="uAr-6T-oAu" secondAttribute="trailing" constant="-17" id="PT8-Gd-ihX"/>
                                                                         <constraint firstItem="H2O-cE-axe" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="Pt2-dY-fSF"/>
-                                                                        <constraint firstItem="uAr-6T-oAu" firstAttribute="top" secondItem="ThT-mU-O3y" secondAttribute="top" id="RN0-6R-lK3"/>
-                                                                        <constraint firstItem="ccC-ZN-k32" firstAttribute="top" secondItem="0Ew-yZ-xu0" secondAttribute="bottom" constant="6" id="WiQ-fv-Rd3"/>
+                                                                        <constraint firstItem="ccC-ZN-k32" firstAttribute="top" secondItem="0Ew-yZ-xu0" secondAttribute="bottom" constant="3" id="WiQ-fv-Rd3"/>
                                                                         <constraint firstItem="6oy-gq-MUZ" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="6" id="XLV-FC-quD"/>
                                                                         <constraint firstItem="a7J-rh-bqE" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="ZTq-EV-K9p"/>
                                                                         <constraint firstAttribute="trailing" secondItem="EYj-Il-gnP" secondAttribute="trailing" constant="8" id="ajq-eV-fc9"/>
@@ -445,7 +437,7 @@ today?</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjh-Qj-aVQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
                                                         <connections>
-                                                            <segue destination="R0P-io-GGH" kind="show" id="pOQ-ZZ-GtL"/>
+                                                            <segue destination="R0P-io-GGH" kind="show" id="amB-Ga-lpL"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -567,7 +559,7 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="Camera" id="aBl-J7-pBO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CfO-H8-sJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="276"/>
+            <point key="canvasLocation" x="547" y="275"/>
         </scene>
         <!--FeelingLucky-->
         <scene sceneID="wVW-PX-apq">
@@ -575,7 +567,7 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="FeelingLucky" id="DoQ-y4-2PO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4z-Ba-VX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="578" y="365"/>
+            <point key="canvasLocation" x="578" y="355"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="aSr-lg-AKh">
@@ -583,7 +575,7 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="Favourites" id="R0P-io-GGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWN-aT-Wlm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="181"/>
+            <point key="canvasLocation" x="563" y="177"/>
         </scene>
         <!--Place-->
         <scene sceneID="ihZ-fZ-jkZ">
@@ -591,7 +583,7 @@ today?</string>
                 <viewControllerPlaceholder storyboardName="Place" id="ipI-tv-Spi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Gi-f6-i7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="547"/>
+            <point key="canvasLocation" x="592" y="488"/>
         </scene>
     </scenes>
     <resources>
@@ -606,7 +598,6 @@ today?</string>
         <image name="star" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gYw-9B-X0j"/>
         <segue reference="erF-aq-fOU"/>
     </inferredMetricsTieBreakers>
 </document>

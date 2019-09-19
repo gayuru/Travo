@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeViewController: UIViewController{
     
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var popularPlaces: UICollectionView!
@@ -33,14 +33,29 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         bottomNav.layer.masksToBounds = true
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
-        categoryCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        categoryCollection.backgroundColor = UIColor.init(red: 243, green: 245, blue: 247)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
         categoryCollection.delegate = self
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
+        
+        if traitCollection.forceTouchCapability == UIForceTouchCapability.available{
+            registerForPreviewing(with: self, sourceView: view)
+        }else{
+            print("Device doesn't support force touch")
+        }
     }
+    
+
+    @IBAction func unwindToHome(segue:UIStoryboardSegue){}
+    
+    lazy var tempRecommended = viewModel.getRecommended()
+    lazy var tempPopular = viewModel.getPopularity()
+}
+
+extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSource {
     
     //MARK:- Collection View Size
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,14 +69,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         return 0
     }
     
-    @IBAction func unwindToHome(segue:UIStoryboardSegue){}
-    
-    lazy var tempRecommended = viewModel.getRecommended()
-    lazy var tempPopular = viewModel.getPopularity()
-}
-
-extension HomeViewController{
-    
     //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -71,7 +78,7 @@ extension HomeViewController{
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 0.5
             cell.backgroundImage.image = UIImage(named:tempPopular[indexPath.row].imageURL)
-            cell.backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+            cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
             cell.label1.text = tempPopular[indexPath.row].name
             cell.label1.textColor = UIColor.white
             cell.label1.numberOfLines = 3
@@ -101,11 +108,13 @@ extension HomeViewController{
             cell.placeRating.rating = tempRecommended[indexPath.row].starRating
             cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-            
+            cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.locationLabel.sizeToFit()
             return cell
         }
     }
     
+    //MARK:- getSelectedItem from CollectionViewCell for display
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == recommendedCollection{
             currTitle = tempRecommended[indexPath.row].name
@@ -137,4 +146,37 @@ extension HomeViewController{
         performSegue(withIdentifier: "popularSeeAll", sender: self)
     }
 
+}
+
+
+//MARK:- Force Touch Capability
+extension HomeViewController:UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let previewView = storyboard?.instantiateViewController(withIdentifier: "HomeView")
+        return previewView
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        let finalView = storyboard?.instantiateViewController(withIdentifier: "PlaceView")
+        show(finalView! , sender: self)
+    }
+}
+
+//MARK:- UIColor Extensions for HexCode
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
 }

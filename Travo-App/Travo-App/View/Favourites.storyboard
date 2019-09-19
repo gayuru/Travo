@@ -45,16 +45,13 @@
                                                     <rect key="frame" x="28" y="13" width="260" height="105"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Royal Botanical Gardens" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW4-jU-Zch">
-                                                            <rect key="frame" x="81" y="16" width="147" height="17"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="tTy-nb-p7C"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <rect key="frame" x="81" y="10" width="147" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 AM - 6:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wo-8B-OKl">
-                                                            <rect key="frame" x="80.5" y="79" width="98" height="14"/>
+                                                            <rect key="frame" x="80.5" y="85" width="98" height="14"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="0Wo-8B-OKl" secondAttribute="height" multiplier="7:1" id="CGY-QH-Iaj"/>
                                                                 <constraint firstAttribute="width" secondItem="0Wo-8B-OKl" secondAttribute="height" multiplier="7:1" id="d5a-xC-abe"/>
@@ -64,7 +61,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u5-gP-i8A">
-                                                            <rect key="frame" x="81" y="60" width="64" height="15"/>
+                                                            <rect key="frame" x="81" y="66" width="64" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="5u5-gP-i8A" secondAttribute="height" multiplier="64:15" id="Y7b-JY-02e"/>
                                                             </constraints>
@@ -94,7 +91,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <view tag="1004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQE-g1-dPr" customClass="CosmosView" customModule="Cosmos">
-                                                            <rect key="frame" x="80" y="39" width="124" height="16"/>
+                                                            <rect key="frame" x="80" y="45" width="124" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="124" id="Ayq-Rn-0K8"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="NRC-ON-A6A"/>
@@ -121,7 +118,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="rPu-vn-E8W" secondAttribute="bottom" constant="16" id="7qf-pN-ITS"/>
                                                         <constraint firstAttribute="width" constant="260" id="Cdb-do-yfw"/>
-                                                        <constraint firstItem="PW4-jU-Zch" firstAttribute="top" secondItem="b4x-9K-byz" secondAttribute="top" constant="16" id="HCt-fe-ozJ"/>
+                                                        <constraint firstItem="PW4-jU-Zch" firstAttribute="top" secondItem="b4x-9K-byz" secondAttribute="top" constant="10" id="HCt-fe-ozJ"/>
                                                         <constraint firstItem="0Wo-8B-OKl" firstAttribute="top" secondItem="5u5-gP-i8A" secondAttribute="bottom" constant="4" id="Ino-7L-Vd6"/>
                                                         <constraint firstItem="Acm-vO-npK" firstAttribute="top" secondItem="b4x-9K-byz" secondAttribute="top" constant="19" id="J9x-bg-voQ"/>
                                                         <constraint firstItem="mQE-g1-dPr" firstAttribute="leading" secondItem="rPu-vn-E8W" secondAttribute="trailing" constant="7" id="JSv-ub-VeY"/>

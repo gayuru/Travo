@@ -61,6 +61,9 @@ extension FavouritesViewController : UICollectionViewDataSource
         let placeRating = cell.viewWithTag((1004)) as! CosmosView
         placeRating.settings.updateOnTouch = false
         placeRating.settings.fillMode = .precise
+        title.numberOfLines = 0
+        title.lineBreakMode = NSLineBreakMode.byWordWrapping
+        title.sizeToFit()
         
         switch currentCollection {
         
