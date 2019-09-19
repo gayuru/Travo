@@ -138,6 +138,7 @@ today?</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="popularSeeAll:" destination="VVl-dG-LDB" eventType="touchUpInside" id="TiU-vy-T7N"/>
+                                                    <segue destination="R0P-io-GGH" kind="show" identifier="popularSeeAll" id="JFO-Ba-AiX"/>
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
@@ -227,6 +228,7 @@ today?</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="recommendedSeeAll:" destination="VVl-dG-LDB" eventType="touchUpInside" id="Q4s-CL-q10"/>
+                                                    <segue destination="R0P-io-GGH" kind="show" identifier="recommendedSeeAll" id="uEH-OX-17F"/>
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-SR-Ets">
@@ -437,7 +439,7 @@ today?</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjh-Qj-aVQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
                                                         <connections>
-                                                            <segue destination="R0P-io-GGH" kind="show" id="amB-Ga-lpL"/>
+                                                            <segue destination="R0P-io-GGH" kind="show" identifier="favourites" id="amB-Ga-lpL"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -598,6 +600,7 @@ today?</string>
         <image name="star" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="amB-Ga-lpL"/>
         <segue reference="erF-aq-fOU"/>
     </inferredMetricsTieBreakers>
 </document>

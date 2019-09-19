@@ -13,7 +13,10 @@ class FavouritesViewController: UIViewController
 {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var heading: UILabel!
-
+    @IBOutlet var bottomNav: UIView!
+    @IBOutlet var favouriteButton: UIImageView!
+    
+    var currentUser : User?
     var viewModel = PlacesViewModel()
     
     //pass value into this
@@ -32,8 +35,11 @@ class FavouritesViewController: UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView?.dataSource = self
-        collectionView?.delegate = self as? UICollectionViewDelegate
+        collectionView?.delegate = self
+        bottomNav.layer.cornerRadius = 10
+        bottomNav.layer.masksToBounds = true
     }
     
     @IBAction func homeBtnPressed(_ sender: Any) {
@@ -41,13 +47,20 @@ class FavouritesViewController: UIViewController
     }
 }
 
-extension FavouritesViewController : UICollectionViewDataSource
+extension FavouritesViewController : UICollectionViewDataSource,UICollectionViewDelegate
 {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(validateUser()){
+            if (currentUser?.getFavourites().count)! <= 0{
+                heading.text = "No Favourites"
+                favouriteButton.image = UIImage(named: "nav_heart_enabled")
+                return 0
+            }
+        }
         return viewModel.count
     }
     
@@ -64,6 +77,13 @@ extension FavouritesViewController : UICollectionViewDataSource
         title.numberOfLines = 0
         title.lineBreakMode = NSLineBreakMode.byWordWrapping
         title.sizeToFit()
+        //TODO:- Add null check
+        if(currentCollection == collections.favourites && (currentUser?.getFavourites().count)! <= 0){
+            heading.text = "No Favourites"
+            title.text = "Please favourite a place"
+            favouriteButton.image = UIImage(named: "nav_heart_enabled")
+            return cell
+        }
         
         switch currentCollection {
         
@@ -93,6 +113,20 @@ extension FavouritesViewController : UICollectionViewDataSource
             placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.collectionView{
+            
+//            currTitle = self.temp
+        }
+    }
+    
+    func validateUser() -> Bool{
+        if currentUser != nil{
+            return true
+        }
+        return false
     }
 }
 

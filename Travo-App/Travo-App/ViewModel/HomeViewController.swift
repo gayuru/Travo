@@ -41,11 +41,11 @@ class HomeViewController: UIViewController{
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
         
-        if traitCollection.forceTouchCapability == UIForceTouchCapability.available{
-            registerForPreviewing(with: self, sourceView: view)
-        }else{
-            print("Device doesn't support force touch")
-        }
+//        if traitCollection.forceTouchCapability == UIForceTouchCapability.available{
+//            registerForPreviewing(with: self, sourceView: view)
+//        }else{
+//            print("Device doesn't support force touch")
+//        }
     }
     
 
@@ -84,7 +84,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             cell.label1.numberOfLines = 3
             cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.label1.sizeToFit()
-           
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
@@ -98,7 +97,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
-            
             cell.locationLabel.text = tempRecommended[indexPath.row].name
             cell.placeImage.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
             cell.cityLabel.text = tempRecommended[indexPath.row].location
@@ -135,6 +133,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if(segue.identifier ==  "popularSeeAll"){
             let generalController = segue.destination as! FavouritesViewController
             generalController.currentCollection = FavouritesViewController.collections.popular
+        }else if(segue.identifier == "favourites"){
+            let favouritesController = segue.destination as! FavouritesViewController
+            favouritesController.currentUser = loggedInUser
         }
     }
     
@@ -150,17 +151,25 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
 
 
 //MARK:- Force Touch Capability
-extension HomeViewController:UIViewControllerPreviewingDelegate {
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let previewView = storyboard?.instantiateViewController(withIdentifier: "HomeView")
-        return previewView
-    }
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        let finalView = storyboard?.instantiateViewController(withIdentifier: "PlaceView")
-        show(finalView! , sender: self)
-    }
-}
+//extension HomeViewController:UIViewControllerPreviewingDelegate {
+////    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+////        if let indexPath = popularPlaces.indexPathForItem(at: location){
+////            let cell = popularPlaces.cellForItem(at: indexPath) as! PlacesCollectionViewCell
+////            let viewsTo3DTouch = [cell.backgroundImage]
+////            for (index,view) in viewsTo3DTouch.enumerated() where touchedView(view, location: location){
+////
+////            }
+////        }
+//
+////        let previewView = storyboard?.instantiateViewController(withIdentifier: "HomeView")
+////        return previewView
+//    }
+//
+//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//        let finalView = storyboard?.instantiateViewController(withIdentifier: "PlaceView")
+//        show(finalView! , sender: self)
+//    }
+//}
 
 //MARK:- UIColor Extensions for HexCode
 extension UIColor {

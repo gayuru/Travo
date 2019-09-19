@@ -14,6 +14,7 @@ class User{
     private var password:String
     private var aboutMeDesc:String
     private var citiesVisited: [String]
+    private var favourites:[Place]
     
     init(name:String,password:String,email:String,aboutMeDesc:String) {
         self.name = name
@@ -21,6 +22,7 @@ class User{
         self.email = email
         self.aboutMeDesc = aboutMeDesc
         self.citiesVisited = []
+        self.favourites = [Place]()
     }
     
     func getUsername()->String{
@@ -69,6 +71,31 @@ class User{
     func setDescription(newDesc:String)->Bool{
         self.aboutMeDesc = newDesc
         return true
+    }
+    
+    func addToFavourites(place:Place)->Bool{
+        if(favourites.contains(where: { (Place) -> Bool in
+            Place.name == place.name
+        })) {
+            return true
+        }
+        return false
+    }
+    
+    func removeFavourites(place:Place) -> Bool{
+        if(favourites.contains(where: { (Place) -> Bool in
+            Place.name == place.name
+        })){
+            favourites.removeAll { (Place) -> Bool in
+                return Place.name == place.name
+            }
+          return true
+        }
+        return false
+    }
+    
+    func getFavourites()->[Place]{
+        return self.favourites
     }
     
 }
