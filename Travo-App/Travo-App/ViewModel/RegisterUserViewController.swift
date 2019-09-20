@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterUserViewController: UIViewController, UITextFieldDelegate {
+class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var imageUpload: UIButton!
     
@@ -20,12 +20,18 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UnderlinedTextField!
     @IBOutlet weak var faceIDCheckbox: CheckboxButton!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var nameHintPopoverButton: UIButton!
+    @IBOutlet weak var emailHintPopoverButton: UIButton!
+    @IBOutlet weak var passwordHintPopoverButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let fingerPress: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
         view.addGestureRecognizer(fingerPress)
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        nameHintPopoverButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
     }
     
     // Segue Overrides
@@ -71,5 +77,33 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
+    }
+    
+        // HINT POPOVER METHODS
+    @IBAction func nameHintPopoverButtonClicked(_ sender: Any) {
+    }
+    @IBAction func emailHintPopoverButtonClicked(_ sender: Any) {
+    }
+    @IBAction func passwordHintPopoverButtonClicked(_ sender: Any) {
+    }
+    
+    @objc
+    private func tapped() {
+        
+        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") else { return }
+        
+        popVC.modalPresentationStyle = .popover
+
+        let popOverVC = popVC.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.sourceView = self.nameHintPopoverButton
+        popOverVC?.sourceRect = CGRect(x: self.nameHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
+        popVC.preferredContentSize = CGSize(width: 100, height: 30)
+        
+        self.present(popVC, animated: true)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
 }
