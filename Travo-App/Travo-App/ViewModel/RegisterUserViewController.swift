@@ -13,11 +13,13 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imageUpload: UIButton!
     
     var usersViewModel:UsersViewModel?
+    var allowedLogin:Bool = false
     
     @IBOutlet weak var nameTextField: UnderlinedTextField!
     @IBOutlet weak var emailTextField: UnderlinedTextField!
     @IBOutlet weak var passwordTextField: UnderlinedTextField!
     @IBOutlet weak var faceIDCheckbox: CheckboxButton!
+    @IBOutlet weak var signUpButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         let fingerPress: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
@@ -26,12 +28,22 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
     }
     
+    // Segue Overrides
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "SegueToHome") {
             let homeViewController = segue.destination as! HomeViewController
             // Segue will not be triggered unless the usersViewModel is not nil
             homeViewController.loggedInUser = usersViewModel!.getCurrentUser()
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if (identifier == "SegueToHome") {
+            if  allowedLogin == false {
+                return false
+            }
+        }
+        return true
     }
     
     //Delegates for closing keyboard on "return" keypress
@@ -48,12 +60,15 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
     // REGISTER VIEW METHODS
     @IBAction func registerSignUpButtonClicked(_ sender: Any) {
         if let presentUsersViewModel = usersViewModel {
-            if (presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, aboutMeDesc: "")) {
-                self.performSegue(withIdentifier: "SegueToHome", sender: self)
+            let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, aboutMeDesc: "")
+            if (validRegistration) {
+                allowedLogin = true
+                self.shouldPerformSegue(withIdentifier: "SegueToHome", sender: self)
             } else {
                 let loginAlert = UIAlertController(title: "Missing Details", message: "Some registration details are missing", preferredStyle: UIAlertController.Style.alert)
                 loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
                 self.present(loginAlert, animated: true, completion: nil)
+                return
             }
         }
     }

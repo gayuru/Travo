@@ -232,6 +232,7 @@
                         <outlet property="imageUpload" destination="qvi-en-6K1" id="peJ-9u-0Hp"/>
                         <outlet property="nameTextField" destination="ikN-BK-KyO" id="ZK9-CN-jBm"/>
                         <outlet property="passwordTextField" destination="3A4-dX-tZl" id="BMR-kT-hZU"/>
+                        <outlet property="signUpButton" destination="eqx-6o-xdt" id="kBX-0w-Qys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lo8-16-Cxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
