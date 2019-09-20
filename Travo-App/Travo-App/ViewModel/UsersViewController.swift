@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
+class UsersViewController: UIViewController, UITextFieldDelegate {
     
     // Login View
         // Text Fields
@@ -23,6 +23,10 @@ class UsersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let fingerPress: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        view.addGestureRecognizer(fingerPress)
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     // LOGIN VIEW METHODS
@@ -36,6 +40,18 @@ class UsersViewController: UIViewController {
         }
     }
     
+        //Delegates for closing keyboard on "return" keypress
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func closeKeyboard() {
+        view.endEditing(true)
+    }
+    
+        // View Context Specific Functions
     @IBAction func loginButtonClicked(_ sender: Any) {
         
         if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
@@ -50,4 +66,6 @@ class UsersViewController: UIViewController {
     @IBAction func signUpButtonClicked(_ sender: Any) {
         self.performSegue(withIdentifier: "SegueToRegister", sender: self)
     }
+    
+
 }

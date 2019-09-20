@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterUserViewController: UIViewController {
+class RegisterUserViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var imageUpload: UIButton!
     
@@ -20,6 +20,10 @@ class RegisterUserViewController: UIViewController {
     @IBOutlet weak var faceIDCheckbox: CheckboxButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let fingerPress: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        view.addGestureRecognizer(fingerPress)
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,23 +34,25 @@ class RegisterUserViewController: UIViewController {
         }
     }
     
+    //Delegates for closing keyboard on "return" keypress
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func closeKeyboard() {
+        view.endEditing(true)
+    }
+    
     // REGISTER VIEW METHODS
     @IBAction func registerSignUpButtonClicked(_ sender: Any) {
-        if (usersViewModel != nil) {
-            guard let name = nameTextField.text,
-                let email = emailTextField.text,
-                let password = passwordTextField.text else {
-                    let loginAlert = UIAlertController(title: "Missing Details", message: "Some registration details are missing", preferredStyle: UIAlertController.Style.alert)
-                    loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(loginAlert, animated: true, completion: nil)
-                    return
-            }
-            
-            if (usersViewModel!.createUser(username: name, email: email, password: password, aboutMeDesc: "")) {
+        if let presentUsersViewModel = usersViewModel {
+            if (presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, aboutMeDesc: "")) {
                 self.performSegue(withIdentifier: "SegueToHome", sender: self)
             } else {
-                let loginAlert = UIAlertController(title: "Failed To Create Account", message: "Something went wrong creating your account", preferredStyle: UIAlertController.Style.alert)
-                loginAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                let loginAlert = UIAlertController(title: "Missing Details", message: "Some registration details are missing", preferredStyle: UIAlertController.Style.alert)
+                loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
                 self.present(loginAlert, animated: true, completion: nil)
             }
         }
