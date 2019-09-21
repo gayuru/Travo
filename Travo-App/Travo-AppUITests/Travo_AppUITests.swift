@@ -57,7 +57,7 @@ class Travo_AppUITests: XCTestCase {
     
     func testInvalidLogin_wrongCredentials(){
     }
-    
+     
     
     //------ DASHBOARD STORYBOARD ------//
     //pre-condition
@@ -180,61 +180,99 @@ class Travo_AppUITests: XCTestCase {
     //Tests _ Place storyboard
     func testPlaceLablesExist(){
         //pre-condition
-        let app = XCUIApplication()
+        loginSuccessSetUp()
         app.buttons["Login"].tap()
         
         //action
-        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
-        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
+        app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 2).children(matching: .cell).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.tap()
+        app.staticTexts["Federation Square"].tap()
+        
         
         //testing
-        let presentTitle = app.staticTexts["National Gallery of Victoria"].exists
-        let presentOpenTime = app.staticTexts["10AM - 5PM"].exists
-        let presentRating = app.staticTexts["4.7"].exists
+        let presentTitle = app.staticTexts["Federation Square"]
+        let presentOpenTime = app.staticTexts["Open 24 Hours"]
+        let presentRating =  app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element
+        let weather = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element
+        let likeBtn = app.buttons["like"]
+        let visitBtn = app.buttons["Visit"]
         
-        XCTAssertTrue(presentTitle && presentOpenTime && presentRating)
+        XCTAssert(presentTitle.exists)
+        XCTAssert(presentOpenTime.exists)
+        XCTAssert(presentRating.exists)
+        XCTAssert(visitBtn.exists)
+        XCTAssert(likeBtn.exists)
+        XCTAssert(weather.exists)
     }
     
     func testPlaceWithCorrectDetails(){
-        
-        let validTitle = "National Gallery of Victoria"
-        let validOpenTime = "10AM - 5PM"
-        let validRating = "4.7"
+        let validTitle = "Royal Botanical Garden"
+        let validOpenTime = "7.30AM - 6.30PM"
         
         //pre-condition
-        let app = XCUIApplication()
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        //action
+        app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 1).cells.otherElements.containing(.image, identifier:"place_botanical_garden").element.tap()
+    
+        let presentTitle = app.staticTexts["Royal Botanical Garden"]
+        let presentOpenTime = app.staticTexts["7.30AM - 6.30PM"]
+        
+        //testing
+        XCTAssertEqual(validTitle, presentTitle.firstMatch.label)
+        XCTAssertEqual(validOpenTime, presentOpenTime.label)
+    }
+    
+    func testPlaceCorrectImage(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        //action
+        app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 1).cells.otherElements.containing(.image, identifier:"place_botanical_garden").element.tap()
+        
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).images["place_botanical_garden"]
+        XCTAssert(element.exists)
+    }
+    
+    
+    func testPlaceGetDirections(){
+        //pre-condition
+        loginSuccessSetUp()
         app.buttons["Login"].tap()
         
         //action
-        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
-        app.scrollViews.otherElements.buttons["aiony haust 3TLl 97HNJo unspla"].tap()
+        app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 2).children(matching: .cell).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.tap()
+        app.staticTexts["Federation Square"].tap()
         
-        let presentTitle = app.staticTexts["National Gallery of Victoria"]
-        let presentOpenTime = app.staticTexts["10AM - 5PM"]
-        let presentRating = app.staticTexts["4.7"]
+        let visitBtn = app.buttons["Visit"]
+        XCTAssert(visitBtn.exists)
+        visitBtn.tap()
+    }
+    
+    func testPlaceRatingValid(){
+        
+        let validRating = "Rating 4.8"
+        
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        //action
+        app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 1).cells.otherElements.containing(.image, identifier:"place_botanical_garden").element.tap()
+        
+        let presentRating =  app.otherElements["Rating 4.8"]
         
         //testing
-        XCTAssertEqual(validTitle, presentTitle.label)
-        XCTAssertEqual(validOpenTime, presentOpenTime.label)
         XCTAssertEqual(validRating, presentRating.label)
     }
     
-    func testPlace_CorrectImage(){
-       
-    }
-    
-    
-    func testPlace_getDirections(){
-        
-    }
-    
-    func testPlace_ratingValid(){
-        
-    }
-    
     //------ FAVORUITES STORYBOARD ------//
-
+    
     //------ FEELING LUCKY STORYBOARD ------//
+    
+    
+        
+    }
+    
+
 
     
-}
+
