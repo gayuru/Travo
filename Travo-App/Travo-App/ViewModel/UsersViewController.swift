@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class UsersViewController: UIViewController, UITextFieldDelegate {
     
     // Login View
@@ -55,7 +55,9 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonClicked(_ sender: Any) {
         
         if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
+            SVProgressHUD.show()
             self.performSegue(withIdentifier: "SegueToHome", sender: self)
+            SVProgressHUD.dismiss()
         } else {
             let loginAlert = UIAlertController(title: "Incorrect Login", message: "Login Credentials incorrect", preferredStyle: UIAlertController.Style.alert)
             loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
