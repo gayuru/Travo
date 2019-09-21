@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32A19D808285A9F88854BA3C /* Pods_Travo_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B6421737912049669A6181 /* Pods_Travo_AppUITests.framework */; };
+		0B6EEF8B01FC86CE957A908E /* Pods_Travo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEB89ECF460947E65491E61 /* Pods_Travo_App.framework */; };
 		552BAA892318AB210000BBC4 /* FeelingLucky.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */; };
 		552BAA8B2318AB390000BBC4 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA8A2318AB390000BBC4 /* Camera.storyboard */; };
 		556015912331F93600302676 /* FeelingLuckyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015902331F93600302676 /* FeelingLuckyViewController.swift */; };
@@ -48,7 +48,7 @@
 		BDD041E5230CFB39004F28DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E4230CFB39004F28DF /* Login.storyboard */; };
 		BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */; };
 		BDD041E9230D45E3004F28DF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD041E8230D45E3004F28DF /* Register.storyboard */; };
-		E37BE05BD3D9002614A43AE7 /* Pods_Travo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2069CEF8312877F15045B094 /* Pods_Travo_App.framework */; };
+		EBD89D8AB931B12618BE81EE /* Pods_Travo_App_Travo_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8DCE4824A35FC1F61D2A0B /* Pods_Travo_App_Travo_AppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2069CEF8312877F15045B094 /* Pods_Travo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27B6421737912049669A6181 /* Pods_Travo_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2897C1F998D97B21F1F40238 /* Pods-Travo-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Travo-AppUITests/Pods-Travo-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		34E7E66B68BB68938CD64E7F /* Pods-Travo-App-Travo-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App-Travo-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Travo-App-Travo-AppUITests/Pods-Travo-App-Travo-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3F8DCE4824A35FC1F61D2A0B /* Pods_Travo_App_Travo_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_App_Travo_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeelingLucky.storyboard; sourceTree = "<group>"; };
 		552BAA8A2318AB390000BBC4 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		554FA11C233074E000BD5156 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
@@ -82,6 +81,8 @@
 		55E330FA23292669009514CC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		55E33123232BA853009514CC /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 		55E33125232BA8BE009514CC /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		5DEB89ECF460947E65491E61 /* Pods_Travo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64FAE0B831057CDFBA064D2B /* Pods-Travo-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App.debug.xcconfig"; path = "Target Support Files/Pods-Travo-App/Pods-Travo-App.debug.xcconfig"; sourceTree = "<group>"; };
 		770B85042310D0FD00A431E5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		770B85072310D12100A431E5 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
 		770B850A2310D7B200A431E5 /* HomeViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController1.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		773EACDF232F72190009808A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		773EACE1232F734A0009808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Travo-AppUITests/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVisitedCollectionViewCell.swift; sourceTree = "<group>"; };
-		7740432AD8EAA6C2EA8E4F4B /* Pods-Travo-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Travo-AppUITests/Pods-Travo-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		77425D0423272E4C00C6B844 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		77425D0823272EF300C6B844 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7745DA9E232E2B20006C2E0E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
 		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
-		C1E566E19AB20E01108B91A6 /* Pods-Travo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App.release.xcconfig"; path = "Target Support Files/Pods-Travo-App/Pods-Travo-App.release.xcconfig"; sourceTree = "<group>"; };
-		E066A955BC4ECF21432C9DD1 /* Pods-Travo-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App.debug.xcconfig"; path = "Target Support Files/Pods-Travo-App/Pods-Travo-App.debug.xcconfig"; sourceTree = "<group>"; };
+		CFDA496C2A0A648605C56A81 /* Pods-Travo-App-Travo-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App-Travo-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Travo-App-Travo-AppUITests/Pods-Travo-App-Travo-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DCC507927D45DF6E80BE893E /* Pods-Travo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App.release.xcconfig"; path = "Target Support Files/Pods-Travo-App/Pods-Travo-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A19D808285A9F88854BA3C /* Pods_Travo_AppUITests.framework in Frameworks */,
+				EBD89D8AB931B12618BE81EE /* Pods_Travo_App_Travo_AppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,13 +130,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E37BE05BD3D9002614A43AE7 /* Pods_Travo_App.framework in Frameworks */,
+				0B6EEF8B01FC86CE957A908E /* Pods_Travo_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A00F46991022B5555A88391 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DEB89ECF460947E65491E61 /* Pods_Travo_App.framework */,
+				3F8DCE4824A35FC1F61D2A0B /* Pods_Travo_App_Travo_AppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		55971C64232E55450018ABF8 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,15 +172,6 @@
 			path = Favourites;
 			sourceTree = "<group>";
 		};
-		5925E2F4FAB64A96F869B22A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2069CEF8312877F15045B094 /* Pods_Travo_App.framework */,
-				27B6421737912049669A6181 /* Pods_Travo_AppUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7783A64423036FFA00ED25F3 = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +180,7 @@
 				7783A64E23036FFA00ED25F3 /* Products */,
 				55971C64232E55450018ABF8 /* Recovered References */,
 				D4DE7AB1473CF6EB08ACB114 /* Pods */,
-				5925E2F4FAB64A96F869B22A /* Frameworks */,
+				0A00F46991022B5555A88391 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,10 +268,10 @@
 		D4DE7AB1473CF6EB08ACB114 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E066A955BC4ECF21432C9DD1 /* Pods-Travo-App.debug.xcconfig */,
-				C1E566E19AB20E01108B91A6 /* Pods-Travo-App.release.xcconfig */,
-				2897C1F998D97B21F1F40238 /* Pods-Travo-AppUITests.debug.xcconfig */,
-				7740432AD8EAA6C2EA8E4F4B /* Pods-Travo-AppUITests.release.xcconfig */,
+				64FAE0B831057CDFBA064D2B /* Pods-Travo-App.debug.xcconfig */,
+				DCC507927D45DF6E80BE893E /* Pods-Travo-App.release.xcconfig */,
+				CFDA496C2A0A648605C56A81 /* Pods-Travo-App-Travo-AppUITests.debug.xcconfig */,
+				34E7E66B68BB68938CD64E7F /* Pods-Travo-App-Travo-AppUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -283,10 +283,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55971C79232E7AEF0018ABF8 /* Build configuration list for PBXNativeTarget "Travo-AppUITests" */;
 			buildPhases = (
-				8272577C4042555B0E00D441 /* [CP] Check Pods Manifest.lock */,
+				B2B71546FAFF70D7B692C152 /* [CP] Check Pods Manifest.lock */,
 				55971C6E232E7AEF0018ABF8 /* Sources */,
 				55971C6F232E7AEF0018ABF8 /* Frameworks */,
 				55971C70232E7AEF0018ABF8 /* Resources */,
+				0BB37A05AC0CAC28FEC5B33A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,11 +303,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7783A65F23036FFC00ED25F3 /* Build configuration list for PBXNativeTarget "Travo-App" */;
 			buildPhases = (
-				C904A1E3784D6DFD948651E9 /* [CP] Check Pods Manifest.lock */,
+				80447F79A1A0F8D63D09F857 /* [CP] Check Pods Manifest.lock */,
 				7783A64923036FFA00ED25F3 /* Sources */,
 				7783A64A23036FFA00ED25F3 /* Frameworks */,
 				7783A64B23036FFA00ED25F3 /* Resources */,
-				4C3DB0BAC08EE03C45996DC8 /* [CP] Embed Pods Frameworks */,
+				51064A0800C5B2254D5DFF59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -384,7 +385,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C3DB0BAC08EE03C45996DC8 /* [CP] Embed Pods Frameworks */ = {
+		0BB37A05AC0CAC28FEC5B33A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travo-App-Travo-AppUITests/Pods-Travo-App-Travo-AppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travo-App-Travo-AppUITests/Pods-Travo-App-Travo-AppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travo-App-Travo-AppUITests/Pods-Travo-App-Travo-AppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51064A0800C5B2254D5DFF59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -401,29 +419,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travo-App/Pods-Travo-App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8272577C4042555B0E00D441 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Travo-AppUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C904A1E3784D6DFD948651E9 /* [CP] Check Pods Manifest.lock */ = {
+		80447F79A1A0F8D63D09F857 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,6 +435,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Travo-App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B71546FAFF70D7B692C152 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Travo-App-Travo-AppUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,8 +542,9 @@
 /* Begin XCBuildConfiguration section */
 		55971C7A232E7AEF0018ABF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2897C1F998D97B21F1F40238 /* Pods-Travo-AppUITests.debug.xcconfig */;
+			baseConfigurationReference = CFDA496C2A0A648605C56A81 /* Pods-Travo-App-Travo-AppUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56CT9TQ9TD;
 				INFOPLIST_FILE = "Travo-AppUITests/Info.plist";
@@ -544,8 +563,9 @@
 		};
 		55971C7B232E7AEF0018ABF8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7740432AD8EAA6C2EA8E4F4B /* Pods-Travo-AppUITests.release.xcconfig */;
+			baseConfigurationReference = 34E7E66B68BB68938CD64E7F /* Pods-Travo-App-Travo-AppUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56CT9TQ9TD;
 				INFOPLIST_FILE = "Travo-AppUITests/Info.plist";
@@ -680,11 +700,11 @@
 		};
 		7783A66023036FFC00ED25F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E066A955BC4ECF21432C9DD1 /* Pods-Travo-App.debug.xcconfig */;
+			baseConfigurationReference = 64FAE0B831057CDFBA064D2B /* Pods-Travo-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 56CT9TQ9TD;
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -699,11 +719,11 @@
 		};
 		7783A66123036FFC00ED25F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1E566E19AB20E01108B91A6 /* Pods-Travo-App.release.xcconfig */;
+			baseConfigurationReference = DCC507927D45DF6E80BE893E /* Pods-Travo-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 56CT9TQ9TD;
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Travo_AppUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Travo_AppUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_Travo_App_Travo_AppUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Travo_App_Travo_AppUITestsVersionString[];
 

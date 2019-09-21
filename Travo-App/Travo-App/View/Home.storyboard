@@ -42,7 +42,7 @@
                                                             <constraint firstAttribute="width" constant="50" id="1EB-sW-b5y"/>
                                                             <constraint firstAttribute="height" constant="50" id="T7N-sZ-zxx"/>
                                                         </constraints>
-                                                        <state key="normal" image="aiony-haust-3TLl_97HNJo-unsplash"/>
+                                                        <state key="normal" image="profile"/>
                                                         <connections>
                                                             <segue destination="2bj-ZS-aTp" kind="show" id="erF-aq-fOU">
                                                                 <segue key="commit" inheritsFrom="parent" id="d1J-ok-8i2"/>
@@ -294,7 +294,7 @@ today?</string>
                                                                             <color key="textColor" red="0.31811469790000002" green="0.33644410969999999" blue="0.3803984225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
                                                                             <rect key="frame" x="8" y="135" width="76" height="11"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="hUT-S4-tgm"/>
@@ -590,13 +590,13 @@ today?</string>
     </scenes>
     <resources>
         <image name="Logo" width="500" height="338"/>
-        <image name="aiony-haust-3TLl_97HNJo-unsplash" width="500" height="500"/>
         <image name="heart" width="21" height="19"/>
         <image name="nav_camera" width="166.5" height="150.5"/>
         <image name="nav_heart" width="166.5" height="150.5"/>
         <image name="nav_home_enabled" width="166.5" height="152"/>
         <image name="nav_lucky" width="166.5" height="183"/>
         <image name="place_botanical_garden" width="2047" height="1152"/>
+        <image name="profile" width="500" height="500"/>
         <image name="star" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
