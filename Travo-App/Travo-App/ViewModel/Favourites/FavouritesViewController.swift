@@ -15,10 +15,11 @@ class FavouritesViewController: UIViewController
     @IBOutlet weak var heading: UILabel!
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var favouriteButton: UIImageView!
+    @IBOutlet var displayLabel: UILabel!
     
     var currentUser : User?
     var viewModel = PlacesViewModel()
-    
+    var currTitle : String = ""
     //pass value into this
     var currentCollection:collections = collections.favourites
     
@@ -56,11 +57,15 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(validateUser()){
             if (currentUser?.getFavourites().count)! <= 0{
-                heading.text = "No Favourites"
+                displayLabel.text = "No Favourites"
                 favouriteButton.image = UIImage(named: "nav_heart_enabled")
                 return 0
+            }else{
+                displayLabel.isHidden = true
+                return (currentUser?.getFavourites().count)!
             }
         }
+       displayLabel.isHidden = true
         return viewModel.count
     }
     
@@ -79,9 +84,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         title.sizeToFit()
         //TODO:- Add null check
         if(currentCollection == collections.favourites && (currentUser?.getFavourites().count)! <= 0){
-            heading.text = "No Favourites"
-            title.text = "Please favourite a place"
-            favouriteButton.image = UIImage(named: "nav_heart_enabled")
             return cell
         }
         
@@ -105,20 +107,47 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             placeRating.text = String(tempRecommended[indexPath.row].starRating)
         default:
             heading.text = "Favourites"
-            title.text = viewModel.getTitleFor(index: indexPath.row)
-            imageView.image = viewModel.getImageURLFor(index: indexPath.row)
-            location.text = viewModel.getLocationFor(index: indexPath.row)
-            openTime.text = viewModel.getOpenTimeFor(index: indexPath.row)
-            placeRating.rating = viewModel.getStarRating(index: indexPath.row)
-            placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
+            if((currentUser?.getFavourites().count)!>0){
+                if let favourites = currentUser?.getFavourites()[indexPath.row]{
+                    title.text = favourites.name
+                    imageView.image = UIImage(named: favourites.imageURL)
+                    location.text = favourites.location
+                    openTime.text = favourites.openTime
+                    placeRating.rating = favourites.starRating
+                    placeRating.text = String(favourites.starRating)
+                    favouriteButton.image = UIImage(named: "nav_heart_enabled")
+                }
+            }else{
+                title.text = viewModel.getTitleFor(index: indexPath.row)
+                imageView.image = viewModel.getImageURLFor(index: indexPath.row)
+                location.text = viewModel.getLocationFor(index: indexPath.row)
+                openTime.text = viewModel.getOpenTimeFor(index: indexPath.row)
+                placeRating.rating = viewModel.getStarRating(index: indexPath.row)
+                placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
+            }
+         
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.collectionView{
-            
-//            currTitle = self.temp
+        if currentCollection == collections.popular{
+            currTitle = tempPopular[indexPath.row].name
+            performSegue(withIdentifier: "goToPlace", sender: self)
+        }else if currentCollection == collections.recommended{
+            currTitle = tempRecommended[indexPath.row].name
+            performSegue(withIdentifier: "goToPlace", sender: self)
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToPlace"){
+            let placeController = segue.destination as! PlaceViewController
+            placeController.indexPass = currTitle
+        }else if (segue.identifier == "goToPlace"){
+            let placeController = segue.destination as! PlaceViewController
+            placeController.indexPass = currTitle
         }
     }
     

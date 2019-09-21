@@ -1,0 +1,6 @@
+framework module Pods_Travo_App_Travo_AppUITests {
+  umbrella header "Pods-Travo-App-Travo-AppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

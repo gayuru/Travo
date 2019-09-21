@@ -108,6 +108,8 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
             cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.locationLabel.sizeToFit()
+            cell.likeBtn.tag = indexPath.row
+            cell.likeBtn.addTarget(self, action: #selector(likeButtonTapped(sender:)), for: UIControl.Event.touchUpInside)
             return cell
         }
     }
@@ -146,7 +148,17 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     @IBAction func popularSeeAll(_ sender: Any) {
         performSegue(withIdentifier: "popularSeeAll", sender: self)
     }
-
+    
+    @objc func likeButtonTapped(sender:UIButton){
+        if sender.currentImage == UIImage(named: "heart") {
+            if ((loggedInUser?.addToFavourites(place: tempRecommended[sender.tag]))!){
+                sender.setImage(UIImage(named:"like"), for: .normal)
+            }
+        }else{
+            sender.setImage(UIImage(named:"heart"), for: .normal)
+            _ = loggedInUser?.removeFavourites(place: tempRecommended[sender.tag])
+        }
+    }
 }
 
 

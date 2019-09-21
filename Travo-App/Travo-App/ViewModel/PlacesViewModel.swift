@@ -69,7 +69,7 @@ struct PlacesViewModel{
         return randomNumber
     }
 
-    //better way to do this
+    //better way to do this //put guard let statement for this 
     func getIndex(title:String) -> Int{
         let index = places.firstIndex { (Place) -> Bool in
             Place.name == title

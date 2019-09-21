@@ -28,6 +28,7 @@ class FeelingLuckyViewController: UIViewController {
                             }
             })
         
+       
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.btn.layer.removeAllAnimations()
         }
