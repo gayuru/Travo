@@ -15,6 +15,7 @@ class FavouritesViewController: UIViewController
     @IBOutlet weak var heading: UILabel!
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var favouriteButton: UIImageView!
+    @IBOutlet var displayLabel: UILabel!
     
     var currentUser : User?
     var viewModel = PlacesViewModel()
@@ -56,7 +57,7 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(validateUser()){
             if (currentUser?.getFavourites().count)! <= 0{
-                heading.text = "No Favourites"
+                displayLabel.text = "No Favourites"
                 favouriteButton.image = UIImage(named: "nav_heart_enabled")
                 return 0
             }else{
@@ -81,9 +82,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         title.sizeToFit()
         //TODO:- Add null check
         if(currentCollection == collections.favourites && (currentUser?.getFavourites().count)! <= 0){
-            heading.text = "No Favourites"
-            title.text = "Please favourite a place"
-            favouriteButton.image = UIImage(named: "nav_heart_enabled")
             return cell
         }
         

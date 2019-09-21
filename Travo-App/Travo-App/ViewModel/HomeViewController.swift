@@ -108,7 +108,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
             cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.locationLabel.sizeToFit()
-//            cell.likeBtn.addTarget(self, action: #selector(likeButtonTapped(cell: cell)), for: UIControl.Event.touchUpInside)
             cell.likeBtn.tag = indexPath.row
             cell.likeBtn.addTarget(self, action: #selector(likeButtonTapped(sender:)), for: UIControl.Event.touchUpInside)
             return cell
