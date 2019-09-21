@@ -23,10 +23,10 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let fingerPress: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
-        view.addGestureRecognizer(fingerPress)
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        view.addGestureRecognizer(userTappedOtherThanKeyboard)
     }
     
     // LOGIN VIEW METHODS

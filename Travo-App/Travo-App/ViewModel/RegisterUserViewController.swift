@@ -27,10 +27,10 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let fingerPress: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
-        view.addGestureRecognizer(fingerPress)
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        let userTappedOtherThanKeyboard: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("closeKeyboard")))
+        view.addGestureRecognizer(userTappedOtherThanKeyboard)
         nameHintPopoverButton.addTarget(self, action: #selector(tappedNameHint), for: .touchUpInside)
         emailHintPopoverButton.addTarget(self, action: #selector(tappedEmailHint), for: .touchUpInside)
         passwordHintPopoverButton.addTarget(self, action: #selector(tappedPasswordHint), for: .touchUpInside)
