@@ -18,6 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQA-pC-ZfK">
+                                <rect key="frame" x="135.5" y="272" width="49.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gM-XF-3Oe">
                                 <rect key="frame" x="114" y="35" width="92.5" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -275,9 +281,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="VQA-pC-ZfK" firstAttribute="centerX" secondItem="OUb-he-wgf" secondAttribute="centerX" id="3SC-1l-irz"/>
                             <constraint firstItem="Ahp-be-s13" firstAttribute="leading" secondItem="VtI-Yk-Yu3" secondAttribute="leading" id="47w-ta-6St"/>
                             <constraint firstItem="0gM-XF-3Oe" firstAttribute="centerX" secondItem="OUb-he-wgf" secondAttribute="centerX" id="4ra-R4-aI8"/>
                             <constraint firstItem="1Dl-mu-Z9n" firstAttribute="leading" secondItem="VtI-Yk-Yu3" secondAttribute="leading" constant="16" id="5Sq-w8-vM6"/>
+                            <constraint firstItem="VQA-pC-ZfK" firstAttribute="centerY" secondItem="OUb-he-wgf" secondAttribute="centerY" id="Cm4-Fy-pwF"/>
                             <constraint firstItem="Ahp-be-s13" firstAttribute="top" secondItem="0gM-XF-3Oe" secondAttribute="bottom" constant="8" id="D5S-k6-iRE"/>
                             <constraint firstItem="Ahp-be-s13" firstAttribute="top" secondItem="0gM-XF-3Oe" secondAttribute="bottom" constant="8" id="PUr-wL-oQt"/>
                             <constraint firstItem="VtI-Yk-Yu3" firstAttribute="bottom" secondItem="1Dl-mu-Z9n" secondAttribute="bottom" constant="9" id="Qe4-J7-nWL"/>
@@ -291,15 +299,25 @@
                     <connections>
                         <outlet property="bottomNav" destination="1Dl-mu-Z9n" id="gjW-Up-gbx"/>
                         <outlet property="collectionView" destination="Ahp-be-s13" id="joT-X6-ovT"/>
+                        <outlet property="displayLabel" destination="VQA-pC-ZfK" id="BRV-8Z-IwK"/>
                         <outlet property="favouriteButton" destination="Dsc-YQ-XXM" id="3ld-9c-4Lq"/>
                         <outlet property="heading" destination="0gM-XF-3Oe" id="PH1-5o-eCz"/>
                         <segue destination="eNK-zZ-eKt" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="Nyf-2Y-cwu"/>
+                        <segue destination="AjV-Rk-hD5" kind="show" identifier="goToPlace" id="Epx-KZ-Ln3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iA4-dh-9Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eNK-zZ-eKt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="982.5" y="32.74647887323944"/>
+        </scene>
+        <!--Place-->
+        <scene sceneID="O5y-bg-1WI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Place" id="AjV-Rk-hD5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJV-ns-QH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="-69"/>
         </scene>
         <!--Camera-->
         <scene sceneID="Agm-pv-cS3">
