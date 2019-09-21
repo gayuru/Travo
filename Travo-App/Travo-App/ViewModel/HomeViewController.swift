@@ -156,7 +156,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             }
         }else{
             sender.setImage(UIImage(named:"heart"), for: .normal)
-            loggedInUser?.removeFavourites(place: tempRecommended[sender.tag])
+            _ = loggedInUser?.removeFavourites(place: tempRecommended[sender.tag])
         }
     }
 }

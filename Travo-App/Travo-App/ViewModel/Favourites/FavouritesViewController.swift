@@ -61,9 +61,11 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
                 favouriteButton.image = UIImage(named: "nav_heart_enabled")
                 return 0
             }else{
+                displayLabel.isHidden = true
                 return (currentUser?.getFavourites().count)!
             }
         }
+       displayLabel.isHidden = true
         return viewModel.count
     }
     

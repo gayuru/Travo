@@ -527,7 +527,7 @@
 			baseConfigurationReference = 2897C1F998D97B21F1F40238 /* Pods-Travo-AppUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CT9TQ9TD;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Travo-AppUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,7 +547,7 @@
 			baseConfigurationReference = 7740432AD8EAA6C2EA8E4F4B /* Pods-Travo-AppUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56CT9TQ9TD;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Travo-AppUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
