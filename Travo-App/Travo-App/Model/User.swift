@@ -74,9 +74,13 @@ class User{
     }
     
     func addToFavourites(place:Place)->Bool{
-        if(favourites.contains(where: { (Place) -> Bool in
-            Place.name == place.name
-        })) {
+        if(favourites.count<=0) {
+            favourites.append(place)
+            return true
+        }else if(favourites.contains(where: { (Place) -> Bool in
+            Place.name != place.name
+        })){
+            favourites.append(place)
             return true
         }
         return false

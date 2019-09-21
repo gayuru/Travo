@@ -18,7 +18,7 @@ class FavouritesViewController: UIViewController
     
     var currentUser : User?
     var viewModel = PlacesViewModel()
-    
+    var currTitle : String = ""
     //pass value into this
     var currentCollection:collections = collections.favourites
     
@@ -59,6 +59,8 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
                 heading.text = "No Favourites"
                 favouriteButton.image = UIImage(named: "nav_heart_enabled")
                 return 0
+            }else{
+                return (currentUser?.getFavourites().count)!
             }
         }
         return viewModel.count
@@ -105,21 +107,42 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             placeRating.text = String(tempRecommended[indexPath.row].starRating)
         default:
             heading.text = "Favourites"
-            title.text = viewModel.getTitleFor(index: indexPath.row)
-            imageView.image = viewModel.getImageURLFor(index: indexPath.row)
-            location.text = viewModel.getLocationFor(index: indexPath.row)
-            openTime.text = viewModel.getOpenTimeFor(index: indexPath.row)
-            placeRating.rating = viewModel.getStarRating(index: indexPath.row)
-            placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
+            if((currentUser?.getFavourites().count)!>0){
+                if let favourites = currentUser?.getFavourites()[indexPath.row]{
+                    title.text = favourites.name
+                    imageView.image = UIImage(named: favourites.imageURL)
+                    location.text = favourites.location
+                    openTime.text = favourites.openTime
+                    placeRating.rating = favourites.starRating
+                    placeRating.text = String(favourites.starRating)
+                }
+            }else{
+                title.text = viewModel.getTitleFor(index: indexPath.row)
+                imageView.image = viewModel.getImageURLFor(index: indexPath.row)
+                location.text = viewModel.getLocationFor(index: indexPath.row)
+                openTime.text = viewModel.getOpenTimeFor(index: indexPath.row)
+                placeRating.rating = viewModel.getStarRating(index: indexPath.row)
+                placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
+            }
+         
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.collectionView{
-            
-//            currTitle = self.temp
+        if currentCollection == collections.popular{
+            currTitle = tempPopular[indexPath.row].name
+            performSegue(withIdentifier: "goTo", sender: self)
         }
+//        if collectionView == {
+//            print(temp)
+////            currTitle = self.temp
+//        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     func validateUser() -> Bool{
