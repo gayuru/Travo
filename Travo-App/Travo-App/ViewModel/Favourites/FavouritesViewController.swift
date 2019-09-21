@@ -20,6 +20,7 @@ class FavouritesViewController: UIViewController
     var currentUser : User?
     var viewModel = PlacesViewModel()
     var currTitle : String = ""
+    var favourites : [Place]!
     //pass value into this
     var currentCollection:collections = collections.favourites
     
@@ -31,12 +32,12 @@ class FavouritesViewController: UIViewController
         case popular
         case recommended
     }
-
+    
     let cellScaling:CGFloat = 1.0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        favourites = currentUser?.getFavourites()
         collectionView?.dataSource = self
         collectionView?.delegate = self
         bottomNav.layer.cornerRadius = 10
@@ -56,16 +57,17 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(validateUser()){
-            if (currentUser?.getFavourites().count)! <= 0{
+            if (currentCollection==collections.favourites &&
+                (currentUser?.getFavourites().count)! <= 0){
                 displayLabel.text = "No Favourites"
                 favouriteButton.image = UIImage(named: "nav_heart_enabled")
                 return 0
-            }else{
+            }else if(currentCollection==collections.favourites){
                 displayLabel.isHidden = true
                 return (currentUser?.getFavourites().count)!
             }
         }
-       displayLabel.isHidden = true
+        displayLabel.isHidden = true
         return viewModel.count
     }
     
@@ -88,7 +90,7 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         }
         
         switch currentCollection {
-        
+            
         case collections.popular:
             heading.text = "Popular Places"
             title.text = tempPopular[indexPath.row].name
@@ -97,6 +99,7 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             openTime.text = tempPopular[indexPath.row].openTime
             placeRating.rating = tempPopular[indexPath.row].starRating
             placeRating.text = String(tempPopular[indexPath.row].starRating)
+//            favouriteButton.image = UIImage(named: currentUser?.getFavourites())
         case collections.recommended:
             heading.text = "Recommended Places"
             title.text = tempRecommended[indexPath.row].name
@@ -137,6 +140,9 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         }else if currentCollection == collections.recommended{
             currTitle = tempRecommended[indexPath.row].name
             performSegue(withIdentifier: "goToPlace", sender: self)
+        }else if currentCollection == collections.favourites{
+            currTitle = favourites[indexPath.row].name
+            performSegue(withIdentifier: "goToPlace", sender: self)
         }
     }
     
@@ -144,12 +150,15 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToPlace"){
             let placeController = segue.destination as! PlaceViewController
+            placeController.currentUser = currentUser
             placeController.indexPass = currTitle
         }else if (segue.identifier == "goToPlace"){
             let placeController = segue.destination as! PlaceViewController
+            placeController.currentUser = currentUser
             placeController.indexPass = currTitle
         }
     }
+    
     
     func validateUser() -> Bool{
         if currentUser != nil{

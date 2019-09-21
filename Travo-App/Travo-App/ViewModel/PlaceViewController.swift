@@ -22,7 +22,10 @@ class PlaceViewController: UIViewController {
     @IBOutlet weak var placeOpenHours: UILabel!
     @IBOutlet weak var placeRating: CosmosView!
     @IBOutlet weak var placeWeather: UIImageView!
+    @IBOutlet var placeFavourite: UIButton!
     
+    var favourites : [Place]!
+    var currentUser : User!
     var indexPass = String()
     var index:Int = 0
     
@@ -37,7 +40,7 @@ class PlaceViewController: UIViewController {
         super.viewDidLoad()
 
         index = viewModel.getIndex(title: indexPass)
-       
+        self.favourites = currentUser.getFavourites()
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index)
         placeDescription.text = viewModel.getDescFor(index: index)
@@ -67,6 +70,15 @@ class PlaceViewController: UIViewController {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = viewModel.getTitleFor(index: index)
         mapItem.openInMaps(launchOptions: options)
+    }
+    
+    
+    func getFavourite(name:String){
+        for place in favourites{
+            if place.name == name{
+                placeFavourite.setImage(UIImage(named:"like"), for: .normal)
+            }
+        }
     }
 }
 

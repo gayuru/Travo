@@ -41,11 +41,6 @@ class HomeViewController: UIViewController{
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
         
-//        if traitCollection.forceTouchCapability == UIForceTouchCapability.available{
-//            registerForPreviewing(with: self, sourceView: view)
-//        }else{
-//            print("Device doesn't support force touch")
-//        }
     }
     
 
@@ -75,8 +70,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             cell.layer.cornerRadius = 10
-            cell.layer.borderColor = UIColor.black.cgColor
-            cell.layer.borderWidth = 0.5
+            cell.rating.text = String(tempPopular[indexPath.row].starRating)
             cell.backgroundImage.image = UIImage(named:tempPopular[indexPath.row].imageURL)
             cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
             cell.label1.text = tempPopular[indexPath.row].name
@@ -129,14 +123,18 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         if(segue.identifier == "viewPlace"){
             let secondController = segue.destination as! PlaceViewController
             secondController.indexPass = currTitle
+            secondController.currentUser = self.loggedInUser
         }else if(segue.identifier == "recommendedSeeAll"){
             let generalController = segue.destination as! FavouritesViewController
+            generalController.currentUser = self.loggedInUser
             generalController.currentCollection = FavouritesViewController.collections.recommended
         }else if(segue.identifier ==  "popularSeeAll"){
             let generalController = segue.destination as! FavouritesViewController
+            generalController.currentUser = self.loggedInUser
             generalController.currentCollection = FavouritesViewController.collections.popular
         }else if(segue.identifier == "favourites"){
             let favouritesController = segue.destination as! FavouritesViewController
+            favouritesController.currentCollection = FavouritesViewController.collections.favourites
             favouritesController.currentUser = loggedInUser
         }
     }

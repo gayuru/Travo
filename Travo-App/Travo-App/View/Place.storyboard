@@ -161,6 +161,7 @@
                     </view>
                     <connections>
                         <outlet property="placeDescription" destination="ARy-f3-tvM" id="xxy-Ht-JP7"/>
+                        <outlet property="placeFavourite" destination="d6Z-qY-x1R" id="jMT-o3-PGg"/>
                         <outlet property="placeImage" destination="z6I-YS-Gxd" id="dRX-r5-DDH"/>
                         <outlet property="placeOpenHours" destination="SBh-qo-XRt" id="5Se-X8-wYg"/>
                         <outlet property="placeRating" destination="ag9-1b-lf5" id="Sxc-8z-Qup"/>
