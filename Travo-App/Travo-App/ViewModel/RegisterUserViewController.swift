@@ -94,10 +94,10 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         
         guard let popoverNameViewController = storyboard?.instantiateViewController(withIdentifier: "popoverNameHintViewController") else { return }
         popoverNameViewController.modalPresentationStyle = .popover
-        let popOverVC = popoverNameViewController.popoverPresentationController
-        popOverVC?.delegate = self
-        popOverVC?.sourceView = self.nameHintPopoverButton
-        popOverVC?.sourceRect = CGRect(x: self.nameHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
+        let nameHintPopOverViewController = popoverNameViewController.popoverPresentationController
+        nameHintPopOverViewController?.delegate = self
+        nameHintPopOverViewController?.sourceView = self.nameHintPopoverButton
+        nameHintPopOverViewController?.sourceRect = CGRect(x: self.nameHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
         popoverNameViewController.preferredContentSize = CGSize(width: 235, height: 77)
         self.present(popoverNameViewController, animated: true)
     }
@@ -107,10 +107,10 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         
         guard let popoverNameViewController = storyboard?.instantiateViewController(withIdentifier: "popoverEmailHintViewController") else { return }
         popoverNameViewController.modalPresentationStyle = .popover
-        let popOverVC = popoverNameViewController.popoverPresentationController
-        popOverVC?.delegate = self
-        popOverVC?.sourceView = self.emailHintPopoverButton
-        popOverVC?.sourceRect = CGRect(x: self.emailHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
+        let emailPopOverViewController = popoverNameViewController.popoverPresentationController
+        emailPopOverViewController?.delegate = self
+        emailPopOverViewController?.sourceView = self.emailHintPopoverButton
+        emailPopOverViewController?.sourceRect = CGRect(x: self.emailHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
         popoverNameViewController.preferredContentSize = CGSize(width: 238, height: 77)
         self.present(popoverNameViewController, animated: true)
     }
@@ -120,10 +120,10 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         
         guard let popoverNameViewController = storyboard?.instantiateViewController(withIdentifier: "popoverPasswordHintViewController") else { return }
         popoverNameViewController.modalPresentationStyle = .popover
-        let popOverVC = popoverNameViewController.popoverPresentationController
-        popOverVC?.delegate = self
-        popOverVC?.sourceView = self.passwordHintPopoverButton
-        popOverVC?.sourceRect = CGRect(x: self.passwordHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
+        let passwordPopOverViewController = popoverNameViewController.popoverPresentationController
+        passwordPopOverViewController?.delegate = self
+        passwordPopOverViewController?.sourceView = self.passwordHintPopoverButton
+        passwordPopOverViewController?.sourceRect = CGRect(x: self.passwordHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
         popoverNameViewController.preferredContentSize = CGSize(width: 235, height: 160)
         self.present(popoverNameViewController, animated: true)
     }
