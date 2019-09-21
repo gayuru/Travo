@@ -40,7 +40,9 @@ class PlaceViewController: UIViewController {
         super.viewDidLoad()
 
         index = viewModel.getIndex(title: indexPass)
-        self.favourites = currentUser.getFavourites()
+        if let user = currentUser{
+            self.favourites = user.getFavourites()
+        }
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index)
         placeDescription.text = viewModel.getDescFor(index: index)
