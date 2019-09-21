@@ -73,6 +73,8 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             cell.rating.text = String(tempPopular[indexPath.row].starRating)
             cell.backgroundImage.image = UIImage(named:tempPopular[indexPath.row].imageURL)
             cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+            cell.ratingView.layer.cornerRadius = 10
+            cell.ratingView.layer.masksToBounds = true
             cell.label1.text = tempPopular[indexPath.row].name
             cell.label1.textColor = UIColor.white
             cell.label1.numberOfLines = 3

@@ -12,7 +12,7 @@ import UIKit
 class FeelingLuckyViewController: UIViewController {
     
     let viewModel = PlacesViewModel()
-      let placeVC = PlaceViewController()
+    let placeVC = PlaceViewController()
     @IBOutlet weak var btn: UIButton!
     @IBOutlet var bottomNav: UIView!
     

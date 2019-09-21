@@ -193,6 +193,7 @@ today?</string>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </imageView>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="0.34000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
                                                             </subviews>
                                                         </view>
@@ -209,6 +210,7 @@ today?</string>
                                                             <outlet property="backgroundImage" destination="CUO-B8-RS3" id="NHI-Zq-qvg"/>
                                                             <outlet property="label1" destination="oBM-kl-Dld" id="Rx1-X9-kBn"/>
                                                             <outlet property="rating" destination="AjE-WZ-ODV" id="2Ze-K1-jcc"/>
+                                                            <outlet property="ratingView" destination="a5E-LF-J6y" id="9oh-Yd-7Wg"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>

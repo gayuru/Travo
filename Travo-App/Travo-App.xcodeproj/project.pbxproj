@@ -84,7 +84,6 @@
 		5DEB89ECF460947E65491E61 /* Pods_Travo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64FAE0B831057CDFBA064D2B /* Pods-Travo-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App.debug.xcconfig"; path = "Target Support Files/Pods-Travo-App/Pods-Travo-App.debug.xcconfig"; sourceTree = "<group>"; };
 		770B85042310D0FD00A431E5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		770B85072310D12100A431E5 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
 		770B850A2310D7B200A431E5 /* HomeViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController1.swift; sourceTree = "<group>"; };
 		7714A1C3231FD7030014202E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		773EACDF232F72190009808A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -242,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				55E33127232BC82D009514CC /* Favourites */,
-				770B85072310D12100A431E5 /* PlacesCollectionViewCell.swift */,
 				55E330FA23292669009514CC /* CameraViewController.swift */,
 				55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */,
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,

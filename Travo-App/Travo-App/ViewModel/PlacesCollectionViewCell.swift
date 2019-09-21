@@ -12,5 +12,5 @@ class PlacesCollectionViewCell: UICollectionViewCell {
     @IBOutlet var label1: UILabel!
     @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var rating: UILabel!
-    
+    @IBOutlet var ratingView: UIView!
 }
