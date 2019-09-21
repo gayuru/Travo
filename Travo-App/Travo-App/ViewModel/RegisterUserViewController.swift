@@ -99,7 +99,6 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         popOverVC?.sourceView = self.nameHintPopoverButton
         popOverVC?.sourceRect = CGRect(x: self.nameHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
         popoverNameViewController.preferredContentSize = CGSize(width: 235, height: 77)
-        
         self.present(popoverNameViewController, animated: true)
     }
     
@@ -113,7 +112,6 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         popOverVC?.sourceView = self.emailHintPopoverButton
         popOverVC?.sourceRect = CGRect(x: self.emailHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
         popoverNameViewController.preferredContentSize = CGSize(width: 238, height: 77)
-        
         self.present(popoverNameViewController, animated: true)
     }
     
@@ -127,11 +125,31 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         popOverVC?.sourceView = self.passwordHintPopoverButton
         popOverVC?.sourceRect = CGRect(x: self.passwordHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
         popoverNameViewController.preferredContentSize = CGSize(width: 235, height: 160)
-
         self.present(popoverNameViewController, animated: true)
     }
     
+    // Ignore the default IOS Presentation Style
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
+    }
+    
+    // Changes brightness of view when popover is tapped
+    func setPopoverBackgroundViewBrightness(alpha: CGFloat) {
+        let statusBarWindow = UIApplication.shared.value(forKey: "statusBarWindow") as? UIWindow
+        UIView.animate(withDuration: 0.2) {
+            statusBarWindow?.alpha = alpha;
+            self.view.alpha = alpha;
+            self.navigationController?.navigationBar.alpha = alpha;
+        }
+    }
+    
+    // Brightness of View returns to normal when Popover exits
+    func popoverPresentationControllerDidDismissPopover(_ popOverViewController: UIPopoverPresentationController) {
+        setPopoverBackgroundViewBrightness(alpha: 1)
+    }
+    
+    // Brightness of View decreases when Popover entered
+    func prepareForPopoverPresentation(_ popOverViewController: UIPopoverPresentationController) {
+        setPopoverBackgroundViewBrightness(alpha: 0.3)
     }
 }
