@@ -13,6 +13,7 @@ class FeelingLuckyViewController: UIViewController {
     
     let viewModel = PlacesViewModel()
     let placeVC = PlaceViewController()
+    var finishedAnimation:Bool = false
     @IBOutlet weak var btn: UIButton!
     @IBOutlet var bottomNav: UIView!
     
@@ -25,16 +26,17 @@ class FeelingLuckyViewController: UIViewController {
                            completion: { _ in
                             UIView.animate(withDuration: 0.6) {
                                 self.btn.transform = CGAffineTransform.identity
+                                self.finishedAnimation = true
+                                if self.viewModel.feltLucky() != 0 {
+                                    self.shouldPerformSegue(withIdentifier: "feltLucky", sender: self)
+                                }
                             }
             })
         
        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.btn.layer.removeAllAnimations()
-        }
-        
-        if viewModel.feltLucky() != nil {
-            performSegue(withIdentifier: "feltLucky", sender: self)
+            self.finishedAnimation = false
         }
 
     }
@@ -45,6 +47,16 @@ class FeelingLuckyViewController: UIViewController {
             secondController.indexPass = viewModel.getTitleFor(index: viewModel.feltLucky())
         }
         
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if (identifier == "feltLucky") {
+            if (finishedAnimation) {
+                self.performSegue(withIdentifier: "feltLucky", sender: self)
+                return true
+            }
+        }
+        return false
     }
     
     override func viewDidLoad() {
