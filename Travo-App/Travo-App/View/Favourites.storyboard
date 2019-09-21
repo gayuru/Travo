@@ -303,12 +303,21 @@
                         <outlet property="favouriteButton" destination="Dsc-YQ-XXM" id="3ld-9c-4Lq"/>
                         <outlet property="heading" destination="0gM-XF-3Oe" id="PH1-5o-eCz"/>
                         <segue destination="eNK-zZ-eKt" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeWithSegue:" id="Nyf-2Y-cwu"/>
+                        <segue destination="AjV-Rk-hD5" kind="show" identifier="goToPlace" id="Epx-KZ-Ln3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iA4-dh-9Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eNK-zZ-eKt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="982.5" y="32.74647887323944"/>
+        </scene>
+        <!--Place-->
+        <scene sceneID="O5y-bg-1WI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Place" id="AjV-Rk-hD5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJV-ns-QH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="-69"/>
         </scene>
         <!--Camera-->
         <scene sceneID="Agm-pv-cS3">

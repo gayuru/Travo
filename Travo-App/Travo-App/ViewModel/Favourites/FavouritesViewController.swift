@@ -133,17 +133,22 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if currentCollection == collections.popular{
             currTitle = tempPopular[indexPath.row].name
-            performSegue(withIdentifier: "goTo", sender: self)
+            performSegue(withIdentifier: "goToPlace", sender: self)
+        }else if currentCollection == collections.recommended{
+            currTitle = tempRecommended[indexPath.row].name
+            performSegue(withIdentifier: "goToPlace", sender: self)
         }
-//        if collectionView == {
-//            print(temp)
-////            currTitle = self.temp
-//        }
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if(segue.identifier == "goToPlace"){
+            let placeController = segue.destination as! PlaceViewController
+            placeController.indexPass = currTitle
+        }else if (segue.identifier == "goToPlace"){
+            let placeController = segue.destination as! PlaceViewController
+            placeController.indexPass = currTitle
+        }
     }
     
     func validateUser() -> Bool{
