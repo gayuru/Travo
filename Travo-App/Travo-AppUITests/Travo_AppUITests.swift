@@ -388,14 +388,16 @@ class Travo_AppUITests: XCTestCase {
     func testFeelingLuckyComponentCheck(){
         //pre-condition
         loginSuccessSetUp()
-      
+        app.buttons["Login"].tap()
+        
         //goto feeling lucky view
         let window = app.children(matching: .window).element(boundBy: 0)
         window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 3).children(matching: .button).element.tap()
         
-        let mockImage = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element(boundBy: 0).images["travel"]
+        let mockImage = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).images["travel"]
         let title = app.staticTexts["I'm Feeling lucky"]
-        let heroText = app.staticTexts["take me to"]
+        //testing the string wants the exact format
+        let heroText = app.staticTexts["take me  to"]
         let globeButton = app.buttons["globe"]
 
         XCTAssert(mockImage.exists)
@@ -404,15 +406,25 @@ class Travo_AppUITests: XCTestCase {
         XCTAssert(globeButton.exists)
     }
     
-    
-    
-    
-    
-    
+    func testFeelingLuckyRandomPlace(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
         
+        //goto feeling lucky view
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 3).children(matching: .button).element.tap()
+        
+        let globeButton = app.buttons["globe"]
+        globeButton.tap()
+        
+        let exists = NSPredicate(format: "exists == 1")
+        let visitBtn = app.buttons["Visit"]
+        expectation(for: exists, evaluatedWith: visitBtn, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        XCTAssert(visitBtn.exists)
     }
     
-
-
+}
     
-
