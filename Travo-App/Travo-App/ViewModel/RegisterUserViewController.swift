@@ -31,7 +31,9 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         view.addGestureRecognizer(fingerPress)
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        nameHintPopoverButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        nameHintPopoverButton.addTarget(self, action: #selector(tappedNameHint), for: .touchUpInside)
+        emailHintPopoverButton.addTarget(self, action: #selector(tappedEmailHint), for: .touchUpInside)
+        passwordHintPopoverButton.addTarget(self, action: #selector(tappedPasswordHint), for: .touchUpInside)
     }
     
     // Segue Overrides
@@ -88,19 +90,45 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
     }
     
     @objc
-    private func tapped() {
+    private func tappedNameHint() {
         
-        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") else { return }
-        
-        popVC.modalPresentationStyle = .popover
-
-        let popOverVC = popVC.popoverPresentationController
+        guard let popoverNameViewController = storyboard?.instantiateViewController(withIdentifier: "popoverNameHintViewController") else { return }
+        popoverNameViewController.modalPresentationStyle = .popover
+        let popOverVC = popoverNameViewController.popoverPresentationController
         popOverVC?.delegate = self
         popOverVC?.sourceView = self.nameHintPopoverButton
         popOverVC?.sourceRect = CGRect(x: self.nameHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
-        popVC.preferredContentSize = CGSize(width: 100, height: 30)
+        popoverNameViewController.preferredContentSize = CGSize(width: 235, height: 77)
         
-        self.present(popVC, animated: true)
+        self.present(popoverNameViewController, animated: true)
+    }
+    
+    @objc
+    private func tappedEmailHint() {
+        
+        guard let popoverNameViewController = storyboard?.instantiateViewController(withIdentifier: "popoverEmailHintViewController") else { return }
+        popoverNameViewController.modalPresentationStyle = .popover
+        let popOverVC = popoverNameViewController.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.sourceView = self.emailHintPopoverButton
+        popOverVC?.sourceRect = CGRect(x: self.emailHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
+        popoverNameViewController.preferredContentSize = CGSize(width: 238, height: 77)
+        
+        self.present(popoverNameViewController, animated: true)
+    }
+    
+    @objc
+    private func tappedPasswordHint() {
+        
+        guard let popoverNameViewController = storyboard?.instantiateViewController(withIdentifier: "popoverPasswordHintViewController") else { return }
+        popoverNameViewController.modalPresentationStyle = .popover
+        let popOverVC = popoverNameViewController.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.sourceView = self.passwordHintPopoverButton
+        popOverVC?.sourceRect = CGRect(x: self.passwordHintPopoverButton.bounds.midX, y: self.nameHintPopoverButton.bounds.minY, width: 0, height: 0)
+        popoverNameViewController.preferredContentSize = CGSize(width: 235, height: 160)
+
+        self.present(popoverNameViewController, animated: true)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {

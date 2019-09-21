@@ -254,19 +254,20 @@
         <!--View Controller-->
         <scene sceneID="Aat-8c-dSu">
             <objects>
-                <viewController storyboardIdentifier="popVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bFV-VA-rFB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popoverNameHintViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bFV-VA-rFB" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gdy-fK-m5a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST LABEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45c-PV-Jp8">
-                                <rect key="frame" x="110" y="279" width="100" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username should only contain lowercase letters" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45c-PV-Jp8">
+                                <rect key="frame" x="42.5" y="255.5" width="235" height="77"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="nMB-bH-tAQ"/>
-                                    <constraint firstAttribute="width" constant="100" id="spV-2U-pUt"/>
+                                    <constraint firstAttribute="height" constant="77" id="Gr1-gU-OVk"/>
+                                    <constraint firstAttribute="width" constant="235" id="oxu-Py-bTw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -280,7 +281,72 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxn-N1-Hff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="106"/>
+            <point key="canvasLocation" x="1398.75" y="105.63380281690141"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iaS-3c-BJq">
+            <objects>
+                <viewController storyboardIdentifier="popoverEmailHintViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ydn-Ce-ExA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AMI-cm-QMO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email should be in  the following format ; uniquename@domain.com" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kp-pU-NqF">
+                                <rect key="frame" x="41" y="255.5" width="238" height="77"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="238" id="Yif-vI-7jG"/>
+                                    <constraint firstAttribute="height" constant="77" id="iLw-2p-Ioq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4kp-pU-NqF" firstAttribute="centerY" secondItem="9Kh-7d-o0A" secondAttribute="centerY" id="8Qr-EV-2En"/>
+                            <constraint firstItem="4kp-pU-NqF" firstAttribute="centerX" secondItem="9Kh-7d-o0A" secondAttribute="centerX" id="gjy-mU-9jW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Kh-7d-o0A"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faf-8z-c9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2158" y="106"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ukk-kp-LeB">
+            <objects>
+                <viewController storyboardIdentifier="popoverPasswordHintViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="keS-xO-Aic" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PjY-jH-cah">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpW-m1-0w5">
+                                <rect key="frame" x="42.5" y="214" width="235" height="160"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="Aal-YO-u2L"/>
+                                    <constraint firstAttribute="width" constant="235" id="kp0-Zs-EKi"/>
+                                </constraints>
+                                <string key="text">Your password has to be at least 6 characters long. Must contain at least one lower case letter, one upper case letter, one digit</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GpW-m1-0w5" firstAttribute="centerY" secondItem="ThJ-VT-Lpb" secondAttribute="centerY" id="Igd-9Y-cpA"/>
+                            <constraint firstItem="GpW-m1-0w5" firstAttribute="centerX" secondItem="ThJ-VT-Lpb" secondAttribute="centerX" id="gn9-WS-zFi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ThJ-VT-Lpb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3tl-mh-8wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2921.25" y="105.63380281690141"/>
         </scene>
         <!--Home-->
         <scene sceneID="ois-TB-gsi">
