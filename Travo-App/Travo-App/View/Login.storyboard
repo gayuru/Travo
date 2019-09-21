@@ -183,15 +183,7 @@
                                         <rect key="frame" x="32.5" y="0.0" width="136" height="30"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="New user?">
-                                                    <attributes>
-                                                        <color key="NSColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" size="16" name=".SFNSText"/>
-                                                        <font key="NSOriginalFont" size="16" name=".SFNSText"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" ">
+                                                <fragment content="New user? ">
                                                     <attributes>
                                                         <color key="NSColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <font key="NSFont" size="16" name=".SFNSText"/>
@@ -258,7 +250,7 @@
                             </constraint>
                             <constraint firstItem="h7l-fC-wCs" firstAttribute="leading" secondItem="0OO-pF-b3g" secondAttribute="leading" id="AIs-af-DEo"/>
                             <constraint firstItem="nUg-70-vg7" firstAttribute="leading" secondItem="lYa-nt-lCp" secondAttribute="leading" id="FMD-NJ-TzU"/>
-                            <constraint firstItem="7S8-wI-giu" firstAttribute="bottom" secondItem="sUo-1M-btl" secondAttribute="bottom" constant="20" id="HyT-Jf-TBN"/>
+                            <constraint firstAttribute="bottom" secondItem="sUo-1M-btl" secondAttribute="bottom" constant="20" id="HyT-Jf-TBN"/>
                             <constraint firstItem="sUo-1M-btl" firstAttribute="leading" secondItem="7S8-wI-giu" secondAttribute="leading" constant="60" id="Jes-Ux-SOo">
                                 <variation key="heightClass=compact-widthClass=compact" constant="35"/>
                             </constraint>

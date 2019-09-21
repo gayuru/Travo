@@ -35,15 +35,18 @@ class UsersViewModel {
         return false
     }
     
-    func createUser(username:String, email:String, password:String, aboutMeDesc:String)->Bool{
-        let newUser:User = User.init(name: username, password: password, email: email, aboutMeDesc: aboutMeDesc)
-        let added:Bool = self.users.addUser(user: newUser)
-        if (added == false) {
-            // TODO throw bigger error
-            return false
+    func createUser(username:String?, email:String?, password:String?, aboutMeDesc:String?)->Bool{
+        if let validName = username, let validEmail = email, let validPassword = password, let validAboutMeDesc = aboutMeDesc{
+            if (!validName.isEmpty ||  !validEmail.isEmpty || !validPassword.isEmpty) {
+                let newUser:User = User.init(name: validName, password: validPassword, email: validEmail, aboutMeDesc: validAboutMeDesc)
+                let added:Bool = self.users.addUser(user: newUser)
+                if (added == true) {
+                    loggedInUser = newUser
+                    return true
+                }
+            }
         }
-        loggedInUser = newUser
-        return true
+        return false
     }
     
     func getCurrentUser()->User?{
