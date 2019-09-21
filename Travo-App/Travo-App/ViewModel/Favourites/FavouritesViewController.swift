@@ -115,6 +115,7 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
                     openTime.text = favourites.openTime
                     placeRating.rating = favourites.starRating
                     placeRating.text = String(favourites.starRating)
+                    favouriteButton.image = UIImage(named: "nav_heart_enabled")
                 }
             }else{
                 title.text = viewModel.getTitleFor(index: indexPath.row)

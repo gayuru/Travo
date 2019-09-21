@@ -151,18 +151,15 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     }
     
     @objc func likeButtonTapped(sender:UIButton){
-        print(sender.currentImage)
-        if ((loggedInUser?.addToFavourites(place: tempRecommended[sender.tag]))!){
-            sender.setImage(UIImage(named:"like"), for: .normal)
+        if sender.currentImage == UIImage(named: "heart") {
+            if ((loggedInUser?.addToFavourites(place: tempRecommended[sender.tag]))!){
+                sender.setImage(UIImage(named:"like"), for: .normal)
+            }
+        }else{
+            sender.setImage(UIImage(named:"heart"), for: .normal)
+            loggedInUser?.removeFavourites(place: tempRecommended[sender.tag])
         }
-        
     }
-    
-//    @IBAction func likeButtonTapped(cell:UICollectionViewCell) -> Void{
-//
-////        loggedInUser?.addToFavourites(place: )
-//    }
-
 }
 
 
