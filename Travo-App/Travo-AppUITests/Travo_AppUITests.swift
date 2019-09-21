@@ -36,10 +36,13 @@ class Travo_AppUITests: XCTestCase {
         let textField = logoElementsQuery.children(matching: .textField).element
         textField.tap()
         textField.typeText("email1")
+        textField.typeText("\n")
+
         
         let secureTextField = logoElementsQuery.children(matching: .secureTextField).element
         secureTextField.tap()
         secureTextField.typeText("password1")
+        secureTextField.typeText("\n")
     }
     
     //------ OVERALL USECASE STORYBOARD ------//
@@ -53,6 +56,18 @@ class Travo_AppUITests: XCTestCase {
     }
     
     func testInvalidLogin_missingCredentials(){
+        let logoElementsQuery = XCUIApplication().otherElements.containing(.image, identifier:"Logo")
+        let textField = logoElementsQuery.children(matching: .textField).element
+        textField.tap()
+        textField.typeText("email_Fail")
+        textField.typeText("\n")
+
+        let secureTextField = logoElementsQuery.children(matching: .secureTextField).element
+        secureTextField.tap()
+        secureTextField.typeText("password_Fail")
+        secureTextField.typeText("\n")
+        app.buttons["Login"].tap()
+        XCTAssertEqual(app.alerts.element.label, "Incorrect Login")
     }
     
     func testInvalidLogin_wrongCredentials(){
