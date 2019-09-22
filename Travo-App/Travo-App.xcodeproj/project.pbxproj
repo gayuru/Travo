@@ -208,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				554FA11C233074E000BD5156 /* Places.swift */,
-				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
 				77425D0423272E4C00C6B844 /* Place.swift */,
 				55E330F42329073D009514CC /* Weather.swift */,
 				55E330F62329084F009514CC /* User.swift */,
@@ -259,6 +258,7 @@
 				BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */,
 				BD1D088C2331C64800B5BA64 /* CategoryViewModel.swift */,
 				556015902331F93600302676 /* FeelingLuckyViewController.swift */,
+				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

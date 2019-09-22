@@ -23,7 +23,6 @@ class FavouritesViewController: UIViewController
     var currentCategory : String = "general"
     var favourites : [Place]!
     var currentIndex:Int = 0
-    //pass value into this
     var currentCollection:collections = collections.favourites
     
     lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)

@@ -78,7 +78,6 @@ struct PlacesViewModel{
         return false
     }
 
-    //better way to do this //put guard let statement for this 
     func getIndex(title:String) -> Int{
         return places.firstIndex { (Place) -> Bool in
             Place.name == title

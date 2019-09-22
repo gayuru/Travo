@@ -17,7 +17,6 @@ class HomeViewController: UIViewController{
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
     var loggedInUser:User?
-//    var currentCategoryButton : UIButton!
     
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()

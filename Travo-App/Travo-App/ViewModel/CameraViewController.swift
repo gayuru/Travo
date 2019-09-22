@@ -12,7 +12,6 @@ import SVProgressHUD
 
 class CameraViewController: UIViewController{
     
-    //TESTING STRING
     @IBOutlet weak var cameraView: UIView!
     
     var captureSession: AVCaptureSession?
@@ -106,8 +105,6 @@ class CameraViewController: UIViewController{
                     
                     device.focusPointOfInterest = focusPoint
                     device.focusMode = .continuousAutoFocus
-//                    device.focusMode = .autoFocus
-                    //device.focusMode = .locked
                     device.exposurePointOfInterest = focusPoint
                     device.exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
                     device.unlockForConfiguration()

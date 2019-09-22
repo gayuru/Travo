@@ -18,7 +18,6 @@ class Users {
     
     func getAllUsers() -> [User]{
         var list:[User] = [User]()
-        // TODO How to ignore this warning?
         for (_, user) in self.users {
             list.append(user)
         }
