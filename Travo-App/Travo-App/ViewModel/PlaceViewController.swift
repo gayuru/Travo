@@ -28,6 +28,7 @@ class PlaceViewController: UIViewController {
     var currentUser : User!
     var indexPass = String()
     var index:Int = 0
+    var currentPlace : Place!
     
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
@@ -76,6 +77,21 @@ class PlaceViewController: UIViewController {
         mapItem.name = viewModel.getTitleFor(index: index)
         mapItem.openInMaps(launchOptions: options)
     }
+    
+    
+    @IBAction func favouriteButtonPressed(_ sender: UIButton) {
+        if currentUser.getFavourites().count <= 0{
+            _ = currentUser.addToFavourites(place: viewModel.getPlace(index: index))
+            placeFavourite.setImage(UIImage(named: "like"), for: .normal)
+        }else if(currentUser.addToFavourites(place: viewModel.getPlace(index: index))){
+            placeFavourite.setImage(UIImage(named: "like"), for: .normal)
+            print(currentUser.getFavourites())
+        }else{
+            placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
+            _ = currentUser.removeFavourites(place: viewModel.getPlace(index: index))
+        }
+    }
+    
     
     
     func getFavourite(name:String){
