@@ -17,7 +17,6 @@ class HomeViewController: UIViewController{
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
     var loggedInUser:User?
-//    var currentCategoryButton : UIButton!
     
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
@@ -184,9 +183,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
-//        currentCategoryButton = sender
-//        sender.viewWithTag(sender.tag)
-//        sender.setImage(UIImage(named: categoryViewModel.getCategoryEnabledImage(name: currentCategory)!), for: .normal)
         self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
         self.recommendedCollection.reloadData()
