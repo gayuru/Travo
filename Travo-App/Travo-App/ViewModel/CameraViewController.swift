@@ -124,10 +124,10 @@ class CameraViewController: UIViewController{
         //call the HUD
         SVProgressHUD.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-          SVProgressHUD.dismiss()
             let placeVC = PlaceViewController()
             placeVC.indexPass = "Federation Square"
         }
+        SVProgressHUD.dismiss()
         self.performSegue(withIdentifier: "captureImage", sender: self)
         guard let capturePhotoOutput = self.capturePhotoOutput else {return}
         let photoSettings = AVCapturePhotoSettings()
