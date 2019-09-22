@@ -39,8 +39,9 @@ class PlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        index = viewModel.getIndex(title: indexPass)
+        if (viewModel.placeExistsByName(name: indexPass)) {
+            index = viewModel.getIndex(title: indexPass)
+        }
         if let user = currentUser{
             if user.getFavourites().count <= 0{
                 placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
