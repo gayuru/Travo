@@ -19,7 +19,7 @@ class FeelingLuckyViewController: UIViewController {
     var currentUser: User?
     
     @IBAction func btnTapped(_ sender: Any) {
-        
+        //process the animation 
         UIView.animate(withDuration: 0.6,delay: 0,options: [.repeat, .autoreverse],
                            animations: {
                             self.btn.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
@@ -34,7 +34,6 @@ class FeelingLuckyViewController: UIViewController {
                             }
             })
         
-       
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.btn.layer.removeAllAnimations()
             self.finishedAnimation = false

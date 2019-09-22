@@ -13,9 +13,6 @@ import Cosmos
 
 class PlaceViewController: UIViewController {
     
-    //this is how you should pass the data into the controller
-//    detailViewController.contact = contacts[index]
-    
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeTitle: UILabel!
     @IBOutlet weak var placeDescription: UILabel!
