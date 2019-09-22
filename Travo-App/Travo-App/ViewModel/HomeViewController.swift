@@ -20,7 +20,7 @@ class HomeViewController: UIViewController{
     
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
-    var currentCategory = ""
+    var currentCategory:String = "general"
     var currTitle:String = ""
     
     let CAROUSEL_MAX:Int = 5
@@ -46,8 +46,8 @@ class HomeViewController: UIViewController{
 
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
     
-    lazy var tempRecommended = viewModel.getRecommended()
-    lazy var tempPopular = viewModel.getPopularity()
+    lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+    lazy var tempPopular = viewModel.getPopularity(category: self.currentCategory)
     lazy var tempCategory = categoryViewModel.getCategories()
 }
 
@@ -70,17 +70,19 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
-            cell.layer.cornerRadius = 10
-            cell.rating.text = String(tempPopular[indexPath.row].starRating)
-            cell.backgroundImage.image = UIImage(named:tempPopular[indexPath.row].imageURL)
-            cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
-            cell.ratingView.layer.cornerRadius = 10
-            cell.ratingView.layer.masksToBounds = true
-            cell.label1.text = tempPopular[indexPath.row].name
-            cell.label1.textColor = UIColor.white
-            cell.label1.numberOfLines = 3
-            cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
-            cell.label1.sizeToFit()
+            if (indexPath.row < tempPopular.count) {
+                cell.layer.cornerRadius = 10
+                cell.rating.text = String(tempPopular[indexPath.row].starRating)
+                cell.backgroundImage.image = UIImage(named:tempPopular[indexPath.row].imageURL)
+                cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+                cell.ratingView.layer.cornerRadius = 10
+                cell.ratingView.layer.masksToBounds = true
+                cell.label1.text = tempPopular[indexPath.row].name
+                cell.label1.textColor = UIColor.white
+                cell.label1.numberOfLines = 3
+                cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
+                cell.label1.sizeToFit()
+            }
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
@@ -95,19 +97,21 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
-            cell.locationLabel.text = tempRecommended[indexPath.row].name
-            cell.placeImage.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
-            cell.cityLabel.text = tempRecommended[indexPath.row].location
-            cell.timeLabel.text = tempRecommended[indexPath.row].openTime
-            cell.placeRating.settings.updateOnTouch = false
-            cell.placeRating.settings.fillMode = .precise
-            cell.placeRating.rating = tempRecommended[indexPath.row].starRating
-            cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
-            cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-            cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            cell.locationLabel.sizeToFit()
-            cell.likeBtn.tag = indexPath.row
-            cell.likeBtn.addTarget(self, action: #selector(likeButtonTapped(sender:)), for: UIControl.Event.touchUpInside)
+            if (indexPath.row < tempRecommended.count) {
+                cell.locationLabel.text = tempRecommended[indexPath.row].name
+                cell.placeImage.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
+                cell.cityLabel.text = tempRecommended[indexPath.row].location
+                cell.timeLabel.text = tempRecommended[indexPath.row].openTime
+                cell.placeRating.settings.updateOnTouch = false
+                cell.placeRating.settings.fillMode = .precise
+                cell.placeRating.rating = tempRecommended[indexPath.row].starRating
+                cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
+                cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+                cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+                cell.locationLabel.sizeToFit()
+                cell.likeBtn.tag = indexPath.row
+                cell.likeBtn.addTarget(self, action: #selector(likeButtonTapped(sender:)), for: UIControl.Event.touchUpInside)
+            }
             return cell
         }
     }
@@ -164,6 +168,10 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
+        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
+        self.recommendedCollection.reloadData()
+        self.popularPlaces.reloadData()
     }
 }
 

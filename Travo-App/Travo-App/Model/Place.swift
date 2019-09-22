@@ -18,4 +18,5 @@ struct Place{
     var starRating:Double
     var popularityScale:Int
     var weatherCondition:Int
+    var categoryBelonging:[String]
 }
