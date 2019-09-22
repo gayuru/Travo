@@ -17,9 +17,12 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var currentCityLabel: UILabel!
     @IBOutlet var intresetsLabel: UILabel!
+    var currentUser:User!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(currentUser)
         // Do any additional setup after loading the view.
         profileImage.frame = CGRect(x: 0,y: 0,width: 100,height: 100)
         profileBackground.layer.cornerRadius = 20

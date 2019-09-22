@@ -44,7 +44,7 @@
                                                         </constraints>
                                                         <state key="normal" image="profile"/>
                                                         <connections>
-                                                            <segue destination="2bj-ZS-aTp" kind="show" id="erF-aq-fOU">
+                                                            <segue destination="2bj-ZS-aTp" kind="show" identifier="goToProfile" id="erF-aq-fOU">
                                                                 <segue key="commit" inheritsFrom="parent" id="d1J-ok-8i2"/>
                                                                 <segue key="preview" inheritsFrom="commit" id="g73-72-87p"/>
                                                             </segue>
