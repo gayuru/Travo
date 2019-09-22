@@ -28,6 +28,7 @@ class FavouritesViewController: UIViewController
     lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
     lazy var tempPopular = viewModel.getPopularity(category: self.currentCategory)
     
+    //to determine which collection is being passed to use the view as a general view
     enum collections{
         case favourites
         case popular
@@ -73,7 +74,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "FavouritesCell", for: indexPath) 
         let title = cell.viewWithTag((1000)) as! UILabel
         let location = cell.viewWithTag((1001)) as! UILabel
@@ -98,10 +98,8 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         if(currentCollection == collections.favourites && (currentUser?.getFavourites().count)! <= 0){
             return cell
         }
-        
-        
+        //adopt the view accordingly
         switch currentCollection {
-            
         case collections.popular:
             heading.text = "Popular Places"
             title.text = tempPopular[indexPath.row].name
@@ -178,7 +176,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         }
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToPlace"){
             let placeController = segue.destination as! PlaceViewController
@@ -201,7 +198,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             _ = currentUser?.removeFavourites(place: tempPopular[sender.id])
         }
     }
-    
     
     func validateUser() -> Bool{
         if currentUser != nil{

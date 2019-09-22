@@ -32,7 +32,6 @@
 		7745DA9F232E2B20006C2E0E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7745DA9E232E2B20006C2E0E /* Profile.storyboard */; };
 		7745DAA1232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7745DAA0232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift */; };
 		7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65023036FFA00ED25F3 /* AppDelegate.swift */; };
-		7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783A65223036FFA00ED25F3 /* ViewController.swift */; };
 		7783A65623036FFA00ED25F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65423036FFA00ED25F3 /* Main.storyboard */; };
 		7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */; };
 		779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */; };
@@ -71,7 +70,7 @@
 		5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		5571DBD22325E03F00C9BE2F /* Place.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Place.storyboard; sourceTree = "<group>"; };
 		55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
-		55971C69232E56A40018ABF8 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		55971C69232E56A40018ABF8 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavouritesViewController.swift; path = Favourites/FavouritesViewController.swift; sourceTree = "<group>"; };
 		55971C6C232E62400018ABF8 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		55971C72232E7AEF0018ABF8 /* Travo-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Travo-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55971C74232E7AEF0018ABF8 /* Travo_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travo_AppUITests.swift; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 		7745DAA0232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCollectionViewCell.swift; sourceTree = "<group>"; };
 		7783A64D23036FFA00ED25F3 /* Travo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783A65023036FFA00ED25F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7783A65223036FFA00ED25F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7783A65523036FFA00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7783A65A23036FFC00ED25F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7783A65C23036FFC00ED25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -161,14 +159,6 @@
 				55971C76232E7AEF0018ABF8 /* Info.plist */,
 			);
 			path = "Travo-AppUITests";
-			sourceTree = "<group>";
-		};
-		55E33127232BC82D009514CC /* Favourites */ = {
-			isa = PBXGroup;
-			children = (
-				55971C69232E56A40018ABF8 /* FavouritesViewController.swift */,
-			);
-			path = Favourites;
 			sourceTree = "<group>";
 		};
 		7783A64423036FFA00ED25F3 = {
@@ -239,12 +229,11 @@
 		77AA7AC7230A57FE006815AE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				55E33127232BC82D009514CC /* Favourites */,
+				55971C69232E56A40018ABF8 /* FavouritesViewController.swift */,
 				55E330FA23292669009514CC /* CameraViewController.swift */,
 				55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */,
 				7783A65023036FFA00ED25F3 /* AppDelegate.swift */,
 				77425D0823272EF300C6B844 /* CardView.swift */,
-				7783A65223036FFA00ED25F3 /* ViewController.swift */,
 				7714A1C3231FD7030014202E /* HomeViewController.swift */,
 				55E33123232BA853009514CC /* PlacesViewModel.swift */,
 				55971C6C232E62400018ABF8 /* PlaceViewController.swift */,
@@ -488,7 +477,6 @@
 				779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */,
 				773EACE0232F72190009808A /* ProfileViewController.swift in Sources */,
 				BD1D08892331C10300B5BA64 /* Category.swift in Sources */,
-				7783A65323036FFA00ED25F3 /* ViewController.swift in Sources */,
 				BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */,
 				55E330F72329084F009514CC /* User.swift in Sources */,
 				55971C6D232E62400018ABF8 /* PlaceViewController.swift in Sources */,

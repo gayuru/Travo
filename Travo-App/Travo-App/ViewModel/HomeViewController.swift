@@ -28,7 +28,6 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         bottomNav.layer.cornerRadius = 10.0
         bottomNav.layer.masksToBounds = true
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
@@ -42,7 +41,6 @@ class HomeViewController: UIViewController{
         recommendedCollection.delegate = self
     }
     
-
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
     
     lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
@@ -66,7 +64,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
