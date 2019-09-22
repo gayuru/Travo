@@ -20,7 +20,7 @@ class HomeViewController: UIViewController{
     
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
-    
+    var currentCategory = ""
     var currTitle:String = ""
     
     let CAROUSEL_MAX:Int = 5
@@ -48,6 +48,7 @@ class HomeViewController: UIViewController{
     
     lazy var tempRecommended = viewModel.getRecommended()
     lazy var tempPopular = viewModel.getPopularity()
+    lazy var tempCategory = categoryViewModel.getCategories()
 }
 
 extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSource {
@@ -83,7 +84,8 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-            var tempCategory = categoryViewModel.getCategories()
+            cell.category.tag = indexPath.row
+            cell.category.addTarget(self, action: #selector(categoryButtonClicked(sender:)), for: .touchUpInside)
             if indexPath.row == 0 {
                 let tempCatVM = categoryViewModel.getCategoryEnabledImage(name: tempCategory[indexPath.row].getName())
                 cell.category.setImage(UIImage(named: tempCatVM!), for: .normal)
@@ -159,29 +161,12 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             _ = loggedInUser?.removeFavourites(place: tempRecommended[sender.tag])
         }
     }
+    
+    @objc func categoryButtonClicked(sender:UIButton){
+        currentCategory = tempCategory[sender.tag].getName()
+    }
 }
 
-
-//MARK:- Force Touch Capability
-//extension HomeViewController:UIViewControllerPreviewingDelegate {
-////    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-////        if let indexPath = popularPlaces.indexPathForItem(at: location){
-////            let cell = popularPlaces.cellForItem(at: indexPath) as! PlacesCollectionViewCell
-////            let viewsTo3DTouch = [cell.backgroundImage]
-////            for (index,view) in viewsTo3DTouch.enumerated() where touchedView(view, location: location){
-////
-////            }
-////        }
-//
-////        let previewView = storyboard?.instantiateViewController(withIdentifier: "HomeView")
-////        return previewView
-//    }
-//
-//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-//        let finalView = storyboard?.instantiateViewController(withIdentifier: "PlaceView")
-//        show(finalView! , sender: self)
-//    }
-//}
 
 //MARK:- UIColor Extensions for HexCode
 extension UIColor {
