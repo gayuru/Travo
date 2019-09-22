@@ -13,21 +13,12 @@ class Travo_AppUITests: XCTestCase {
     var app: XCUIApplication!
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app = XCUIApplication()
         app.launch()
-
-      
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     //Common setup for a successful login
@@ -178,7 +169,7 @@ class Travo_AppUITests: XCTestCase {
         recommendedSeeAll.tap()
     }
     
-    func testTaBar(){
+    func testTaBBar(){
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
@@ -217,7 +208,7 @@ class Travo_AppUITests: XCTestCase {
     
     //------ PLACE STORYBOARD ------//
     //Tests _ Place storyboard
-    func testPlaceLablesExist(){
+    func testPlaceLabelsExist(){
         //pre-condition
         loginSuccessSetUp()
         app.buttons["Login"].tap()
@@ -304,14 +295,136 @@ class Travo_AppUITests: XCTestCase {
     }
     
     //------ FAVORUITES STORYBOARD ------//
-    
-    //------ FEELING LUCKY STORYBOARD ------//
-    
-    
+    func testFavouritesExist(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
         
+        app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").element.swipeUp()
+        
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .button).element.tap()
+        let defaultText = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .collectionView).element
+        let title = app.staticTexts["Favourites"]
+        
+        
+        XCTAssert(defaultText.exists)
+        XCTAssert(title.exists)
+        XCTAssertEqual(defaultText.label, "No Favourites")
+        XCTAssertEqual(title.label, "Favourites")
     }
     
-
-
+    //helper method to add two favourites and go into the favourites view
+    func goToFavourites(){
+        let scrollViewsQuery = app.scrollViews
+        
+        let firstFavourite = scrollViewsQuery.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 2).children(matching: .cell).element(boundBy: 0).buttons["heart"]
+        firstFavourite.tap()
+        let secondFavourite = scrollViewsQuery.otherElements.collectionViews/*@START_MENU_TOKEN@*/.buttons["heart"]/*[[".cells.buttons[\"heart\"]",".buttons[\"heart\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        secondFavourite.tap()
+        
+        //move to favourites
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .button).element.tap()
+    }
     
+    func testFavouritesAddingPlaces(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        
+        let selectionOne:String = "Federation One"
+        let selectionTwo:String = "Royal Botanical Garden"
+        
+        goToFavourites()
+       
+        let favouriteOne = app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["Federation Square"]/*[[".cells.staticTexts[\"Federation Square\"]",".staticTexts[\"Federation Square\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        let favouriteTwo = app.collectionViews.staticTexts["Royal Botanical Garden"]
 
+        XCTAssertEqual(selectionOne, favouriteOne.label)
+        XCTAssertEqual(selectionTwo,favouriteTwo.label)
+    }
+    
+    //should work after removing places is fixed
+    func testFavouritesRemovingPlaces(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+       
+        goToFavourites()
+        
+        let collectionViewsQuery = app.collectionViews
+        //dislike
+        let favouriteOne = collectionViewsQuery.children(matching: .cell).element(boundBy: 0).buttons["like"]
+        favouriteOne.tap()
+        let favouriteTwo = collectionViewsQuery.children(matching: .cell).element(boundBy: 1).buttons["like"]
+        favouriteTwo.tap()
+        
+        let window = app.children(matching: .window).element(boundBy: 0)
+        let defaultText = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .collectionView).element
+        XCTAssertEqual(defaultText.label, "No Favourites")
+    }
+    
+    func testFavouritesComponentCheck(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        
+        goToFavourites()
+        
+        let expectedTitle:String = "Federation Square"
+        let expectedRating:String = "Rating 5.0"
+        let expectedCity:String = "Melbourne"
+        let expectedOpenTime:String = "Open 24 Hours"
+        
+        let collectionViewsQuery = app.collectionViews
+        
+        XCTAssert(collectionViewsQuery.staticTexts[expectedTitle].exists)
+        XCTAssert(collectionViewsQuery.otherElements[expectedRating].exists)
+        XCTAssert(collectionViewsQuery.staticTexts[expectedCity].exists)
+        XCTAssert(collectionViewsQuery.staticTexts[expectedOpenTime].exists)
+    }
+    
+    //------ FEELING LUCKY STORYBOARD ------//
+    func testFeelingLuckyComponentCheck(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        
+        //goto feeling lucky view
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 3).children(matching: .button).element.tap()
+        
+        let mockImage = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).images["travel"]
+        let title = app.staticTexts["I'm Feeling lucky"]
+        //testing the string wants the exact format
+        let heroText = app.staticTexts["take me  to"]
+        let globeButton = app.buttons["globe"]
+
+        XCTAssert(mockImage.exists)
+        XCTAssert(title.exists)
+        XCTAssert(heroText.exists)
+        XCTAssert(globeButton.exists)
+    }
+    
+    func testFeelingLuckyRandomPlace(){
+        //pre-condition
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        
+        //goto feeling lucky view
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 3).children(matching: .button).element.tap()
+        
+        let globeButton = app.buttons["globe"]
+        globeButton.tap()
+        
+        let exists = NSPredicate(format: "exists == 1")
+        let visitBtn = app.buttons["Visit"]
+        expectation(for: exists, evaluatedWith: visitBtn, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        XCTAssert(visitBtn.exists)
+    }
+    
+}
+    
