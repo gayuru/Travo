@@ -246,7 +246,7 @@ class Travo_AppUITests: XCTestCase {
         let presentOpenTime = app.staticTexts["Open 24 Hours"]
         let presentRating =  app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element
         let weather = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element
-        let likeBtn = app.buttons["like"]
+        let likeBtn = app.buttons["heart"]
         let visitBtn = app.buttons["Visit"]
         
         //Expected Result: All the components should be visible
@@ -373,25 +373,27 @@ class Travo_AppUITests: XCTestCase {
         XCTAssertEqual(selectionTwo,favouriteTwo.firstMatch.label)
     }
     
-    //should work after removing places is fixed
     func testFavouritesRemovingPlaces(){
         //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
-       
+
         goToFavourites()
         
-        let collectionViewsQuery = app.collectionViews
         //Action : Disliking Places
-        let favouriteOne = collectionViewsQuery.children(matching: .cell).element(boundBy: 0).buttons["like"]
-        favouriteOne.tap()
-        let favouriteTwo = collectionViewsQuery.children(matching: .cell).element(boundBy: 1).buttons["like"]
-        favouriteTwo.tap()
-        
         let window = app.children(matching: .window).element(boundBy: 0)
-        let defaultText = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .collectionView).element
-        //Expected Result: The view gets empty
-        XCTAssertEqual(defaultText.label, "No Favourites")
+        let button = window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .button).element
+        button.tap()
+        
+        let collectionViewsQuery = app.collectionViews
+        collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["0"]/*[[".cells.buttons[\"0\"]",".buttons[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["1"]/*[[".cells",".buttons[\"like\"]",".buttons[\"1\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let element = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element
+        element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .button).element.tap()
+        button.tap()
+         //Expected Result: The view gets empty
+        XCTAssert(app.staticTexts["No Favourites"].exists)
     }
     
     func testFavouritesComponentCheck(){
@@ -532,6 +534,5 @@ class Travo_AppUITests: XCTestCase {
         //Final Result
         XCTAssert(app.staticTexts["Where"].exists)
     }
-    
 }
 

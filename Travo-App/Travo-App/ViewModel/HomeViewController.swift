@@ -10,6 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController{
     
+    //SAMPLE LOGIN DETAILS
+    // Email : email1
+    // Password : password1
+    
     @IBOutlet var bottomNav: UIView!
     @IBOutlet var popularPlaces: UICollectionView!
     @IBOutlet var scrollView: UIScrollView!
