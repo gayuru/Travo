@@ -20,12 +20,13 @@ class FavouritesViewController: UIViewController
     var currentUser : User?
     var viewModel = PlacesViewModel()
     var currTitle : String = ""
+    var currentCategory : String = "general"
     var favourites : [Place]!
     //pass value into this
     var currentCollection:collections = collections.favourites
     
-    lazy var tempRecommended = viewModel.getRecommended()
-    lazy var tempPopular = viewModel.getPopularity()
+    lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+    lazy var tempPopular = viewModel.getPopularity(category: self.currentCategory)
     
     enum collections{
         case favourites
