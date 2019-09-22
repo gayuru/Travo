@@ -68,7 +68,7 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
     // REGISTER VIEW METHODS
     @IBAction func registerSignUpButtonClicked(_ sender: Any) {
         if let presentUsersViewModel = usersViewModel {
-            let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, aboutMeDesc: "")
+            let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, aboutMeDesc: "",interests: "")
             if (validRegistration) {
                 allowedLogin = true
                 self.shouldPerformSegue(withIdentifier: "SegueToHome", sender: self)
