@@ -15,14 +15,16 @@ class User{
     private var aboutMeDesc:String
     private var citiesVisited: [String]
     private var favourites:[Place]
+    private var interests:String
     
-    init(name:String,password:String,email:String,aboutMeDesc:String) {
+    init(name:String,password:String,email:String,aboutMeDesc:String,interests:String) {
         self.name = name
         self.password = password
         self.email = email
         self.aboutMeDesc = aboutMeDesc
         self.citiesVisited = []
         self.favourites = [Place]()
+        self.interests = interests
     }
     
     func getUsername()->String{
@@ -55,6 +57,19 @@ class User{
         return self.email
     }
     
+    func getCity(index:Int)->String{
+        return self.citiesVisited[index]
+    }
+    
+    func getCities()->[String]{
+        return self.citiesVisited
+    }
+    
+    func setCities(city:String)->Bool{
+        citiesVisited.append(city)
+        return true
+    }
+    
     func setEmail(newEmail:String)->Bool{
         let oldEmail = self.email
         self.email = newEmail
@@ -73,17 +88,26 @@ class User{
         return true
     }
     
+    func getInterests()->String{
+        return self.interests
+    }
+    
+    func setInterests(newInterest:String)->Bool{
+        self.interests = newInterest
+        return true
+    }
     func addToFavourites(place:Place)->Bool{
         if(favourites.count<=0) {
             favourites.append(place)
             return true
         }else if(favourites.contains(where: { (Place) -> Bool in
-            Place.name != place.name
+            Place.name == place.name
         })){
+            return false
+        }else{
             favourites.append(place)
             return true
         }
-        return false
     }
     
     func removeFavourites(place:Place) -> Bool{

@@ -17,6 +17,7 @@ class HomeViewController: UIViewController{
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
     var loggedInUser:User?
+//    var currentCategoryButton : UIButton!
     
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
@@ -33,14 +34,13 @@ class HomeViewController: UIViewController{
         bottomNav.layer.masksToBounds = true
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
-        categoryCollection.backgroundColor = UIColor.init(red: 243, green: 245, blue: 247)
+        categoryCollection.backgroundColor =  UIColor(white: 1, alpha: 0.0)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
         categoryCollection.delegate = self
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
-        
     }
     
 
@@ -67,6 +67,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
@@ -110,6 +111,15 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
                 cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
                 cell.locationLabel.sizeToFit()
                 cell.likeBtn.tag = indexPath.row
+                cell.likeBtn.setImage(UIImage(named: "heart"), for: .normal)
+                if((loggedInUser?.getFavourites().count)!>=0){
+                    loggedInUser?.getFavourites().forEach({ (place) in
+                        if(place.name == cell.locationLabel.text){
+                            cell.likeBtn.setImage(UIImage(named: "like"), for: .normal)
+                            recommendedCollection.reloadData()
+                        }
+                    })
+                }
                 cell.likeBtn.addTarget(self, action: #selector(likeButtonTapped(sender:)), for: UIControl.Event.touchUpInside)
             }
             return cell
@@ -144,6 +154,12 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             let favouritesController = segue.destination as! FavouritesViewController
             favouritesController.currentCollection = FavouritesViewController.collections.favourites
             favouritesController.currentUser = loggedInUser
+        }else if(segue.identifier == "goToProfile"){
+            let profileController = segue.destination as! ProfileViewController
+            profileController.currentUser = loggedInUser
+        }else if(segue.identifier == "goToLucky"){
+            let luckyController = segue.destination as! FeelingLuckyViewController
+            luckyController.currentUser = loggedInUser
         }
     }
     
@@ -168,6 +184,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
+//        currentCategoryButton = sender
+//        sender.viewWithTag(sender.tag)
+//        sender.setImage(UIImage(named: categoryViewModel.getCategoryEnabledImage(name: currentCategory)!), for: .normal)
         self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
         self.recommendedCollection.reloadData()

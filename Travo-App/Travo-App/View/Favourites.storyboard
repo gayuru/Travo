@@ -40,7 +40,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCell" id="1eh-c2-xpb" customClass="CardCollectionViewCell" customModule="Travo_App" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCell" id="1eh-c2-xpb" customClass="Card">
                                         <rect key="frame" x="12" y="0.0" width="296" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -66,7 +66,7 @@
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u5-gP-i8A">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u5-gP-i8A" userLabel="Melbourne">
                                                             <rect key="frame" x="81" y="66" width="64" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="5u5-gP-i8A" secondAttribute="height" multiplier="64:15" id="Y7b-JY-02e"/>
@@ -75,12 +75,12 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acm-vO-npK">
+                                                        <button opaque="NO" tag="1005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acm-vO-npK">
                                                             <rect key="frame" x="233" y="19" width="11" height="11"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="GSg-XC-Z6k"/>
                                                             </constraints>
-                                                            <state key="normal" image="like"/>
+                                                            <state key="normal" image="heart"/>
                                                         </button>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rPu-vn-E8W">
                                                             <rect key="frame" x="-15" y="-11" width="88" height="100"/>
@@ -337,7 +337,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="like" width="500" height="500"/>
+        <image name="heart" width="21" height="19"/>
         <image name="nav_camera" width="166.5" height="150.5"/>
         <image name="nav_heart" width="166.5" height="150.5"/>
         <image name="nav_home" width="166.5" height="152"/>

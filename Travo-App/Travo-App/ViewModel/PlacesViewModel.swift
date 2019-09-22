@@ -84,5 +84,9 @@ struct PlacesViewModel{
             Place.name == title
         }!
     }
+    
+    func getPlace(index:Int) -> Place{
+        return places[index]
+    }
 
 }
