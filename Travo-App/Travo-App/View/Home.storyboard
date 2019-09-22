@@ -501,7 +501,7 @@ today?</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCP-WY-dGG">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
                                                         <connections>
-                                                            <segue destination="DoQ-y4-2PO" kind="show" id="56p-vE-kVF"/>
+                                                            <segue destination="DoQ-y4-2PO" kind="show" identifier="goToLucky" id="56p-vE-kVF"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
