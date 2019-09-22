@@ -101,12 +101,13 @@ class User{
             favourites.append(place)
             return true
         }else if(favourites.contains(where: { (Place) -> Bool in
-            Place.name != place.name
+            Place.name == place.name
         })){
+            return false
+        }else{
             favourites.append(place)
             return true
         }
-        return false
     }
     
     func removeFavourites(place:Place) -> Bool{

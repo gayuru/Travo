@@ -114,7 +114,10 @@
                                     <constraint firstAttribute="height" constant="22" id="fwn-RE-86f"/>
                                     <constraint firstAttribute="width" constant="22" id="kQx-te-lfP"/>
                                 </constraints>
-                                <state key="normal" image="like"/>
+                                <state key="normal" image="heart"/>
+                                <connections>
+                                    <action selector="favouriteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eNZ-Ww-fVV"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow5" translatesAutoresizingMaskIntoConstraints="NO" id="AY2-Zp-sEY">
                                 <rect key="frame" x="258" y="109" width="45" height="44"/>
@@ -177,8 +180,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" width="21" height="19"/>
         <image name="left-arrow" width="1195" height="512"/>
-        <image name="like" width="500" height="500"/>
         <image name="rectangle" width="300" height="168"/>
         <image name="snow5" width="64" height="64"/>
     </resources>

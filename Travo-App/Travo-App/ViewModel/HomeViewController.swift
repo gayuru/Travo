@@ -17,6 +17,7 @@ class HomeViewController: UIViewController{
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
     var loggedInUser:User?
+//    var currentCategoryButton : UIButton!
     
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
@@ -44,7 +45,11 @@ class HomeViewController: UIViewController{
     }
     
 
-    @IBAction func unwindToHome(segue:UIStoryboardSegue){}
+    @IBAction func unwindToHome(segue:UIStoryboardSegue){
+        if let sourceVC = segue.source as? PlaceViewController{
+            print(sourceVC)
+        }
+    }
     
     lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
     lazy var tempPopular = viewModel.getPopularity(category: self.currentCategory)
@@ -171,7 +176,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
-        sender.imageView?.image = UIImage(named: categoryViewModel.getCategoryEnabledImage(name: currentCategory)!)
+//        currentCategoryButton = sender
+//        sender.viewWithTag(sender.tag)
+//        sender.setImage(UIImage(named: categoryViewModel.getCategoryEnabledImage(name: currentCategory)!), for: .normal)
         self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
         self.recommendedCollection.reloadData()

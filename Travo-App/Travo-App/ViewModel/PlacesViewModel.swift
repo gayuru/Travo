@@ -76,5 +76,9 @@ struct PlacesViewModel{
         }!
         return index
     }
+    
+    func getPlace(index:Int) -> Place{
+        return places[index]
+    }
 
 }
