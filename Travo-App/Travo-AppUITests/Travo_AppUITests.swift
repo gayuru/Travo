@@ -34,11 +34,6 @@ class Travo_AppUITests: XCTestCase {
         secureTextField.typeText("\n")
     }
     
-    //------ OVERALL USECASE STORYBOARD ------//
-    func testOverall(){
-        
-    }
-    
     //------ LOGIN STORYBOARD ------//
     func testValidLoginSuccess(){
         //Pre Condition: The app should be installed and the user should be brought into the login screen
@@ -159,6 +154,7 @@ class Travo_AppUITests: XCTestCase {
     
     //To-Do
     func testDashboardCategoryChange(){
+        XCTFail()
     }
     
     func testDashboardMostPopularTap(){
@@ -468,6 +464,78 @@ class Travo_AppUITests: XCTestCase {
         
         //Expected Result: Place view of a randomly selected place will appear
         XCTAssert(visitBtn.exists)
+    }
+    
+    //------ OVERALL USECASE STORYBOARD ------//
+    func testOverall(){
+        //Pre Condition : Successfully logged in
+        //Actions : Navigate through the views without any errors
+        //Results : Successful navigation
+        loginSuccessSetUp()
+        app.buttons["Login"].tap()
+        
+        let scrollViewsQuery = app.scrollViews
+        
+        let elementsQuery = scrollViewsQuery.otherElements
+        let popularPlace = app.scrollViews.otherElements.collectionViews/*@START_MENU_TOKEN@*/.cells.staticTexts["Arcades and Laneways"]/*[[".cells.staticTexts[\"Arcades and Laneways\"]",".staticTexts[\"Arcades and Laneways\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+        XCTAssert(popularPlace.firstMatch.exists)
+        //Action : Taps on a popular place in the collection view
+        popularPlace.tap()
+        XCTAssert(app.staticTexts["Arcades and Laneways"].exists)
+        //go back to the dashboard
+        let leftArrowButton = app.buttons["left arrow"]
+        leftArrowButton.tap()
+        //Navigates back to the dashboard
+        XCTAssert(app.staticTexts["Where"].exists)
+        
+        //Navigates to my profile
+        let profile = elementsQuery.buttons["profile"]
+        XCTAssert(profile.exists)
+        profile.tap()
+        //Checks if the view is complete
+        let aboutMeElement = elementsQuery.staticTexts["About me"]
+        XCTAssert(aboutMeElement.exists)
+        //navigates back to the dashboard
+        leftArrowButton.tap()
+        
+        //Selects two favourites
+        let selectFavouriteOne = scrollViewsQuery.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 2).children(matching: .cell).element(boundBy: 0).buttons["heart"]
+        selectFavouriteOne.tap()
+        let selectFavouriteTwo = scrollViewsQuery.otherElements.collectionViews.buttons["heart"]
+        selectFavouriteTwo.tap()
+        
+        //Navigates to Favourites
+        let goToFavourites = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .button).element
+        goToFavourites.tap()
+        //Checks if the correct places are being added to the favourites
+        let favouriteElement = app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["Federation Square"]/*[[".cells.staticTexts[\"Federation Square\"]",".staticTexts[\"Federation Square\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssert(favouriteElement.exists)
+        favouriteElement.tap()
+        //Navigates inside a Place
+        XCTAssert(app.buttons["Visit"].exists)
+        //go back to the dashboard
+        app.buttons["left arrow"].tap()
+        
+        //navigates to feeling lucky view
+        let feelingLucky = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 3).children(matching: .button).element
+        feelingLucky.tap()
+        
+        let globeBtn = app.buttons["globe"]
+        globeBtn.tap()
+        
+        //waits until the animation is completed
+        let exists = NSPredicate(format: "exists == 1")
+        let visitBtn = app.buttons["Visit"]
+        expectation(for: exists, evaluatedWith: visitBtn, handler: nil)
+        waitForExpectations(timeout: 3, handler: nil)
+        
+        //Place view of a randomly selected place will appear
+        XCTAssert(visitBtn.exists)
+        //go back to the dashboard
+        leftArrowButton.tap()
+        
+        //Final Result
+        XCTAssert(app.staticTexts["Where"].exists)
     }
     
 }
