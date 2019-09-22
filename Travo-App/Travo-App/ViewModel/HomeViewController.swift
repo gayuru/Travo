@@ -115,7 +115,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
                     loggedInUser?.getFavourites().forEach({ (place) in
                         if(place.name == cell.locationLabel.text){
                             cell.likeBtn.setImage(UIImage(named: "like"), for: .normal)
-                            recommendedCollection.reloadData()
                         }
                     })
                 }
@@ -183,10 +182,11 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
+
         self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-        self.recommendedCollection.reloadData()
-        self.popularPlaces.reloadData()
+//        self.recommendedCollection.reloadData()
+//        self.popularPlaces.reloadData()
     }
 }
 
