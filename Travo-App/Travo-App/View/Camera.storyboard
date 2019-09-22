@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="taj-La-lob">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,19 +15,19 @@
             <objects>
                 <viewController id="taj-La-lob" customClass="CameraViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0aw-OR-WJP">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqX-cL-frJ" userLabel="Camera View">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <viewLayoutGuide key="safeArea" id="yNa-QS-Vhh"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xT1-45-ZXF" userLabel="Contents View">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jC-xr-0bA">
-                                        <rect key="frame" x="0.0" y="269" width="667" height="106"/>
+                                        <rect key="frame" x="0.0" y="462" width="320" height="106"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYi-ab-HV6">
                                                 <rect key="frame" x="137" y="54" width="30" height="30"/>
@@ -45,7 +45,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gm7-yc-Ueo">
-                                                <rect key="frame" x="309" y="40" width="49" height="48"/>
+                                                <rect key="frame" x="135.5" y="40" width="49" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Gm7-yc-Ueo" secondAttribute="height" multiplier="49:48" id="CsX-U5-0kV"/>
                                                     <constraint firstAttribute="width" constant="49" id="OZu-C5-2k2"/>
@@ -55,10 +55,11 @@
                                                 <connections>
                                                     <action selector="imageCapture:" destination="3Xy-i0-2bK" eventType="touchUpInside" id="HwY-1n-cpj"/>
                                                     <action selector="imageCapture:" destination="taj-La-lob" eventType="touchUpInside" id="mCM-KT-f3C"/>
+                                                    <segue destination="Q8b-An-zb3" kind="showDetail" identifier="captureImage" id="Mza-OQ-jmC"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHOTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnr-uo-xlx">
-                                                <rect key="frame" x="314" y="12" width="39" height="14"/>
+                                                <rect key="frame" x="140.5" y="12" width="39" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bnr-uo-xlx" secondAttribute="height" multiplier="39:14" id="WsI-wr-9KL"/>
                                                 </constraints>
@@ -67,7 +68,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CO4-Tl-Lge">
-                                                <rect key="frame" x="621" y="48" width="21" height="33"/>
+                                                <rect key="frame" x="274" y="48" width="21" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CO4-Tl-Lge" secondAttribute="height" multiplier="7:11" id="9KV-wI-2Hs"/>
                                                     <constraint firstAttribute="height" constant="33" id="Kb0-wb-07B"/>
@@ -111,7 +112,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eqX-cL-frJ" secondAttribute="trailing" id="12K-xS-29O"/>
                             <constraint firstAttribute="bottom" secondItem="eqX-cL-frJ" secondAttribute="bottom" id="6Va-bC-xzy"/>
-                            <constraint firstItem="eqX-cL-frJ" firstAttribute="top" secondItem="0aw-OR-WJP" secondAttribute="top" id="B7L-m0-9h7"/>
                             <constraint firstItem="eqX-cL-frJ" firstAttribute="top" secondItem="iKf-fx-wxl" secondAttribute="top" id="Glc-p6-xSO"/>
                             <constraint firstItem="eqX-cL-frJ" firstAttribute="bottom" secondItem="iKf-fx-wxl" secondAttribute="bottom" id="JJy-9m-N1D"/>
                             <constraint firstItem="xT1-45-ZXF" firstAttribute="bottom" secondItem="iKf-fx-wxl" secondAttribute="bottom" id="XtY-D3-ad1"/>
@@ -126,12 +126,21 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="eqX-cL-frJ" id="Z95-zk-cFO"/>
+                        <segue destination="3Xy-i0-2bK" kind="unwind" identifier="showHome" unwindAction="unwindToHomeWithSegue:" id="pen-Sa-zAh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbY-fi-nvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3Xy-i0-2bK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="287.19999999999999" y="124.58770614692655"/>
+        </scene>
+        <!--Place-->
+        <scene sceneID="T26-z6-Sh8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Place" id="Q8b-An-zb3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iT4-O5-ujx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="69"/>
         </scene>
     </scenes>
     <resources>

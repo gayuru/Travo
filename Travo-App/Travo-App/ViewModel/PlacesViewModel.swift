@@ -11,22 +11,23 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private var model = Places()
+    private let placeModel = Places()
+    private var weatherModel = Weather()
     
     var places:[Place]{
-        return model.places
+        return placeModel.places
     }
     
     var count:Int{
     return places.count
     }
     
-    func getFavourites() -> [Place]{
-        return model.sortFavourites()
+    func getPopularity(category:String) -> [Place]{
+        return placeModel.sortPopularity(category: category)
     }
-    
-    func getRecommended() -> [Place]{
-        return model.sortRecommended()
+ 
+    func getRecommended(category:String) -> [Place]{
+        return placeModel.sortRecommended(category: category)
     }
     
     func getTitleFor(index:Int) -> String{
@@ -57,5 +58,34 @@ struct PlacesViewModel{
         return places[index].starRating
     }
     
+    func getWeather(index:Int) -> UIImage?{
+        let weatherCondition = places[index].weatherCondition
+        let iconName = weatherModel.updateWeatherIcon(condition: weatherCondition)
+        return UIImage.init(named: iconName)
+    }
+    
+    func feltLucky() -> Int{
+        let randomNumber = Int.random(in: 0..<places.count)
+        return randomNumber
+    }
+    
+    func placeExistsByName(name:String)-> Bool{
+        for place in places {
+            if (place.name == name) {
+                return true
+            }
+        }
+        return false
+    }
+
+    func getIndex(title:String) -> Int{
+        return places.firstIndex { (Place) -> Bool in
+            Place.name == title
+        }!
+    }
+    
+    func getPlace(index:Int) -> Place{
+        return places[index]
+    }
 
 }

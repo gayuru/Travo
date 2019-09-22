@@ -13,9 +13,22 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet var profileBackground: UIView!
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var cityCollection: UICollectionView!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var currentCityLabel: UILabel!
+    @IBOutlet var interestLabel: UILabel!
+    @IBOutlet weak var aboutMeLabel: UILabel!
+    
+    var currentUser:User!
+    
+    let currentCity:String = "Melbourne"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        aboutMeLabel.text = currentUser.getDescription()
+        interestLabel.text = currentUser.getInterests()
+        currentCityLabel.text = currentCity
+        
         // Do any additional setup after loading the view.
         profileImage.frame = CGRect(x: 0,y: 0,width: 100,height: 100)
         profileBackground.layer.cornerRadius = 20
@@ -28,23 +41,13 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return currentUser.getCities().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cityCell", for: indexPath) as! CityVisitedCollectionViewCell
-        cell.cityView.backgroundColor = UIColor.gray
-        cell.cityLabel.text = "Melbourne"
+        cell.cityLabel.text = currentUser.getCity(index:indexPath.row)
         return cell
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -4,16 +4,15 @@
 //
 //  Created by Jun Cheong on 12/9/19.
 //  Copyright © 2019 Sogyal Thundup Sherpa. All rights reserved.
-//  Code Reference: https://stackoverflow.com/questions/29117759/how-to-create-radio-buttons-and-checkbox-in-swift-ios
 //
 
 import UIKit
 
 class CheckboxButton: UIButton {
     
-    //CheckImages
-    let checkMark = UIImage(named: "icons8-checked-checkbox-50")! as UIImage
-    let emptyCheckMark = UIImage(named: "icons8-unchecked-checkbox-50")! as UIImage
+    //CheckBox Images
+    let checkMark = UIImage(named: "checked_checkbox")! as UIImage
+    let emptyCheckMark = UIImage(named: "unchecked_checkbox")! as UIImage
     
     var checked:Bool = false {
         didSet{

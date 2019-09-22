@@ -9,11 +9,56 @@
 import Foundation
 import UIKit
 import MapKit
+import Cosmos
 
 class PlaceViewController: UIViewController {
     
-    //this is how you should pass the data into the controller
-//    detailViewController.contact = contacts[index]
+    @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var placeTitle: UILabel!
+    @IBOutlet weak var placeDescription: UILabel!
+    @IBOutlet weak var placeOpenHours: UILabel!
+    @IBOutlet weak var placeRating: CosmosView!
+    @IBOutlet weak var placeWeather: UIImageView!
+    @IBOutlet var placeFavourite: UIButton!
+    
+    var favourites : [Place]!
+    var currentUser : User!
+    var indexPass = String()
+    var index:Int = 0
+    var currentPlace : Place!
+    
+    
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "backHome", sender: self)
+    }
+    
+    var viewModel = PlacesViewModel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if (viewModel.placeExistsByName(name: indexPass)) {
+            index = viewModel.getIndex(title: indexPass)
+        }
+        if let user = currentUser{
+            if user.getFavourites().count <= 0{
+                placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
+            }else{
+                favourites = user.getFavourites()
+                getFavourite(name: viewModel.getTitleFor(index: index))
+            }
+        }
+        
+        placeImage.contentMode = .scaleAspectFill
+        placeTitle.text = viewModel.getTitleFor(index: index)
+        placeDescription.text = viewModel.getDescFor(index: index)
+        placeOpenHours.text = viewModel.getOpenTimeFor(index: index)
+        placeImage.image = viewModel.getImageURLFor(index: index)
+        placeRating.settings.updateOnTouch = false
+        placeRating.settings.fillMode = .precise
+        placeRating.rating = viewModel.getStarRating(index: index)
+        placeRating.text = String(viewModel.getStarRating(index: index))
+        placeWeather.image = viewModel.getWeather(index: index)
+    }
     
     //head to google maps app
     @IBAction func visitButton(_ sender: Any) {
@@ -30,30 +75,32 @@ class PlaceViewController: UIViewController {
         ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = viewModel.getTitleFor(index: index!)
+        mapItem.name = viewModel.getTitleFor(index: index)
         mapItem.openInMaps(launchOptions: options)
     }
     
-    @IBOutlet weak var placeImage: UIImageView!
-    @IBOutlet weak var placeTitle: UILabel!
-    @IBOutlet weak var placeDescription: UILabel!
-    @IBOutlet weak var placeOpenHours: UILabel!
-    @IBOutlet weak var placeRating: UILabel!
     
-    var index:Int?
-    
-    var viewModel = PlacesViewModel()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        index = 4;
-        placeImage.contentMode = .scaleAspectFill
-        placeTitle.text = viewModel.getTitleFor(index: index!)
-        placeDescription.text = viewModel.getDescFor(index: index!)
-        placeOpenHours.text = viewModel.getOpenTimeFor(index: index!)
-        placeRating.text = String(viewModel.getStarRating(index: index!))
-        placeImage.image = viewModel.getImageURLFor(index: index!)
+    @IBAction func favouriteButtonPressed(_ sender: UIButton) {
+        if currentUser.getFavourites().count <= 0{
+            _ = currentUser.addToFavourites(place: viewModel.getPlace(index: index))
+            placeFavourite.setImage(UIImage(named: "like"), for: .normal)
+        }else if(currentUser.addToFavourites(place: viewModel.getPlace(index: index))){
+            placeFavourite.setImage(UIImage(named: "like"), for: .normal)
+            print(currentUser.getFavourites())
+        }else{
+            placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
+            _ = currentUser.removeFavourites(place: viewModel.getPlace(index: index))
+        }
     }
     
+    
+    
+    func getFavourite(name:String){
+        for place in favourites{
+            if place.name == name{
+                placeFavourite.setImage(UIImage(named:"like"), for: .normal)
+            }
+        }
+    }
 }
 

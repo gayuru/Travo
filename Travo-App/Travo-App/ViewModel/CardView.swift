@@ -12,10 +12,9 @@ import UIKit
 
     @IBInspectable var cornerradius : CGFloat = 15
     
+    //changes the edges of the corner
     override func layoutSubviews() {
         layer.cornerRadius = cornerradius
-//        layer.backgroundColor = backColor as! CGColor
-        
     }
     
     

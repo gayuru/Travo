@@ -8,10 +8,10 @@
 
 import UIKit
 import AVFoundation
+import SVProgressHUD
 
 class CameraViewController: UIViewController{
     
-    //TESTING STRING
     @IBOutlet weak var cameraView: UIView!
     
     var captureSession: AVCaptureSession?
@@ -23,9 +23,14 @@ class CameraViewController: UIViewController{
         super.viewDidLoad()
         
         if #available(iOS 10.2, *){
-            let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+            guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else{
+                let alert = UIAlertController(title: "Camera not available", message: "The camera does not exist.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert,animated: true)
+                return
+            }
             do{
-                let input = try AVCaptureDeviceInput(device: captureDevice!)
+                let input = try AVCaptureDeviceInput(device: captureDevice)
                 captureSession = AVCaptureSession()
                 captureSession?.addInput(input)
                 videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
@@ -100,8 +105,6 @@ class CameraViewController: UIViewController{
                     
                     device.focusPointOfInterest = focusPoint
                     device.focusMode = .continuousAutoFocus
-//                    device.focusMode = .autoFocus
-                    //device.focusMode = .locked
                     device.exposurePointOfInterest = focusPoint
                     device.exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
                     device.unlockForConfiguration()
@@ -115,16 +118,23 @@ class CameraViewController: UIViewController{
     
     
     @IBAction func imageCapture(_ sender: Any) {
-        
+        //call the HUD
+        SVProgressHUD.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            let placeVC = PlaceViewController()
+            placeVC.indexPass = "Federation Square"
+        }
+        SVProgressHUD.dismiss()
+        self.performSegue(withIdentifier: "captureImage", sender: self)
         guard let capturePhotoOutput = self.capturePhotoOutput else {return}
         let photoSettings = AVCapturePhotoSettings()
         photoSettings.isAutoStillImageStabilizationEnabled = true
         photoSettings.isHighResolutionPhotoEnabled = true
-        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self as! AVCapturePhotoCaptureDelegate)
+        capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self as AVCapturePhotoCaptureDelegate)
     }
     
     @IBAction func backButton(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "showHome", sender: self)
     }
     
     @IBAction func flashButton(_ sender: Any) {

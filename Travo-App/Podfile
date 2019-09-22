@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Travo-App' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Travo-App
+    pod 'Cosmos'
+    pod 'TinyConstraints'
+    pod 'SVProgressHUD'
+
+  target 'Travo-AppUITests' do
+    inherit! :complete
+    # Pods for testing
+    pod 'Cosmos'
+    pod 'TinyConstraints'
+    pod 'SVProgressHUD'
+  end
+
+end
