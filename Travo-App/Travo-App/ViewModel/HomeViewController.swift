@@ -144,6 +144,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             let favouritesController = segue.destination as! FavouritesViewController
             favouritesController.currentCollection = FavouritesViewController.collections.favourites
             favouritesController.currentUser = loggedInUser
+        }else if(segue.identifier == "goToProfile"){
+            let profileController = segue.destination as! ProfileViewController
+            profileController.currentUser = loggedInUser
         }
     }
     
@@ -168,6 +171,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
+        sender.imageView?.image = UIImage(named: categoryViewModel.getCategoryEnabledImage(name: currentCategory)!)
         self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
         self.recommendedCollection.reloadData()
