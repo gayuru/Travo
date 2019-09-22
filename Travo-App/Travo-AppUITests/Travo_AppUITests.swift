@@ -21,15 +21,13 @@ class Travo_AppUITests: XCTestCase {
     override func tearDown() {
     }
     
-    //Common setup for a successful login
+    //Common setup for a successful login - PRE CONDITION FOR MOST OF THE TEST CASES
     func loginSuccessSetUp(){
         let logoElementsQuery = XCUIApplication().otherElements.containing(.image, identifier:"Logo")
         let textField = logoElementsQuery.children(matching: .textField).element
         textField.tap()
         textField.typeText("email1")
         textField.typeText("\n")
-
-        
         let secureTextField = logoElementsQuery.children(matching: .secureTextField).element
         secureTextField.tap()
         secureTextField.typeText("password1")
@@ -41,11 +39,13 @@ class Travo_AppUITests: XCTestCase {
         
     }
     
-    //Tests _ Login storyboard
-    //pre-condition, action and post condition should be present with comments
+    //------ LOGIN STORYBOARD ------//
     func testValidLoginSuccess(){
+        //Pre Condition: The app should be installed and the user should be brought into the login screen
         let logoElementsQuery = XCUIApplication().otherElements.containing(.image, identifier:"Logo")
         let textField = logoElementsQuery.children(matching: .textField).element
+        
+        //Action : Valid Login Credentials are being typed
         textField.tap()
         textField.typeText("email1")
         textField.typeText("\n")
@@ -55,12 +55,17 @@ class Travo_AppUITests: XCTestCase {
         secureTextField.typeText("password1")
         secureTextField.typeText("\n")
         app.buttons["Login"].tap()
+        
+        //Expected Result : Login Successful
         XCTAssertFalse(app.alerts.element.exists)
     }
     
     func testInvalidLogin_missingCredentials(){
+        //Pre Condition: The app should be installed and the user should be brought into the login screen
         let logoElementsQuery = XCUIApplication().otherElements.containing(.image, identifier:"Logo")
         let textField = logoElementsQuery.children(matching: .textField).element
+        
+        //Action : Login Credentials are not being completed fully
         textField.tap()
         textField.typeText("email_Fail")
         textField.typeText("\n")
@@ -70,11 +75,16 @@ class Travo_AppUITests: XCTestCase {
         secureTextField.typeText("password_Fail")
         secureTextField.typeText("\n")
         app.buttons["Login"].tap()
+        
+        //Expected Result : Alert indicating that the login was unsuccessful
         XCTAssertEqual(app.alerts.element.label, "Incorrect Login")
     }
     
     func testInvalidLogin_wrongCredentials(){
+        //Pre Condition : The app should be installed and the user should be brought into the login screen
         let logoElementsQuery = XCUIApplication().otherElements.containing(.image, identifier:"Logo")
+        
+        //Action : Wrong Login Credentials are being typed
         let textField = logoElementsQuery.children(matching: .textField).element
         textField.tap()
         textField.typeText("email1")
@@ -85,28 +95,35 @@ class Travo_AppUITests: XCTestCase {
         secureTextField.typeText("password_Fail")
         secureTextField.typeText("\n")
         app.buttons["Login"].tap()
+        
+        //Expected Result : Alert indicating that the login was unsuccessful
         XCTAssertEqual(app.alerts.element.label, "Incorrect Login")
     }
      
     
     //------ DASHBOARD STORYBOARD ------//
-    //pre-condition
     func testDashboardLoads(){
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
+        
+        //Action : Views the dashboard
         app.buttons["Login"].tap()
         
         let scrollViewsQuery = app.scrollViews
         let elementsQuery = scrollViewsQuery.otherElements
-        
         let willYouGoTodayStaticText = elementsQuery.staticTexts["will you go\ntoday?"]
      
+        //Expected Result: The dashboard loads with the initial components
         XCTAssert(elementsQuery.buttons["Logo"].exists)
         XCTAssert(elementsQuery.staticTexts["Where"].exists)
         XCTAssert(willYouGoTodayStaticText.exists)
 }
     
     func testDashboardMainComponentsVisible(){
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
+        
+        //Action : Logs into the dashboard
         app.buttons["Login"].tap()
         
         let scrollViewsQuery = app.scrollViews
@@ -114,6 +131,7 @@ class Travo_AppUITests: XCTestCase {
         let collectionView = scrollViewsQuery.otherElements.collectionViews.element
         let mostPopularElementsQuery = scrollViewsQuery.otherElements.containing(.staticText, identifier:"Most Popular")
         
+        //Expected Result: All the main components are visible including the title,collection vies and buttons
         XCTAssert(elementsQuery.staticTexts["Most Popular"].exists)
         XCTAssert(elementsQuery.staticTexts["Recommended"].exists)
         XCTAssert(collectionView.exists)
@@ -123,14 +141,18 @@ class Travo_AppUITests: XCTestCase {
     
     
     func testDashboardProfileTap(){
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
 
         let scrollViewsQuery = app.scrollViews
         let elementsQuery = scrollViewsQuery.otherElements
         
+        //Action : Clicks on profile after checking if it exists
         XCTAssert(elementsQuery.buttons["profile"].exists)
         elementsQuery.buttons["profile"].tap()
+        
+        //Expected Result: Profile is being viewed
         XCTAssert(elementsQuery.staticTexts["About me"].exists)
         elementsQuery.buttons["left arrow"].tap()
     }
@@ -140,37 +162,47 @@ class Travo_AppUITests: XCTestCase {
     }
     
     func testDashboardMostPopularTap(){
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
         let popularPlace = app.scrollViews.otherElements.collectionViews/*@START_MENU_TOKEN@*/.cells.staticTexts["Arcades and Laneways"]/*[[".cells.staticTexts[\"Arcades and Laneways\"]",".staticTexts[\"Arcades and Laneways\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
         XCTAssert(popularPlace.exists)
+        //Action : Taps on a popular place in the collection view
         popularPlace.tap()
         
         let validTitle = "Arcades and Laneways"
         let arcadesAndLanewaysStaticText = app.staticTexts["Arcades and Laneways"]
+        //Expected Result: Popular place which is being clicked appears in a bigger view
         XCTAssertEqual(validTitle, arcadesAndLanewaysStaticText.firstMatch.label)
     }
     
     func testDashboardSeeAll(){
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
         let mostPopularElementsQuery = app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular")
         let popularSeeAll = mostPopularElementsQuery.children(matching: .button).matching(identifier: "See all").element(boundBy: 0)
         XCTAssert(popularSeeAll.exists)
+        //Action : Clicks on see all button
         popularSeeAll.tap()
         
+        //Expected Result: See all Appears
         //go back home
         app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .button).element.tap()
         
         let recommendedSeeAll = mostPopularElementsQuery.children(matching: .button).matching(identifier: "See all").element(boundBy: 1)
+        //Expected Result: See all appears
         XCTAssert(recommendedSeeAll.exists)
         recommendedSeeAll.tap()
     }
     
     func testTaBBar(){
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
+        
+        //Action : Clicks on to go to the dashboard
         app.buttons["Login"].tap()
         
         let window = app.children(matching: .window).element(boundBy: 0)
@@ -182,16 +214,18 @@ class Travo_AppUITests: XCTestCase {
         let cameraItem = tabBar.children(matching: .other).element(boundBy: 2).children(matching: .button).element
         let feelingLuckyItem = tabBar.children(matching: .other).element(boundBy: 3).children(matching: .button).element
         
+        //Expected Result: The navbar items appear correctly
         XCTAssert(homeItem.exists)
         XCTAssert(favouriteItem.exists)
         XCTAssert(cameraItem.exists)
         XCTAssert(feelingLuckyItem.exists)
         
-        //checks if its tappable
+        //------------------------//
+        //Action & Result : After a nav bar item is pressed it should go to the correct storyboard
+        
         favouriteItem.tap()
         favouriteItem.tap()
-        //change this to favourites later
-        XCTAssert(app.staticTexts["No Favourites"].exists)
+        XCTAssert(app.staticTexts["Favourites"].exists)
         
         cameraItem.tap()
         XCTAssert(app.staticTexts["PHOTO"].exists)
@@ -209,16 +243,14 @@ class Travo_AppUITests: XCTestCase {
     //------ PLACE STORYBOARD ------//
     //Tests _ Place storyboard
     func testPlaceLabelsExist(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
-        //action
+        //Action : Clicks on a place
         app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 2).children(matching: .cell).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.tap()
         app.staticTexts["Federation Square"].tap()
-        
-        
-        //testing
+       
         let presentTitle = app.staticTexts["Federation Square"]
         let presentOpenTime = app.staticTexts["Open 24 Hours"]
         let presentRating =  app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element
@@ -226,6 +258,7 @@ class Travo_AppUITests: XCTestCase {
         let likeBtn = app.buttons["like"]
         let visitBtn = app.buttons["Visit"]
         
+        //Expected Result: All the components should be visible
         XCTAssert(presentTitle.exists)
         XCTAssert(presentOpenTime.exists)
         XCTAssert(presentRating.exists)
@@ -238,76 +271,80 @@ class Travo_AppUITests: XCTestCase {
         let validTitle = "Royal Botanical Garden"
         let validOpenTime = "7.30AM - 6.30PM"
         
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
-        //action
+        
+        //Action : Clicks on a place - Royal Botanical Garden
         app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 1).cells.otherElements.containing(.image, identifier:"place_botanical_garden").element.tap()
     
         let presentTitle = app.staticTexts["Royal Botanical Garden"]
         let presentOpenTime = app.staticTexts["7.30AM - 6.30PM"]
         
-        //testing
+        //Expected Result: The actual details should match with the expected details
         XCTAssertEqual(validTitle, presentTitle.firstMatch.label)
-        XCTAssertEqual(validOpenTime, presentOpenTime.label)
+        XCTAssertEqual(validOpenTime, presentOpenTime.firstMatch.label)
     }
     
     func testPlaceCorrectImage(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
-        //action
+        //Action : Clicks on a place
         app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 1).cells.otherElements.containing(.image, identifier:"place_botanical_garden").element.tap()
         
         let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).images["place_botanical_garden"]
+        //Expected Result: The image should exist in the background
         XCTAssert(element.exists)
     }
     
     
     func testPlaceGetDirections(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
-        //action
+        //Action : Clicks on a place and clicks on the visit button to get directions
         app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 2).children(matching: .cell).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.tap()
         app.staticTexts["Federation Square"].tap()
         
         let visitBtn = app.buttons["Visit"]
+        
+        //Expected Result: Visit button works for the prupose which is being defined and it is visible
         XCTAssert(visitBtn.exists)
         visitBtn.tap()
     }
     
     func testPlaceRatingValid(){
-        
         let validRating = "Rating 4.8"
         
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
-        //action
+        //Action : Clicks on a place
         app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").children(matching: .collectionView).element(boundBy: 1).cells.otherElements.containing(.image, identifier:"place_botanical_garden").element.tap()
         
         let presentRating =  app.otherElements["Rating 4.8"]
         
-        //testing
-        XCTAssertEqual(validRating, presentRating.label)
+        //Expected Result: Rating is verifiable with the expected result
+        XCTAssertEqual(validRating, presentRating.firstMatch.label)
     }
     
     //------ FAVORUITES STORYBOARD ------//
     func testFavouritesExist(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
         app.scrollViews.otherElements.containing(.staticText, identifier:"Most Popular").element.swipeUp()
         
+        //Action : Clicks on to the favourites view
         let window = app.children(matching: .window).element(boundBy: 0)
         window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .button).element.tap()
-        let defaultText = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .collectionView).element
+        let defaultText = app.staticTexts["No Favourites"]
         let title = app.staticTexts["Favourites"]
         
-        
+        //Expected Result: Main components exist which includes the title and the label which shows no favourites are there
         XCTAssert(defaultText.exists)
         XCTAssert(title.exists)
         XCTAssertEqual(defaultText.label, "No Favourites")
@@ -328,32 +365,33 @@ class Travo_AppUITests: XCTestCase {
     }
     
     func testFavouritesAddingPlaces(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
-        let selectionOne:String = "Federation One"
+        let selectionOne:String = "Federation Square"
         let selectionTwo:String = "Royal Botanical Garden"
-        
+        //Action : Navigates to favourites
         goToFavourites()
        
         let favouriteOne = app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["Federation Square"]/*[[".cells.staticTexts[\"Federation Square\"]",".staticTexts[\"Federation Square\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         let favouriteTwo = app.collectionViews.staticTexts["Royal Botanical Garden"]
 
-        XCTAssertEqual(selectionOne, favouriteOne.label)
-        XCTAssertEqual(selectionTwo,favouriteTwo.label)
+        //Expected Result: The labels match with the real data
+        XCTAssertEqual(selectionOne, favouriteOne.firstMatch.label)
+        XCTAssertEqual(selectionTwo,favouriteTwo.firstMatch.label)
     }
     
     //should work after removing places is fixed
     func testFavouritesRemovingPlaces(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
        
         goToFavourites()
         
         let collectionViewsQuery = app.collectionViews
-        //dislike
+        //Action : Disliking Places
         let favouriteOne = collectionViewsQuery.children(matching: .cell).element(boundBy: 0).buttons["like"]
         favouriteOne.tap()
         let favouriteTwo = collectionViewsQuery.children(matching: .cell).element(boundBy: 1).buttons["like"]
@@ -361,14 +399,16 @@ class Travo_AppUITests: XCTestCase {
         
         let window = app.children(matching: .window).element(boundBy: 0)
         let defaultText = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .collectionView).element
+        //Expected Result: The view gets empty
         XCTAssertEqual(defaultText.label, "No Favourites")
     }
     
     func testFavouritesComponentCheck(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
+        //Action : Navigates to faovurites
         goToFavourites()
         
         let expectedTitle:String = "Federation Square"
@@ -378,6 +418,7 @@ class Travo_AppUITests: XCTestCase {
         
         let collectionViewsQuery = app.collectionViews
         
+        //Expected Result: The main components in Favourites inside a place view should exist
         XCTAssert(collectionViewsQuery.staticTexts[expectedTitle].exists)
         XCTAssert(collectionViewsQuery.otherElements[expectedRating].exists)
         XCTAssert(collectionViewsQuery.staticTexts[expectedCity].exists)
@@ -386,20 +427,21 @@ class Travo_AppUITests: XCTestCase {
     
     //------ FEELING LUCKY STORYBOARD ------//
     func testFeelingLuckyComponentCheck(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
-        //goto feeling lucky view
+        //Action : Navigates to feeling lucky view
         let window = app.children(matching: .window).element(boundBy: 0)
         window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 3).children(matching: .button).element.tap()
         
         let mockImage = window.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).images["travel"]
         let title = app.staticTexts["I'm Feeling lucky"]
-        //testing the string wants the exact format
+        //the string wants to be in the exact format to be testeed , perhaps the weird formatting
         let heroText = app.staticTexts["take me  to"]
         let globeButton = app.buttons["globe"]
 
+        //Expected Result: All the components mentioned being visible
         XCTAssert(mockImage.exists)
         XCTAssert(title.exists)
         XCTAssert(heroText.exists)
@@ -407,24 +449,26 @@ class Travo_AppUITests: XCTestCase {
     }
     
     func testFeelingLuckyRandomPlace(){
-        //pre-condition
+        //Pre Condition : Successfully logged in
         loginSuccessSetUp()
         app.buttons["Login"].tap()
         
-        //goto feeling lucky view
+        //Action : Navigates to feeling lucky view and clicks on the globe to trigger the action
         let window = app.children(matching: .window).element(boundBy: 0)
         window.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 3).children(matching: .button).element.tap()
         
         let globeButton = app.buttons["globe"]
         globeButton.tap()
         
+        //waits until the animation is completed
         let exists = NSPredicate(format: "exists == 1")
         let visitBtn = app.buttons["Visit"]
         expectation(for: exists, evaluatedWith: visitBtn, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
         
+        //Expected Result: Place view of a randomly selected place will appear
         XCTAssert(visitBtn.exists)
     }
     
 }
-    
+
