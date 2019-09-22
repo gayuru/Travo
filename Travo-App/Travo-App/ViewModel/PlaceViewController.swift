@@ -40,8 +40,11 @@ class PlaceViewController: UIViewController {
         super.viewDidLoad()
 
         index = viewModel.getIndex(title: indexPass)
-        if let user = currentUser{
-            self.favourites = user.getFavourites()
+        if currentUser.getFavourites().count <= 0{
+            placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
+        }else{
+            favourites = currentUser.getFavourites()
+            getFavourite(name: viewModel.getTitleFor(index: index))
         }
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index)
