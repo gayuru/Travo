@@ -152,11 +152,6 @@ class Travo_AppUITests: XCTestCase {
         elementsQuery.buttons["left arrow"].tap()
     }
     
-    //To-Do
-    func testDashboardCategoryChange(){
-        XCTFail()
-    }
-    
     func testDashboardMostPopularTap(){
         //Pre Condition : Successfully logged in
         loginSuccessSetUp()
