@@ -22,12 +22,12 @@ struct PlacesViewModel{
     return places.count
     }
     
-    func getPopularity() -> [Place]{
-        return placeModel.sortPopularity()
+    func getPopularity(category:String) -> [Place]{
+        return placeModel.sortPopularity(category: category)
     }
  
-    func getRecommended() -> [Place]{
-        return placeModel.sortRecommended()
+    func getRecommended(category:String) -> [Place]{
+        return placeModel.sortRecommended(category: category)
     }
     
     func getTitleFor(index:Int) -> String{
