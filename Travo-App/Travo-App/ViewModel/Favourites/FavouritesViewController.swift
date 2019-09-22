@@ -193,14 +193,36 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     }
     
     @objc func likePlace(sender:UIButton){
-        if sender.currentImage == UIImage(named: "heart") {
-            if ((currentUser?.addToFavourites(place: tempPopular[sender.id]))!){
-                sender.setImage(UIImage(named:"like"), for: .normal)
+        switch currentCollection {
+        case collections.recommended:
+            if sender.currentImage == UIImage(named: "heart") {
+                if ((currentUser?.addToFavourites(place: tempRecommended[sender.id]))!){
+                    sender.setImage(UIImage(named:"like"), for: .normal)
+                }
+            }else{
+                sender.setImage(UIImage(named:"heart"), for: .normal)
+                _ = currentUser?.removeFavourites(place: tempRecommended[sender.id])
             }
-        }else{
-            sender.setImage(UIImage(named:"heart"), for: .normal)
-            _ = currentUser?.removeFavourites(place: tempPopular[sender.id])
+        case collections.popular:
+            if sender.currentImage == UIImage(named: "heart") {
+                if ((currentUser?.addToFavourites(place: tempPopular[sender.id]))!){
+                    sender.setImage(UIImage(named:"like"), for: .normal)
+                }
+            }else{
+                sender.setImage(UIImage(named:"heart"), for: .normal)
+                _ = currentUser?.removeFavourites(place: tempPopular[sender.id])
+            }
+        default:
+            if sender.currentImage == UIImage(named: "heart") {
+                if ((currentUser?.addToFavourites(place: favourites[sender.id]))!){
+                    sender.setImage(UIImage(named:"like"), for: .normal)
+                }
+            }else{
+                sender.setImage(UIImage(named:"heart"), for: .normal)
+                _ = currentUser?.removeFavourites(place: favourites[sender.id])
+            }
         }
+        
     }
     
     
