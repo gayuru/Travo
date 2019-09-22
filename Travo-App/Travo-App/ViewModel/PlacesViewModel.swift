@@ -68,13 +68,21 @@ struct PlacesViewModel{
         let randomNumber = Int.random(in: 0..<places.count)
         return randomNumber
     }
+    
+    func placeExistsByName(name:String)-> Bool{
+        for place in places {
+            if (place.name == name) {
+                return true
+            }
+        }
+        return false
+    }
 
     //better way to do this //put guard let statement for this 
     func getIndex(title:String) -> Int{
-        let index = places.firstIndex { (Place) -> Bool in
+        return places.firstIndex { (Place) -> Bool in
             Place.name == title
         }!
-        return index
     }
 
 }

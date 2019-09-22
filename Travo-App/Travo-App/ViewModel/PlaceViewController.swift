@@ -38,8 +38,9 @@ class PlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        index = viewModel.getIndex(title: indexPass)
+        if (viewModel.placeExistsByName(name: indexPass)) {
+            index = viewModel.getIndex(title: indexPass)
+        }
         if let user = currentUser{
             self.favourites = user.getFavourites()
         }
