@@ -68,6 +68,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             if (indexPath.row < tempPopular.count) {
@@ -110,6 +111,14 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
                 cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
                 cell.locationLabel.sizeToFit()
                 cell.likeBtn.tag = indexPath.row
+                cell.likeBtn.setImage(UIImage(named: "heart"), for: .normal)
+                if((loggedInUser?.getFavourites().count)!>=0){
+                    loggedInUser?.getFavourites().forEach({ (place) in
+                        if(place.name == cell.locationLabel.text){
+                            cell.likeBtn.setImage(UIImage(named: "like"), for: .normal)
+                        }
+                    })
+                }
                 cell.likeBtn.addTarget(self, action: #selector(likeButtonTapped(sender:)), for: UIControl.Event.touchUpInside)
             }
             return cell
@@ -174,13 +183,11 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
-//        currentCategoryButton = sender
-//        sender.viewWithTag(sender.tag)
-//        sender.setImage(UIImage(named: categoryViewModel.getCategoryEnabledImage(name: currentCategory)!), for: .normal)
+
         self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-        self.recommendedCollection.reloadData()
-        self.popularPlaces.reloadData()
+//        self.recommendedCollection.reloadData()
+//        self.popularPlaces.reloadData()
     }
 }
 
