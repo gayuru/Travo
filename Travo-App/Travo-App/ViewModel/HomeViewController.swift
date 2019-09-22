@@ -34,7 +34,7 @@ class HomeViewController: UIViewController{
         bottomNav.layer.masksToBounds = true
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
-        categoryCollection.backgroundColor = UIColor.init(red: 243, green: 245, blue: 247)
+        categoryCollection.backgroundColor =  UIColor(white: 1, alpha: 0.0)
         popularPlaces.delegate = self
         popularPlaces.dataSource = self
         categoryCollection.delegate = self
