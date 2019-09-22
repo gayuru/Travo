@@ -41,15 +41,10 @@ class HomeViewController: UIViewController{
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
-        
     }
     
 
-    @IBAction func unwindToHome(segue:UIStoryboardSegue){
-        if let sourceVC = segue.source as? PlaceViewController{
-            print(sourceVC)
-        }
-    }
+    @IBAction func unwindToHome(segue:UIStoryboardSegue){}
     
     lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
     lazy var tempPopular = viewModel.getPopularity(category: self.currentCategory)
@@ -152,6 +147,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if(segue.identifier == "goToProfile"){
             let profileController = segue.destination as! ProfileViewController
             profileController.currentUser = loggedInUser
+        }else if(segue.identifier == "goToLucky"){
+            let luckyController = segue.destination as! FeelingLuckyViewController
+            luckyController.currentUser = loggedInUser
         }
     }
     

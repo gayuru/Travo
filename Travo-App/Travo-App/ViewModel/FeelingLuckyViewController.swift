@@ -16,6 +16,7 @@ class FeelingLuckyViewController: UIViewController {
     var finishedAnimation:Bool = false
     @IBOutlet weak var btn: UIButton!
     @IBOutlet var bottomNav: UIView!
+    var currentUser: User?
     
     @IBAction func btnTapped(_ sender: Any) {
         
@@ -45,6 +46,7 @@ class FeelingLuckyViewController: UIViewController {
         if(segue.identifier == "feltLucky"){
             let secondController = segue.destination as! PlaceViewController
             secondController.indexPass = viewModel.getTitleFor(index: viewModel.feltLucky())
+            secondController.currentUser = currentUser
         }
         
     }
