@@ -22,6 +22,7 @@ class FavouritesViewController: UIViewController
     var currTitle : String = ""
     var currentCategory : String = "general"
     var favourites : [Place]!
+    var currentIndex:Int = 0
     //pass value into this
     var currentCollection:collections = collections.favourites
     
@@ -80,15 +81,25 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         let openTime = cell.viewWithTag((1002)) as! UILabel
         let imageView = cell.viewWithTag((1003)) as! UIImageView
         let placeRating = cell.viewWithTag((1004)) as! CosmosView
+        let favourite = cell.viewWithTag((1005)) as! UIButton
         placeRating.settings.updateOnTouch = false
         placeRating.settings.fillMode = .precise
         title.numberOfLines = 0
         title.lineBreakMode = NSLineBreakMode.byWordWrapping
         title.sizeToFit()
-        //TODO:- Add null check
+        favourite.id = indexPath.row
+        favourite.addTarget(self, action: #selector(likePlace(sender:)), for: UIControl.Event.touchUpInside)
+        if((currentUser?.getFavourites().count)!>=0){
+            favourites.forEach { (place) in
+                if place.name == title.text{
+                    favourite.setImage(UIImage(named: "like"), for: .normal)
+                }
+            }
+        }
         if(currentCollection == collections.favourites && (currentUser?.getFavourites().count)! <= 0){
             return cell
         }
+        
         
         switch currentCollection {
             
@@ -100,7 +111,14 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             openTime.text = tempPopular[indexPath.row].openTime
             placeRating.rating = tempPopular[indexPath.row].starRating
             placeRating.text = String(tempPopular[indexPath.row].starRating)
-//            favouriteButton.image = UIImage(named: currentUser?.getFavourites())
+            currentIndex = indexPath.row
+            if((currentUser?.getFavourites().count)!>=0){
+                favourites.forEach { (place) in
+                    if place.name == title.text{
+                        favourite.setImage(UIImage(named: "like"), for: .normal)
+                    }
+                }
+            }
         case collections.recommended:
             heading.text = "Recommended Places"
             title.text = tempRecommended[indexPath.row].name
@@ -108,6 +126,13 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             location.text = tempRecommended[indexPath.row].location
             openTime.text = tempRecommended[indexPath.row].openTime
             placeRating.rating = tempRecommended[indexPath.row].starRating
+            if((currentUser?.getFavourites().count)!>=0){
+                favourites.forEach { (place) in
+                    if place.name == title.text{
+                        favourite.setImage(UIImage(named: "like"), for: .normal)
+                    }
+                }
+            }
             placeRating.text = String(tempRecommended[indexPath.row].starRating)
         default:
             heading.text = "Favourites"
@@ -120,6 +145,13 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
                     placeRating.rating = favourites.starRating
                     placeRating.text = String(favourites.starRating)
                     favouriteButton.image = UIImage(named: "nav_heart_enabled")
+                    if((currentUser?.getFavourites().count)!>=0){
+                        self.favourites.forEach { (place) in
+                            if place.name == title.text{
+                                favourite.setImage(UIImage(named: "like"), for: .normal)
+                            }
+                        }
+                    }
                 }
             }else{
                 title.text = viewModel.getTitleFor(index: indexPath.row)
@@ -129,7 +161,7 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
                 placeRating.rating = viewModel.getStarRating(index: indexPath.row)
                 placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
             }
-         
+            
         }
         return cell
     }
@@ -160,6 +192,17 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         }
     }
     
+    @objc func likePlace(sender:UIButton){
+        if sender.currentImage == UIImage(named: "heart") {
+            if ((currentUser?.addToFavourites(place: tempPopular[sender.id]))!){
+                sender.setImage(UIImage(named:"like"), for: .normal)
+            }
+        }else{
+            sender.setImage(UIImage(named:"heart"), for: .normal)
+            _ = currentUser?.removeFavourites(place: tempPopular[sender.id])
+        }
+    }
+    
     
     func validateUser() -> Bool{
         if currentUser != nil{
@@ -169,3 +212,14 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     }
 }
 
+extension UIButton{
+    var id:Int{
+        get{
+            return Int(self.accessibilityIdentifier!)!
+        }
+        
+        set{
+            self.accessibilityIdentifier = String(newValue)
+        }
+    }
+}
