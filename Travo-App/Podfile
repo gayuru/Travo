@@ -10,6 +10,7 @@ target 'Travo-App' do
     pod 'TinyConstraints'
     pod 'SVProgressHUD'
     pod 'Alamofire', '~> 5.0.0-rc.2'
+    pod 'SwiftyJSON', '~> 4.0'
 
   target 'Travo-AppUITests' do
     inherit! :complete
@@ -18,6 +19,7 @@ target 'Travo-App' do
     pod 'TinyConstraints'
     pod 'SVProgressHUD'
     pod 'Alamofire', '~> 5.0.0-rc.2'
+    pod 'SwiftyJSON', '~> 4.0'
   end
 
 end
