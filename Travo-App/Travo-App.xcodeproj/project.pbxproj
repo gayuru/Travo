@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B6EEF8B01FC86CE957A908E /* Pods_Travo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEB89ECF460947E65491E61 /* Pods_Travo_App.framework */; };
+		5521E2C1233C404C0029C608 /* REST_Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5521E2C0233C404C0029C608 /* REST_Request.swift */; };
 		552BAA892318AB210000BBC4 /* FeelingLucky.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */; };
 		552BAA8B2318AB390000BBC4 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552BAA8A2318AB390000BBC4 /* Camera.storyboard */; };
 		556015912331F93600302676 /* FeelingLuckyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015902331F93600302676 /* FeelingLuckyViewController.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		34E7E66B68BB68938CD64E7F /* Pods-Travo-App-Travo-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travo-App-Travo-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Travo-App-Travo-AppUITests/Pods-Travo-App-Travo-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3F8DCE4824A35FC1F61D2A0B /* Pods_Travo_App_Travo_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_App_Travo_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5521E2C0233C404C0029C608 /* REST_Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REST_Request.swift; sourceTree = "<group>"; };
 		552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeelingLucky.storyboard; sourceTree = "<group>"; };
 		552BAA8A2318AB390000BBC4 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
 		554FA11C233074E000BD5156 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				BD0AE787232C8B9A002CD790 /* Users.swift */,
 				BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */,
 				BD1D08882331C10300B5BA64 /* Category.swift */,
+				5521E2C0233C404C0029C608 /* REST_Request.swift */,
 				BD1D088A2331C18000B5BA64 /* Categories.swift */,
 			);
 			path = Model;
@@ -485,6 +488,7 @@
 				556015912331F93600302676 /* FeelingLuckyViewController.swift in Sources */,
 				BDD041E7230D075F004F28DF /* UnderlinedTextField.swift in Sources */,
 				BD0AE78C232C8BDC002CD790 /* UsersViewModel.swift in Sources */,
+				5521E2C1233C404C0029C608 /* REST_Request.swift in Sources */,
 				55E330F52329073D009514CC /* Weather.swift in Sources */,
 				773EAD02233051B00009808A /* CityVisitedCollectionViewCell.swift in Sources */,
 				7783A65123036FFA00ED25F3 /* AppDelegate.swift in Sources */,

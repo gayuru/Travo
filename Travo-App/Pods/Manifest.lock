@@ -1,24 +1,28 @@
 PODS:
+  - Alamofire (5.0.0-rc.2)
   - Cosmos (19.0.3)
   - SVProgressHUD (2.2.5)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.2)
   - Cosmos
   - SVProgressHUD
   - TinyConstraints
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Cosmos
     - SVProgressHUD
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
   Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: dd12b593e15654cea8c8bf527b6bfd3c9d57a8b9
+PODFILE CHECKSUM: c8eb19016bc5f977e319fa8a26a0bcf4e109bcb3
 
 COCOAPODS: 1.7.5
