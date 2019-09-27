@@ -4,6 +4,8 @@
 //
 //  Created by Jun Cheong on 14/9/19.
 //  Copyright © 2019 Sogyal Thundup Sherpa. All rights reserved.
+// Icon 8 Image Reference
+// <a target="_blank" href="https://icons8.com/icons/set/fingerprint">Fingerprint</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 //
 
 import UIKit

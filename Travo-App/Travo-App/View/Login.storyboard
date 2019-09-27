@@ -239,19 +239,60 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kow-Q9-uPK">
+                                <rect key="frame" x="128" y="446" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="DDC-cW-oZk"/>
+                                    <constraint firstAttribute="width" secondItem="kow-Q9-uPK" secondAttribute="height" multiplier="1:1" id="JkM-cI-pYG"/>
+                                    <constraint firstAttribute="width" constant="64" id="MYz-mP-78a"/>
+                                    <constraint firstAttribute="width" secondItem="kow-Q9-uPK" secondAttribute="height" multiplier="1:1" id="Qod-lT-LN7"/>
+                                    <constraint firstAttribute="height" constant="64" id="WfY-PU-nNL"/>
+                                    <constraint firstAttribute="height" constant="64" id="fjQ-K9-7dd"/>
+                                </constraints>
+                                <state key="normal" image="icons8-fingerprint-64"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DDC-cW-oZk"/>
+                                        <exclude reference="JkM-cI-pYG"/>
+                                        <exclude reference="MYz-mP-78a"/>
+                                        <exclude reference="Qod-lT-LN7"/>
+                                        <exclude reference="WfY-PU-nNL"/>
+                                        <exclude reference="fjQ-K9-7dd"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="DDC-cW-oZk"/>
+                                        <include reference="Qod-lT-LN7"/>
+                                        <include reference="WfY-PU-nNL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="JkM-cI-pYG"/>
+                                        <include reference="MYz-mP-78a"/>
+                                        <include reference="fjQ-K9-7dd"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="kow-Q9-uPK" firstAttribute="leading" secondItem="7S8-wI-giu" secondAttribute="leading" constant="128" id="3lJ-3l-BWe"/>
+                            <constraint firstItem="T0U-Bl-YFY" firstAttribute="top" secondItem="kow-Q9-uPK" secondAttribute="bottom" constant="8" id="7sN-06-XEy"/>
                             <constraint firstItem="jyj-ao-RtP" firstAttribute="top" secondItem="h7l-fC-wCs" secondAttribute="bottom" constant="40" id="8mG-tO-qSq">
                                 <variation key="heightClass=compact-widthClass=compact" constant="7"/>
                             </constraint>
+                            <constraint firstItem="7S8-wI-giu" firstAttribute="trailing" secondItem="kow-Q9-uPK" secondAttribute="trailing" constant="252" id="9VX-Nr-FKx"/>
                             <constraint firstItem="nUg-70-vg7" firstAttribute="width" secondItem="16w-mo-wGN" secondAttribute="width" id="9hX-Ii-vPf"/>
                             <constraint firstItem="aqd-r7-9eR" firstAttribute="top" secondItem="nUg-70-vg7" secondAttribute="bottom" constant="40.5" id="9zA-tm-ShV">
                                 <variation key="heightClass=compact-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="h7l-fC-wCs" firstAttribute="leading" secondItem="0OO-pF-b3g" secondAttribute="leading" id="AIs-af-DEo"/>
+                            <constraint firstItem="7S8-wI-giu" firstAttribute="bottom" secondItem="kow-Q9-uPK" secondAttribute="bottom" constant="20" id="EIO-tO-9YA"/>
                             <constraint firstItem="nUg-70-vg7" firstAttribute="leading" secondItem="lYa-nt-lCp" secondAttribute="leading" id="FMD-NJ-TzU"/>
                             <constraint firstAttribute="bottom" secondItem="sUo-1M-btl" secondAttribute="bottom" constant="20" id="HyT-Jf-TBN"/>
+                            <constraint firstItem="kow-Q9-uPK" firstAttribute="centerX" secondItem="7S8-wI-giu" secondAttribute="centerX" id="Iel-G1-zqa"/>
                             <constraint firstItem="sUo-1M-btl" firstAttribute="leading" secondItem="7S8-wI-giu" secondAttribute="leading" constant="60" id="Jes-Ux-SOo">
                                 <variation key="heightClass=compact-widthClass=compact" constant="35"/>
                             </constraint>
@@ -286,6 +327,8 @@
                         <viewLayoutGuide key="safeArea" id="7S8-wI-giu"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9VX-Nr-FKx"/>
+                                <exclude reference="EIO-tO-9YA"/>
                                 <exclude reference="rAU-wj-ljn"/>
                                 <exclude reference="AIs-af-DEo"/>
                                 <exclude reference="Xyx-vl-buF"/>
@@ -302,8 +345,11 @@
                                 <exclude reference="9zA-tm-ShV"/>
                                 <exclude reference="iXF-es-UWv"/>
                                 <exclude reference="pt8-fw-z4m"/>
+                                <exclude reference="3lJ-3l-BWe"/>
+                                <exclude reference="Iel-G1-zqa"/>
                                 <exclude reference="HyT-Jf-TBN"/>
                                 <exclude reference="Jes-Ux-SOo"/>
+                                <exclude reference="7sN-06-XEy"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -329,7 +375,16 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
+                                <exclude reference="9VX-Nr-FKx"/>
+                                <include reference="EIO-tO-9YA"/>
                                 <include reference="pt8-fw-z4m"/>
+                                <include reference="Iel-G1-zqa"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="3lJ-3l-BWe"/>
+                                <include reference="7sN-06-XEy"/>
                             </mask>
                         </variation>
                     </view>
@@ -347,5 +402,6 @@
     </scenes>
     <resources>
         <image name="Logo" width="500" height="338"/>
+        <image name="icons8-fingerprint-64" width="64" height="64"/>
     </resources>
 </document>
