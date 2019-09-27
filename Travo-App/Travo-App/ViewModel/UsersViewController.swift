@@ -23,6 +23,11 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
     
     private let usersViewModel:UsersViewModel = UsersViewModel.init()
     
+    // Keychain Variables
+    var passwordItems: [KeychainPasswordStructViewModel] = []
+    let createLoginButtonTag = 0
+    let loginButtonTag = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self
