@@ -31,9 +31,24 @@ class REST_Request{
     private let venueRecEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let trendingVenue:String = "https://api.foursquare.com/v2/venues/trending"
     
+    //Weather API
+    //Constants
+    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
+    let APP_ID = "fa6783a04150fa727c369eb8ec28cc2d"
+    
     
     var places:[Place]{
         return _places
+    }
+    
+    func getWeatherParam(lat:String,lng:String){
+        let params = [
+            "lat":lat,
+            "lon":lng,
+            "appid":APP_ID
+            ] as [String:Any]
+        
+        getWeatherData(url: WEATHER_URL, parameters: params)
     }
     
     func  getFSPlaces(lat:String,lng:String,category:String){
@@ -58,7 +73,7 @@ class REST_Request{
             "limit":10,
         ] as [String:Any]
         
-     getPlaceData(trendingVenue, parameters: parameters)
+     //getPlaceData(trendingVenue, parameters: parameters)
        // getTrendingVenues(trendingVenue, paramaters: params1)
     }
     
@@ -89,6 +104,20 @@ class REST_Request{
             }
         }
     }
+    
+    func getWeatherData(url:String, parameters:Parameters){
+        Alamofire.request(url,method:.get,parameters: parameters).responseJSON { (response) in
+            if response.result.isSuccess {
+                let weatherJSON : JSON = JSON(response.result.value!)
+              print(weatherJSON)
+            }else{
+               
+            }
+        }
+        
+    }
+    
+    
     
     
 //    func getTrendingVenues(_ endpoint:String,paramaters:Parameters){
