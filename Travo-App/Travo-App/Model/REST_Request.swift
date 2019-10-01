@@ -29,6 +29,7 @@ class REST_Request{
     private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
     private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
     private let venueRecEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
+    private let trendingVenue:String = "https://api.foursquare.com/v2/venues/trending"
     
     
     var places:[Place]{
@@ -48,69 +49,74 @@ class REST_Request{
             "limit":10,
             ] as [String : Any]
         
-        getPlaceData(venueRecEndPoint, parameters: parameters)
+        let params1 = [
+            "client_id" : clientID,
+            "client_secret" : clientSecret,
+            "v":"20191001",
+            "ll": "\(lat),\(lng)",
+            "radius": "1000",
+            "limit":10,
+        ] as [String:Any]
+        
+     getPlaceData(trendingVenue, parameters: parameters)
+       // getTrendingVenues(trendingVenue, paramaters: params1)
     }
     
     func getPlaceData(_ endpoint:String, parameters:Parameters){
-        AF.request(endpoint, method: .get, parameters: parameters).validate().responseJSON{
-            (response) in
-            switch response.result{
-            case.success(let value):
-                let json = JSON(value)
-                let items = json["response"]["groups"][0]["items"]
-                if (items.count > 0){
-                    for result in items{
-                        if let name = result.1["venue"]["name"].string{
-                            print(name)
+        var parsedResult : JSON!
+        Alamofire.request(endpoint,method: .get,parameters: parameters).responseJSON { (response) in
+            if(response.result.isSuccess){
+                switch response.result{
+                case .success(let value):
+//                    let json = JSON(value)
+//                    parsedResult = json["response"]["groups"][0]["items"]["venue"]["id"]
+//                    print(json)
+                    let json = JSON(value)
+                    let items = json["response"]["groups"][0]["items"]
+                    if (items.count > 0){
+                        for result in items{
+                            if let name = result.1["venue"]["name"].string{
+                                print(name)
+                                self.parseData(json: parsedResult)
+                            }
                         }
                     }
-                }else{
-                    
+                case .failure(let err):
+                    print(err)
                 }
-                
-            case .failure(let error):
-                print("\(error.localizedDescription)")
+            }else{
+                print("Error \(String(describing: response.result.error))")
             }
         }
-        
     }
     
-    //    func getPlaces(lat:String,lng:String,category:String){
-    //        _places = []
-    //        //EXAMPLE URL -> https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&keyword=cruise&key=YOUR_API_KEY
-    //        let urlString = base_url + paramLocation + lat + latlngSeparator + lng + paramSeparator + defaultRadius + paramSeparator + paramType + category + paramSeparator + paramAPIKEY + googleAPIKey
-    //
-    //        if let url = URL(string: urlString){
-    //            getData(url)
-    //        }
-    //    }
-    //
-    //
-    //    private func getData(_ url: URL)
-    //    {
-    //        AF.request(url)
-    //            .validate()
-    //            .responseJSON{ (response) in
-    //                switch response.result{
-    //                case.success(let value):
-    //                    let json = JSON(value)
-    //                    print(json)
-    //                    let allResults = json["results"].arrayValue
-    //                    if (allResults.count > 0){
-    //                        for result in allResults{
-    //                            let name = result["name"].string
-    //                            let starRating  = result["rating"].double
-    //                            print(name!)
-    //                        }
-    //                    }else{
-    //                        print("No Results")
-    //                    }
-    //
-    //                case .failure(let error):
-    //                    print("\(error.localizedDescription)")
-    //                }
-    //            }
-    //        }
+    
+//    func getTrendingVenues(_ endpoint:String,paramaters:Parameters){
+//        var parsedResult : JSON!
+//        Alamofire.request(endpoint,method: .get,parameters: paramaters).responseJSON { (response) in
+//            if(response.result.isSuccess){
+//                switch response.result{
+//                case .success(let value):
+//                    let json = JSON(value)
+//                    print(json)
+//                case .failure(let error):
+//                    print(error)
+//                }
+//
+//            }
+//        }
+//    }
+    
+    
+    func parseData(json:JSON){
+//        if json.count > 0{
+//            for (_,result) in json{
+////                let place = Place(name: <#T##String#>, desc: <#T##String#>, location: <#T##String#>, address: <#T##String#>, imageURL: <#T##String#>, openTime: <#T##String#>, starRating: <#T##Double#>, popularityScale: <#T##Int#>, weatherCondition: <#T##Int#>, categoryBelonging: <#T##[String]#>)
+////                let name = result["venue"]["name"]
+////                let desc = result["venue"]
+//            }
+//        }
+    }
     
 }
 
