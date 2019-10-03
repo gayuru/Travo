@@ -14,16 +14,6 @@ class REST_Request{
     
     private var _places:[Place]=[]
     
-    private let googleAPIKey:String = "AIzaSyA7xBUMv8Xz9EIXgcASqicj0H92DM3rd9Q"
-    private let base_url:String = "https://maps.googleapis.com/maps/api/place/nearbysearch/"
-    private let paramLocation:String = "json?location="
-    private let latlngSeparator:String = ","
-    private let paramSeparator:String = "&"
-    private let defaultRadius:String = "radius=1500"
-    private let paramType:String = "type="
-    private let paramAPIKEY:String = "key="
-    
-    
     //Foursquare API
     //make constants later
     private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
@@ -49,38 +39,17 @@ class REST_Request{
             "limit":10,
             ] as [String : Any]
         
-        let params1 = [
-            "client_id" : clientID,
-            "client_secret" : clientSecret,
-            "v":"20191001",
-            "ll": "\(lat),\(lng)",
-            "radius": "1000",
-            "limit":10,
-        ] as [String:Any]
-        
-     getPlaceData(trendingVenue, parameters: parameters)
-       // getTrendingVenues(trendingVenue, paramaters: params1)
+        getPlaceData(venueRecEndPoint, parameters: parameters)
+        // getTrendingVenues(trendingVenue, paramaters: params1)
     }
     
     func getPlaceData(_ endpoint:String, parameters:Parameters){
-        var parsedResult : JSON!
         Alamofire.request(endpoint,method: .get,parameters: parameters).responseJSON { (response) in
             if(response.result.isSuccess){
                 switch response.result{
                 case .success(let value):
-//                    let json = JSON(value)
-//                    parsedResult = json["response"]["groups"][0]["items"]["venue"]["id"]
-//                    print(json)
                     let json = JSON(value)
-                    let items = json["response"]["groups"][0]["items"]
-                    if (items.count > 0){
-                        for result in items{
-                            if let name = result.1["venue"]["name"].string{
-                                print(name)
-                                self.parseData(json: parsedResult)
-                            }
-                        }
-                    }
+                    self.parseData(json: json)
                 case .failure(let err):
                     print(err)
                 }
@@ -91,39 +60,29 @@ class REST_Request{
     }
     
     
-//    func getTrendingVenues(_ endpoint:String,paramaters:Parameters){
-//        var parsedResult : JSON!
-//        Alamofire.request(endpoint,method: .get,parameters: paramaters).responseJSON { (response) in
-//            if(response.result.isSuccess){
-//                switch response.result{
-//                case .success(let value):
-//                    let json = JSON(value)
-//                    print(json)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//
-//            }
-//        }
-//    }
     
     
     func parseData(json:JSON){
-//        if json.count > 0{
-//            for (_,result) in json{
-////                let place = Place(name: <#T##String#>, desc: <#T##String#>, location: <#T##String#>, address: <#T##String#>, imageURL: <#T##String#>, openTime: <#T##String#>, starRating: <#T##Double#>, popularityScale: <#T##Int#>, weatherCondition: <#T##Int#>, categoryBelonging: <#T##[String]#>)
-////                let name = result["venue"]["name"]
-////                let desc = result["venue"]
-//            }
-//        }
+        if json.count > 0 {
+            let result = json["response"]["groups"][0]["items"]
+            print(result)
+            for (_,v) in result{
+                let venue = v["venue"]
+                let placeName = venue["name"].string!
+                let location = venue["location"]["address"].string!
+                //                guard let image = v["venue"]["photos"]["icon"] else {return}
+//                let prefix = venue["categories"][0]["icon"]["prefix"].string
+//                let suffix = venue["categories"][0]["icon"]["suffix"].string
+                let address = venue["location"]["address"].string!
+                let category = venue["categories"][0]["name"].string!
+//                let url = prefix! + suffix!
+//                let icon = URL(string: (prefix! + suffix!))
+                var place = Place(name: placeName, desc: "", location: location, address: address, imageURL: "", openTime: "", starRating: 4, popularityScale: 3, weatherCondition: 3, categoryBelonging: [category])
+                _places.append(place)
+                
+            }
+            
+            
+        }
     }
-    
 }
-
-
-
-
-
-
-
-

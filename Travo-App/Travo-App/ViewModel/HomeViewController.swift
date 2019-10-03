@@ -133,6 +133,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if collectionView == popularPlaces {
             currTitle = tempPopular[indexPath.row].name
             performSegue(withIdentifier: "viewPlace", sender: self)
+        }else if collectionView == categoryCollection{
+            
+//            collectionView.
         }
     }
     
@@ -183,9 +186,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
-
-        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
+        sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
+//        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+//        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
 //        self.recommendedCollection.reloadData()
 //        self.popularPlaces.reloadData()
     }

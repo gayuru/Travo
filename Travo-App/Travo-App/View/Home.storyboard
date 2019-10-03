@@ -141,7 +141,7 @@ today?</string>
                                                     <segue destination="R0P-io-GGH" kind="show" identifier="popularSeeAll" id="JFO-Ba-AiX"/>
                                                 </connections>
                                             </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1000" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLY-w5-eWQ" userLabel="PopularPlaces">
                                                 <rect key="frame" x="26" y="309.5" width="286" height="141"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="141" id="1u0-Jm-iH7"/>
@@ -302,7 +302,7 @@ today?</string>
                                                                             <color key="textColor" red="0.31811469790000002" green="0.33644410969999999" blue="0.3803984225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
                                                                             <rect key="frame" x="8" y="135" width="76" height="11"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="76" id="hUT-S4-tgm"/>
