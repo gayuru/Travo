@@ -43,6 +43,15 @@ class HomeViewController: UIViewController{
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
+        testAPI()
+    }
+    
+    //testing api
+    func testAPI(){
+        var res = REST_Request()
+        res.getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")
+        res.getWeatherParam(lat: "-37.746563", lng: "144.910037")
+        //        res.getPlaces(lat: "-33.8670522", lng: "151.1957362", category: "restaurant")
     }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}

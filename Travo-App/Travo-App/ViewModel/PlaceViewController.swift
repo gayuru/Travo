@@ -27,13 +27,7 @@ class PlaceViewController: UIViewController {
     var index:Int = 0
     var currentPlace : Place!
     
-    //testing api
-    func testAPI(){
-        var res = REST_Request()
-        res.getFSPlaces(lat: "-37.746563", lng: "144.910037", category: "pizza")
-        res.getWeatherParam(lat: "-37.746563", lng: "144.910037")
-//        res.getPlaces(lat: "-33.8670522", lng: "151.1957362", category: "restaurant")
-    }
+    
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "backHome", sender: self)
@@ -55,7 +49,7 @@ class PlaceViewController: UIViewController {
             }
         }
         
-        testAPI()
+        //testAPI()
         
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index)

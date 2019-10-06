@@ -40,28 +40,12 @@ class REST_Request{
             "ll": "\(lat),\(lng)",
             "radius": "1000",
             "section":category,
-            "limit":1,
+            "limit":10,
             ] as [String : Any]
         
         getPlaceData(venueRecEndPoint, parameters: parameters)
     }
     
-    func getPlaceData(_ endpoint:String, parameters:Parameters){
-        Alamofire.request(endpoint,method: .get,parameters: parameters).responseJSON { (response) in
-            if(response.result.isSuccess){
-                switch response.result{
-                case .success(let value):
-                    let json = JSON(value)
-                    self.parseData(json: json)
-                    
-                case .failure(let err):
-                    print(err)
-                }
-            }else{
-                print("Error \(String(describing: response.result.error))")
-            }
-        }
-    }
     
     func getWeatherParam(lat:String,lng:String){
         let params = [
@@ -70,7 +54,7 @@ class REST_Request{
             "appid":APP_ID
             ] as [String:Any]
         
-      //  getWeatherData(url: WEATHER_URL, parameters: params)
+        //  getWeatherData(url: WEATHER_URL, parameters: params)
     }
     
     func getWeatherData(url:String, parameters:Parameters){
@@ -85,30 +69,37 @@ class REST_Request{
         
     }
     
+    func getPlaceData(_ endpoint:String, parameters:Parameters){
+        Alamofire.request(endpoint,method: .get,parameters: parameters).responseJSON { (response) in
+            if(response.result.isSuccess){
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    self.parseData(json: json)
+                case .failure(let err):
+                    print(err)
+                }
+            }else{
+                print("Error \(String(describing: response.result.error))")
+            }
+        }
+    }
+    
     func parseData(json:JSON){
         if json.count > 0 {
             let result = json["response"]["groups"][0]["items"]
             for (_,v) in result{
-                //print(v)
                 let venue = v["venue"]
-                let placeName = venue["name"].string!
-                let location = venue["location"]["address"].string!
-                //                guard let image = v["venue"]["photos"]["icon"] else {return}
-                let category = venue["categories"][0]["name"].string!
                 let venueID = venue["id"].string!
-               
                 getPlaceDetails(venueID: venueID)
-                
-            
-                
                 //  _places.append(place)
             }
         }
     }
     
-
+    
     func getPlaceDetails(venueID:String){
-       
+        
         let placeParamater = [
             "client_id": clientID,
             "client_secret" : clientSecret,
@@ -116,13 +107,20 @@ class REST_Request{
             ] as [String : Any]
         
         let detailEndPoint = detailPlaceEndPoint+venueID
-    
+        
         Alamofire.request(detailEndPoint,method: .get,parameters: placeParamater).responseJSON { (response) in
             if(response.result.isSuccess){
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
-                   print(json)
+                    let place = json["response"]["venue"]
+                    
+                    let placeObject = self.getPlaceObject(p: place)
+                
+                    dump(placeObject)
+                    
+                    print("\n\n")
+                    //adds to the place array
                     
                 case .failure(let err):
                     print(err)
@@ -131,6 +129,61 @@ class REST_Request{
                 print("Error \(String(describing: response.result.error))")
             }
         }
+    }
+    
+    //returns a place object after checking validity of data
+    func getPlaceObject(p:JSON) -> Place{
+        
+        
+        let placeName = p["name"].string ?? "Place name"
+
+        let desc = p["description"].string ?? "No available description"
+
+       let location = p["location"]["city"].string!
+
+       let address = p["location"]["address"].string ?? "Address not found"
+        
+        let imageURL = getImageURL(photoObj: p["bestPhoto"])!
+        
+        let openTime = p["popular"]["timeframes"][0]["open"][0]["renderedTime"].string ?? "--"
+        
+        let tempRating = p["rating"].double!
+        let rating = convertRating(rating: tempRating)
+        
+        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, popularityScale: 9, weatherCondition: 33, categoryBelonging: [",",","])
+        
+        return placeObj
+    }
+    
+    //converts the rating which is out 10 to 5
+    func convertRating(rating:Double) -> Double{
+        return (rating/2)
+    }
+    
+    func getImageURL(photoObj:JSON) -> String?{
+        
+        let errorURL = URL(fileURLWithPath: "ERROR")
+        
+        guard let imagePrefix = photoObj["prefix"].string else{
+            return nil
+        }
+        guard let imageSuffix = photoObj["suffix"].string else{
+           return nil
+        }
+        
+        let url = imagePrefix + "original" + imageSuffix
+        
+        guard let escapedAddress = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)else{
+            return nil
+        }
+        
+        
+        return escapedAddress
+//        if let finalURL = URL(string: escapedAddress){
+//            return finalURL
+//        }
         
     }
+    
+    
 }
