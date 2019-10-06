@@ -47,26 +47,35 @@ class REST_Request{
     }
     
     
-    func getWeatherParam(lat:String,lng:String){
+    func getWeatherParam(lat:String,lng:String) -> Int?{
+        var weatherID:Int!
         let params = [
             "lat":lat,
             "lon":lng,
             "appid":APP_ID
             ] as [String:Any]
         
-        //  getWeatherData(url: WEATHER_URL, parameters: params)
+       self.getWeatherData(url: WEATHER_URL, parameters: params){
+        (value, error) in
+           return value
+        }
+        return nil
     }
     
-    func getWeatherData(url:String, parameters:Parameters){
+    func getWeatherData(url:String, parameters:Parameters,completionHandler: @escaping (Int, NSError?) -> Void) {
         Alamofire.request(url,method:.get,parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
-                let weatherJSON : JSON = JSON(response.result.value!)
-                print(weatherJSON)
+                let json : JSON = JSON(response.result.value!)
+                if json["main"]["temp"].double != nil {
+                    let weatherID = json["weather"][0]["id"].intValue
+                    completionHandler(weatherID,response.error as NSError?)
+                }else{
+                    print("Weather not available")
+                }
             }else{
-                
+                print("Weather request failed!")
             }
         }
-        
     }
     
     func getPlaceData(_ endpoint:String, parameters:Parameters){
@@ -116,10 +125,8 @@ class REST_Request{
                     let place = json["response"]["venue"]
                     
                     let placeObject = self.getPlaceObject(p: place)
-                
-                    dump(placeObject)
                     
-                    print("\n\n")
+                    //dump(placeObject)
                     //adds to the place array
                     
                 case .failure(let err):
@@ -134,22 +141,23 @@ class REST_Request{
     //returns a place object after checking validity of data
     func getPlaceObject(p:JSON) -> Place{
         
-        
         let placeName = p["name"].string ?? "Place name"
-
         let desc = p["description"].string ?? "No available description"
-
-       let location = p["location"]["city"].string!
-
-       let address = p["location"]["address"].string ?? "Address not found"
-        
+        let location = p["location"]["city"].string!
+        let address = p["location"]["address"].string ?? "Address not found"
         let imageURL = getImageURL(photoObj: p["bestPhoto"])!
-        
         let openTime = p["popular"]["timeframes"][0]["open"][0]["renderedTime"].string ?? "--"
-        
         let tempRating = p["rating"].double!
         let rating = convertRating(rating: tempRating)
         
+        let placeLat = p["location"]["lat"].doubleValue
+        let placeLng = p["location"]["lng"].doubleValue
+       // print("\(placeLat) , \(placeLng)")
+        
+        
+        
+        let weather = self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
+        print(weather)
         let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, popularityScale: 9, weatherCondition: 33, categoryBelonging: [",",","])
         
         return placeObj
@@ -162,13 +170,11 @@ class REST_Request{
     
     func getImageURL(photoObj:JSON) -> String?{
         
-        let errorURL = URL(fileURLWithPath: "ERROR")
-        
         guard let imagePrefix = photoObj["prefix"].string else{
             return nil
         }
         guard let imageSuffix = photoObj["suffix"].string else{
-           return nil
+            return nil
         }
         
         let url = imagePrefix + "original" + imageSuffix
@@ -179,9 +185,9 @@ class REST_Request{
         
         
         return escapedAddress
-//        if let finalURL = URL(string: escapedAddress){
-//            return finalURL
-//        }
+        //        if let finalURL = URL(string: escapedAddress){
+        //            return finalURL
+        //        }
         
     }
     
