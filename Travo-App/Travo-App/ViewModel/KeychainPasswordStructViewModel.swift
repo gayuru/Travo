@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct KeychainPasswordStructViewModel {
+struct KeychainLoginModel {
     enum KeychainError: Error {
         case noPasswordFound
         case invalidPassword
@@ -29,7 +29,7 @@ struct KeychainPasswordStructViewModel {
     
     // Validates the Password against Keychain
     func getPassword() throws -> String {
-        var keychainQuery = KeychainPasswordStructViewModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
+        var keychainQuery = KeychainLoginModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
         keychainQuery[kSecMatchLimit as String] = kSecMatchLimitOne
         keychainQuery[kSecReturnAttributes as String] = kCFBooleanTrue
         keychainQuery[kSecReturnData as String] = kCFBooleanTrue
@@ -67,7 +67,7 @@ struct KeychainPasswordStructViewModel {
             
             updateAttributes[kSecValueData as String] = hashedPassword as AnyObject?
             
-            let keyChainQuery = KeychainPasswordStructViewModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
+            let keyChainQuery = KeychainLoginModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
             
             let keychainQueryStatus = SecItemUpdate(keyChainQuery as CFDictionary, updateAttributes as CFDictionary)
             
@@ -75,7 +75,7 @@ struct KeychainPasswordStructViewModel {
             guard keychainQueryStatus == noErr else { throw KeychainError.keychainQueryStatusError}
         } catch KeychainError.noPasswordFound {
             // Create new password for new user
-            let newPassword = KeychainPasswordStructViewModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
+            let newPassword = KeychainLoginModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
             
             // Insert into keychain
             let keychainQueryStatus = SecItemAdd(newPassword as CFDictionary, nil)
@@ -88,7 +88,7 @@ struct KeychainPasswordStructViewModel {
         var updateAttributes = [String:AnyObject]()
         updateAttributes[kSecAttrAccount as String] = accountName as AnyObject?
         
-        let keychainQuery = KeychainPasswordStructViewModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
+        let keychainQuery = KeychainLoginModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
         let keychainQueryStatus = SecItemUpdate(keychainQuery as CFDictionary, updateAttributes as CFDictionary)
         
         // Bad Query Status throw Exception
@@ -96,13 +96,13 @@ struct KeychainPasswordStructViewModel {
     }
     
     func deleteSelfFromKeychain() throws {
-        let keychainQuery = KeychainPasswordStructViewModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
+        let keychainQuery = KeychainLoginModel.queryKeychain(withService: self.service, account: self.account, accessGroup: self.accessGroup)
         let keychainQueryStatus = SecItemDelete(keychainQuery as CFDictionary)
         
         guard keychainQueryStatus == noErr || keychainQueryStatus == errSecItemNotFound else { throw KeychainError.keychainQueryStatusError}
     }
     
-    static func passwordItemsMatchingAccountAndAccessGroup(forService service: String, accessGroup:String? = nil) throws -> [KeychainPasswordStructViewModel] {
+    static func passwordItemsMatchingAccountAndAccessGroup(forService service: String, accessGroup:String? = nil) throws -> [KeychainLoginModel] {
         var keychainQuery = self.queryKeychain(withService: service, accessGroup: accessGroup)
         keychainQuery[kSecMatchLimit as String] = kSecMatchLimitAll
         keychainQuery[kSecReturnAttributes as String] = kCFBooleanTrue
@@ -124,11 +124,11 @@ struct KeychainPasswordStructViewModel {
         guard let resultData = queryResult as? [[String : AnyObject]] else { throw KeychainError.notAPassword }
 
         // Create KeychainPasswordStructViewModel instances in search result
-        var passwordItems = [KeychainPasswordStructViewModel]()
+        var passwordItems = [KeychainLoginModel]()
         for result in resultData {
             guard let account  = result[kSecAttrAccount as String] as? String else { throw KeychainError.notAPassword }
 
-            let passwordItem = KeychainPasswordStructViewModel(service: service, account: account, accessGroup: accessGroup)
+            let passwordItem = KeychainLoginModel(service: service, account: account, accessGroup: accessGroup)
             passwordItems.append(passwordItem)
         }
 

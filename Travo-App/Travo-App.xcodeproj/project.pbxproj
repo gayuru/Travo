@@ -109,8 +109,8 @@
 		BD1D08882331C10300B5BA64 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		BD1D088A2331C18000B5BA64 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		BD1D088C2331C64800B5BA64 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		BD9A1C9D233DF387003164AA /* KeychainPasswordStructViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordStructViewModel.swift; sourceTree = "<group>"; };
-		BD9A1CA1233E3EC5003164AA /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		BD9A1C9D233DF387003164AA /* KeychainPasswordStructViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainPasswordStructViewModel.swift; path = ../ViewModel/KeychainPasswordStructViewModel.swift; sourceTree = "<group>"; };
+		BD9A1CA1233E3EC5003164AA /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainConfiguration.swift; path = ../ViewModel/KeychainConfiguration.swift; sourceTree = "<group>"; };
 		BDD041E4230CFB39004F28DF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnderlinedTextField.swift; path = "Travo-App/View/UnderlinedTextField.swift"; sourceTree = SOURCE_ROOT; };
 		BDD041E8230D45E3004F28DF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -201,6 +201,8 @@
 		77AA7AC5230A57EE006815AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD9A1CA1233E3EC5003164AA /* KeychainConfiguration.swift */,
+				BD9A1C9D233DF387003164AA /* KeychainPasswordStructViewModel.swift */,
 				554FA11C233074E000BD5156 /* Places.swift */,
 				77425D0423272E4C00C6B844 /* Place.swift */,
 				55E330F42329073D009514CC /* Weather.swift */,
@@ -252,8 +254,6 @@
 				BD1D088C2331C64800B5BA64 /* CategoryViewModel.swift */,
 				556015902331F93600302676 /* FeelingLuckyViewController.swift */,
 				BDD041E6230D075F004F28DF /* UnderlinedTextField.swift */,
-				BD9A1C9D233DF387003164AA /* KeychainPasswordStructViewModel.swift */,
-				BD9A1CA1233E3EC5003164AA /* KeychainConfiguration.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

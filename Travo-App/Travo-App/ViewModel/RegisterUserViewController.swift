@@ -16,9 +16,7 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
     var allowedLogin:Bool = false
     
     // Keychain Variables
-    var passwordItems: [KeychainPasswordStructViewModel] = []
-    let createLoginButtonTag = 0
-    let loginButtonTag = 1
+    var passwordItems: [KeychainLoginModel] = []
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var nameTextField: UnderlinedTextField!
