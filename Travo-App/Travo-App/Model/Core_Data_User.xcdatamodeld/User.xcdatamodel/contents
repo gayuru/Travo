@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="UserCoreData" representedClassName="UserCoreData" syncable="YES">
+        <attribute name="aboutMe" attributeType="String" syncable="YES"/>
+        <attribute name="citiesVisited" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="email" attributeType="String" syncable="YES"/>
+        <attribute name="favourites" attributeType="Transformable" customClassName="[Place]" syncable="YES"/>
+        <attribute name="interests" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="password" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserCoreData" positionX="-45" positionY="0" width="128" height="150"/>
+    </elements>
+</model>
