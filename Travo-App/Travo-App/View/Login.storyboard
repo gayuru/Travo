@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Home-->
+        <scene sceneID="vQp-tP-WCi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="pUM-OM-akF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DCD-oY-5bW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-169" y="29"/>
+        </scene>
         <!--Register-->
         <scene sceneID="tqG-yQ-PC3">
             <objects>
@@ -58,6 +66,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="YXM-F1-8Dt" eventType="touchUpInside" id="BcN-ZR-VSB"/>
+                                    <segue destination="pUM-OM-akF" kind="show" identifier="SegueToHome" id="RKb-JC-KMC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyj-ao-RtP">
