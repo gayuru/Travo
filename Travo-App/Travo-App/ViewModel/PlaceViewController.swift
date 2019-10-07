@@ -27,8 +27,6 @@ class PlaceViewController: UIViewController {
     var index:Int = 0
     var currentPlace : Place!
     
-    
-    
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "backHome", sender: self)
     }

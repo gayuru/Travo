@@ -27,11 +27,16 @@ class REST_Request{
     let APP_ID = "63629684ee2d8bbc99dde8055cd35d19"
     
     var weather:Int = 0;
+    let group = DispatchGroup()
     
     var places:[Place]{
         return _places
     }
     
+    init(){
+        getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")
+    }
+
     func  getFSPlaces(lat:String,lng:String,category:String){
         _places = []
         
@@ -42,76 +47,10 @@ class REST_Request{
             "ll": "\(lat),\(lng)",
             "radius": "1000",
             "section":category,
-            "limit":1,
+            "limit":5,
             ] as [String : Any]
-        
+//        secondGroup.enter()
         getPlaceData(venueRecEndPoint, parameters: parameters)
-    }
-    
-    
-//    func getWeatherParam(lat:String,lng:String) -> Int?{
-//
-//        let params = [
-//            "lat":lat,
-//            "lon":lng,
-//            "appid":APP_ID
-//            ] as [String:Any]
-//        print("Inside function weather")
-//
-//       self.getWeatherData(url: WEATHER_URL, parameters: params){
-//        (value, error) in
-//           self.weather = value
-//        print("goes inside this and value is \(value)")
-//        }
-//
-//        print("value of self.weather is \(self.weather)")
-//        return self.weather
-//    }
-//
-//    func getWeatherData(url:String, parameters:Parameters,completionHandler: @escaping (Int, NSError?) -> Void) {
-//        Alamofire.request(url,method:.get,parameters: parameters).responseJSON { (response) in
-//            if response.result.isSuccess {
-//                let json : JSON = JSON(response.result.value!)
-//                if json["main"]["temp"].double != nil {
-//                    let weatherID = json["weather"][0]["id"].intValue
-//                    self.weather = weatherID
-//                    //completionHandler(weatherID,response.error as NSError?)
-//                }else{
-//                    print("Weather not available")
-//                }
-//            }else{
-//                print("Weather request failed!")
-//            }
-//        }
-//    }
-    
-    func getWeatherParam(lat:String,lng:String){
-        
-        let params = [
-            "lat":lat,
-            "lon":lng,
-            "appid":APP_ID
-            ] as [String:Any]
-        print("Inside function weather")
-        
-        self.getWeatherData(url: WEATHER_URL, parameters: params)
-    }
-    
-    func getWeatherData(url:String, parameters:Parameters) {
-        Alamofire.request(url,method:.get,parameters: parameters).responseJSON { (response) in
-            if response.result.isSuccess {
-                let json : JSON = JSON(response.result.value!)
-                if json["main"]["temp"].double != nil {
-                    let weatherID = json["weather"][0]["id"].intValue
-                    self.weather = weatherID
-                    //completionHandler(weatherID,response.error as NSError?)
-                }else{
-                    print("Weather not available")
-                }
-            }else{
-                print("Weather request failed!")
-            }
-        }
     }
     
     func getPlaceData(_ endpoint:String, parameters:Parameters){
@@ -137,11 +76,16 @@ class REST_Request{
                 let venue = v["venue"]
                 let venueID = venue["id"].string!
                 getPlaceDetails(venueID: venueID)
-                //  _places.append(place)
             }
         }
     }
     
+    func updatePlaceObj(place:Place,weather:Int){
+        var tempPlace = place
+        tempPlace.weatherCondition = weather
+        self._places.append(tempPlace)
+//        self.secondGroup.leave()
+    }
     
     func getPlaceDetails(venueID:String){
         
@@ -159,11 +103,16 @@ class REST_Request{
                 case .success(let value):
                     let json = JSON(value)
                     let place = json["response"]["venue"]
+                    let placeLat = place["location"]["lat"].doubleValue
+                    let placeLng = place["location"]["lng"].doubleValue
                     
                     let placeObject = self.getPlaceObject(p: place)
                     
-                    //dump(placeObject)
-                    //adds to the place array
+                    self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
+                    
+                    self.group.notify(queue: .main) {
+                        self.updatePlaceObj(place: placeObject, weather: self.weather)
+                    }
                     
                 case .failure(let err):
                     print(err)
@@ -186,15 +135,38 @@ class REST_Request{
         let tempRating = p["rating"].double!
         let rating = convertRating(rating: tempRating)
         
-        let placeLat = p["location"]["lat"].doubleValue
-        let placeLng = p["location"]["lng"].doubleValue
-       // print("\(placeLat) , \(placeLng)")
-        
-        self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
-        print(self.weather)
-        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, popularityScale: 9, weatherCondition: 33, categoryBelonging: [",",","])
+        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, popularityScale: 9, weatherCondition: 0, categoryBelonging: [",",","])
         
         return placeObj
+    }
+    
+    func getWeatherParam(lat:String,lng:String){
+        let params = [
+            "lat":lat,
+            "lon":lng,
+            "appid":APP_ID
+            ] as [String:Any]
+        
+        self.getWeatherData(url: WEATHER_URL, parameters: params)
+    }
+    
+    func getWeatherData(url:String, parameters:Parameters) {
+        group.enter()
+        
+        Alamofire.request(url,method:.get,parameters: parameters).responseJSON { (response) in
+            if response.result.isSuccess {
+                let json : JSON = JSON(response.result.value!)
+                if json["main"]["temp"].double != nil {
+                    let weatherID = json["weather"][0]["id"].intValue
+                    self.weather = weatherID
+                    self.group.leave()
+                }else{
+                    print("Weather not available")
+                }
+            }else{
+                print("Weather request failed!")
+            }
+        }
     }
     
     //converts the rating which is out 10 to 5
@@ -223,6 +195,23 @@ class REST_Request{
         //            return finalURL
         //        }
         
+    }
+    func sortPopularity(category:String) -> [Place]{
+        return getListOfPlacesChosenByCategory(category).sorted(by: { $0.popularityScale > $1.popularityScale })
+    }
+    
+    func sortRecommended(category:String) -> [Place]{
+        return getListOfPlacesChosenByCategory(category).sorted(by: {$0.starRating > $1.starRating })
+    }
+    
+    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
+        var chosenPlaces = [Place]()
+        for place in places {
+            if (place.categoryBelonging.contains(category)) {
+                chosenPlaces.append(place)
+            }
+        }
+        return chosenPlaces
     }
     
     

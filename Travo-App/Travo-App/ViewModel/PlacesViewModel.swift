@@ -11,7 +11,7 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private let placeModel = Places()
+    private let placeModel = REST_Request()
     private var weatherModel = Weather()
     
     var places:[Place]{

@@ -14,7 +14,7 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
         // Text Fields
     @IBOutlet weak var emailTextField: UnderlinedTextField!
     @IBOutlet weak var passwordTextField: UnderlinedTextField!
-    
+  
     // Buttons
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
