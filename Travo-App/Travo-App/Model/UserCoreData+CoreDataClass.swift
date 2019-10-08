@@ -2,7 +2,7 @@
 //  UserCoreData+CoreDataClass.swift
 //  Travo-App
 //
-//  Created by Sogyal Thundup Sherpa on 7/10/19.
+//  Created by Sogyal Thundup Sherpa on 9/10/19.
 //  Copyright © 2019 Sogyal Thundup Sherpa. All rights reserved.
 //
 //
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(UserCoreData)
+
 public class UserCoreData: NSManagedObject {
     convenience init(name:String,password:String,email:String,aboutMeDesc:String,interests:String) {
         self.init()
@@ -73,5 +73,36 @@ public class UserCoreData: NSManagedObject {
     func setInterests(newInterest:String)->Bool{
         self.interests = newInterest
         return true
+    }
+    
+    func addToFavourites(place:Place)->Bool{
+        if(favourites!.count<=0) {
+            self.favourites?.append(place)
+            return true
+        }else if((favourites?.contains(where: { (Place) -> Bool in
+            Place.name == place.name
+        }))!){
+            return false
+        }else{
+            self.favourites?.append(place)
+            return true
+        }
+    }
+    
+    
+    func removeFavourites(place:Place) -> Bool{
+        if((favourites?.contains(where: { (Place) -> Bool in
+            Place.name == place.name
+        }))!){
+            self.favourites?.removeAll(where: { (Place) -> Bool in
+                return Place.name == place.name
+            })
+            return true
+        }
+        return false
+    }
+    
+    func getFavourites()->[Place]{
+        return self.favourites!
     }
 }

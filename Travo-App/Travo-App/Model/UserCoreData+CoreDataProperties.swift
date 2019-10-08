@@ -2,7 +2,7 @@
 //  UserCoreData+CoreDataProperties.swift
 //  Travo-App
 //
-//  Created by Sogyal Thundup Sherpa on 7/10/19.
+//  Created by Sogyal Thundup Sherpa on 9/10/19.
 //  Copyright © 2019 Sogyal Thundup Sherpa. All rights reserved.
 //
 //
@@ -20,7 +20,7 @@ extension UserCoreData {
     @NSManaged public var aboutMe: String?
     @NSManaged public var citiesVisited: [String]?
     @NSManaged public var email: String?
-    @NSManaged public var favourites: [Place]?
+    @NSManaged var favourites: [Place]?
     @NSManaged public var interests: String?
     @NSManaged public var name: String?
     @NSManaged public var password: String?
