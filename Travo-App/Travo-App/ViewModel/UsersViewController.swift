@@ -42,9 +42,6 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
     
     private let usersViewModel:UsersViewModel = UsersViewModel.init()
     
-    // Keychain Variables
-    var passwordItems: [KeychainLoginModel] = []
-    
     /// An authentication context stored at class scope so it's available for use during UI updates.
     var context = LAContext()
     
