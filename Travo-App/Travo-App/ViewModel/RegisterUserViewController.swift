@@ -71,7 +71,7 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
             let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, aboutMeDesc: "",interests: "")
             if (validRegistration) {
                 allowedLogin = true
-                self.shouldPerformSegue(withIdentifier: "SegueToHome", sender: self)
+                self.performSegue(withIdentifier: "SegueToHome", sender: self)
             } else {
                 let loginAlert = UIAlertController(title: "Missing Details", message: "Some registration details are missing", preferredStyle: UIAlertController.Style.alert)
                 loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
