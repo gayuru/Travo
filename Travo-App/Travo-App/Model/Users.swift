@@ -16,8 +16,12 @@ class Users {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let managedContext: NSManagedObjectContext
     static let shared = Users()
+    var user : [UserCoreData] = []
     
+    let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
     init() {
+        print(urls[urls.count-1] as URL)
         users = userCoreDate.getUsersList()
         managedContext = appDelegate.persistentContainer.viewContext
     }
@@ -36,14 +40,42 @@ class Users {
 //            return false
 //        }
 //        users.updateValue(user, forKey: dictionaryKey)
-        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
+        let userEntity = NSEntityDescription.entity(forEntityName: "UserCoreData", in: managedContext)!
+        let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! UserCoreData
+//
+//        @NSManaged public var aboutMe: String?
+//        @NSManaged public var citiesVisited: [String]?
+//        @NSManaged public var email: String?
+//        @NSManaged var favourites: [Place]?
+//        @NSManaged public var interests: String?
+//        @NSManaged public var name: String?
+//        @NSManaged public var password: String?
         
-        let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! User
+        nsUser.setValue(user.getUsername(), forKey: "name")
+        nsUser.setValue("", forKey: "password")
+        nsUser.setValue("", forKey: "email")
+        nsUser.setValue("", forKey: "aboutMe")
+        nsUser.setValue("", forKey: "interests")
+        nsUser.setValue([""], forKey: "citiesVisited")
+        nsUser.setValue([], forKey: "favourites")
         
-//        nsUser.setValue(user.name, forKey: "name")
-//        nsUser.setValue(user.password, forKey: "password")
-        
+        do{
+            try managedContext.save()
+            getUser()
+        }catch let error as NSError{
+            print(error, error.userInfo)
+        }
         return true
+    }
+    
+    func getUser(){
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCoreData")
+            let results = try managedContext.fetch(fetchRequest)
+            user = results as! [UserCoreData]
+        }catch let error as NSError{
+            print("Could not retrive users \(error), \(error.userInfo) ")
+        }
     }
     
     func removeUser(user:User)->Bool{
