@@ -47,7 +47,7 @@
                                     <fragment content="Create Account">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="32" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" metaFont="system" size="32"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -67,7 +67,7 @@
                                         <fragment content="Upload Image">
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -128,19 +128,6 @@
                                     <segue destination="lkr-yc-nzh" kind="show" identifier="SegueToHome" id="ibt-wV-5br"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM2-gc-do3" customClass="CheckboxButton" customModule="Travo_App" customModuleProvider="target">
-                                <rect key="frame" x="16" y="313" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="f9f-ZG-F2S"/>
-                                    <constraint firstAttribute="height" constant="20" id="fgA-1j-Rtw"/>
-                                </constraints>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use touchID for future Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq4-pL-oFt">
-                                <rect key="frame" x="46" y="313" width="217" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-4e-CrJ">
                                 <rect key="frame" x="284" y="190.5" width="20" height="20"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.24539811643835616" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,22 +179,19 @@
                             <constraint firstItem="3A4-dX-tZl" firstAttribute="leading" secondItem="BOp-rp-9gy" secondAttribute="leading" id="I0b-W8-9lS"/>
                             <constraint firstItem="yKV-1L-mSG" firstAttribute="leading" secondItem="dd3-ON-gW8" secondAttribute="leading" id="Kd1-o6-iju"/>
                             <constraint firstItem="dd3-ON-gW8" firstAttribute="top" secondItem="Udc-EM-yQq" secondAttribute="top" constant="10" id="LKP-rk-lTZ"/>
-                            <constraint firstItem="Mq4-pL-oFt" firstAttribute="top" secondItem="wM2-gc-do3" secondAttribute="top" id="Ltl-SX-yLm"/>
                             <constraint firstItem="3A4-dX-tZl" firstAttribute="width" secondItem="BOp-rp-9gy" secondAttribute="width" id="Oju-R4-tg6"/>
-                            <constraint firstItem="eqx-6o-xdt" firstAttribute="top" secondItem="wM2-gc-do3" secondAttribute="bottom" constant="20" id="Ra0-aV-K14"/>
                             <constraint firstItem="3A4-dX-tZl" firstAttribute="top" secondItem="BOp-rp-9gy" secondAttribute="bottom" constant="8" id="S2C-br-7kG">
                                 <variation key="widthClass=compact" constant="20"/>
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                             </constraint>
-                            <constraint firstItem="eqx-6o-xdt" firstAttribute="leading" secondItem="wM2-gc-do3" secondAttribute="leading" id="T4N-mX-r4T"/>
                             <constraint firstItem="d7G-Mu-N8Y" firstAttribute="centerY" secondItem="3A4-dX-tZl" secondAttribute="centerY" id="UV1-jS-yVW"/>
-                            <constraint firstItem="eqx-6o-xdt" firstAttribute="trailing" secondItem="Mq4-pL-oFt" secondAttribute="trailing" id="WKD-bM-oFA"/>
                             <constraint firstItem="Vf8-ck-o6d" firstAttribute="width" secondItem="2bS-4e-CrJ" secondAttribute="width" id="XC7-u7-ZLB"/>
-                            <constraint firstItem="Mq4-pL-oFt" firstAttribute="leading" secondItem="wM2-gc-do3" secondAttribute="trailing" constant="10" id="Y4Q-23-bqd"/>
                             <constraint firstItem="BOp-rp-9gy" firstAttribute="top" secondItem="ikN-BK-KyO" secondAttribute="bottom" constant="8" id="YA7-0z-yAy">
                                 <variation key="widthClass=compact" constant="20"/>
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                             </constraint>
+                            <constraint firstItem="eqx-6o-xdt" firstAttribute="leading" secondItem="Udc-EM-yQq" secondAttribute="leading" constant="16" id="Zag-6A-nsr"/>
+                            <constraint firstItem="eqx-6o-xdt" firstAttribute="top" secondItem="3A4-dX-tZl" secondAttribute="bottom" constant="36" id="ZsU-dj-Nv4"/>
                             <constraint firstItem="Udc-EM-yQq" firstAttribute="trailing" secondItem="qvi-en-6K1" secondAttribute="trailing" constant="16" id="aGm-gQ-uor"/>
                             <constraint firstItem="d7G-Mu-N8Y" firstAttribute="height" secondItem="Vf8-ck-o6d" secondAttribute="height" id="cMh-68-7Um"/>
                             <constraint firstItem="dd3-ON-gW8" firstAttribute="width" secondItem="dd3-ON-gW8" secondAttribute="height" multiplier="1:1" id="dgc-HS-6p3"/>
@@ -215,22 +199,36 @@
                             <constraint firstItem="BOp-rp-9gy" firstAttribute="width" secondItem="ikN-BK-KyO" secondAttribute="width" id="gUH-E3-edA"/>
                             <constraint firstItem="Vf8-ck-o6d" firstAttribute="trailing" secondItem="2bS-4e-CrJ" secondAttribute="trailing" id="hbG-7Y-3RD"/>
                             <constraint firstItem="BOp-rp-9gy" firstAttribute="leading" secondItem="ikN-BK-KyO" secondAttribute="leading" id="kRV-ve-08a"/>
-                            <constraint firstItem="wM2-gc-do3" firstAttribute="leading" secondItem="3A4-dX-tZl" secondAttribute="leading" id="kdC-9K-dEg"/>
                             <constraint firstItem="Vf8-ck-o6d" firstAttribute="centerY" secondItem="BOp-rp-9gy" secondAttribute="centerY" id="npt-Ji-p3i"/>
                             <constraint firstItem="ikN-BK-KyO" firstAttribute="leading" secondItem="yKV-1L-mSG" secondAttribute="leading" id="ph4-O4-teC"/>
-                            <constraint firstItem="wM2-gc-do3" firstAttribute="top" secondItem="3A4-dX-tZl" secondAttribute="bottom" constant="10" id="sfx-jf-Tj3">
-                                <variation key="widthClass=compact" constant="20"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                            <constraint firstItem="Udc-EM-yQq" firstAttribute="trailing" secondItem="eqx-6o-xdt" secondAttribute="trailing" constant="57" id="qkr-tZ-sLt">
+                                <variation key="heightClass=compact-widthClass=compact" constant="264"/>
                             </constraint>
                             <constraint firstItem="2bS-4e-CrJ" firstAttribute="trailing" secondItem="ikN-BK-KyO" secondAttribute="trailing" id="v8S-Wj-GB3"/>
                             <constraint firstItem="yKV-1L-mSG" firstAttribute="top" secondItem="dd3-ON-gW8" secondAttribute="bottom" id="vg9-UG-jWh"/>
+                            <constraint firstItem="eqx-6o-xdt" firstAttribute="top" secondItem="3A4-dX-tZl" secondAttribute="bottom" constant="60" id="wkI-vc-7kI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Udc-EM-yQq"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZsU-dj-Nv4"/>
+                                <exclude reference="wkI-vc-7kI"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="ZsU-dj-Nv4"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="wkI-vc-7kI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="emailHintPopoverButton" destination="Vf8-ck-o6d" id="nwD-WL-vOL"/>
                         <outlet property="emailTextField" destination="BOp-rp-9gy" id="xfD-9o-2mJ"/>
-                        <outlet property="faceIDCheckbox" destination="wM2-gc-do3" id="dWK-SG-V84"/>
                         <outlet property="imageUpload" destination="qvi-en-6K1" id="peJ-9u-0Hp"/>
                         <outlet property="nameHintPopoverButton" destination="2bS-4e-CrJ" id="shv-Bm-vjS"/>
                         <outlet property="nameTextField" destination="ikN-BK-KyO" id="ZK9-CN-jBm"/>
@@ -262,7 +260,7 @@
                                     <fragment content="Username should only contain lowercase letters">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" metaFont="system" size="15"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" headIndent="10" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -301,7 +299,7 @@
                                     <fragment content="Email should be in  the following format ; uniquename@domain.com">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" metaFont="system" size="16"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" headIndent="10" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -341,7 +339,7 @@
                                         <string key="content">Your password has to be at least 6 characters long. Must contain at least one lower case letter, one upper case letter, one digit</string>
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" metaFont="system" size="15"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" headIndent="10" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
