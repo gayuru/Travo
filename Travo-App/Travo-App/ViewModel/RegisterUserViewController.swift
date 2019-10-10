@@ -15,6 +15,7 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
     var usersViewModel:UsersViewModel?
     var allowedLogin:Bool = false
     
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var nameTextField: UnderlinedTextField!
     @IBOutlet weak var emailTextField: UnderlinedTextField!
     @IBOutlet weak var passwordTextField: UnderlinedTextField!
