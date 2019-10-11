@@ -42,7 +42,7 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
     
     private let usersViewModel:UsersViewModel = UsersViewModel.init()
     
-    /// An authentication context stored at class scope so it's available for use during UI updates.
+    // An authentication context stored at class scope so it's available for use during UI updates.
     var context = LAContext()
     
     override func viewDidLoad() {
@@ -89,9 +89,9 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
     // View Context Specific Functions
     @IBAction func loginButtonClicked(_ sender: Any) {
         if (usersViewModel.authenticate(email: emailTextField.text, password: passwordTextField.text)) {
-            SVProgressHUD.show()
+//            SVProgressHUD.show()
             self.performSegue(withIdentifier: "SegueToHome", sender: self)
-            SVProgressHUD.dismiss()
+//            SVProgressHUD.dismiss()
         } else {
             let loginAlert = UIAlertController(title: "Incorrect Login", message: "Login Credentials incorrect", preferredStyle: UIAlertController.Style.alert)
             loginAlert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
@@ -116,9 +116,9 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason ) { success, error in
                 if success {
                     sleep(1)
-                    SVProgressHUD.show()
+//                    SVProgressHUD.show()
                     self.performSegue(withIdentifier: "SegueToHome", sender: self)
-                    SVProgressHUD.dismiss()
+//                    SVProgressHUD.dismiss()
                 } else {
                     let notEnrolledAlert = UIAlertController(title: "Error", message: "No biometrics are enrolled.", preferredStyle: UIAlertController.Style.alert)
                     notEnrolledAlert.addAction(UIAlertAction(title: "Enter Username/Password", style: UIAlertAction.Style.default, handler: nil))

@@ -300,7 +300,7 @@ today?</string>
                                                                             <color key="textColor" red="0.31811469790000002" green="0.33644410969999999" blue="0.3803984225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
                                                                             <rect key="frame" x="8" y="135" width="76" height="11"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="76" id="hUT-S4-tgm"/>
@@ -327,11 +327,11 @@ today?</string>
                                                                         <constraint firstItem="0Ew-yZ-xu0" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="Gjn-9y-yHi"/>
                                                                         <constraint firstAttribute="trailing" secondItem="6oy-gq-MUZ" secondAttribute="trailing" constant="5" id="LvY-c5-UIC"/>
                                                                         <constraint firstItem="H2O-cE-axe" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="Pt2-dY-fSF"/>
-                                                                        <constraint firstItem="ccC-ZN-k32" firstAttribute="top" secondItem="0Ew-yZ-xu0" secondAttribute="bottom" constant="3" id="WiQ-fv-Rd3"/>
                                                                         <constraint firstItem="6oy-gq-MUZ" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="6" id="XLV-FC-quD"/>
                                                                         <constraint firstItem="a7J-rh-bqE" firstAttribute="leading" secondItem="ThT-mU-O3y" secondAttribute="leading" constant="8" id="ZTq-EV-K9p"/>
                                                                         <constraint firstAttribute="trailing" secondItem="EYj-Il-gnP" secondAttribute="trailing" constant="8" id="ajq-eV-fc9"/>
                                                                         <constraint firstAttribute="trailing" secondItem="0Ew-yZ-xu0" secondAttribute="trailing" constant="3" id="cUJ-1P-GGG"/>
+                                                                        <constraint firstItem="ccC-ZN-k32" firstAttribute="top" secondItem="0Ew-yZ-xu0" secondAttribute="bottom" constant="3" id="hRy-iI-Dfs"/>
                                                                         <constraint firstAttribute="trailing" secondItem="H2O-cE-axe" secondAttribute="trailing" constant="22" id="isc-6k-jgv"/>
                                                                         <constraint firstItem="a7J-rh-bqE" firstAttribute="top" secondItem="6oy-gq-MUZ" secondAttribute="bottom" constant="8" id="p1v-Jq-IjF"/>
                                                                         <constraint firstItem="EYj-Il-gnP" firstAttribute="top" secondItem="6oy-gq-MUZ" secondAttribute="bottom" constant="6" id="qZ0-x6-jt0"/>
