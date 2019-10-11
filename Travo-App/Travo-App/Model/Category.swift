@@ -24,4 +24,8 @@ class Category {
     func getImage()->String {
         return self.image
     }
+    
+    func getEnabledImage()->String{
+        return self.image + "_enabled"
+    }
 }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ig-3l-s1a">
-                                <rect key="frame" x="33" y="117" width="50" height="28"/>
+                                <rect key="frame" x="33" y="97" width="50" height="28"/>
                                 <color key="backgroundColor" red="0.11414418831949846" green="0.39125216544369762" blue="0.78912321891191706" alpha="0.55254181338028174" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Ig-3l-s1a" secondAttribute="height" multiplier="25:14" id="6eH-uL-pnV"/>
@@ -46,7 +44,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSZ-wz-53G">
-                                <rect key="frame" x="16" y="30" width="104" height="30"/>
+                                <rect key="frame" x="16" y="10" width="104" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zG-zr-JZz">
                                         <rect key="frame" x="0.0" y="0.0" width="63" height="30"/>
@@ -69,7 +67,7 @@
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.34999999999999998"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Federation  Square" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whv-PX-cJI">
-                                <rect key="frame" x="33" y="153" width="267" height="84"/>
+                                <rect key="frame" x="33" y="133" width="267" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="dfJ-9G-l7W"/>
                                 </constraints>
@@ -78,20 +76,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARy-f3-tvM">
-                                <rect key="frame" x="33" y="245" width="254" height="124.5"/>
+                                <rect key="frame" x="33" y="225" width="254" height="124.5"/>
                                 <string key="text">Federation Square is a venue for arts, culture and public events on the edge of the Melbourne central business district. It covers an area of 3.2 ha (7.9 acres) at the intersection of Flinders and Swanston Streets built above busy railway lines and across the road from Flinders Street station.</string>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open 24 Hours." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBh-qo-XRt">
-                                <rect key="frame" x="33" y="377" width="106" height="17"/>
+                                <rect key="frame" x="33" y="357" width="106" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-1b-lf5" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="33" y="405" width="124" height="21"/>
+                                <rect key="frame" x="33" y="385" width="124" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="124" id="bbb-Zu-E5I"/>
                                     <constraint firstAttribute="height" constant="21" id="cx5-lx-BR7"/>
@@ -109,7 +107,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6Z-qY-x1R">
-                                <rect key="frame" x="278" y="38" width="22" height="22"/>
+                                <rect key="frame" x="278" y="18" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="fwn-RE-86f"/>
                                     <constraint firstAttribute="width" constant="22" id="kQx-te-lfP"/>
@@ -120,7 +118,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow5" translatesAutoresizingMaskIntoConstraints="NO" id="AY2-Zp-sEY">
-                                <rect key="frame" x="258" y="109" width="45" height="44"/>
+                                <rect key="frame" x="258" y="89" width="45" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="TFd-dc-sk1"/>
                                     <constraint firstAttribute="height" constant="44" id="UEc-Vh-KJn"/>
