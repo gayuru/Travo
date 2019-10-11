@@ -26,6 +26,8 @@
 	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We need to save your photos</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>Use Face ID instead of a password to access your account.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
