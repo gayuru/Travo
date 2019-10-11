@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController{
+class HomeViewController: UIViewController,RestRequestDelegate{
     
     //SAMPLE LOGIN DETAILS
     // Email : email1
@@ -23,7 +23,7 @@ class HomeViewController: UIViewController{
     var loggedInUser:User?
     
     var viewModel = PlacesViewModel()
-    
+
     var categoryViewModel = CategoryViewModel()
     var currentCategory:String = "general"
     var currTitle:String = ""
@@ -33,23 +33,27 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
+        popularPlaces.dataSource = self
+        recommendedCollection.dataSource = self
         bottomNav.layer.cornerRadius = 10.0
         bottomNav.layer.masksToBounds = true
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         categoryCollection.backgroundColor =  UIColor(white: 1, alpha: 0.0)
-        popularPlaces.delegate = self
+//        popularPlaces.delegate = self
         popularPlaces.dataSource = self
         categoryCollection.delegate = self
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
-        recommendedCollection.delegate = self
-        testAPI()
+//        recommendedCollection.delegate = self
+        
     }
     
-    //testing api
-    func testAPI(){
+    func finishLoadingPlaces(){
         dump(viewModel.places)
+        popularPlaces.reloadData()
+        recommendedCollection.reloadData()
     }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}

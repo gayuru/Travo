@@ -10,10 +10,18 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+protocol RestRequestDelegate {
+    func finishLoadingPlaces()
+}
+
 class REST_Request{
     
     private var _places:[Place]=[]
     
+    var delegate:RestRequestDelegate?
+    
+    var count:Int = 0
+    var numPlaces:Int = 10
     //Foursquare API
     //make constants later
     private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
@@ -35,11 +43,12 @@ class REST_Request{
     
     init(){
         getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")
+        //after this is done
     }
 
-    func  getFSPlaces(lat:String,lng:String,category:String){
+    //access the places from the foursquare api
+    func getFSPlaces(lat:String,lng:String,category:String){
         _places = []
-        
         let parameters = [
             "client_id": clientID,
             "client_secret" : clientSecret,
@@ -47,12 +56,12 @@ class REST_Request{
             "ll": "\(lat),\(lng)",
             "radius": "1000",
             "section":category,
-            "limit":5,
+            "limit":self.numPlaces,
             ] as [String : Any]
-//        secondGroup.enter()
         getPlaceData(venueRecEndPoint, parameters: parameters)
     }
     
+    //API request for the list of places
     func getPlaceData(_ endpoint:String, parameters:Parameters){
         Alamofire.request(endpoint,method: .get,parameters: parameters).responseJSON { (response) in
             if(response.result.isSuccess){
@@ -69,6 +78,7 @@ class REST_Request{
         }
     }
     
+    //access the place details for the places list
     func parseData(json:JSON){
         if json.count > 0 {
             let result = json["response"]["groups"][0]["items"]
@@ -80,15 +90,8 @@ class REST_Request{
         }
     }
     
-    func updatePlaceObj(place:Place,weather:Int){
-        var tempPlace = place
-        tempPlace.weatherCondition = weather
-        self._places.append(tempPlace)
-//        self.secondGroup.leave()
-    }
-    
+    //API request for the details of the place
     func getPlaceDetails(venueID:String){
-        
         let placeParamater = [
             "client_id": clientID,
             "client_secret" : clientSecret,
@@ -107,13 +110,10 @@ class REST_Request{
                     let placeLng = place["location"]["lng"].doubleValue
                     
                     let placeObject = self.getPlaceObject(p: place)
-                    
                     self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
-                    
                     self.group.notify(queue: .main) {
-                        self.updatePlaceObj(place: placeObject, weather: self.weather)
+                        self.updatePlaceArr(place: placeObject, weather: self.weather)
                     }
-                    
                 case .failure(let err):
                     print(err)
                 }
@@ -140,6 +140,23 @@ class REST_Request{
         return placeObj
     }
     
+    //populate the places array with the places with correct info
+    func updatePlaceArr(place:Place,weather:Int){
+        var tempPlace = place
+        tempPlace.weatherCondition = weather
+        self._places.append(tempPlace)
+        //keeps track of the number of places added
+        self.count += 1
+        //checks if all the places are added so the arraay to notify the view
+        if(self.count == self.numPlaces){
+            DispatchQueue.main.async {
+                self.delegate?.finishLoadingPlaces()
+            }
+            self.delegate?.finishLoadingPlaces()
+        }
+    }
+    
+    //access weather data of a place
     func getWeatherParam(lat:String,lng:String){
         let params = [
             "lat":lat,
@@ -150,9 +167,9 @@ class REST_Request{
         self.getWeatherData(url: WEATHER_URL, parameters: params)
     }
     
+    //API request for the weather data of a place
     func getWeatherData(url:String, parameters:Parameters) {
         group.enter()
-        
         Alamofire.request(url,method:.get,parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
                 let json : JSON = JSON(response.result.value!)
@@ -175,7 +192,6 @@ class REST_Request{
     }
     
     func getImageURL(photoObj:JSON) -> String?{
-        
         guard let imagePrefix = photoObj["prefix"].string else{
             return nil
         }
@@ -184,18 +200,12 @@ class REST_Request{
         }
         
         let url = imagePrefix + "original" + imageSuffix
-        
         guard let escapedAddress = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)else{
             return nil
         }
-        
-        
         return escapedAddress
-        //        if let finalURL = URL(string: escapedAddress){
-        //            return finalURL
-        //        }
-        
     }
+    
     func sortPopularity(category:String) -> [Place]{
         return getListOfPlacesChosenByCategory(category).sorted(by: { $0.popularityScale > $1.popularityScale })
     }
@@ -213,6 +223,6 @@ class REST_Request{
         }
         return chosenPlaces
     }
-    
+    static let shared = REST_Request()
     
 }

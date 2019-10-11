@@ -11,21 +11,30 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private let placeModel = REST_Request()
+    private let placeModel = REST_Request.shared
     private var weatherModel = Weather()
+    
+    var delegate:RestRequestDelegate?{
+        get{
+            return placeModel.delegate
+        }
+        set(value){
+            placeModel.delegate = value
+        }
+    }
     
     var places:[Place]{
         return placeModel.places
     }
     
     var count:Int{
-    return places.count
+        return places.count
     }
     
     func getPopularity(category:String) -> [Place]{
         return placeModel.sortPopularity(category: category)
     }
- 
+    
     func getRecommended(category:String) -> [Place]{
         return placeModel.sortRecommended(category: category)
     }
@@ -77,15 +86,15 @@ struct PlacesViewModel{
         }
         return false
     }
-
+    
     func getIndex(title:String) -> Int{
         return places.firstIndex { (Place) -> Bool in
             Place.name == title
-        }!
+            }!
     }
     
     func getPlace(index:Int) -> Place{
         return places[index]
     }
-
+    
 }
