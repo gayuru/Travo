@@ -135,7 +135,7 @@ class REST_Request{
         let tempRating = p["rating"].double!
         let rating = convertRating(rating: tempRating)
         
-        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, popularityScale: 9, weatherCondition: 0, categoryBelonging: [",",","])
+        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, popularityScale: 9, weatherCondition: 0, categoryBelonging: ["general"])
         
         return placeObj
     }

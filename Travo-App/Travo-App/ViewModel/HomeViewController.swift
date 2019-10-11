@@ -27,7 +27,9 @@ class HomeViewController: UIViewController,RestRequestDelegate{
     var categoryViewModel = CategoryViewModel()
     var currentCategory:String = "general"
     var currTitle:String = ""
-    
+    var tempRecommended : [Place]!
+    var tempPopular : [Place]!
+    var tempCategory : [Category]!
     let CAROUSEL_MAX:Int = 5
     let CATEGORIES_MAX:Int = 10
     
@@ -41,12 +43,12 @@ class HomeViewController: UIViewController,RestRequestDelegate{
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recommendedCollection.backgroundColor = UIColor(white: 1, alpha: 0.2)
         categoryCollection.backgroundColor =  UIColor(white: 1, alpha: 0.0)
-//        popularPlaces.delegate = self
+        popularPlaces.delegate = self
         popularPlaces.dataSource = self
         categoryCollection.delegate = self
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
-//        recommendedCollection.delegate = self
+        recommendedCollection.delegate = self
         
     }
     
@@ -54,13 +56,12 @@ class HomeViewController: UIViewController,RestRequestDelegate{
         dump(viewModel.places)
         popularPlaces.reloadData()
         recommendedCollection.reloadData()
+        tempPopular = viewModel.getPopularity(category: self.currentCategory)
+        tempRecommended = viewModel.getRecommended(category: self.currentCategory)
     }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
-    
-    lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-    lazy var tempPopular = viewModel.getPopularity(category: self.currentCategory)
-    lazy var tempCategory = categoryViewModel.getCategories()
+   
 }
 
 extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSource {
