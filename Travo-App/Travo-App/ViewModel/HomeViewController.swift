@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController{
+class HomeViewController: UIViewController,RestRequestDelegate{
     
     //SAMPLE LOGIN DETAILS
     // Email : email1
@@ -23,15 +23,21 @@ class HomeViewController: UIViewController{
     var loggedInUser:User?
     
     var viewModel = PlacesViewModel()
+
     var categoryViewModel = CategoryViewModel()
     var currentCategory:String = "general"
     var currTitle:String = ""
-    
+    var tempRecommended : [Place]!
+    var tempPopular : [Place]!
+    var tempCategory : [Category]!
     let CAROUSEL_MAX:Int = 5
     let CATEGORIES_MAX:Int = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
+        popularPlaces.dataSource = self
+        recommendedCollection.dataSource = self
         bottomNav.layer.cornerRadius = 10.0
         bottomNav.layer.masksToBounds = true
         popularPlaces.backgroundColor = UIColor(white: 1, alpha: 0.2)
@@ -43,13 +49,19 @@ class HomeViewController: UIViewController{
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
+        
+    }
+    
+    func finishLoadingPlaces(){
+        dump(viewModel.places)
+        popularPlaces.reloadData()
+        recommendedCollection.reloadData()
+        tempPopular = viewModel.getPopularity(category: self.currentCategory)
+        tempRecommended = viewModel.getRecommended(category: self.currentCategory)
     }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
-    
-    lazy var tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-    lazy var tempPopular = viewModel.getPopularity(category: self.currentCategory)
-    lazy var tempCategory = categoryViewModel.getCategories()
+   
 }
 
 extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSource {
