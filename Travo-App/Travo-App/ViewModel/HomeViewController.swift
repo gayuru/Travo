@@ -121,12 +121,18 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
             tempRecommended = viewModel.getRecommended(category: currentCategory)
             if (indexPath.row < tempRecommended.count) {
-                cell.locationLabel.text = viewModel.getTitleFor(index: indexPath.row)
-                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
-                cell.cityLabel.text = viewModel.getLocationFor(index: indexPath.row)
-                cell.timeLabel.text = viewModel.getOpenTimeFor(index: indexPath.row)
-                cell.placeRating.rating = viewModel.getStarRating(index: indexPath.row)
-                cell.placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
+                cell.locationLabel.text = tempRecommended[indexPath.row].name
+                cell.placeImage.image = UIImage(named:tempRecommended[indexPath.row].imageURL)
+                cell.cityLabel.text = tempRecommended[indexPath.row].location
+                cell.timeLabel.text = tempRecommended[indexPath.row].openTime
+                cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
+                cell.placeRating.rating = tempRecommended[indexPath.row].starRating
+//                cell.locationLabel.text = viewModel.getTitleFor(index: indexPath.row)
+//                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
+//                cell.cityLabel.text = viewModel.getLocationFor(index: indexPath.row)
+//                cell.timeLabel.text = viewModel.getOpenTimeFor(index: indexPath.row)
+//                cell.placeRating.rating = viewModel.getStarRating(index: indexPath.row)
+//                cell.placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
                 cell.placeRating.settings.updateOnTouch = false
                 cell.placeRating.settings.fillMode = .precise
                 cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit

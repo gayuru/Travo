@@ -102,9 +102,6 @@ class RestRequest {
                         let placeObject = self.getPlaceObject(p: place)
                         self.updatePlaceArr(place: placeObject, weather: self.weather)
 //                                                self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
-                        //                        self.group.notify(queue: .main) {
-                        //                            self.updatePlaceArr(place: placeObject, weather: self.weather)
-                    //                        }
                     case .failure(let err):
                         print(err)
                     }
