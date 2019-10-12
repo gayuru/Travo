@@ -25,6 +25,7 @@
 		55E33124232BA853009514CC /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E33123232BA853009514CC /* PlacesViewModel.swift */; };
 		770B85052310D0FD00A431E5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85042310D0FD00A431E5 /* Home.storyboard */; };
 		7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714A1C3231FD7030014202E /* HomeViewController.swift */; };
+		773DF23923515C260073AF60 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773DF23823515C260073AF60 /* RestRequest.swift */; };
 		773EACE0232F72190009808A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773EACDF232F72190009808A /* ProfileViewController.swift */; };
 		773EACE2232F734A0009808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773EACE1232F734A0009808A /* Assets.xcassets */; };
 		773EAD02233051B00009808A /* CityVisitedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */; };
@@ -87,6 +88,7 @@
 		770B85042310D0FD00A431E5 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		770B850A2310D7B200A431E5 /* HomeViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController1.swift; sourceTree = "<group>"; };
 		7714A1C3231FD7030014202E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		773DF23823515C260073AF60 /* RestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRequest.swift; sourceTree = "<group>"; };
 		773EACDF232F72190009808A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		773EACE1232F734A0009808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Travo-AppUITests/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		773EAD01233051B00009808A /* CityVisitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVisitedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				BD1D08882331C10300B5BA64 /* Category.swift */,
 				5521E2C0233C404C0029C608 /* REST_Request.swift */,
 				BD1D088A2331C18000B5BA64 /* Categories.swift */,
+				773DF23823515C260073AF60 /* RestRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,7 +318,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Sogyal Thundup Sherpa";
 				TargetAttributes = {
 					55971C71232E7AEF0018ABF8 = {
@@ -476,9 +479,9 @@
 				55E33124232BA853009514CC /* PlacesViewModel.swift in Sources */,
 				BD1D088B2331C18000B5BA64 /* Categories.swift in Sources */,
 				55E330FB23292669009514CC /* CameraViewController.swift in Sources */,
-				7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */,
 				779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */,
 				773EACE0232F72190009808A /* ProfileViewController.swift in Sources */,
+				773DF23923515C260073AF60 /* RestRequest.swift in Sources */,
 				BD1D08892331C10300B5BA64 /* Category.swift in Sources */,
 				BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */,
 				55E330F72329084F009514CC /* User.swift in Sources */,

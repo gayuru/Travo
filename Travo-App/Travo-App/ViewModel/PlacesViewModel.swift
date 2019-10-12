@@ -11,10 +11,10 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private let placeModel = REST_Request.shared
+    private let placeModel = RestRequest.shared
     private var weatherModel = Weather()
     
-    var delegate:RestRequestDelegate?{
+    var delegate:Refresh?{
         get{
             return placeModel.delegate
         }
@@ -24,6 +24,7 @@ struct PlacesViewModel{
     }
     
     var places:[Place]{
+        print("Place View Model Places \(placeModel.places)")
         return placeModel.places
     }
     
@@ -56,7 +57,22 @@ struct PlacesViewModel{
     }
     
     func getImageURLFor(index:Int) -> UIImage?{
-        return UIImage.init(named: places[index].imageURL)
+        let url = places[index].imageURL
+        guard let imageUrl = URL(string:url) else{
+            return showDefaultImage()
+        }
+        
+        let data = try? Data(contentsOf: imageUrl)
+        let image:UIImage? = nil
+        if let imageData = data{
+            return UIImage(data: imageData)
+        }
+        return image
+    }
+    
+    func showDefaultImage() -> UIImage!{
+          let image = UIImage(named:"default")
+          return image
     }
     
     func getOpenTimeFor(index:Int) -> String{

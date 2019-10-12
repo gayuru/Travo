@@ -12,6 +12,17 @@ class UsersViewModel {
     private var users:Users
     private var loggedInUser:User?
     
+    private var model = RestRequest.shared
+    
+    var delegate:Refresh?{
+        get{
+            return model.delegate
+        }
+        set(value){
+            model.delegate = value
+        }
+    }
+    
     init() {
         users = Users.init()
     }

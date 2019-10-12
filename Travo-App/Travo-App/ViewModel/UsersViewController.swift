@@ -115,10 +115,9 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
             let reason = "Log in to your account"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason ) { success, error in
                 if success {
-                    sleep(1)
-//                    SVProgressHUD.show()
-                    self.performSegue(withIdentifier: "SegueToHome", sender: self)
-//                    SVProgressHUD.dismiss()
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "SegueToHome", sender: self)
+                    }
                 } else {
                     let notEnrolledAlert = UIAlertController(title: "Error", message: "No biometrics are enrolled.", preferredStyle: UIAlertController.Style.alert)
                     notEnrolledAlert.addAction(UIAlertAction(title: "Enter Username/Password", style: UIAlertAction.Style.default, handler: nil))
