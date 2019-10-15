@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,RestRequestDelegate{
+class HomeViewController: UIViewController,Refresh{
     
     //SAMPLE LOGIN DETAILS
     // Email : email1
@@ -52,8 +52,7 @@ class HomeViewController: UIViewController,RestRequestDelegate{
         
     }
     
-    func finishLoadingPlaces(){
-        dump(viewModel.places)
+    func updateUI() {
         popularPlaces.reloadData()
         recommendedCollection.reloadData()
         tempPopular = viewModel.getPopularity(category: self.currentCategory)

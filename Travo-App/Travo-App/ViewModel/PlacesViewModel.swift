@@ -11,10 +11,10 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private let placeModel = REST_Request.shared
+    private let placeModel = RestRequest.shared
     private var weatherModel = Weather()
     
-    var delegate:RestRequestDelegate?{
+    var delegate:Refresh?{
         get{
             return placeModel.delegate
         }

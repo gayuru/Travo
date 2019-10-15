@@ -37,6 +37,7 @@
 		7783A65B23036FFC00ED25F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783A65923036FFC00ED25F3 /* LaunchScreen.storyboard */; };
 		779227B1232EFF95008CFE4B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */; };
 		779717D823497690001A823C /* Core_Data_User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 779717D623497690001A823C /* Core_Data_User.xcdatamodeld */; };
+		779B120123556A2C00005D66 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B120023556A2C00005D66 /* RestRequest.swift */; };
 		77BF9AC0234D2A4100D648C5 /* UserCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF9ABE234D2A4100D648C5 /* UserCoreData+CoreDataClass.swift */; };
 		77BF9AC1234D2A4100D648C5 /* UserCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF9ABF234D2A4100D648C5 /* UserCoreData+CoreDataProperties.swift */; };
 		BD0AE78623294567002CD790 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78523294567002CD790 /* CheckboxButton.swift */; };
@@ -104,6 +105,7 @@
 		7783A65C23036FFC00ED25F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		779227B0232EFF95008CFE4B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		779717D723497690001A823C /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		779B120023556A2C00005D66 /* RestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRequest.swift; sourceTree = "<group>"; };
 		77BF9ABE234D2A4100D648C5 /* UserCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77BF9ABF234D2A4100D648C5 /* UserCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BD0AE78523294567002CD790 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				5521E2C0233C404C0029C608 /* REST_Request.swift */,
 				BD1D088A2331C18000B5BA64 /* Categories.swift */,
 				779717D623497690001A823C /* Core_Data_User.xcdatamodeld */,
+				779B120023556A2C00005D66 /* RestRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				55971C68232E56970018ABF8 /* PlacesCollectionViewCell.swift in Sources */,
 				55971C6A232E56A40018ABF8 /* FavouritesViewController.swift in Sources */,
 				7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */,
+				779B120123556A2C00005D66 /* RestRequest.swift in Sources */,
 				55E33124232BA853009514CC /* PlacesViewModel.swift in Sources */,
 				BD1D088B2331C18000B5BA64 /* Categories.swift in Sources */,
 				55E330FB23292669009514CC /* CameraViewController.swift in Sources */,
