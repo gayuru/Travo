@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HomeViewController: UIViewController,Refresh{
     
@@ -35,6 +36,7 @@ class HomeViewController: UIViewController,Refresh{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
         viewModel.delegate = self
         popularPlaces.dataSource = self
         recommendedCollection.dataSource = self
@@ -56,17 +58,9 @@ class HomeViewController: UIViewController,Refresh{
         recommendedCollection.reloadData()
         tempPopular = viewModel.getPopularity(category: self.currentCategory)
         tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-        
-//        print(viewModel.getPopularity(category: self.currentCategory))
+        SVProgressHUD.dismiss()
      }
     
-    func finishLoadingPlaces(){
-        dump(viewModel.places)
-        popularPlaces.reloadData()
-        recommendedCollection.reloadData()
-        tempPopular = viewModel.getPopularity(category: self.currentCategory)
-        tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-    }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
    

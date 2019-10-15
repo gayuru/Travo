@@ -24,7 +24,6 @@ struct PlacesViewModel{
     }
     
     var places:[Place]{
-        print("Place View Model Places \(placeModel.places)")
         return placeModel.places
     }
     

@@ -300,7 +300,7 @@ today?</string>
                                                                             <color key="textColor" red="0.31811469790000002" green="0.33644410969999999" blue="0.3803984225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
                                                                             <rect key="frame" x="8" y="135" width="76" height="11"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="76" id="hUT-S4-tgm"/>

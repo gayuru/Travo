@@ -97,11 +97,11 @@ class RestRequest {
                     case .success(let value):
                         let json = JSON(value)
                         let place = json["response"]["venue"]
-                        //                        let placeLat = place["location"]["lat"].doubleValue
-                        //                        let placeLng = place["location"]["lng"].doubleValue
+                        let placeLat = place["location"]["lat"].doubleValue
+                        let placeLng = place["location"]["lng"].doubleValue
                         let placeObject = self.getPlaceObject(p: place)
+                        self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
                         self.updatePlaceArr(place: placeObject, weather: self.weather)
-//                                                self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
                     case .failure(let err):
                         print(err)
                     }
@@ -156,11 +156,14 @@ class RestRequest {
         //keeps track of the number of places added
         self.count += 1
         //checks if all the places are added so the arraay to notify the view
-       
+        
         if(self.count == self.numPlaces){
-            DispatchQueue.main.async {
-                self.delegate?.updateUI()
+            if let del = self.delegate{
+                DispatchQueue.main.async {
+                    self.delegate?.updateUI()
+                }
             }
+            
         }
     }
     
@@ -180,6 +183,35 @@ class RestRequest {
             }
         }
         return chosenPlaces
+    }
+    
+    
+    //access weather data of a place
+    func getWeatherParam(lat:String,lng:String){
+        let params = [
+            "lat":lat,
+            "lon":lng,
+            "appid":APP_ID
+            ] as [String:Any]
+        
+        self.getWeatherData(url: WEATHER_URL, parameters: params)
+    }
+    
+    //API request for the weather data of a place
+    func getWeatherData(url:String, parameters:Parameters) {
+        Alamofire.request(url,method:.get,parameters: parameters).responseJSON { (response) in
+            if response.result.isSuccess {
+                let json : JSON = JSON(response.result.value!)
+                if json["main"]["temp"].double != nil {
+                    let weatherID = json["weather"][0]["id"].intValue
+                    self.weather = weatherID
+                }else{
+                    print("Weather not available")
+                }
+            }else{
+                print("Weather request failed!")
+            }
+        }
     }
     
     private init(){
