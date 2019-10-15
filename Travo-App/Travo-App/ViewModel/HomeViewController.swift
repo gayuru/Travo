@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HomeViewController: UIViewController,Refresh{
     
@@ -35,6 +36,7 @@ class HomeViewController: UIViewController,Refresh{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
         viewModel.delegate = self
         popularPlaces.dataSource = self
         recommendedCollection.dataSource = self
@@ -57,6 +59,8 @@ class HomeViewController: UIViewController,Refresh{
         recommendedCollection.reloadData()
         tempPopular = viewModel.getPopularity(category: self.currentCategory)
         tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+        tempCategory = categoryViewModel.getCategories()
+        SVProgressHUD.dismiss()
     }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
@@ -82,10 +86,11 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
+            tempPopular = viewModel.getPopularity(category: currentCategory)
             if (indexPath.row < tempPopular.count) {
                 cell.layer.cornerRadius = 10
                 cell.rating.text = String(tempPopular[indexPath.row].starRating)
-                cell.backgroundImage.image = UIImage(named:tempPopular[indexPath.row].imageURL)
+                cell.backgroundImage.image = viewModel.getImageURLFor(index: indexPath.row)
                 cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
                 cell.ratingView.layer.cornerRadius = 10
                 cell.ratingView.layer.masksToBounds = true
@@ -98,6 +103,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             return cell
         }else if collectionView == categoryCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            tempCategory = categoryViewModel.getCategories()
             cell.category.tag = indexPath.row
             cell.category.addTarget(self, action: #selector(categoryButtonClicked(sender:)), for: .touchUpInside)
             if indexPath.row == 0 {
@@ -109,9 +115,11 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedCollectionViewCell
+            tempRecommended = viewModel.getRecommended(category: currentCategory)
             if (indexPath.row < tempRecommended.count) {
                 cell.locationLabel.text = tempRecommended[indexPath.row].name
-                cell.placeImage.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
+//                cell.placeImage.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
+                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
                 cell.cityLabel.text = tempRecommended[indexPath.row].location
                 cell.timeLabel.text = tempRecommended[indexPath.row].openTime
                 cell.placeRating.settings.updateOnTouch = false

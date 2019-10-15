@@ -115,7 +115,6 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
             let reason = "Log in to your account"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason ) { success, error in
                 if success {
-                    self.performSegue(withIdentifier: "SegueToHome", sender: self)
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "SegueToHome", sender: self)
                     }
