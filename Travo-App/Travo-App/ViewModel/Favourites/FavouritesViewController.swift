@@ -103,7 +103,8 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         case collections.popular:
             heading.text = "Popular Places"
             title.text = tempPopular[indexPath.row].name
-            imageView.image = UIImage(named: tempPopular[indexPath.row].imageURL)
+            imageView.image = viewModel.getImageURLFor(index: indexPath.row)
+//            imageView.image = UIImage(named: tempPopular[indexPath.row].imageURL)
             location.text = tempPopular[indexPath.row].location
             openTime.text = tempPopular[indexPath.row].openTime
             placeRating.rating = tempPopular[indexPath.row].starRating
@@ -119,7 +120,8 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         case collections.recommended:
             heading.text = "Recommended Places"
             title.text = tempRecommended[indexPath.row].name
-            imageView.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
+            imageView.image = viewModel.getImageURLFor(index: indexPath.row)
+//            imageView.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
             location.text = tempRecommended[indexPath.row].location
             openTime.text = tempRecommended[indexPath.row].openTime
             placeRating.rating = tempRecommended[indexPath.row].starRating
