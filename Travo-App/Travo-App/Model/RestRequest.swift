@@ -150,7 +150,7 @@ class RestRequest {
     
     //populate the places array with the places with correct info
     func updatePlaceArr(place:Place,weather:Int){
-        var tempPlace = place
+        let tempPlace = place
         tempPlace.weatherCondition = weather
         self._places.append(tempPlace)
         //keeps track of the number of places added
@@ -160,7 +160,7 @@ class RestRequest {
         if(self.count == self.numPlaces){
             if let del = self.delegate{
                 DispatchQueue.main.async {
-                    self.delegate?.updateUI()
+                    del.updateUI()
                 }
             }
         }

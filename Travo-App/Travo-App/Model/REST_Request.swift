@@ -142,7 +142,7 @@ class REST_Request{
     
     //populate the places array with the places with correct info
     func updatePlaceArr(place:Place,weather:Int){
-        var tempPlace = place
+        let tempPlace = place
         tempPlace.weatherCondition = weather
         self._places.append(tempPlace)
         //keeps track of the number of places added
