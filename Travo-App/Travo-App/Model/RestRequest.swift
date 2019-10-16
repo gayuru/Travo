@@ -2,7 +2,7 @@
 //  RestRequest.swift
 //  Travo-App
 //
-//  Created by Sogyal Thundup Sherpa on 12/10/19.
+//  Created by Sogyal Thundup Sherpa on 15/10/19.
 //  Copyright © 2019 Sogyal Thundup Sherpa. All rights reserved.
 //
 
@@ -163,28 +163,8 @@ class RestRequest {
                     self.delegate?.updateUI()
                 }
             }
-            
         }
     }
-    
-    func sortPopularity(category:String) -> [Place]{
-        return getListOfPlacesChosenByCategory(category).sorted(by: { $0.popularityScale > $1.popularityScale })
-    }
-    
-    func sortRecommended(category:String) -> [Place]{
-        return getListOfPlacesChosenByCategory(category).sorted(by: {$0.starRating > $1.starRating })
-    }
-    
-    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
-        var chosenPlaces = [Place]()
-        for place in places {
-            if (place.categoryBelonging.contains(category)) {
-                chosenPlaces.append(place)
-            }
-        }
-        return chosenPlaces
-    }
-    
     
     //access weather data of a place
     func getWeatherParam(lat:String,lng:String){
@@ -212,6 +192,24 @@ class RestRequest {
                 print("Weather request failed!")
             }
         }
+    }
+    
+    func sortPopularity(category:String) -> [Place]{
+        return getListOfPlacesChosenByCategory(category).sorted(by: { $0.popularityScale > $1.popularityScale })
+    }
+    
+    func sortRecommended(category:String) -> [Place]{
+        return getListOfPlacesChosenByCategory(category).sorted(by: {$0.starRating > $1.starRating })
+    }
+    
+    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
+        var chosenPlaces = [Place]()
+        for place in places {
+            if (place.categoryBelonging.contains(category)) {
+                chosenPlaces.append(place)
+            }
+        }
+        return chosenPlaces
     }
     
     private init(){

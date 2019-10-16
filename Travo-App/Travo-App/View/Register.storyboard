@@ -182,6 +182,8 @@
                                 <variation key="widthClass=compact" constant="20"/>
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                             </constraint>
+                            <constraint firstItem="eqx-6o-xdt" firstAttribute="leading" secondItem="Udc-EM-yQq" secondAttribute="leading" constant="16" id="Zag-6A-nsr"/>
+                            <constraint firstItem="eqx-6o-xdt" firstAttribute="top" secondItem="3A4-dX-tZl" secondAttribute="bottom" constant="36" id="ZsU-dj-Nv4"/>
                             <constraint firstItem="Udc-EM-yQq" firstAttribute="trailing" secondItem="qvi-en-6K1" secondAttribute="trailing" constant="16" id="aGm-gQ-uor"/>
                             <constraint firstItem="eqx-6o-xdt" firstAttribute="top" secondItem="3A4-dX-tZl" secondAttribute="bottom" constant="26" id="agI-DF-agD"/>
                             <constraint firstItem="d7G-Mu-N8Y" firstAttribute="height" secondItem="Vf8-ck-o6d" secondAttribute="height" id="cMh-68-7Um"/>
@@ -195,8 +197,25 @@
                             <constraint firstItem="2bS-4e-CrJ" firstAttribute="trailing" secondItem="ikN-BK-KyO" secondAttribute="trailing" id="v8S-Wj-GB3"/>
                             <constraint firstItem="eqx-6o-xdt" firstAttribute="leading" secondItem="Udc-EM-yQq" secondAttribute="leading" constant="16" id="vVH-6s-I7j"/>
                             <constraint firstItem="yKV-1L-mSG" firstAttribute="top" secondItem="dd3-ON-gW8" secondAttribute="bottom" id="vg9-UG-jWh"/>
+                            <constraint firstItem="eqx-6o-xdt" firstAttribute="top" secondItem="3A4-dX-tZl" secondAttribute="bottom" constant="60" id="wkI-vc-7kI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Udc-EM-yQq"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZsU-dj-Nv4"/>
+                                <exclude reference="wkI-vc-7kI"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="ZsU-dj-Nv4"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="wkI-vc-7kI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="emailHintPopoverButton" destination="Vf8-ck-o6d" id="nwD-WL-vOL"/>

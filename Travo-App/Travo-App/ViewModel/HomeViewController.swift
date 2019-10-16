@@ -58,8 +58,9 @@ class HomeViewController: UIViewController,Refresh{
         recommendedCollection.reloadData()
         tempPopular = viewModel.getPopularity(category: self.currentCategory)
         tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+        tempCategory = categoryViewModel.getCategories()
         SVProgressHUD.dismiss()
-     }
+    }
     
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
@@ -87,8 +88,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             tempPopular = viewModel.getPopularity(category: currentCategory)
             if (indexPath.row < tempPopular.count) {
                 cell.layer.cornerRadius = 10
-                cell.label1.text = viewModel.getTitleFor(index: indexPath.row)
-                cell.rating.text = String(viewModel.getStarRating(index: indexPath.row))
+                cell.rating.text = String(tempPopular[indexPath.row].starRating)
                 cell.backgroundImage.image = viewModel.getImageURLFor(index: indexPath.row)
                 cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
                 cell.ratingView.layer.cornerRadius = 10
@@ -116,7 +116,8 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             tempRecommended = viewModel.getRecommended(category: currentCategory)
             if (indexPath.row < tempRecommended.count) {
                 cell.locationLabel.text = tempRecommended[indexPath.row].name
-                cell.placeImage.image = UIImage(named:tempRecommended[indexPath.row].imageURL)
+//                cell.placeImage.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
+                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
                 cell.cityLabel.text = tempRecommended[indexPath.row].location
                 cell.timeLabel.text = tempRecommended[indexPath.row].openTime
                 cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)

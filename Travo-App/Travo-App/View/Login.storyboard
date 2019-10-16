@@ -164,7 +164,7 @@
                                 <rect key="frame" x="60" y="407" width="200" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T0U-Bl-YFY">
-                                        <rect key="frame" x="32" y="0.0" width="136" height="31"/>
+                                        <rect key="frame" x="32" y="-0.5" width="136" height="31"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="New user? ">

@@ -70,8 +70,8 @@ struct PlacesViewModel{
     }
     
     func showDefaultImage() -> UIImage!{
-          let image = UIImage(named:"default")
-          return image
+        let image = UIImage(named:"default")
+        return image
     }
     
     func getOpenTimeFor(index:Int) -> String{
