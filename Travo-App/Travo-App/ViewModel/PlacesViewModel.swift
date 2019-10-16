@@ -36,7 +36,7 @@ struct PlacesViewModel{
     }
     
     func getRecommended(category:String) -> [Place]{
-        return placeModel.sortRecommended(category: category)
+        return placeModel.places
     }
     
     func getTitleFor(index:Int) -> String{
@@ -61,6 +61,18 @@ struct PlacesViewModel{
             return showDefaultImage()
         }
         
+        let data = try? Data(contentsOf: imageUrl)
+        let image:UIImage? = nil
+        if let imageData = data{
+            return UIImage(data: imageData)
+        }
+        return image
+    }
+    
+    func getImageURLFor(url:String) -> UIImage?{
+        guard let imageUrl = URL(string:url) else{
+            return showDefaultImage()
+        }
         let data = try? Data(contentsOf: imageUrl)
         let image:UIImage? = nil
         if let imageData = data{

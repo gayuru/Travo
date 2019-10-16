@@ -54,6 +54,7 @@ class HomeViewController: UIViewController,Refresh{
     }
     
     func updateUI() {
+        print("this gets called")
         popularPlaces.reloadData()
         recommendedCollection.reloadData()
         tempPopular = viewModel.getPopularity(category: self.currentCategory)
@@ -87,9 +88,10 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             tempPopular = viewModel.getPopularity(category: currentCategory)
             if (indexPath.row < tempPopular.count) {
+                cell.label1.text = tempPopular[indexPath.row].name
                 cell.layer.cornerRadius = 10
                 cell.rating.text = String(tempPopular[indexPath.row].starRating)
-                cell.backgroundImage.image = viewModel.getImageURLFor(index: indexPath.row)
+                cell.backgroundImage.image = viewModel.getImageURLFor(url: tempPopular[indexPath.row].imageURL)
                 cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
                 cell.ratingView.layer.cornerRadius = 10
                 cell.ratingView.layer.masksToBounds = true
@@ -116,8 +118,8 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             tempRecommended = viewModel.getRecommended(category: currentCategory)
             if (indexPath.row < tempRecommended.count) {
                 cell.locationLabel.text = tempRecommended[indexPath.row].name
-//                cell.placeImage.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
-                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
+                cell.placeImage.image = viewModel.getImageURLFor(url: tempRecommended[indexPath.row].imageURL)
+//                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
                 cell.cityLabel.text = tempRecommended[indexPath.row].location
                 cell.timeLabel.text = tempRecommended[indexPath.row].openTime
                 cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
