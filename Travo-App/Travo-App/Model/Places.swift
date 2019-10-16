@@ -20,13 +20,13 @@ class Places{
         //populatePlaces()
     }
     
-    func sortPopularity(category:String) -> [Place]{
-        return getListOfPlacesChosenByCategory(category).sorted(by: { $0.popularityScale > $1.popularityScale })
-    }
-    
-    func sortRecommended(category:String) -> [Place]{
-        return getListOfPlacesChosenByCategory(category).sorted(by: {$0.starRating > $1.starRating })
-    }
+//    func sortPopularity(category:String) -> [Place]{
+//        return getListOfPlacesChosenByCategory(category).sorted(by: { $0.lat > $1.lat })
+//    }
+//    
+//    func sortRecommended(category:String) -> [Place]{
+//        return getListOfPlacesChosenByCategory(category).sorted(by: {$0.starRating > $1.starRating })
+//    }
     
     private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
         var chosenPlaces = [Place]()
