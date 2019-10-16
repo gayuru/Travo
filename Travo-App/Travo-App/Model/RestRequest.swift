@@ -20,9 +20,11 @@ class RestRequest {
     var delegate:Refresh?
     //Foursquare API
     //make constants later
-    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
-    private let venueRecEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
+//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
+//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+    private let clientID:String = "AEQUPDDCAKT4LFIQBI2K1EZXOEB4QPJUGMTASCBRNIZWFE2A"
+    private let clientSecret:String = "VJ5OX10OMWPHOGDYV11Q40EIPGKZF54MDMNPHXAHOXWRFPZL"
+    private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
     
     //Weather API
@@ -46,11 +48,11 @@ class RestRequest {
             "client_secret" : clientSecret,
             "v":"20191003",
             "ll": "\(lat),\(lng)",
-            "radius": "1000",
+            "radius": "10000",
             "section":category,
             "limit":self.numPlaces,
             ] as [String : Any]
-        getPlaceData(venueRecEndPoint, parameters: parameters)
+        getPlaceData(recommendedEndPoint, parameters: parameters)
     }
     
     func getPlaceData(_ endpoint:String,parameters:Parameters){
@@ -76,9 +78,6 @@ class RestRequest {
                 let venue = v["venue"]
                 let venueID = venue["id"].string!
                 getPlaceDetails(venueID: venueID)
-                //                getPlaceDetails(venueID: venueID) { (success) in
-                //                    print(success)
-                //                }
             }
         }
     }
@@ -195,22 +194,18 @@ class RestRequest {
     }
     
     func sortPopularity(category:String) -> [Place]{
-        return getListOfPlacesChosenByCategory(category).sorted(by: { $0.popularityScale > $1.popularityScale })
+        return self._places.sorted(by: { $0.starRating > $1.starRating })
     }
-    
-    func sortRecommended(category:String) -> [Place]{
-        return getListOfPlacesChosenByCategory(category).sorted(by: {$0.starRating > $1.starRating })
-    }
-    
-    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
-        var chosenPlaces = [Place]()
-        for place in places {
-            if (place.categoryBelonging.contains(category)) {
-                chosenPlaces.append(place)
-            }
-        }
-        return chosenPlaces
-    }
+
+//    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
+//        var chosenPlaces = [Place]()
+//        for place in places {
+//            if (place.categoryBelonging.contains(category)) {
+//                chosenPlaces.append(place)
+//            }
+//        }
+//        return chosenPlaces
+//    }
     
     private init(){
         getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")

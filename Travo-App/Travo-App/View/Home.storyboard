@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeView" id="VVl-dG-LDB" customClass="HomeViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0aw-Ik-bbw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="740"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkG-db-pQB">
@@ -169,11 +169,11 @@ today?</string>
                                                                     <color key="backgroundColor" red="0.31372549020000001" green="0.43137254899999999" blue="0.7843137255" alpha="0.23271618150684931" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBM-kl-Dld">
-                                                                    <rect key="frame" x="6" y="111" width="90" height="20"/>
+                                                                    <rect key="frame" x="6" y="115" width="90" height="16"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="90" id="NNs-z3-CuJ"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
