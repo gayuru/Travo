@@ -51,7 +51,6 @@ class HomeViewController: UIViewController,Refresh{
         categoryCollection.dataSource = self
         recommendedCollection.dataSource = self
         recommendedCollection.delegate = self
-        
     }
     
     func updateUI() {
@@ -62,6 +61,7 @@ class HomeViewController: UIViewController,Refresh{
         tempCategory = categoryViewModel.getCategories()
         SVProgressHUD.dismiss()
     }
+    
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
    
@@ -83,7 +83,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     
     //MARK:-- Setting up all collection views
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             tempPopular = viewModel.getPopularity(category: currentCategory)
@@ -94,7 +93,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
                 cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
                 cell.ratingView.layer.cornerRadius = 10
                 cell.ratingView.layer.masksToBounds = true
-                cell.label1.text = tempPopular[indexPath.row].name
                 cell.label1.textColor = UIColor.white
                 cell.label1.numberOfLines = 3
                 cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -122,10 +120,16 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
                 cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
                 cell.cityLabel.text = tempRecommended[indexPath.row].location
                 cell.timeLabel.text = tempRecommended[indexPath.row].openTime
+                cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
+                cell.placeRating.rating = tempRecommended[indexPath.row].starRating
+//                cell.locationLabel.text = viewModel.getTitleFor(index: indexPath.row)
+//                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
+//                cell.cityLabel.text = viewModel.getLocationFor(index: indexPath.row)
+//                cell.timeLabel.text = viewModel.getOpenTimeFor(index: indexPath.row)
+//                cell.placeRating.rating = viewModel.getStarRating(index: indexPath.row)
+//                cell.placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
                 cell.placeRating.settings.updateOnTouch = false
                 cell.placeRating.settings.fillMode = .precise
-                cell.placeRating.rating = tempRecommended[indexPath.row].starRating
-                cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
                 cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
                 cell.locationLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
                 cell.locationLabel.sizeToFit()
@@ -157,6 +161,9 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
 //            collectionView.
         }
     }
+}
+
+extension HomeViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "viewPlace"){
