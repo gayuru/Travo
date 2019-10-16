@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class User{
+    // Default Profile Image
+    static let STOCK_IMAGE:NSData = UIImage(named: "profile")!.pngData()! as NSData
+    
     private var name:String
     private var email:String
     private var password:String
@@ -16,8 +20,15 @@ class User{
     private var citiesVisited: [String]
     private var favourites:[Place]
     private var interests:String
+    private var profilePicture:NSData
     
-    init(name:String,password:String,email:String,aboutMeDesc:String,interests:String) {
+    // Init User with All Parameters
+    init(name:String,
+         password:String,
+         email:String,
+         aboutMeDesc:String,
+         interests:String,
+         profilePicture:NSData) {
         self.name = name
         self.password = password
         self.email = email
@@ -25,6 +36,38 @@ class User{
         self.citiesVisited = []
         self.favourites = [Place]()
         self.interests = interests
+        self.profilePicture = profilePicture
+    }
+    
+    // Init User with Default Profile Image
+    init(name:String,
+         password:String,
+         email:String,
+         aboutMeDesc:String,
+         interests:String) {
+        self.name = name
+        self.password = password
+        self.email = email
+        self.aboutMeDesc = aboutMeDesc
+        self.citiesVisited = []
+        self.favourites = [Place]()
+        self.interests = interests
+        self.profilePicture = User.STOCK_IMAGE
+    }
+    
+    
+    init(name:String,
+         password:String,
+         email:String,
+         profilePicture:NSData = User.STOCK_IMAGE) {
+        self.name = name
+        self.password = password
+        self.email = email
+        self.aboutMeDesc = ""
+        self.citiesVisited = []
+        self.favourites = [Place]()
+        self.interests = ""
+        self.profilePicture = profilePicture
     }
     
     func getUsername()->String{
@@ -126,4 +169,11 @@ class User{
         return self.favourites
     }
     
+    func getProfilePictureNSDATA()->NSData{
+        return self.profilePicture
+    }
+    
+    func setProfilePictureNSDATA(nsdata: NSData){
+        self.profilePicture = nsdata
+    }
 }

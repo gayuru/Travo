@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Place:NSObject{
+public class Place:NSObject{
     var name:String
     var desc:String
     var location:String

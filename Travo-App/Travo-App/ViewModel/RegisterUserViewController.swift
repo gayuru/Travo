@@ -8,12 +8,13 @@
 
 import UIKit
 
-class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageUpload: UIButton!
     
     var usersViewModel:UsersViewModel?
     var allowedLogin:Bool = false
+    var profileImage:UIImage?
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var nameTextField: UnderlinedTextField!
@@ -67,9 +68,41 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
     }
     
     // REGISTER VIEW METHODS
+    @IBAction func profilePictureUploadClicked(_ sender: Any) {
+            // Device has a camera, now create the image picker controller
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            NSLog("No camera found on device")
+        }
+    }
+    
+    // Assign Image to Class Variable
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // close image picker
+        self.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Error Handling Selected image: \(info)")
+        }
+        self.profileImage = selectedImage
+    }
+    
     @IBAction func registerSignUpButtonClicked(_ sender: Any) {
+        var profileImageData:NSData
+        if self.profileImage != nil {
+            profileImageData = self.profileImage?.pngData()! as! NSData
+        } else {
+            profileImageData = User.STOCK_IMAGE
+        }
+        
+        
         if let presentUsersViewModel = usersViewModel {
-            let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, aboutMeDesc: "",interests: "")
+            let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text, profilePicture: profileImageData)
             if (validRegistration) {
                 allowedLogin = true
                 self.performSegue(withIdentifier: "SegueToHome", sender: self)
