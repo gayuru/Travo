@@ -119,17 +119,18 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
             tempPopular = viewModel.getPopularity(category: currentCategory)
             if (indexPath.row < tempPopular.count) {
-                cell.label1.text = tempPopular[indexPath.row].name
+                cell.placeLabel.text = tempPopular[indexPath.row].name
                 cell.layer.cornerRadius = 10
                 cell.rating.text = String(tempPopular[indexPath.row].starRating)
                 cell.backgroundImage.image = viewModel.getImageURLFor(url: tempPopular[indexPath.row].imageURL)
                 cell.backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+                cell.timeLabel.text = tempPopular[indexPath.row].openTime
                 cell.ratingView.layer.cornerRadius = 10
                 cell.ratingView.layer.masksToBounds = true
-                cell.label1.textColor = UIColor.white
-                cell.label1.numberOfLines = 3
-                cell.label1.lineBreakMode = NSLineBreakMode.byWordWrapping
-                cell.label1.sizeToFit()
+                cell.placeLabel.textColor = UIColor.white
+                cell.placeLabel.numberOfLines = 3
+                cell.placeLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+                cell.placeLabel.sizeToFit()
             }
             return cell
         }else if collectionView == categoryCollection{
