@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Place{
+class Place:NSObject{
     var name:String
     var desc:String
     var location:String
@@ -16,7 +16,17 @@ struct Place{
     var imageURL:String
     var openTime:String
     var starRating:Double
-    var popularityScale:Int
     var weatherCondition:Int
     var categoryBelonging:[String]
+    init(name:String,desc:String,location:String,address:String,imageURL:String,openTime:String,starRating:Double,weatherCondition:Int,categoryBelonging:[String]){
+        self.name = name
+        self.desc = desc
+        self.location = location
+        self.address = address
+        self.imageURL = imageURL
+        self.openTime = openTime
+        self.starRating = starRating
+        self.weatherCondition = weatherCondition
+        self.categoryBelonging = categoryBelonging
+    }
 }

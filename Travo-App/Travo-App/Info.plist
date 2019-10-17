@@ -22,8 +22,25 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>http://api.openweathermap.org</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string></string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Use Face ID instead of a password to access your account.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We need to save your photos</string>
 	<key>UILaunchStoryboardName</key>
@@ -47,5 +64,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Will you allow this app to always know your location?</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Do you allow this app to know your current location?</string>
 </dict>
 </plist>

@@ -27,7 +27,6 @@ class PlaceViewController: UIViewController {
     var index:Int = 0
     var currentPlace : Place!
     
-    
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "backHome", sender: self)
     }
@@ -47,6 +46,8 @@ class PlaceViewController: UIViewController {
                 getFavourite(name: viewModel.getTitleFor(index: index))
             }
         }
+        
+        //testAPI()
         
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index)

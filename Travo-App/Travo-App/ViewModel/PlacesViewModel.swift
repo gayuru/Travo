@@ -11,23 +11,32 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private let placeModel = Places()
+    private let placeModel = RestRequest.shared
     private var weatherModel = Weather()
+    
+    var delegate:Refresh?{
+        get{
+            return placeModel.delegate
+        }
+        set(value){
+            placeModel.delegate = value
+        }
+    }
     
     var places:[Place]{
         return placeModel.places
     }
     
     var count:Int{
-    return places.count
+        return places.count
     }
     
     func getPopularity(category:String) -> [Place]{
         return placeModel.sortPopularity(category: category)
     }
- 
+    
     func getRecommended(category:String) -> [Place]{
-        return placeModel.sortRecommended(category: category)
+        return placeModel.sortRecommended()
     }
     
     func getTitleFor(index:Int) -> String{
@@ -47,7 +56,34 @@ struct PlacesViewModel{
     }
     
     func getImageURLFor(index:Int) -> UIImage?{
-        return UIImage.init(named: places[index].imageURL)
+        let url = places[index].imageURL
+        guard let imageUrl = URL(string:url) else{
+            return showDefaultImage()
+        }
+        
+        let data = try? Data(contentsOf: imageUrl)
+        let image:UIImage? = nil
+        if let imageData = data{
+            return UIImage(data: imageData)
+        }
+        return image
+    }
+    
+    func getImageURLFor(url:String) -> UIImage?{
+        guard let imageUrl = URL(string:url) else{
+            return showDefaultImage()
+        }
+        let data = try? Data(contentsOf: imageUrl)
+        let image:UIImage? = nil
+        if let imageData = data{
+            return UIImage(data: imageData)
+        }
+        return image
+    }
+    
+    func showDefaultImage() -> UIImage!{
+        let image = UIImage(named:"default")
+        return image
     }
     
     func getOpenTimeFor(index:Int) -> String{
@@ -77,15 +113,15 @@ struct PlacesViewModel{
         }
         return false
     }
-
+    
     func getIndex(title:String) -> Int{
         return places.firstIndex { (Place) -> Bool in
             Place.name == title
-        }!
+            }!
     }
     
     func getPlace(index:Int) -> Place{
         return places[index]
     }
-
+    
 }
