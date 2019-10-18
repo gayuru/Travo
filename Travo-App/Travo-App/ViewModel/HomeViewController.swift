@@ -8,8 +8,9 @@
 
 import UIKit
 import SVProgressHUD
+import CoreLocation
 
-class HomeViewController: UIViewController,Refresh{
+class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     
     //SAMPLE LOGIN DETAILS
     // Email : email1
@@ -23,6 +24,8 @@ class HomeViewController: UIViewController,Refresh{
     @IBOutlet var recommendedCollection: UICollectionView!
     var loggedInUser:User?
     
+    
+    let locationManager = CLLocationManager()
     var viewModel = PlacesViewModel()
 
     var categoryViewModel = CategoryViewModel()
@@ -36,6 +39,12 @@ class HomeViewController: UIViewController,Refresh{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Get users location
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         SVProgressHUD.show()
         viewModel.delegate = self
         popularPlaces.dataSource = self
@@ -63,6 +72,28 @@ class HomeViewController: UIViewController,Refresh{
         SVProgressHUD.dismiss()
     }
     
+    //Write the didUpdateLocations method here:
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]
+        if location.horizontalAccuracy > 0{
+            locationManager.stopUpdatingLocation()
+            locationManager.delegate = nil
+            
+            let latitude = String(location.coordinate.latitude)
+            let longitude = String(location.coordinate.longitude)
+            
+            print("lat : \(latitude) lng : \(longitude)")
+//            let params : [String : String] = ["lat" : latitude, "lon":longitude, "appid":APP_ID]
+//            getWeatherData(url:WEATHER_URL, parameters: params)
+        }
+    }
+    
+    
+    //Write the didFailWithError method here:
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+//        cityLabel.text = "Location Unavailable"
+    }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
    

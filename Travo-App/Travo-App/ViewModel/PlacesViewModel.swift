@@ -36,7 +36,7 @@ struct PlacesViewModel{
     }
     
     func getRecommended(category:String) -> [Place]{
-        return placeModel.places
+        return placeModel.sortRecommended()
     }
     
     func getTitleFor(index:Int) -> String{
