@@ -27,7 +27,7 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     
     let locationManager = CLLocationManager()
     var viewModel = PlacesViewModel()
-
+    
     var categoryViewModel = CategoryViewModel()
     var currentCategory:String = "general"
     var currTitle:String = ""
@@ -40,13 +40,12 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         //Get users location
+        viewModel.delegate = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
         SVProgressHUD.show()
-        viewModel.delegate = self
         popularPlaces.dataSource = self
         recommendedCollection.dataSource = self
         bottomNav.layer.cornerRadius = 10.0
@@ -81,8 +80,9 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
             
             let latitude = String(location.coordinate.latitude)
             let longitude = String(location.coordinate.longitude)
+            viewModel.setLocation(lat: latitude, lng: longitude)
             
-            print("lat : \(latitude) lng : \(longitude)")
+//            print("lat : \(latitude) lng : \(longitude)")
 //            let params : [String : String] = ["lat" : latitude, "lon":longitude, "appid":APP_ID]
 //            getWeatherData(url:WEATHER_URL, parameters: params)
         }
