@@ -17,7 +17,6 @@
 		55971C6A232E56A40018ABF8 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C69232E56A40018ABF8 /* FavouritesViewController.swift */; };
 		55971C6D232E62400018ABF8 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C6C232E62400018ABF8 /* PlaceViewController.swift */; };
 		55971C75232E7AEF0018ABF8 /* Travo_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C74232E7AEF0018ABF8 /* Travo_AppUITests.swift */; };
-		55C26A68233075FB00DD0580 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FA11C233074E000BD5156 /* Places.swift */; };
 		55E330F52329073D009514CC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E330F42329073D009514CC /* Weather.swift */; };
 		55E330F72329084F009514CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E330F62329084F009514CC /* User.swift */; };
 		55E330FB23292669009514CC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E330FA23292669009514CC /* CameraViewController.swift */; };
@@ -69,7 +68,6 @@
 		3F8DCE4824A35FC1F61D2A0B /* Pods_Travo_App_Travo_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_App_Travo_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552BAA882318AB210000BBC4 /* FeelingLucky.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeelingLucky.storyboard; sourceTree = "<group>"; };
 		552BAA8A2318AB390000BBC4 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
-		554FA11C233074E000BD5156 /* Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		556015902331F93600302676 /* FeelingLuckyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingLuckyViewController.swift; sourceTree = "<group>"; };
 		5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		5571DBD22325E03F00C9BE2F /* Place.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Place.storyboard; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 			children = (
 				77BF9ABE234D2A4100D648C5 /* UserCoreData+CoreDataClass.swift */,
 				77BF9ABF234D2A4100D648C5 /* UserCoreData+CoreDataProperties.swift */,
-				554FA11C233074E000BD5156 /* Places.swift */,
 				77425D0423272E4C00C6B844 /* Place.swift */,
 				55E330F42329073D009514CC /* Weather.swift */,
 				55E330F62329084F009514CC /* User.swift */,
@@ -474,7 +471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD1D088D2331C64800B5BA64 /* CategoryViewModel.swift in Sources */,
-				55C26A68233075FB00DD0580 /* Places.swift in Sources */,
 				55971C68232E56970018ABF8 /* PlacesCollectionViewCell.swift in Sources */,
 				55971C6A232E56A40018ABF8 /* FavouritesViewController.swift in Sources */,
 				7714A1C4231FD7030014202E /* HomeViewController.swift in Sources */,
