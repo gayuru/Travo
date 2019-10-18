@@ -20,10 +20,10 @@ class RestRequest {
     var delegate:Refresh?
     //Foursquare API
     //make constants later
-//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
-    private let clientID:String = "AEQUPDDCAKT4LFIQBI2K1EZXOEB4QPJUGMTASCBRNIZWFE2A"
-    private let clientSecret:String = "VJ5OX10OMWPHOGDYV11Q40EIPGKZF54MDMNPHXAHOXWRFPZL"
+    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
+    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+//    private let clientID:String = "AEQUPDDCAKT4LFIQBI2K1EZXOEB4QPJUGMTASCBRNIZWFE2A"
+//    private let clientSecret:String = "VJ5OX10OMWPHOGDYV11Q40EIPGKZF54MDMNPHXAHOXWRFPZL"
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
     
