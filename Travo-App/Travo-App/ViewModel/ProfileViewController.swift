@@ -34,6 +34,9 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
         profileBackground.layer.cornerRadius = 20
         cityCollection.delegate = self
         cityCollection.dataSource = self
+        userNameLabel.text = currentUser.getUsername()
+        interestLabel.text = currentUser.getInterests()
+        aboutMeLabel.text = currentUser.getDescription()
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
