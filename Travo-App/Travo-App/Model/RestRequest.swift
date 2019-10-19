@@ -20,9 +20,12 @@ class RestRequest{
     var delegate:Refresh?
     //Foursquare API
     //make constants later
-    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
+//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
 
+    private let clientID:String = "2GFA3DH4LWHPGX0JKT3B0UL0HOFTKBHXDBNRD1A1TLBYYBBC"
+    private let clientSecret:String = "IWPJCKIB4J0JJ5OVYCXSO0G1ZQPK5CFZHFFD1VJKEKVCDGNS"
+    
 //    private let clientID:String = "AEQUPDDCAKT4LFIQBI2K1EZXOEB4QPJUGMTASCBRNIZWFE2A"
 //    private let clientSecret:String = "VJ5OX10OMWPHOGDYV11Q40EIPGKZF54MDMNPHXAHOXWRFPZL"
     
@@ -41,7 +44,7 @@ class RestRequest{
     let APP_ID = "63629684ee2d8bbc99dde8055cd35d19"
     
     var count:Int = 0
-    var numPlaces = 10
+    var numPlaces = 50
     var weather:Int = 0;
     var apiCalls:Int = 0;
     var places:[Place]{
@@ -152,8 +155,9 @@ class RestRequest{
         let openTime = p["popular"]["timeframes"][0]["open"][0]["renderedTime"].string ?? "--"
         let tempRating = p["rating"].double ?? 0.0
         let rating = convertRating(rating: tempRating)
+        let category = p["categories"][0]["name"].string ?? "general"
         
-        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, weatherCondition: 0, categoryBelonging: ["general"])
+        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, weatherCondition: 0, categoryBelonging: [category])
         
         return placeObj
     }
@@ -225,7 +229,42 @@ class RestRequest{
     }
     
     func sortPopularity(category:String) -> [Place]{
+        let place = self._places.sorted(by: { $0.starRating > $1.starRating })
         return self._places.sorted(by: { $0.starRating > $1.starRating })
+    }
+    
+    func getCategory(category:String)->[Place]{
+        var foundPlaces : [Place] = [Place]()
+        let places = _places
+//        "general","art", "bar", "beach", "cafe", "coffee", "hike", "library", "monument", "park"
+        switch category {
+        case "art":
+            places.forEach { (place) in
+                if place.categoryBelonging[0] == "Arts & Entertainment"{
+                    foundPlaces.append(place)
+                }
+            }
+        default:
+            places.forEach { (place) in
+                if place.categoryBelonging[0] == "Theme Park"{
+                    foundPlaces.append(place)
+                }
+            }
+
+        }
+//        places.forEach { (place) in
+//            switch place.categoryBelonging[0]{
+//                case "Arts & Entertainment":
+//                    foundPlaces.append(place)
+//                default:
+//                    print("Type is something else")
+//            }
+//
+        
+//            if place.categoryBelonging[0] == category{
+//                foundPlaces.append(place)
+//            }
+        return foundPlaces
     }
 
 //    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{

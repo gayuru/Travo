@@ -42,6 +42,10 @@ struct PlacesViewModel{
         return places.count
     }
     
+    func getPlaceByCategory(category:String) -> [Place]{
+        return placeModel.getCategory(category: category)
+    }
+    
     func getPopularity(category:String) -> [Place]{
         return placeModel.sortPopularity(category: category)
     }
