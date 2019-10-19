@@ -41,11 +41,11 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         //Get users location
+        viewModel.delegate = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
         SVProgressHUD.show()
         self.view.isUserInteractionEnabled = false
         viewModel.delegate = self
@@ -83,8 +83,9 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
             
             let latitude = String(location.coordinate.latitude)
             let longitude = String(location.coordinate.longitude)
+            viewModel.setLocation(lat: latitude, lng: longitude)
             
-            print("lat : \(latitude) lng : \(longitude)")
+//            print("lat : \(latitude) lng : \(longitude)")
 //            let params : [String : String] = ["lat" : latitude, "lon":longitude, "appid":APP_ID]
 //            getWeatherData(url:WEATHER_URL, parameters: params)
         }

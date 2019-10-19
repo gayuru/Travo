@@ -20,10 +20,18 @@ class RestRequest{
     var delegate:Refresh?
     //Foursquare API
     //make constants later
-    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
+//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+
 //    private let clientID:String = "AEQUPDDCAKT4LFIQBI2K1EZXOEB4QPJUGMTASCBRNIZWFE2A"
 //    private let clientSecret:String = "VJ5OX10OMWPHOGDYV11Q40EIPGKZF54MDMNPHXAHOXWRFPZL"
+    
+//    private let clientID:String = "2AD05IB5KU4KQT2JWO5DTN0Z24S4RKOW3TKCE33TK0HD3ZWG"
+//    private let clientSecret:String = "SKUFMM1BXLXA00EC4MCKLRLR4HTSPVATYRVWDCJEWKHOTZVR"
+//
+    private let clientID:String = "OGSXUYYLFVXNYSRVORE4URWVUMX3MNRTHYHHKZ40XZONWTRF"
+    private let clientSecret:String = "UAA3AEVPZS0TOBR0AUSFX5LQTMIBM2UWKSRND4RHHO4HATKG"
+    
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
     
@@ -35,16 +43,28 @@ class RestRequest{
     var count:Int = 0
     var numPlaces = 10
     var weather:Int = 0;
-    
+    var apiCalls:Int = 0;
     var places:[Place]{
         return _places
     }
-    
-    private init(){
-      
-        //getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")
+    var lat:String? = ""
+    var lng:String? = ""
+
+    init(lat:String,lng:String){
+            self.updateLocation(lat: lat, lng: lng)
     }
 
+    func updateLocation(lat:String,lng:String){
+        self.lat = lat
+        self.lng = lng
+        
+        if(lat == "" && lng == ""){
+            print("nothing")
+        }else{
+            print("Getting locations of places which are in \(lat) & \(lng)")
+            getFSPlaces(lat: lat, lng: lng, category: "bar")
+        }
+    }
     
     //access the places from the foursquare api
     func getFSPlaces(lat:String,lng:String,category:String){
@@ -102,12 +122,17 @@ class RestRequest{
                     switch response.result{
                     case .success(let value):
                         let json = JSON(value)
-                        let place = json["response"]["venue"]
-                        let placeLat = place["location"]["lat"].doubleValue
-                        let placeLng = place["location"]["lng"].doubleValue
-                        let placeObject = self.getPlaceObject(p: place)
-                        self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
-                        self.updatePlaceArr(place: placeObject, weather: self.weather)
+                        if json.count > 0 {
+                            let place = json["response"]["venue"]
+                            let placeLat = place["location"]["lat"].doubleValue
+                            let placeLng = place["location"]["lng"].doubleValue
+                            let placeObject = self.getPlaceObject(p: place)
+                            self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
+                            self.updatePlaceArr(place: placeObject, weather: self.weather)
+                        }else{
+                            print("Quote Exceeded")
+                        }
+                       
                     case .failure(let err):
                         print(err)
                     }
@@ -224,5 +249,4 @@ class RestRequest{
         }
         return recommendedPlaces
     }
-    static let shared = RestRequest()
 }
