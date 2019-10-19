@@ -22,7 +22,7 @@ class PlaceViewController: UIViewController {
     @IBOutlet var placeFavourite: UIButton!
     
     var favourites : [Place]!
-    var currentUser : User!
+    var currentUser : UserCoreData!
     var indexPass = String()
     var index:Int = 0
     var currentPlace : Place!
@@ -87,7 +87,7 @@ class PlaceViewController: UIViewController {
             placeFavourite.setImage(UIImage(named: "like"), for: .normal)
         }else if(currentUser.addToFavourites(place: viewModel.getPlace(index: index))){
             placeFavourite.setImage(UIImage(named: "like"), for: .normal)
-            print(currentUser.getFavourites())
+//            print(currentUser.getFavourites())
         }else{
             placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
             _ = currentUser.removeFavourites(place: viewModel.getPlace(index: index))

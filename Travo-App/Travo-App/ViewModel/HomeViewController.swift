@@ -22,14 +22,15 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     @IBOutlet var contentView: UIView!
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
-    var loggedInUser:User?
+    var loggedInUser:UserCoreData?
     
     
     let locationManager = CLLocationManager()
     var viewModel = PlacesViewModel()
-
+    var previousButton:UIButton!
     var categoryViewModel = CategoryViewModel()
     var currentCategory:String = "general"
+    var previousTag:Int = 0
     var currTitle:String = ""
     var tempRecommended : [Place]!
     var tempPopular : [Place]!
@@ -46,6 +47,7 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
         locationManager.startUpdatingLocation()
         
         SVProgressHUD.show()
+        self.view.isUserInteractionEnabled = false
         viewModel.delegate = self
         popularPlaces.dataSource = self
         recommendedCollection.dataSource = self
@@ -63,12 +65,12 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     }
     
     func updateUI() {
-        print("this gets called")
         popularPlaces.reloadData()
         recommendedCollection.reloadData()
         tempPopular = viewModel.getPopularity(category: self.currentCategory)
         tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         tempCategory = categoryViewModel.getCategories()
+        self.view.isUserInteractionEnabled = true
         SVProgressHUD.dismiss()
     }
     
@@ -96,7 +98,7 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}
-   
+    
 }
 
 extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSource {
@@ -127,10 +129,8 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
                 cell.timeLabel.text = tempPopular[indexPath.row].openTime
                 cell.ratingView.layer.cornerRadius = 10
                 cell.ratingView.layer.masksToBounds = true
+                cell.timeLabel.textColor = UIColor.white
                 cell.placeLabel.textColor = UIColor.white
-                cell.placeLabel.numberOfLines = 3
-                cell.placeLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-                cell.placeLabel.sizeToFit()
             }
             return cell
         }else if collectionView == categoryCollection{
@@ -141,6 +141,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             if indexPath.row == 0 {
                 let tempCatVM = categoryViewModel.getCategoryEnabledImage(name: tempCategory[indexPath.row].getName())
                 cell.category.setImage(UIImage(named: tempCatVM!), for: .normal)
+                previousButton = cell.category
             }else{
                 cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
             }
@@ -151,17 +152,10 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             if (indexPath.row < tempRecommended.count) {
                 cell.locationLabel.text = tempRecommended[indexPath.row].name
                 cell.placeImage.image = viewModel.getImageURLFor(url: tempRecommended[indexPath.row].imageURL)
-//                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
                 cell.cityLabel.text = tempRecommended[indexPath.row].location
                 cell.timeLabel.text = tempRecommended[indexPath.row].openTime
                 cell.placeRating.text = String(tempRecommended[indexPath.row].starRating)
                 cell.placeRating.rating = tempRecommended[indexPath.row].starRating
-//                cell.locationLabel.text = viewModel.getTitleFor(index: indexPath.row)
-//                cell.placeImage.image = viewModel.getImageURLFor(index: indexPath.row)
-//                cell.cityLabel.text = viewModel.getLocationFor(index: indexPath.row)
-//                cell.timeLabel.text = viewModel.getOpenTimeFor(index: indexPath.row)
-//                cell.placeRating.rating = viewModel.getStarRating(index: indexPath.row)
-//                cell.placeRating.text = String(viewModel.getStarRating(index: indexPath.row))
                 cell.placeRating.settings.updateOnTouch = false
                 cell.placeRating.settings.fillMode = .precise
                 cell.likeBtn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
@@ -190,9 +184,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if collectionView == popularPlaces {
             currTitle = tempPopular[indexPath.row].name
             performSegue(withIdentifier: "viewPlace", sender: self)
-        }else if collectionView == categoryCollection{
-            
-//            collectionView.
         }
     }
 }
@@ -246,11 +237,21 @@ extension HomeViewController{
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
+        
+        if sender.tag == 0{
+            previousTag  = previousButton.tag
+            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
+        }else{
+            previousTag = previousButton.tag
+            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
+        }
         sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
-//        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-//        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-//        self.recommendedCollection.reloadData()
-//        self.popularPlaces.reloadData()
+        self.previousButton = sender
+        print(currentCategory)
+        //        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+        //        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
+        //        self.recommendedCollection.reloadData()
+        //        self.popularPlaces.reloadData()
     }
 }
 
