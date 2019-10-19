@@ -11,7 +11,8 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private let placeModel = RestRequest.shared
+    private var placeModel:RestRequest = RestRequest(lat: "", lng: "")
+    
     private var weatherModel = Weather()
     
     var delegate:Refresh?{
@@ -21,6 +22,16 @@ struct PlacesViewModel{
         set(value){
             placeModel.delegate = value
         }
+    }
+    
+    init() {
+    }
+    
+    mutating func setLocation(lat:String,lng:String){
+        while placeModel.delegate == nil{
+        }
+//        self.placeModel = placeModel.up
+        placeModel.updateLocation(lat: lat, lng: lng)
     }
     
     var places:[Place]{
