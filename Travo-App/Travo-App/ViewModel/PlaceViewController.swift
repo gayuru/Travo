@@ -22,7 +22,7 @@ class PlaceViewController: UIViewController {
     @IBOutlet var placeFavourite: UIButton!
     
     var favourites : [Place]!
-    var currentUser : User!
+    var currentUser : UserCoreData!
     var indexPass = String()
     var index:Int = 0
     var currentPlace : Place!

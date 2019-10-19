@@ -16,7 +16,7 @@ class FeelingLuckyViewController: UIViewController {
     var finishedAnimation:Bool = false
     @IBOutlet weak var btn: UIButton!
     @IBOutlet var bottomNav: UIView!
-    var currentUser: User?
+    var currentUser: UserCoreData?
     
     @IBAction func btnTapped(_ sender: Any) {
         //process the animation 
