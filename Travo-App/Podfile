@@ -22,4 +22,14 @@ target 'Travo-App' do
     pod 'SwiftyJSON', '~> 4.0'
   end
 
+ target 'Travo-AppTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Cosmos'
+    pod 'TinyConstraints'
+    pod 'SVProgressHUD'
+    pod 'Alamofire', '4.9.0'
+    pod 'SwiftyJSON', '~> 4.0'
+  end
+
 end

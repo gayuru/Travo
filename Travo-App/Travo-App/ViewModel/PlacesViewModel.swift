@@ -31,6 +31,8 @@ struct PlacesViewModel{
         while placeModel.delegate == nil{
         }
 //        self.placeModel = placeModel.up
+        print(lat)
+        print(lng)
         placeModel.updateLocation(lat: lat, lng: lng)
     }
     
