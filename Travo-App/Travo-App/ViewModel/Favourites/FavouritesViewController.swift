@@ -18,7 +18,7 @@ class FavouritesViewController: UIViewController
     @IBOutlet var displayLabel: UILabel!
     
     var currentUser : UserCoreData?
-    var viewModel = PlacesViewModel()
+    var viewModel:PlacesViewModel!
     var currTitle : String = ""
     var currentCategory : String = "general"
     var favourites : [Place]!
@@ -136,9 +136,10 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         default:
             heading.text = "Favourites"
             if((currentUser?.getFavourites().count)!>0){
-                if let favourites = currentUser?.getFavourites()[indexPath.row]{
+                if let favourites = currentUser?.getFavourites()[index Path.row]{
                     title.text = favourites.name
-                    imageView.image = UIImage(named: favourites.imageURL)
+//                    imageView.image = UIImage(named: favourites.imageURL)
+                    imageView.image = viewModel.getImageURLFor(index: indexPath.row)
                     location.text = favourites.location
                     openTime.text = favourites.openTime
                     placeRating.rating = favourites.starRating
@@ -181,10 +182,12 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToPlace"){
             let placeController = segue.destination as! PlaceViewController
+            placeController.viewModel = self.viewModel
             placeController.currentUser = currentUser
             placeController.indexPass = currTitle
         }else if (segue.identifier == "goToPlace"){
             let placeController = segue.destination as! PlaceViewController
+            placeController.viewModel = self.viewModel
             placeController.currentUser = currentUser
             placeController.indexPass = currTitle
         }

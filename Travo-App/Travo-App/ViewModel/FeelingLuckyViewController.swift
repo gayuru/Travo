@@ -11,7 +11,7 @@ import UIKit
 
 class FeelingLuckyViewController: UIViewController {
     
-    let viewModel = PlacesViewModel()
+    var viewModel:PlacesViewModel!
     let placeVC = PlaceViewController()
     var finishedAnimation:Bool = false
     @IBOutlet weak var btn: UIButton!
@@ -44,6 +44,7 @@ class FeelingLuckyViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "feltLucky"){
             let secondController = segue.destination as! PlaceViewController
+            secondController.viewModel = self.viewModel
             secondController.indexPass = viewModel.getTitleFor(index: viewModel.feltLucky())
             secondController.currentUser = currentUser
         }

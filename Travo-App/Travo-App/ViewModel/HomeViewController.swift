@@ -36,6 +36,7 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     var tempPopular : [Place]!
     var tempCategory : [Category]!
     let CAROUSEL_MAX:Int = 5
+    let RECOMMENDED_MAX:Int = 4
     let CATEGORIES_MAX:Int = 10
     
     override func viewDidLoad() {
@@ -111,7 +112,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if(collectionView == self.categoryCollection){
             return CATEGORIES_MAX
         }else if(collectionView == self.recommendedCollection){
-            return CAROUSEL_MAX
+            return RECOMMENDED_MAX
         }
         return 0
     }
@@ -204,24 +205,29 @@ extension HomeViewController{
         if(segue.identifier == "viewPlace"){
             let secondController = segue.destination as! PlaceViewController
             secondController.indexPass = currTitle
+            secondController.viewModel = self.viewModel
             secondController.currentUser = self.loggedInUser
         }else if(segue.identifier == "recommendedSeeAll"){
             let generalController = segue.destination as! FavouritesViewController
             generalController.currentUser = self.loggedInUser
+            generalController.viewModel = self.viewModel
             generalController.currentCollection = FavouritesViewController.collections.recommended
         }else if(segue.identifier ==  "popularSeeAll"){
             let generalController = segue.destination as! FavouritesViewController
             generalController.currentUser = self.loggedInUser
+            generalController.viewModel = self.viewModel
             generalController.currentCollection = FavouritesViewController.collections.popular
         }else if(segue.identifier == "favourites"){
             let favouritesController = segue.destination as! FavouritesViewController
             favouritesController.currentCollection = FavouritesViewController.collections.favourites
+            favouritesController.viewModel = self.viewModel
             favouritesController.currentUser = loggedInUser
         }else if(segue.identifier == "goToProfile"){
             let profileController = segue.destination as! ProfileViewController
             profileController.currentUser = loggedInUser
         }else if(segue.identifier == "goToLucky"){
             let luckyController = segue.destination as! FeelingLuckyViewController
+            luckyController.viewModel = self.viewModel
             luckyController.currentUser = loggedInUser
         }
     }

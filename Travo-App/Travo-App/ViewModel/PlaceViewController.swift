@@ -31,7 +31,7 @@ class PlaceViewController: UIViewController {
         self.performSegue(withIdentifier: "backHome", sender: self)
     }
     
-    var viewModel = PlacesViewModel()
+    var viewModel:PlacesViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
