@@ -190,7 +190,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="take me  to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q60-cP-Lwk">
-                                <rect key="frame" x="379" y="56" width="61" height="38.5"/>
+                                <rect key="frame" x="379" y="109.5" width="61" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -234,13 +234,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="I'm Feeling lucky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-Gq-pCb">
-                                <rect key="frame" x="325" y="26" width="166" height="26.5"/>
+                                <rect key="frame" x="325" y="79.5" width="166" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" red="0.31372549020000001" green="0.43137254899999999" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travel" translatesAutoresizingMaskIntoConstraints="NO" id="RR5-7m-MeT">
-                                <rect key="frame" x="29" y="49" width="268.00000000000045" height="198"/>
+                                <rect key="frame" x="29" y="49" width="268" height="198"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="268" id="P08-hP-Z9b"/>
                                     <constraint firstAttribute="height" constant="177" id="T2R-Wu-R1F">

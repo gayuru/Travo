@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yec-ES-PF3">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,23 +15,23 @@
             <objects>
                 <viewController id="yec-ES-PF3" customClass="FavouritesViewController" customModule="Travo_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUb-he-wgf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQA-pC-ZfK">
-                                <rect key="frame" x="135.5" y="272" width="49.5" height="24"/>
+                                <rect key="frame" x="259.5" y="148" width="49.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gM-XF-3Oe">
-                                <rect key="frame" x="114" y="35" width="92.5" height="23"/>
+                                <rect key="frame" x="238" y="15" width="92.5" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <color key="textColor" red="0.31372549020000001" green="0.43137254899999999" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ahp-be-s13">
-                                <rect key="frame" x="0.0" y="66" width="320" height="439"/>
+                                <rect key="frame" x="0.0" y="46" width="568" height="211"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="MAM-ku-y8g">
                                     <size key="itemSize" width="296" height="127"/>
@@ -41,7 +41,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCell" id="1eh-c2-xpb" customClass="Card">
-                                        <rect key="frame" x="12" y="0.0" width="296" height="127"/>
+                                        <rect key="frame" x="136" y="0.0" width="296" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="296" height="127"/>
@@ -156,22 +156,22 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-mu-Z9n" userLabel="BottomNav">
-                                <rect key="frame" x="16" y="517" width="288" height="42"/>
+                                <rect key="frame" x="16" y="269" width="536" height="42"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-cw-Blv">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="536" height="42"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rII-Gj-9hI">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="134" height="42"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0Z-uz-JEr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="42"/>
                                                         <connections>
                                                             <action selector="homeBtnPressed:" destination="yec-ES-PF3" eventType="touchUpInside" id="fvw-tF-dFh"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_home" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-eC-c0q">
-                                                        <rect key="frame" x="25" y="9" width="22" height="24"/>
+                                                        <rect key="frame" x="56" y="9" width="22" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="WwI-yz-2s1"/>
                                                             <constraint firstAttribute="width" constant="22" id="aVs-wA-gEb"/>
@@ -189,17 +189,17 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXc-ch-fJt">
-                                                <rect key="frame" x="72" y="0.0" width="72" height="42"/>
+                                                <rect key="frame" x="134" y="0.0" width="134" height="42"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_heart" translatesAutoresizingMaskIntoConstraints="NO" id="Dsc-YQ-XXM">
-                                                        <rect key="frame" x="25" y="9" width="22" height="24"/>
+                                                        <rect key="frame" x="56" y="9" width="22" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="22" id="VTa-bN-fWY"/>
                                                             <constraint firstAttribute="height" constant="24" id="ZhV-Ce-yBj"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZ8-Ea-abP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="42"/>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -213,17 +213,17 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jK1-kT-luM">
-                                                <rect key="frame" x="144" y="0.0" width="72" height="42"/>
+                                                <rect key="frame" x="268" y="0.0" width="134" height="42"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_camera" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-bq-4rU">
-                                                        <rect key="frame" x="25" y="9" width="22" height="24"/>
+                                                        <rect key="frame" x="56" y="9" width="22" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="Lbi-4q-fYn"/>
                                                             <constraint firstAttribute="width" constant="22" id="PPR-7g-Qws"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pav-sC-h64">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="42"/>
                                                         <connections>
                                                             <segue destination="zDd-1O-0HK" kind="show" id="zEd-eP-ZAf"/>
                                                         </connections>
@@ -240,17 +240,17 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-zI-r65">
-                                                <rect key="frame" x="216" y="0.0" width="72" height="42"/>
+                                                <rect key="frame" x="402" y="0.0" width="134" height="42"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_lucky" translatesAutoresizingMaskIntoConstraints="NO" id="meR-0N-CL2">
-                                                        <rect key="frame" x="25" y="9" width="22" height="24"/>
+                                                        <rect key="frame" x="56" y="9" width="22" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="Q5J-qf-ugj"/>
                                                             <constraint firstAttribute="width" constant="22" id="UJp-TX-72n"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK6-ft-BfS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="134" height="42"/>
                                                         <connections>
                                                             <segue destination="VSx-9l-b8m" kind="show" id="lJE-7P-huR"/>
                                                         </connections>
