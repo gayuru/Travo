@@ -61,23 +61,40 @@ class PlaceViewController: UIViewController {
         placeWeather.image = viewModel.getWeather(index: index)
     }
     
-    //head to google maps app
+    //head to apple maps
     @IBAction func visitButton(_ sender: Any) {
-        //hardcoded for MELBOURNE
-        let latitude: CLLocationDegrees = -37.8136
-        let longitude: CLLocationDegrees = 144.9631
+        var latitude: CLLocationDegrees?
+        var longitude: CLLocationDegrees?
         
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = viewModel.getTitleFor(index: index)
-        mapItem.openInMaps(launchOptions: options)
+        let address = viewModel.getaddressFor(index: index)
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+                else {
+                    print("Location not found")
+                    return
+            }
+            
+            // Use your location
+            latitude = location.coordinate.latitude
+            longitude = location.coordinate.longitude
+            let regionDistance:CLLocationDistance = 10000
+            
+            let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
+            let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = self.viewModel.getTitleFor(index: self.index)
+            mapItem.openInMaps(launchOptions: options)
+        }
+       
     }
     
     
