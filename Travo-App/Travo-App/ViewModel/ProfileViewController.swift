@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet var interestLabel: UILabel!
     @IBOutlet weak var aboutMeLabel: UILabel!
     
-    var currentUser:User!
+    var currentUser:UserCoreData!
     
     let currentCity:String = "Melbourne"
     
@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
         profileBackground.layer.cornerRadius = 20
         cityCollection.delegate = self
         cityCollection.dataSource = self
-        userNameLabel.text = currentUser.getUsername()
+        userNameLabel.text = currentUser.getUser()
         interestLabel.text = currentUser.getInterests()
         aboutMeLabel.text = currentUser.getDescription()
     }

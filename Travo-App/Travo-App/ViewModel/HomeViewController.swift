@@ -22,7 +22,7 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     @IBOutlet var contentView: UIView!
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
-    var loggedInUser:User?
+    var loggedInUser:UserCoreData?
     
     
     let locationManager = CLLocationManager()
