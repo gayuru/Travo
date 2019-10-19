@@ -20,8 +20,8 @@ class RestRequest{
     var delegate:Refresh?
     //Foursquare API
     //make constants later
-//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
+    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
 
 //    private let clientID:String = "AEQUPDDCAKT4LFIQBI2K1EZXOEB4QPJUGMTASCBRNIZWFE2A"
 //    private let clientSecret:String = "VJ5OX10OMWPHOGDYV11Q40EIPGKZF54MDMNPHXAHOXWRFPZL"
@@ -29,8 +29,8 @@ class RestRequest{
 //    private let clientID:String = "2AD05IB5KU4KQT2JWO5DTN0Z24S4RKOW3TKCE33TK0HD3ZWG"
 //    private let clientSecret:String = "SKUFMM1BXLXA00EC4MCKLRLR4HTSPVATYRVWDCJEWKHOTZVR"
 //
-    private let clientID:String = "OGSXUYYLFVXNYSRVORE4URWVUMX3MNRTHYHHKZ40XZONWTRF"
-    private let clientSecret:String = "UAA3AEVPZS0TOBR0AUSFX5LQTMIBM2UWKSRND4RHHO4HATKG"
+//    private let clientID:String = "OGSXUYYLFVXNYSRVORE4URWVUMX3MNRTHYHHKZ40XZONWTRF"
+//    private let clientSecret:String = "UAA3AEVPZS0TOBR0AUSFX5LQTMIBM2UWKSRND4RHHO4HATKG"
     
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
@@ -51,7 +51,7 @@ class RestRequest{
     var lng:String? = ""
 
     init(lat:String,lng:String){
-            self.updateLocation(lat: lat, lng: lng)
+        self.updateLocation(lat: lat, lng: lng)
     }
 
     func updateLocation(lat:String,lng:String){
@@ -148,9 +148,9 @@ class RestRequest{
         let desc = p["description"].string ?? "No available description"
         let location = p["location"]["city"].string ?? "Location unavailable"
         let address = p["location"]["address"].string ?? "Address not found"
-        let imageURL = getImageURL(photoObj: p["bestPhoto"])!
+        let imageURL = getImageURL(photoObj: p["bestPhoto"]) ?? "default.png"
         let openTime = p["popular"]["timeframes"][0]["open"][0]["renderedTime"].string ?? "--"
-        let tempRating = p["rating"].double!
+        let tempRating = p["rating"].double ?? 0.0
         let rating = convertRating(rating: tempRating)
         
         let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, weatherCondition: 0, categoryBelonging: ["general"])
@@ -243,10 +243,11 @@ class RestRequest{
         let tempPlaces = self.sortPopularity(category: "")
         var recommendedPlaces:[Place] = []
         for p in self._places{
-            if(!tempPlaces.prefix(6).contains(p)){
+            if(!tempPlaces.prefix(2).contains(p)){
                 recommendedPlaces.append(p)
             }
         }
         return recommendedPlaces
+//        return tempPlaces
     }
 }

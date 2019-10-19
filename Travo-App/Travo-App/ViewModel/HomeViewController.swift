@@ -36,6 +36,7 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     var tempPopular : [Place]!
     var tempCategory : [Category]!
     let CAROUSEL_MAX:Int = 5
+    let RECOMMENDED_MAX:Int = 4
     let CATEGORIES_MAX:Int = 10
     
     override func viewDidLoad() {
@@ -84,10 +85,6 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
             let latitude = String(location.coordinate.latitude)
             let longitude = String(location.coordinate.longitude)
             viewModel.setLocation(lat: latitude, lng: longitude)
-            
-//            print("lat : \(latitude) lng : \(longitude)")
-//            let params : [String : String] = ["lat" : latitude, "lon":longitude, "appid":APP_ID]
-//            getWeatherData(url:WEATHER_URL, parameters: params)
         }
     }
     
@@ -111,7 +108,7 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if(collectionView == self.categoryCollection){
             return CATEGORIES_MAX
         }else if(collectionView == self.recommendedCollection){
-            return CAROUSEL_MAX
+            return RECOMMENDED_MAX
         }
         return 0
     }
@@ -185,6 +182,15 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if collectionView == popularPlaces {
             currTitle = tempPopular[indexPath.row].name
             performSegue(withIdentifier: "viewPlace", sender: self)
+        }else if collectionView == categoryCollection{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == categoryCollection{
+            print(cell as! CategoryCollectionViewCell)
         }
     }
 }
@@ -195,24 +201,29 @@ extension HomeViewController{
         if(segue.identifier == "viewPlace"){
             let secondController = segue.destination as! PlaceViewController
             secondController.indexPass = currTitle
+            secondController.viewModel = self.viewModel
             secondController.currentUser = self.loggedInUser
         }else if(segue.identifier == "recommendedSeeAll"){
             let generalController = segue.destination as! FavouritesViewController
             generalController.currentUser = self.loggedInUser
+            generalController.viewModel = self.viewModel
             generalController.currentCollection = FavouritesViewController.collections.recommended
         }else if(segue.identifier ==  "popularSeeAll"){
             let generalController = segue.destination as! FavouritesViewController
             generalController.currentUser = self.loggedInUser
+            generalController.viewModel = self.viewModel
             generalController.currentCollection = FavouritesViewController.collections.popular
         }else if(segue.identifier == "favourites"){
             let favouritesController = segue.destination as! FavouritesViewController
             favouritesController.currentCollection = FavouritesViewController.collections.favourites
+            favouritesController.viewModel = self.viewModel
             favouritesController.currentUser = loggedInUser
         }else if(segue.identifier == "goToProfile"){
             let profileController = segue.destination as! ProfileViewController
             profileController.currentUser = loggedInUser
         }else if(segue.identifier == "goToLucky"){
             let luckyController = segue.destination as! FeelingLuckyViewController
+            luckyController.viewModel = self.viewModel
             luckyController.currentUser = loggedInUser
         }
     }
@@ -248,11 +259,11 @@ extension HomeViewController{
         }
         sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
         self.previousButton = sender
-        print(currentCategory)
-        //        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-        //        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-        //        self.recommendedCollection.reloadData()
-        //        self.popularPlaces.reloadData()
+
+//        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+//        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
+//        self.recommendedCollection.reloadData()
+//        self.popularPlaces.reloadData()
     }
 }
 
