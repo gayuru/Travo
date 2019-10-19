@@ -11,7 +11,8 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet var category: UIButton!
     
-//    override func prepareForReuse() {
-//        category.setImage(UIImage(), for: .normal)
-//    }
+    override func prepareForReuse() {
+        category.setImage(UIImage(named: ""), for: .normal)
+        
+    }
 }

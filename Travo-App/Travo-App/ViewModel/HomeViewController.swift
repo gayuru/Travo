@@ -153,6 +153,15 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
         }else if collectionView == popularPlaces {
             currTitle = tempPopular[indexPath.row].name
             performSegue(withIdentifier: "viewPlace", sender: self)
+        }else if collectionView == categoryCollection{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == categoryCollection{
+            print(cell as! CategoryCollectionViewCell)
         }
     }
 }
@@ -216,11 +225,11 @@ extension HomeViewController{
         }
         sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
         self.previousButton = sender
-        print(currentCategory)
-        //        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-        //        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-        //        self.recommendedCollection.reloadData()
-        //        self.popularPlaces.reloadData()
+
+//        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+//        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
+//        self.recommendedCollection.reloadData()
+//        self.popularPlaces.reloadData()
     }
 }
 
