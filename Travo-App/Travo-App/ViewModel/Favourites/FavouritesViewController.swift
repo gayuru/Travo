@@ -17,7 +17,7 @@ class FavouritesViewController: UIViewController
     @IBOutlet var favouriteButton: UIImageView!
     @IBOutlet var displayLabel: UILabel!
     
-    var currentUser : User?
+    var currentUser : UserCoreData?
     var viewModel = PlacesViewModel()
     var currTitle : String = ""
     var currentCategory : String = "general"

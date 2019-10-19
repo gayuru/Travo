@@ -19,7 +19,6 @@
 		55971C75232E7AEF0018ABF8 /* Travo_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C74232E7AEF0018ABF8 /* Travo_AppUITests.swift */; };
 		55C26A68233075FB00DD0580 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FA11C233074E000BD5156 /* Places.swift */; };
 		55E330F52329073D009514CC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E330F42329073D009514CC /* Weather.swift */; };
-		55E330F72329084F009514CC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E330F62329084F009514CC /* User.swift */; };
 		55E330FB23292669009514CC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E330FA23292669009514CC /* CameraViewController.swift */; };
 		55E33124232BA853009514CC /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E33123232BA853009514CC /* PlacesViewModel.swift */; };
 		770B85052310D0FD00A431E5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770B85042310D0FD00A431E5 /* Home.storyboard */; };
@@ -43,7 +42,6 @@
 		BD0AE788232C8B9A002CD790 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE787232C8B9A002CD790 /* Users.swift */; };
 		BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE789232C8BC6002CD790 /* UsersViewController.swift */; };
 		BD0AE78C232C8BDC002CD790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */; };
-		BD0AE78E232C8D1D002CD790 /* HardcodedUsersCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */; };
 		BD1D08872330F14E00B5BA64 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */; };
 		BD1D08892331C10300B5BA64 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D08882331C10300B5BA64 /* Category.swift */; };
 		BD1D088B2331C18000B5BA64 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D088A2331C18000B5BA64 /* Categories.swift */; };
@@ -80,7 +78,6 @@
 		55971C74232E7AEF0018ABF8 /* Travo_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travo_AppUITests.swift; sourceTree = "<group>"; };
 		55971C76232E7AEF0018ABF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E330F42329073D009514CC /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		55E330F62329084F009514CC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		55E330FA23292669009514CC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		55E33123232BA853009514CC /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 		5DEB89ECF460947E65491E61 /* Pods_Travo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +105,6 @@
 		BD0AE787232C8B9A002CD790 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		BD0AE789232C8BC6002CD790 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		BD0AE78B232C8BDC002CD790 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
-		BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedUsersCoreData.swift; sourceTree = "<group>"; };
 		BD1D08862330F14E00B5BA64 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		BD1D08882331C10300B5BA64 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		BD1D088A2331C18000B5BA64 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -207,9 +203,7 @@
 				554FA11C233074E000BD5156 /* Places.swift */,
 				77425D0423272E4C00C6B844 /* Place.swift */,
 				55E330F42329073D009514CC /* Weather.swift */,
-				55E330F62329084F009514CC /* User.swift */,
 				BD0AE787232C8B9A002CD790 /* Users.swift */,
-				BD0AE78D232C8D1D002CD790 /* HardcodedUsersCoreData.swift */,
 				BD1D08882331C10300B5BA64 /* Category.swift */,
 				BD1D088A2331C18000B5BA64 /* Categories.swift */,
 				779717D623497690001A823C /* Core_Data_User.xcdatamodeld */,
@@ -487,7 +481,6 @@
 				773EACE0232F72190009808A /* ProfileViewController.swift in Sources */,
 				BD1D08892331C10300B5BA64 /* Category.swift in Sources */,
 				BD0AE78A232C8BC6002CD790 /* UsersViewController.swift in Sources */,
-				55E330F72329084F009514CC /* User.swift in Sources */,
 				55971C6D232E62400018ABF8 /* PlaceViewController.swift in Sources */,
 				7745DAA1232EEBB3006C2E0E /* RecommendedCollectionViewCell.swift in Sources */,
 				BD0AE788232C8B9A002CD790 /* Users.swift in Sources */,
@@ -502,7 +495,6 @@
 				BD0AE78623294567002CD790 /* CheckboxButton.swift in Sources */,
 				77425D0923272EF300C6B844 /* CardView.swift in Sources */,
 				77BF9AC1234D2A4100D648C5 /* UserCoreData+CoreDataProperties.swift in Sources */,
-				BD0AE78E232C8D1D002CD790 /* HardcodedUsersCoreData.swift in Sources */,
 				77425D0523272E4C00C6B844 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

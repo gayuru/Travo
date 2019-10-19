@@ -14,7 +14,7 @@ protocol Refresh {
     func updateUI()
 }
 
-class RestRequest {
+class RestRequest{
     
     private var _places:[Place]=[]
     var delegate:Refresh?
@@ -40,6 +40,12 @@ class RestRequest {
         return _places
     }
     
+    private init(){
+      
+        //getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")
+    }
+
+    
     //access the places from the foursquare api
     func getFSPlaces(lat:String,lng:String,category:String){
         _places = []
@@ -51,6 +57,7 @@ class RestRequest {
             "radius": "10000",
             "section":category,
             "limit":self.numPlaces,
+            "sortByDistance":1,
             ] as [String : Any]
         getPlaceData(recommendedEndPoint, parameters: parameters)
     }
@@ -112,17 +119,16 @@ class RestRequest {
     
     //returns a place object after checking validity of data
     func getPlaceObject(p:JSON) -> Place{
-        
         let placeName = p["name"].string ?? "Place name"
         let desc = p["description"].string ?? "No available description"
-        let location = p["location"]["city"].string!
+        let location = p["location"]["city"].string ?? "Location unavailable"
         let address = p["location"]["address"].string ?? "Address not found"
         let imageURL = getImageURL(photoObj: p["bestPhoto"])!
         let openTime = p["popular"]["timeframes"][0]["open"][0]["renderedTime"].string ?? "--"
         let tempRating = p["rating"].double!
         let rating = convertRating(rating: tempRating)
         
-        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, popularityScale: 9, weatherCondition: 0, categoryBelonging: ["general"])
+        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, weatherCondition: 0, categoryBelonging: ["general"])
         
         return placeObj
     }
@@ -207,8 +213,16 @@ class RestRequest {
 //        return chosenPlaces
 //    }
     
-    private init(){
-        getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")
+    //lists out the elements which are not in the first 6 of the popular list and by how close it is
+    func sortRecommended() -> [Place]{
+        let tempPlaces = self.sortPopularity(category: "")
+        var recommendedPlaces:[Place] = []
+        for p in self._places{
+            if(!tempPlaces.prefix(6).contains(p)){
+                recommendedPlaces.append(p)
+            }
+        }
+        return recommendedPlaces
     }
     static let shared = RestRequest()
 }
