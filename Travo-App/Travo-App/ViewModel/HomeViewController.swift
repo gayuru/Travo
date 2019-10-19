@@ -27,8 +27,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     
     let locationManager = CLLocationManager()
     var viewModel = PlacesViewModel()
-    var previousButton:UIButton!
     var categoryViewModel = CategoryViewModel()
+    var selectedCategoryIndex = 0
     var currentCategory:String = "general"
     var previousTag:Int = 0
     var currTitle:String = ""
@@ -135,13 +135,11 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
             tempCategory = categoryViewModel.getCategories()
             cell.category.tag = indexPath.row
-            cell.category.addTarget(self, action: #selector(categoryButtonClicked(sender:)), for: .touchUpInside)
-            if indexPath.row == 0 {
+            if indexPath.row == selectedCategoryIndex {
                 let tempCatVM = categoryViewModel.getCategoryEnabledImage(name: tempCategory[indexPath.row].getName())
-                cell.category.setImage(UIImage(named: tempCatVM!), for: .normal)
-                previousButton = cell.category
+                cell.category.image = UIImage(named: tempCatVM!)
             }else{
-                cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
+                cell.category.image = UIImage(named: tempCategory[indexPath.row].getImage())
             }
             return cell
         }else{
@@ -183,14 +181,23 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             currTitle = tempPopular[indexPath.row].name
             performSegue(withIdentifier: "viewPlace", sender: self)
         }else if collectionView == categoryCollection{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-            cell.category.setImage(UIImage(named: tempCategory[indexPath.row].getImage()), for: .normal)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if collectionView == categoryCollection{
-            print(cell as! CategoryCollectionViewCell)
+            let newCell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
+            let tempCatVM = categoryViewModel.getCategoryEnabledImage(name: tempCategory[indexPath.row].getName())
+            newCell.category.image = UIImage(named: tempCatVM!)
+            
+            if let oldCell = collectionView.cellForItem(at: IndexPath.init(row: selectedCategoryIndex, section: 0)) as! CategoryCollectionViewCell? {
+                oldCell.category.image = UIImage(named: tempCategory[selectedCategoryIndex].getImage())
+            }
+            selectedCategoryIndex = indexPath.row
+            currentCategory = tempCategory[selectedCategoryIndex].getName()
+            self.tempRecommended = viewModel.getPlaceByCategory(category: currentCategory)
+//            self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
+            self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
+            self.recommendedCollection.reloadData()
+            self.popularPlaces.reloadData()
+            print(tempCategory[selectedCategoryIndex].getName())
+            
+            self.categoryCollection.reloadData()
         }
     }
 }
@@ -249,16 +256,16 @@ extension HomeViewController{
     
     @objc func categoryButtonClicked(sender:UIButton){
         currentCategory = tempCategory[sender.tag].getName()
-        
-        if sender.tag == 0{
-            previousTag  = previousButton.tag
-            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
-        }else{
-            previousTag = previousButton.tag
-            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
-        }
-        sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
-        self.previousButton = sender
+//
+//        if sender.tag == 0{
+//            previousTag  = previousButton.tag
+//            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
+//        }else{
+//            previousTag = previousButton.tag
+//            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
+//        }
+//        sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
+//        self.previousButton = sender
 
 //        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
 //        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
