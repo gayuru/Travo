@@ -38,6 +38,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TA-ZA-xg7">
                                                         <rect key="frame" x="240" y="10" width="50" height="50"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="viewProfile"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="1EB-sW-b5y"/>
                                                             <constraint firstAttribute="height" constant="50" id="T7N-sZ-zxx"/>

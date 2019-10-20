@@ -17,7 +17,6 @@ class UsersViewModel {
         users = Users.init()
     }
     
-    // TODO Make sure this sets the logged in user Properly
     func existingUserFound()->Bool{
         guard let user = users.retrieveUser() else {
             return false

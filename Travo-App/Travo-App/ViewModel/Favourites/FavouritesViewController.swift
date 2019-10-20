@@ -107,7 +107,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             tempPopular = viewModel.getPopularity(category: currentCategory)
             title.text = tempPopular[indexPath.row].name
             imageView.image = viewModel.getImageURLFor(url: tempPopular[indexPath.row].imageURL)
-//            imageView.image = UIImage(named: tempPopular[indexPath.row].imageURL)
             location.text = tempPopular[indexPath.row].location
             openTime.text = tempPopular[indexPath.row].openTime
             placeRating.rating = tempPopular[indexPath.row].starRating
@@ -125,7 +124,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             tempRecommended = viewModel.getRecommended(category: self.currentCategory)
             title.text = tempRecommended[indexPath.row].name
             imageView.image = viewModel.getImageURLFor(url:tempRecommended[indexPath.row].imageURL)
-//            imageView.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
             location.text = tempRecommended[indexPath.row].location
             openTime.text = tempRecommended[indexPath.row].openTime
             placeRating.rating = tempRecommended[indexPath.row].starRating
@@ -142,7 +140,6 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             if((currentUser?.getFavourites().count)!>0){
                 if let favourites = currentUser?.getFavourites()[indexPath.row]{
                     title.text = favourites.name
-//                    imageView.image = UIImage(named: favourites.imageURL)
                     imageView.image = viewModel.getImageURLFor(index: indexPath.row)
                     location.text = favourites.location
                     openTime.text = favourites.openTime

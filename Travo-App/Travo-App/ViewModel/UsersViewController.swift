@@ -123,7 +123,6 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     let notEnrolledAlert = UIAlertController(title: "Error", message: "No biometrics are enrolled.", preferredStyle: UIAlertController.Style.alert)
                     notEnrolledAlert.addAction(UIAlertAction(title: "Enter Username/Password", style: UIAlertAction.Style.default, handler: nil))
-//                    self.present(notEnrolledAlert, animated: true, completion: nil)
                     
                     print(error?.localizedDescription ?? "Failed to authenticate")
                 }

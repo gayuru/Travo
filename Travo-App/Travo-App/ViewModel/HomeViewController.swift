@@ -53,6 +53,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         SVProgressHUD.show()
+        profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = 20.0
         self.view.isUserInteractionEnabled = false
         viewModel.delegate = self
         tempPopular = viewModel.getPopularity(category: self.currentCategory)
@@ -98,7 +100,6 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     
     //Write the didFailWithError method here:
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        cityLabel.text = "Location Unavailable"
     }
     
     @IBAction func unwindToHome(segue:UIStoryboardSegue){}

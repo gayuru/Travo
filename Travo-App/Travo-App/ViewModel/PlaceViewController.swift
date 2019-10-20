@@ -46,9 +46,7 @@ class PlaceViewController: UIViewController {
                 getFavourite(name: viewModel.getTitleFor(index: index))
             }
         }
-        
-        //testAPI()
-        
+
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index)
         placeDescription.text = viewModel.getDescFor(index: index)
@@ -104,7 +102,6 @@ class PlaceViewController: UIViewController {
             placeFavourite.setImage(UIImage(named: "like"), for: .normal)
         }else if(currentUser.addToFavourites(place: viewModel.getPlace(index: index))){
             placeFavourite.setImage(UIImage(named: "like"), for: .normal)
-//            print(currentUser.getFavourites())
         }else{
             placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
             _ = currentUser.removeFavourites(place: viewModel.getPlace(index: index))
