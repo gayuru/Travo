@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class UsersViewModel {
     private var users:Users
@@ -40,10 +41,14 @@ class UsersViewModel {
         return false
     }
     
-    func createUser(username:String?, email:String?, password:String?)->Bool{
+    func createUser(username:String?, email:String?, password:String?,image:UIImage?)->Bool{
         if let validName = username, let validEmail = email, let validPassword = password{
             if (!validName.isEmpty ||  !validEmail.isEmpty || !validPassword.isEmpty) {
-                let added:Bool = users.addCoreDataUser(name: validName, password: validPassword, email: validEmail)
+                var profileImage = image
+                if profileImage == nil {
+                    profileImage = UIImage(named: "profile")
+                }
+                let added:Bool = users.addCoreDataUser(name: validName, password: validPassword, email: validEmail,image: profileImage!)
                 if (added == true) {
                     loggedInUser = users.retrieveUser()
                     return true
@@ -56,4 +61,5 @@ class UsersViewModel {
     func getCurrentUser()->UserCoreData?{
         return self.loggedInUser
     }
+    
 }

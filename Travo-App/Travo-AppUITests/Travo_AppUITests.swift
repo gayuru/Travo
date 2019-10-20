@@ -8,6 +8,7 @@
 
 import XCTest
 
+
 class Travo_AppUITests: XCTestCase {
 
     var app: XCUIApplication!
@@ -21,6 +22,35 @@ class Travo_AppUITests: XCTestCase {
     override func tearDown() {
     }
     
+    func testARegisterSetup(){
+        //Pre Condition: Unit Tests only work if CoreData does not have an existing user
+        if(XCUIApplication().textFields["Name"].exists){
+            
+            let app = XCUIApplication()
+            let nameTextField = app.textFields["Name"]
+            nameTextField.tap()
+            nameTextField.typeText("John")
+            
+            let emailTextField = app.textFields["Email"]
+            emailTextField.tap()
+            emailTextField.typeText("email1")
+            
+            let passwordTextField = app.secureTextFields["Password"]
+            passwordTextField.tap()
+            passwordTextField.typeText("password1")
+            
+            app.buttons["Sign up"].tap()
+            app.alerts["Allow “Travo” to access your location while you are using the app?"].buttons["Allow"].tap()
+            
+//            app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .other).element(boundBy: 0).children(matching: .secureTextField).element.tap()
+//            app.alerts["Allow “Travo” to access your location while you are using the app?"].buttons["Allow"].tap()
+        }else{
+            loginSuccessSetUp()
+            let app = XCUIApplication()
+            app.alerts["Allow “Travo” to access your location while you are using the app?"].buttons["Allow"].tap()
+        }
+    }
+    
     //Common setup for a successful login - PRE CONDITION FOR MOST OF THE TEST CASES
     func loginSuccessSetUp(){
         let logoElementsQuery = XCUIApplication().otherElements.containing(.image, identifier:"Logo")
@@ -32,6 +62,7 @@ class Travo_AppUITests: XCTestCase {
         secureTextField.tap()
         secureTextField.typeText("password1")
         secureTextField.typeText("\n")
+
     }
     
     //------ LOGIN STORYBOARD ------//

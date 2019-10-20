@@ -320,7 +320,7 @@ today?</string>
                                                                             <color key="textColor" red="0.31811469790000002" green="0.33644410969999999" blue="0.3803984225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-ZN-k32" customClass="CosmosView" customModule="Cosmos">
                                                                             <rect key="frame" x="8" y="135" width="76" height="11"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="76" id="hUT-S4-tgm"/>
@@ -565,6 +565,7 @@ today?</string>
                         <outlet property="categoryCollection" destination="xjg-vy-Cu6" id="A1z-kb-LHg"/>
                         <outlet property="contentView" destination="KgU-p5-aEi" id="49l-nj-pUc"/>
                         <outlet property="popularPlaces" destination="RLY-w5-eWQ" id="SQK-4S-Qf9"/>
+                        <outlet property="profileImage" destination="2TA-ZA-xg7" id="GMB-5A-548"/>
                         <outlet property="recommendedCollection" destination="YYr-SR-Ets" id="bfo-ce-gFe"/>
                         <outlet property="scrollView" destination="BkG-db-pQB" id="iTa-yz-P0y"/>
                         <segue destination="ipI-tv-Spi" kind="show" identifier="viewPlace" id="ouO-SV-64x"/>

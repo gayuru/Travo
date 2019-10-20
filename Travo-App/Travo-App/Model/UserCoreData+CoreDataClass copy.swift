@@ -1,9 +1,8 @@
 //
 //  UserCoreData+CoreDataClass.swift
-//  Travo-App
+//  
 //
-//  Created by Sogyal Thundup Sherpa on 9/10/19.
-//  Copyright © 2019 Sogyal Thundup Sherpa. All rights reserved.
+//  Created by Sogyal Thundup Sherpa on 20/10/19.
 //
 //
 
@@ -20,6 +19,7 @@ public class UserCoreData: NSManagedObject {
         self.aboutMe = aboutMeDesc
         self.citiesVisited = []
         self.favourites = [Place]()
+        self.userImage = NSData()
         self.interests = interests
     }
     
@@ -73,6 +73,10 @@ public class UserCoreData: NSManagedObject {
     func setInterests(newInterest:String)->Bool{
         self.interests = newInterest
         return true
+    }
+    
+    func getImage()->NSData?{
+        return self.userImage
     }
     
     func addToFavourites(place:Place)->Bool{

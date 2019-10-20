@@ -17,11 +17,12 @@ protocol Refresh {
 class RestRequest{
     
     private var _places:[Place]=[]
+    private var _categoryPlaces:[Place]=[]
     var delegate:Refresh?
     //Foursquare API
     //make constants later
-//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
+    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
 //
 //    private let clientID:String = "2GFA3DH4LWHPGX0JKT3B0UL0HOFTKBHXDBNRD1A1TLBYYBBC"
 //    private let clientSecret:String = "IWPJCKIB4J0JJ5OVYCXSO0G1ZQPK5CFZHFFD1VJKEKVCDGNS"
@@ -31,15 +32,16 @@ class RestRequest{
     
 //    private let clientID:String = "2AD05IB5KU4KQT2JWO5DTN0Z24S4RKOW3TKCE33TK0HD3ZWG"
 //    private let clientSecret:String = "SKUFMM1BXLXA00EC4MCKLRLR4HTSPVATYRVWDCJEWKHOTZVR"
-//
+
 //    private let clientID:String = "OGSXUYYLFVXNYSRVORE4URWVUMX3MNRTHYHHKZ40XZONWTRF"
 //    private let clientSecret:String = "UAA3AEVPZS0TOBR0AUSFX5LQTMIBM2UWKSRND4RHHO4HATKG"
     
-    private let clientID:String = "XY34X0LNUG14QZLTNDS4AMURQIJUI12EOSJDMLDOXK13OZGV"
-    private let clientSecret:String = "ISXKTZ5QLMWO4R4IC2UYOSNVNKBDCR5OSHGDE5VT12FF21VS"
-    
+//    private let clientID:String = "XY34X0LNUG14QZLTNDS4AMURQIJUI12EOSJDMLDOXK13OZGV"
+//    private let clientSecret:String = "ISXKTZ5QLMWO4R4IC2UYOSNVNKBDCR5OSHGDE5VT12FF21VS"
+//
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
+    private let categoryEndPoint:String = "https://api.foursquare.com/v2/venues/search"
     
     //Weather API
     //Constants
@@ -47,11 +49,14 @@ class RestRequest{
     let APP_ID = "63629684ee2d8bbc99dde8055cd35d19"
     
     var count:Int = 0
-    var numPlaces = 50
+    var numPlaces = 10
     var weather:Int = 0;
     var apiCalls:Int = 0;
     var places:[Place]{
         return _places
+    }
+    var categoryPlaces : [Place]{
+        return _categoryPlaces
     }
     var lat:String? = ""
     var lng:String? = ""
@@ -129,16 +134,16 @@ class RestRequest{
                     case .success(let value):
                         let json = JSON(value)
                         if json.count > 0 {
+                            if json["meta"]["code"] == 429{
+                               print("Quote Exceeded")
+                            }
                             let place = json["response"]["venue"]
                             let placeLat = place["location"]["lat"].doubleValue
                             let placeLng = place["location"]["lng"].doubleValue
                             let placeObject = self.getPlaceObject(p: place)
                             self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
                             self.updatePlaceArr(place: placeObject, weather: self.weather)
-                        }else{
-                            print("Quote Exceeded")
                         }
-                       
                     case .failure(let err):
                         print(err)
                     }
@@ -232,54 +237,9 @@ class RestRequest{
     }
     
     func sortPopularity(category:String) -> [Place]{
-        let place = self._places.sorted(by: { $0.starRating > $1.starRating })
         return self._places.sorted(by: { $0.starRating > $1.starRating })
     }
-    
-    func getCategory(category:String)->[Place]{
-        var foundPlaces : [Place] = [Place]()
-        let places = _places
-//        "general","art", "bar", "beach", "cafe", "coffee", "hike", "library", "monument", "park"
-        switch category {
-        case "art":
-            places.forEach { (place) in
-                if place.categoryBelonging[0] == "Arts & Entertainment"{
-                    foundPlaces.append(place)
-                }
-            }
-        default:
-            places.forEach { (place) in
-                if place.categoryBelonging[0] == "Theme Park"{
-                    foundPlaces.append(place)
-                }
-            }
 
-        }
-//        places.forEach { (place) in
-//            switch place.categoryBelonging[0]{
-//                case "Arts & Entertainment":
-//                    foundPlaces.append(place)
-//                default:
-//                    print("Type is something else")
-//            }
-//
-        
-//            if place.categoryBelonging[0] == category{
-//                foundPlaces.append(place)
-//            }
-        return foundPlaces
-    }
-
-//    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
-//        var chosenPlaces = [Place]()
-//        for place in places {
-//            if (place.categoryBelonging.contains(category)) {
-//                chosenPlaces.append(place)
-//            }
-//        }
-//        return chosenPlaces
-//    }
-    
     //lists out the elements which are not in the first 6 of the popular list and by how close it is
     func sortRecommended() -> [Place]{
         let tempPlaces = self.sortPopularity(category: "")

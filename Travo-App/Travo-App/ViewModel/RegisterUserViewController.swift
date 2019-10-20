@@ -8,18 +8,17 @@
 
 import UIKit
 
-class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var imageUpload: UIButton!
     
     var usersViewModel:UsersViewModel?
     var allowedLogin:Bool = false
+    private var profileImage:UIImage!
     
-    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var nameTextField: UnderlinedTextField!
     @IBOutlet weak var emailTextField: UnderlinedTextField!
     @IBOutlet weak var passwordTextField: UnderlinedTextField!
-    @IBOutlet weak var faceIDCheckbox: CheckboxButton!
     @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var nameHintPopoverButton: UIButton!
@@ -43,6 +42,7 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
             let homeViewController = segue.destination as! HomeViewController
             // Segue will not be triggered unless the usersViewModel is not nil
             homeViewController.loggedInUser = usersViewModel!.getCurrentUser()
+            homeViewController.usersVM = usersViewModel
         }
     }
     
@@ -69,7 +69,7 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
     // REGISTER VIEW METHODS
     @IBAction func registerSignUpButtonClicked(_ sender: Any) {
         if let presentUsersViewModel = usersViewModel {
-            let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text)
+            let validRegistration:Bool = presentUsersViewModel.createUser(username: nameTextField.text, email: emailTextField.text, password: passwordTextField.text,image:profileImage)
             if (validRegistration) {
                 allowedLogin = true
                 self.performSegue(withIdentifier: "SegueToHome", sender: self)
@@ -82,7 +82,27 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
         }
     }
     
-        // HINT POPOVER METHODS
+    @IBAction func uploadImage(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let myPickerController = UIImagePickerController()
+            myPickerController.delegate = self
+            myPickerController.sourceType = .photoLibrary
+            self.present(myPickerController,animated: true,completion: nil)
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        self.profileImage = image
+        imageUpload.setImage(image!, for: .normal)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    // HINT POPOVER METHODS
     @IBAction func nameHintPopoverButtonClicked(_ sender: Any) {
     }
     @IBAction func emailHintPopoverButtonClicked(_ sender: Any) {

@@ -30,9 +30,6 @@ struct PlacesViewModel{
     mutating func setLocation(lat:String,lng:String){
         while placeModel.delegate == nil{
         }
-//        self.placeModel = placeModel.up
-        print(lat)
-        print(lng)
         placeModel.updateLocation(lat: lat, lng: lng)
     }
     
@@ -44,9 +41,6 @@ struct PlacesViewModel{
         return places.count
     }
     
-    func getPlaceByCategory(category:String) -> [Place]{
-        return placeModel.getCategory(category: category)
-    }
     
     func getPopularity(category:String) -> [Place]{
         return placeModel.sortPopularity(category: category)

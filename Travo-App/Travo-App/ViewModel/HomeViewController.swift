@@ -22,9 +22,10 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     @IBOutlet var contentView: UIView!
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
+    @IBOutlet weak var profileImage: UIButton!
+    
     var loggedInUser:UserCoreData?
-    
-    
+    var usersVM:UsersViewModel!
     let locationManager = CLLocationManager()
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
@@ -32,6 +33,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     var currentCategory:String = "general"
     var previousTag:Int = 0
     var currTitle:String = ""
+    var viewCount = 0
+    var categoryId:String = ""
     var tempRecommended : [Place]!
     var tempPopular : [Place]!
     var tempCategory : [Category]!
@@ -42,6 +45,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         //Get users location
+        let image = loggedInUser?.userImage
+        profileImage.setImage(UIImage(data: image! as Data), for: .normal)
         viewModel.delegate = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -50,6 +55,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
         SVProgressHUD.show()
         self.view.isUserInteractionEnabled = false
         viewModel.delegate = self
+        tempPopular = viewModel.getPopularity(category: self.currentCategory)
+        tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         popularPlaces.dataSource = self
         recommendedCollection.dataSource = self
         bottomNav.layer.cornerRadius = 10.0
@@ -91,7 +98,6 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     
     //Write the didFailWithError method here:
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
 //        cityLabel.text = "Location Unavailable"
     }
     
@@ -117,7 +123,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
-            tempPopular = viewModel.getPopularity(category: currentCategory)
             if (indexPath.row < tempPopular.count) {
                 cell.placeLabel.text = tempPopular[indexPath.row].name
                 cell.layer.cornerRadius = 10
@@ -190,13 +195,30 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             }
             selectedCategoryIndex = indexPath.row
             currentCategory = tempCategory[selectedCategoryIndex].getName()
-            self.tempRecommended = viewModel.getPlaceByCategory(category: currentCategory)
-//            self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-            self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-            self.recommendedCollection.reloadData()
-            self.popularPlaces.reloadData()
-            print(tempCategory[selectedCategoryIndex].getName())
-            
+            //        "general","art", "bar", "beach", "cafe", "coffee", "hike", "library", "monument", "park"
+            switch currentCategory{
+            case "art":
+                categoryId = "4d4b7104d754a06370d81259"
+            case "bar":
+                categoryId = "4bf58dd8d48988d116941735"
+            case "beach":
+                categoryId = "4bf58dd8d48988d1e2941735"
+            case "cafe":
+                categoryId = "4bf58dd8d48988d16d941735"
+            case "coffee":
+                categoryId = "4bf58dd8d48988d1e0931735"
+            case "hike":
+                categoryId = "4eb1d4d54b900d56c88a45fc"
+            case "library":
+                categoryId = "4bf58dd8d48988d12f941735"
+            case "monument":
+                categoryId = "4bf58dd8d48988d12d941735"
+            case "park":
+                categoryId = "4bf58dd8d48988d182941735"
+            default:
+                categoryId = "4bf58dd8d48988d1f6931735"
+                break
+            }
             self.categoryCollection.reloadData()
         }
     }
@@ -253,25 +275,7 @@ extension HomeViewController{
             _ = loggedInUser?.removeFavourites(place: tempRecommended[sender.tag])
         }
     }
-    
-    @objc func categoryButtonClicked(sender:UIButton){
-        currentCategory = tempCategory[sender.tag].getName()
-//
-//        if sender.tag == 0{
-//            previousTag  = previousButton.tag
-//            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
-//        }else{
-//            previousTag = previousButton.tag
-//            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
-//        }
-//        sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
-//        self.previousButton = sender
 
-//        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-//        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-//        self.recommendedCollection.reloadData()
-//        self.popularPlaces.reloadData()
-    }
 }
 
 
