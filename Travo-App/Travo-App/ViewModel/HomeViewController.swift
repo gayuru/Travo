@@ -265,10 +265,8 @@ extension HomeViewController{
     @objc func likeButtonTapped(sender:UIButton){
         if sender.currentImage == UIImage(named: "heart") {
             if ((loggedInUser?.addToFavourites(place: tempRecommended[sender.tag]))!){
-                if(usersVM.addFavourites(place: tempRecommended[sender.tag])){
-                    sender.setImage(UIImage(named:"like"), for: .normal)
-                    print(usersVM.getCurrentUser())
-                }
+                sender.setImage(UIImage(named:"like"), for: .normal)
+                print(usersVM.getCurrentUser())
             }
         }else{
             sender.setImage(UIImage(named:"heart"), for: .normal)

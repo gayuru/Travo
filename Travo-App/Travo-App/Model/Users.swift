@@ -25,11 +25,6 @@ class Users {
     }
     
     func addCoreDataUser(name:String, password:String, email:String)->Bool{
-//        let dictionaryKey = user.getEmail()
-//        if (users[dictionaryKey]  != nil) {
-//            return false
-//        }
-//        users.updateValue(user, forKey: dictionaryKey)
         let userEntity = NSEntityDescription.entity(forEntityName: "UserCoreData", in: managedContext)!
         let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! UserCoreData
 
@@ -53,23 +48,7 @@ class Users {
         }
         return true
     }
-    
-    func addToFavourites(place:Place)->Bool{
 
-        let userEntity = NSEntityDescription.entity(forEntityName: "UserCoreData", in: managedContext)!
-        let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! UserCoreData
-        
-        nsUser.setValue(place, forKey: "favourites")
-        
-        do{
-            try managedContext.save()
-        }catch let error as NSError{
-            print(error, error.userInfo)
-            return false
-        }
-        return true
-    }
-    
     func getUser(){
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCoreData")

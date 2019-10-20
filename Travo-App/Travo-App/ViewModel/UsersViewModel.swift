@@ -57,7 +57,4 @@ class UsersViewModel {
         return self.loggedInUser
     }
     
-    func addFavourites(place:Place)->Bool{
-        return users.addToFavourites(place: place)
-    }
 }
