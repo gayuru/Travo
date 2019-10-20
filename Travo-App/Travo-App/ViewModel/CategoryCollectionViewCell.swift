@@ -9,10 +9,6 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var category: UIButton!
-    
-    override func prepareForReuse() {
-        category.setImage(UIImage(named: ""), for: .normal)
-        
-    }
+    @IBOutlet var category: UIImageView!
+
 }
