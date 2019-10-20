@@ -25,11 +25,12 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         aboutMeLabel.text = currentUser.getDescription()
         interestLabel.text = currentUser.getInterests()
         currentCityLabel.text = currentCity
-        
-        // Do any additional setup after loading the view.
+        let image = currentUser?.userImage
+        profileImage.image = UIImage(data: image! as Data)
         profileImage.frame = CGRect(x: 0,y: 0,width: 100,height: 100)
         profileBackground.layer.cornerRadius = 20
         cityCollection.delegate = self

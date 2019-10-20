@@ -22,9 +22,10 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     @IBOutlet var contentView: UIView!
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
+    @IBOutlet weak var profileImage: UIButton!
+    
     var loggedInUser:UserCoreData?
     var usersVM:UsersViewModel!
-    
     let locationManager = CLLocationManager()
     var viewModel = PlacesViewModel()
     var categoryViewModel = CategoryViewModel()
@@ -44,6 +45,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         //Get users location
+        let image = loggedInUser?.userImage
+        profileImage.setImage(UIImage(data: image! as Data), for: .normal)
         viewModel.delegate = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -266,7 +269,6 @@ extension HomeViewController{
         if sender.currentImage == UIImage(named: "heart") {
             if ((loggedInUser?.addToFavourites(place: tempRecommended[sender.tag]))!){
                 sender.setImage(UIImage(named:"like"), for: .normal)
-                print(usersVM.getCurrentUser())
             }
         }else{
             sender.setImage(UIImage(named:"heart"), for: .normal)

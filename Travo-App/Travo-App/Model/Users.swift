@@ -24,7 +24,7 @@ class Users {
         managedContext = appDelegate.persistentContainer.viewContext
     }
     
-    func addCoreDataUser(name:String, password:String, email:String)->Bool{
+    func addCoreDataUser(name:String, password:String, email:String,image:UIImage)->Bool{
         let userEntity = NSEntityDescription.entity(forEntityName: "UserCoreData", in: managedContext)!
         let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! UserCoreData
 
@@ -33,10 +33,12 @@ class Users {
         nsUser.setValue(name, forKey: "name")
         nsUser.setValue(password, forKey: "password")
         nsUser.setValue(email, forKey: "email")
+        let data = image.pngData() as NSData?
+        nsUser.userImage = data
         // Variables that are unpopulated for a new user
-        nsUser.setValue("", forKey: "aboutMe")
-        nsUser.setValue("", forKey: "interests")
-        nsUser.setValue([""], forKey: "citiesVisited")
+        nsUser.setValue("I am a very enthusiastic student and I think this is a strong point of mine. My friends say that I am a very funny and an interesting person with a good sense of humor.", forKey: "aboutMe")
+        nsUser.setValue("Listening to music has always been my go to activity for all occasions. My love for music can be traced back to when I was a child", forKey: "interests")
+        nsUser.setValue(["Melbourne"], forKey: "citiesVisited")
         nsUser.setValue([], forKey: "favourites")
         
         do{
