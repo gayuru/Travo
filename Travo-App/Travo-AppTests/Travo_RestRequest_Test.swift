@@ -71,7 +71,7 @@ class Travo_RestRequest_Test: XCTestCase, Refresh  {
          * RestRequest is initialized in the the header
          * Valid JSON containing basic key value pairs for a place
          */
-        let jsonDictionary:[String:Any] = ["name":"location", "rating":2]
+        let jsonDictionary:[String:Any] = ["name":"location"]
         
         // Action : convert [String:Any] into a JSON Object
         let json = JSON(jsonDictionary)
@@ -79,8 +79,7 @@ class Travo_RestRequest_Test: XCTestCase, Refresh  {
         let placeObject = request.getPlaceObject(p: json)
         
         // Expected Result: Place Object Created with Given Values
-        XCTAssert(placeObject.name == "location" &&
-                    placeObject.starRating == 2)
+        XCTAssert(placeObject.name == "location")
     }
     
     func testFailedParsePlaceJSON() {
