@@ -32,6 +32,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     var currentCategory:String = "general"
     var previousTag:Int = 0
     var currTitle:String = ""
+    var viewCount = 0
+    var categoryId:String = ""
     var tempRecommended : [Place]!
     var tempPopular : [Place]!
     var tempCategory : [Category]!
@@ -50,6 +52,8 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
         SVProgressHUD.show()
         self.view.isUserInteractionEnabled = false
         viewModel.delegate = self
+        tempPopular = viewModel.getPopularity(category: self.currentCategory)
+        tempRecommended = viewModel.getRecommended(category: self.currentCategory)
         popularPlaces.dataSource = self
         recommendedCollection.dataSource = self
         bottomNav.layer.cornerRadius = 10.0
@@ -75,6 +79,13 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
         SVProgressHUD.dismiss()
     }
     
+    func updateCategoryUI() {
+        viewCount = 1
+//        tempPopular = viewModel.getPlaceByCategory(category: self.categoryId)
+        popularPlaces.reloadData()
+        recommendedCollection.reloadData()
+    }
+    
     //Write the didUpdateLocations method here:
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
@@ -91,7 +102,6 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     
     //Write the didFailWithError method here:
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
 //        cityLabel.text = "Location Unavailable"
     }
     
@@ -117,7 +127,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == popularPlaces {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: indexPath) as! PlacesCollectionViewCell
-            tempPopular = viewModel.getPopularity(category: currentCategory)
             if (indexPath.row < tempPopular.count) {
                 cell.placeLabel.text = tempPopular[indexPath.row].name
                 cell.layer.cornerRadius = 10
@@ -190,10 +199,34 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
             }
             selectedCategoryIndex = indexPath.row
             currentCategory = tempCategory[selectedCategoryIndex].getName()
-            self.tempRecommended = viewModel.getPlaceByCategory(category: currentCategory)
+            //        "general","art", "bar", "beach", "cafe", "coffee", "hike", "library", "monument", "park"
+            switch currentCategory{
+            case "art":
+                categoryId = "4d4b7104d754a06370d81259"
+            case "bar":
+                categoryId = "4bf58dd8d48988d116941735"
+            case "beach":
+                categoryId = "4bf58dd8d48988d1e2941735"
+            case "cafe":
+                categoryId = "4bf58dd8d48988d16d941735"
+            case "coffee":
+                categoryId = "4bf58dd8d48988d1e0931735"
+            case "hike":
+                categoryId = "4eb1d4d54b900d56c88a45fc"
+            case "library":
+                categoryId = "4bf58dd8d48988d12f941735"
+            case "monument":
+                categoryId = "4bf58dd8d48988d12d941735"
+            case "park":
+                categoryId = "4bf58dd8d48988d182941735"
+            default:
+                categoryId = "4bf58dd8d48988d1f6931735"
+                break
+            }
+//            self.tempRecommended = viewModel.getPlaceByCategory(category: currentCategory)
 //            self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-            self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-            self.recommendedCollection.reloadData()
+//            self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
+            self.tempPopular = viewModel.getPlaceByCategory(category: categoryId)
             self.popularPlaces.reloadData()
             print(tempCategory[selectedCategoryIndex].getName())
             

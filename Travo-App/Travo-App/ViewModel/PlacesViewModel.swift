@@ -43,7 +43,7 @@ struct PlacesViewModel{
     }
     
     func getPlaceByCategory(category:String) -> [Place]{
-        return placeModel.getCategory(category: category)
+        return placeModel.getPlaceByCategory(categoryId: category)
     }
     
     func getPopularity(category:String) -> [Place]{

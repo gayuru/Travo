@@ -12,17 +12,22 @@ import SwiftyJSON
 
 protocol Refresh {
     func updateUI()
+    func updateCategoryUI()
 }
 
 class RestRequest{
     
     private var _places:[Place]=[]
+    private var _categoryPlaces:[Place]=[]
     var delegate:Refresh?
     //Foursquare API
     //make constants later
 //    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
 //    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
 
+//    private let clientID:String = "PHY1WOEQ53FVIRQLZFHZYO4ERTBI315OLBBP05HNDDSKRFGA"
+//    private let clientSecret:String = "3Q0DNCZ3VOXVOSPHIJGWCJMB4VLDCD1MKI21R0BSM1SCYMVE"
+    
     private let clientID:String = "2GFA3DH4LWHPGX0JKT3B0UL0HOFTKBHXDBNRD1A1TLBYYBBC"
     private let clientSecret:String = "IWPJCKIB4J0JJ5OVYCXSO0G1ZQPK5CFZHFFD1VJKEKVCDGNS"
     
@@ -37,6 +42,7 @@ class RestRequest{
     
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
+    private let categoryEndPoint:String = "https://api.foursquare.com/v2/venues/search"
     
     //Weather API
     //Constants
@@ -49,6 +55,9 @@ class RestRequest{
     var apiCalls:Int = 0;
     var places:[Place]{
         return _places
+    }
+    var categoryPlaces : [Place]{
+        return _categoryPlaces
     }
     var lat:String? = ""
     var lng:String? = ""
@@ -229,42 +238,53 @@ class RestRequest{
     }
     
     func sortPopularity(category:String) -> [Place]{
-        let place = self._places.sorted(by: { $0.starRating > $1.starRating })
         return self._places.sorted(by: { $0.starRating > $1.starRating })
     }
     
-    func getCategory(category:String)->[Place]{
-        var foundPlaces : [Place] = [Place]()
-        let places = _places
-//        "general","art", "bar", "beach", "cafe", "coffee", "hike", "library", "monument", "park"
-        switch category {
-        case "art":
-            places.forEach { (place) in
-                if place.categoryBelonging[0] == "Arts & Entertainment"{
-                    foundPlaces.append(place)
-                }
-            }
-        default:
-            places.forEach { (place) in
-                if place.categoryBelonging[0] == "Theme Park"{
-                    foundPlaces.append(place)
-                }
-            }
 
+    func getPlaceByCategory(categoryId:String)->[Place]{
+        let params = [
+            "client_id": clientID,
+            "client_secret" : clientSecret,
+            "v":"20191003",
+            "ll": "\(lat!),\(lng!)",
+            "limit":"10",
+            "categoryId":categoryId] as [String:Any]
+        Alamofire.request(categoryEndPoint,method: .get,parameters: params).responseJSON { (response) in
+            if response.result.isSuccess{
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    if json.count > 0 {
+                        let place = json["response"]["venues"][0]
+                        let placeObject = self.getPlaceObject(p: place)
+                        self.updateCategoryPlaceArr(place: placeObject)
+                    }else{
+                        print("Quote Exceeded")
+                    }
+                case .failure(let err):
+                    print("Category Error :\(err)")
+                }
+            }
         }
-//        places.forEach { (place) in
-//            switch place.categoryBelonging[0]{
-//                case "Arts & Entertainment":
-//                    foundPlaces.append(place)
-//                default:
-//                    print("Type is something else")
-//            }
-//
         
-//            if place.categoryBelonging[0] == category{
-//                foundPlaces.append(place)
-//            }
-        return foundPlaces
+        return categoryPlaces
+    }
+
+    
+    func updateCategoryPlaceArr(place:Place){
+        let tempPlace = place
+        //keeps track of the number of places added
+        self.count += 1
+        //checks if all the places are added so the arraay to notify the view
+        self._categoryPlaces.append(tempPlace)
+        if(self.count  == self.numPlaces){
+            if let del = self.delegate{
+                DispatchQueue.main.async {
+                    del.updateCategoryUI()
+                }
+            }
+        }
     }
 
 //    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
