@@ -30,7 +30,7 @@ class Travo_Weather_Test: XCTestCase {
     
     func testStorm(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
     
         //range should 0..300 & 772.799
         let expectedCondStormOne:String = "tstorm1"
@@ -60,7 +60,7 @@ class Travo_Weather_Test: XCTestCase {
 
     func testLightRain(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
         
         //range should be 301..500
         let expectedCondLR:String = "light_rain"
@@ -79,7 +79,7 @@ class Travo_Weather_Test: XCTestCase {
     
     func testShower(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
         
         //range should 501.600
         let expectedCondS:String = "shower3"
@@ -98,7 +98,7 @@ class Travo_Weather_Test: XCTestCase {
     
     func testSunny(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
         
         //range should 800 & 904
         let expectedCondSny:String = "sunny"
@@ -117,7 +117,7 @@ class Travo_Weather_Test: XCTestCase {
     
     func testCloudy(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
         
         //range should 801..804
         let expectedCondC:String = "cloudy2"
@@ -137,7 +137,7 @@ class Travo_Weather_Test: XCTestCase {
     
     func testFog(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
         
         //range should 701.771
         let expectedCondC:String = "fog"
@@ -156,7 +156,7 @@ class Travo_Weather_Test: XCTestCase {
     
     func testSnow(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
         
         //range should 601...700 & 903
         let expectedCondSnowFour:String = "snow4"
@@ -175,7 +175,7 @@ class Travo_Weather_Test: XCTestCase {
     
     func testInvalid(){
         // Pre Condition : Weather is defined
-        /* Weather is deifned in the class header for tests */
+        /* Weather is defined in the class header for tests */
         
         //range anything more than 1000
         let expectedCondC:String = "dunno"
