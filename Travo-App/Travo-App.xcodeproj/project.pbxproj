@@ -23,6 +23,7 @@
 		55910245235B2B0400928C45 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D088A2331C18000B5BA64 /* Categories.swift */; };
 		5591024A235B2BE700928C45 /* Travo_RestRequest_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55910249235B2BE700928C45 /* Travo_RestRequest_Test.swift */; };
 		5591024C235B2DC900928C45 /* Travo_Weather_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5591024B235B2DC900928C45 /* Travo_Weather_Test.swift */; };
+		5591024E235BDBDB00928C45 /* Travo_Categories_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5591024D235BDBDB00928C45 /* Travo_Categories_Test.swift */; };
 		55971C68232E56970018ABF8 /* PlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */; };
 		55971C6A232E56A40018ABF8 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C69232E56A40018ABF8 /* FavouritesViewController.swift */; };
 		55971C6D232E62400018ABF8 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C6C232E62400018ABF8 /* PlaceViewController.swift */; };
@@ -91,6 +92,7 @@
 		5591023C235B25D000928C45 /* Pods_Travo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Travo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55910249235B2BE700928C45 /* Travo_RestRequest_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travo_RestRequest_Test.swift; sourceTree = "<group>"; };
 		5591024B235B2DC900928C45 /* Travo_Weather_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travo_Weather_Test.swift; sourceTree = "<group>"; };
+		5591024D235BDBDB00928C45 /* Travo_Categories_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travo_Categories_Test.swift; sourceTree = "<group>"; };
 		55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
 		55971C69232E56A40018ABF8 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavouritesViewController.swift; path = Favourites/FavouritesViewController.swift; sourceTree = "<group>"; };
 		55971C6C232E62400018ABF8 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				55770EDA235B2191006898CE /* Info.plist */,
 				55910249235B2BE700928C45 /* Travo_RestRequest_Test.swift */,
 				5591024B235B2DC900928C45 /* Travo_Weather_Test.swift */,
+				5591024D235BDBDB00928C45 /* Travo_Categories_Test.swift */,
 			);
 			path = "Travo-AppTests";
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				55910240235B2B0400928C45 /* UserCoreData+CoreDataProperties.swift in Sources */,
 				55910241235B2B0400928C45 /* Place.swift in Sources */,
 				55910242235B2B0400928C45 /* Weather.swift in Sources */,
+				5591024E235BDBDB00928C45 /* Travo_Categories_Test.swift in Sources */,
 				5591024C235B2DC900928C45 /* Travo_Weather_Test.swift in Sources */,
 				55910244235B2B0400928C45 /* Category.swift in Sources */,
 				55910245235B2B0400928C45 /* Categories.swift in Sources */,
