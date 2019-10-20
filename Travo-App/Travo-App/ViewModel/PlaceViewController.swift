@@ -22,7 +22,7 @@ class PlaceViewController: UIViewController {
     @IBOutlet var placeFavourite: UIButton!
     
     var favourites : [Place]!
-    var currentUser : User!
+    var currentUser : UserCoreData!
     var indexPass = String()
     var index:Int = 0
     var currentPlace : Place!
@@ -31,7 +31,7 @@ class PlaceViewController: UIViewController {
         self.performSegue(withIdentifier: "backHome", sender: self)
     }
     
-    var viewModel = PlacesViewModel()
+    var viewModel:PlacesViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +46,7 @@ class PlaceViewController: UIViewController {
                 getFavourite(name: viewModel.getTitleFor(index: index))
             }
         }
-        
-        //testAPI()
-        
+
         placeImage.contentMode = .scaleAspectFill
         placeTitle.text = viewModel.getTitleFor(index: index)
         placeDescription.text = viewModel.getDescFor(index: index)
@@ -61,23 +59,40 @@ class PlaceViewController: UIViewController {
         placeWeather.image = viewModel.getWeather(index: index)
     }
     
-    //head to google maps app
+    //head to apple maps
     @IBAction func visitButton(_ sender: Any) {
-        //hardcoded for MELBOURNE
-        let latitude: CLLocationDegrees = -37.8136
-        let longitude: CLLocationDegrees = 144.9631
+        var latitude: CLLocationDegrees?
+        var longitude: CLLocationDegrees?
         
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = viewModel.getTitleFor(index: index)
-        mapItem.openInMaps(launchOptions: options)
+        let address = viewModel.getaddressFor(index: index)
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+                else {
+                    print("Location not found")
+                    return
+            }
+            
+            // Use your location
+            latitude = location.coordinate.latitude
+            longitude = location.coordinate.longitude
+            let regionDistance:CLLocationDistance = 10000
+            
+            let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
+            let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = self.viewModel.getTitleFor(index: self.index)
+            mapItem.openInMaps(launchOptions: options)
+        }
+       
     }
     
     
@@ -87,7 +102,6 @@ class PlaceViewController: UIViewController {
             placeFavourite.setImage(UIImage(named: "like"), for: .normal)
         }else if(currentUser.addToFavourites(place: viewModel.getPlace(index: index))){
             placeFavourite.setImage(UIImage(named: "like"), for: .normal)
-            print(currentUser.getFavourites())
         }else{
             placeFavourite.setImage(UIImage(named: "heart"), for: .normal)
             _ = currentUser.removeFavourites(place: viewModel.getPlace(index: index))

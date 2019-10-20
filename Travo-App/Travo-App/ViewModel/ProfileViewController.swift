@@ -19,21 +19,25 @@ class ProfileViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet var interestLabel: UILabel!
     @IBOutlet weak var aboutMeLabel: UILabel!
     
-    var currentUser:User!
+    var currentUser:UserCoreData!
     
     let currentCity:String = "Melbourne"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         aboutMeLabel.text = currentUser.getDescription()
         interestLabel.text = currentUser.getInterests()
         currentCityLabel.text = currentCity
-        
-        // Do any additional setup after loading the view.
+        let image = currentUser?.userImage
+        profileImage.image = UIImage(data: image! as Data)
         profileImage.frame = CGRect(x: 0,y: 0,width: 100,height: 100)
         profileBackground.layer.cornerRadius = 20
         cityCollection.delegate = self
         cityCollection.dataSource = self
+        userNameLabel.text = currentUser.getUser()
+        interestLabel.text = currentUser.getInterests()
+        aboutMeLabel.text = currentUser.getDescription()
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {

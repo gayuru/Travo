@@ -17,15 +17,19 @@ protocol Refresh {
 class RestRequest{
     
     private var _places:[Place]=[]
+    private var _categoryPlaces:[Place]=[]
     var delegate:Refresh?
     //Foursquare API
-    //make constants later
-//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
-    private let clientID:String = "AEQUPDDCAKT4LFIQBI2K1EZXOEB4QPJUGMTASCBRNIZWFE2A"
-    private let clientSecret:String = "VJ5OX10OMWPHOGDYV11Q40EIPGKZF54MDMNPHXAHOXWRFPZL"
+    private let clientID:String = "RLIALBIFXO3A2I4NSEGUF3QKXIN4YLND403X35E1D4COANPG"
+    private let clientSecret:String = "1LFL3MIMPYNCZ4FS3DH2I3KUIZPDENARKVDBJONBFI4VETPQ"
+    
+    /* Please use this if the above apis number of requests exceed*/
+//    private let clientID:String = "KJHSX33MJHXLEOBMIQDUQLLV1FCF02OWJEVGLX31C03RPWO4"
+//    private let clientSecret:String = "BUIITJTGK2QHPGWOEZYLI1B3APHNQ5ZP55DHMJDTFCYNBLNK"
+    
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
+    private let categoryEndPoint:String = "https://api.foursquare.com/v2/venues/search"
     
     //Weather API
     //Constants
@@ -35,16 +39,31 @@ class RestRequest{
     var count:Int = 0
     var numPlaces = 10
     var weather:Int = 0;
-    
+    var apiCalls:Int = 0;
     var places:[Place]{
         return _places
     }
-    
-    private init(){
-      
-        //getFSPlaces(lat: "-37.814", lng: "144.96332", category: "pizza")
+    var categoryPlaces : [Place]{
+        return _categoryPlaces
+    }
+    var lat:String? = ""
+    var lng:String? = ""
+
+    init(lat:String,lng:String){
+        self.updateLocation(lat: lat, lng: lng)
     }
 
+    func updateLocation(lat:String,lng:String){
+        self.lat = lat
+        self.lng = lng
+        
+        if(lat == "" && lng == ""){
+            print("nothing")
+        }else{
+            print("Getting locations of places which are in \(lat) & \(lng)")
+            getFSPlaces(lat: lat, lng: lng, category: "bar")
+        }
+    }
     
     //access the places from the foursquare api
     func getFSPlaces(lat:String,lng:String,category:String){
@@ -102,12 +121,17 @@ class RestRequest{
                     switch response.result{
                     case .success(let value):
                         let json = JSON(value)
-                        let place = json["response"]["venue"]
-                        let placeLat = place["location"]["lat"].doubleValue
-                        let placeLng = place["location"]["lng"].doubleValue
-                        let placeObject = self.getPlaceObject(p: place)
-                        self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
-                        self.updatePlaceArr(place: placeObject, weather: self.weather)
+                        if json.count > 0 {
+                            if json["meta"]["code"] == 429{
+                               print("Quote Exceeded")
+                            }
+                            let place = json["response"]["venue"]
+                            let placeLat = place["location"]["lat"].doubleValue
+                            let placeLng = place["location"]["lng"].doubleValue
+                            let placeObject = self.getPlaceObject(p: place)
+                            self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
+                            self.updatePlaceArr(place: placeObject, weather: self.weather)
+                        }
                     case .failure(let err):
                         print(err)
                     }
@@ -123,12 +147,13 @@ class RestRequest{
         let desc = p["description"].string ?? "No available description"
         let location = p["location"]["city"].string ?? "Location unavailable"
         let address = p["location"]["address"].string ?? "Address not found"
-        let imageURL = getImageURL(photoObj: p["bestPhoto"])!
+        let imageURL = getImageURL(photoObj: p["bestPhoto"]) ?? "default"
         let openTime = p["popular"]["timeframes"][0]["open"][0]["renderedTime"].string ?? "--"
-        let tempRating = p["rating"].double!
+        let tempRating = p["rating"].double ?? 0.0
         let rating = convertRating(rating: tempRating)
+        let category = p["categories"][0]["name"].string ?? ""
         
-        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, weatherCondition: 0, categoryBelonging: ["general"])
+        let placeObj = Place(name: placeName, desc: desc, location: location, address: address, imageURL: imageURL, openTime: openTime, starRating: rating, weatherCondition: 0, categoryBelonging: [category])
         
         return placeObj
     }
@@ -155,7 +180,7 @@ class RestRequest{
     
     //populate the places array with the places with correct info
     func updatePlaceArr(place:Place,weather:Int){
-        var tempPlace = place
+        let tempPlace = place
         tempPlace.weatherCondition = weather
         self._places.append(tempPlace)
         //keeps track of the number of places added
@@ -165,7 +190,7 @@ class RestRequest{
         if(self.count == self.numPlaces){
             if let del = self.delegate{
                 DispatchQueue.main.async {
-                    self.delegate?.updateUI()
+                    del.updateUI()
                 }
             }
         }
@@ -203,26 +228,16 @@ class RestRequest{
         return self._places.sorted(by: { $0.starRating > $1.starRating })
     }
 
-//    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
-//        var chosenPlaces = [Place]()
-//        for place in places {
-//            if (place.categoryBelonging.contains(category)) {
-//                chosenPlaces.append(place)
-//            }
-//        }
-//        return chosenPlaces
-//    }
-    
     //lists out the elements which are not in the first 6 of the popular list and by how close it is
     func sortRecommended() -> [Place]{
         let tempPlaces = self.sortPopularity(category: "")
         var recommendedPlaces:[Place] = []
         for p in self._places{
-            if(!tempPlaces.prefix(6).contains(p)){
+            if(!tempPlaces.prefix(2).contains(p)){
                 recommendedPlaces.append(p)
             }
         }
         return recommendedPlaces
+//        return tempPlaces
     }
-    static let shared = RestRequest()
 }

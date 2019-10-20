@@ -70,6 +70,7 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
         if (segue.identifier == "SegueToHome") {
             let homeViewController = segue.destination as! HomeViewController
             homeViewController.loggedInUser = usersViewModel.getCurrentUser()
+            homeViewController.usersVM = self.usersViewModel
         } else if (segue.identifier == "SegueToRegister") {
             let registerUserViewController = segue.destination as! RegisterUserViewController
             registerUserViewController.usersViewModel = self.usersViewModel
@@ -122,7 +123,6 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     let notEnrolledAlert = UIAlertController(title: "Error", message: "No biometrics are enrolled.", preferredStyle: UIAlertController.Style.alert)
                     notEnrolledAlert.addAction(UIAlertAction(title: "Enter Username/Password", style: UIAlertAction.Style.default, handler: nil))
-//                    self.present(notEnrolledAlert, animated: true, completion: nil)
                     
                     print(error?.localizedDescription ?? "Failed to authenticate")
                 }

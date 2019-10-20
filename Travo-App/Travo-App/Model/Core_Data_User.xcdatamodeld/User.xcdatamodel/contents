@@ -8,8 +8,9 @@
         <attribute name="interests" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="password" attributeType="String" syncable="YES"/>
+        <attribute name="userImage" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserCoreData" positionX="-45" positionY="0" width="128" height="150"/>
+        <element name="UserCoreData" positionX="-45" positionY="0" width="128" height="165"/>
     </elements>
 </model>

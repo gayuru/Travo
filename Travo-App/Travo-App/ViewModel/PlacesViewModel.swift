@@ -11,7 +11,8 @@ import UIKit
 
 struct PlacesViewModel{
     
-    private let placeModel = RestRequest.shared
+    private var placeModel:RestRequest = RestRequest(lat: "", lng: "")
+    
     private var weatherModel = Weather()
     
     var delegate:Refresh?{
@@ -23,6 +24,15 @@ struct PlacesViewModel{
         }
     }
     
+    init() {
+    }
+    
+    mutating func setLocation(lat:String,lng:String){
+        while placeModel.delegate == nil{
+        }
+        placeModel.updateLocation(lat: lat, lng: lng)
+    }
+    
     var places:[Place]{
         return placeModel.places
     }
@@ -30,6 +40,7 @@ struct PlacesViewModel{
     var count:Int{
         return places.count
     }
+    
     
     func getPopularity(category:String) -> [Place]{
         return placeModel.sortPopularity(category: category)

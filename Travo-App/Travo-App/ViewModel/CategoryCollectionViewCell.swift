@@ -9,6 +9,6 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var category: UIButton!
-    
+    @IBOutlet var category: UIImageView!
+
 }

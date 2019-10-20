@@ -17,8 +17,8 @@ class FavouritesViewController: UIViewController
     @IBOutlet var favouriteButton: UIImageView!
     @IBOutlet var displayLabel: UILabel!
     
-    var currentUser : User?
-    var viewModel = PlacesViewModel()
+    var currentUser : UserCoreData?
+    var viewModel:PlacesViewModel!
     var currTitle : String = ""
     var currentCategory : String = "general"
     var favourites : [Place]!
@@ -67,6 +67,8 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             }else if(currentCollection==collections.favourites){
                 displayLabel.isHidden = true
                 return (currentUser?.getFavourites().count)!
+            }else if(currentCollection==collections.recommended){
+                return 5
             }
         }
         displayLabel.isHidden = true
@@ -102,9 +104,9 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
         switch currentCollection {
         case collections.popular:
             heading.text = "Popular Places"
+            tempPopular = viewModel.getPopularity(category: currentCategory)
             title.text = tempPopular[indexPath.row].name
-            imageView.image = viewModel.getImageURLFor(index: indexPath.row)
-//            imageView.image = UIImage(named: tempPopular[indexPath.row].imageURL)
+            imageView.image = viewModel.getImageURLFor(url: tempPopular[indexPath.row].imageURL)
             location.text = tempPopular[indexPath.row].location
             openTime.text = tempPopular[indexPath.row].openTime
             placeRating.rating = tempPopular[indexPath.row].starRating
@@ -119,9 +121,9 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             }
         case collections.recommended:
             heading.text = "Recommended Places"
+            tempRecommended = viewModel.getRecommended(category: self.currentCategory)
             title.text = tempRecommended[indexPath.row].name
-            imageView.image = viewModel.getImageURLFor(index: indexPath.row)
-//            imageView.image = UIImage(named: tempRecommended[indexPath.row].imageURL)
+            imageView.image = viewModel.getImageURLFor(url:tempRecommended[indexPath.row].imageURL)
             location.text = tempRecommended[indexPath.row].location
             openTime.text = tempRecommended[indexPath.row].openTime
             placeRating.rating = tempRecommended[indexPath.row].starRating
@@ -138,7 +140,7 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
             if((currentUser?.getFavourites().count)!>0){
                 if let favourites = currentUser?.getFavourites()[indexPath.row]{
                     title.text = favourites.name
-                    imageView.image = UIImage(named: favourites.imageURL)
+                    imageView.image = viewModel.getImageURLFor(index: indexPath.row)
                     location.text = favourites.location
                     openTime.text = favourites.openTime
                     placeRating.rating = favourites.starRating
@@ -181,10 +183,12 @@ extension FavouritesViewController : UICollectionViewDataSource,UICollectionView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToPlace"){
             let placeController = segue.destination as! PlaceViewController
+            placeController.viewModel = self.viewModel
             placeController.currentUser = currentUser
             placeController.indexPass = currTitle
         }else if (segue.identifier == "goToPlace"){
             let placeController = segue.destination as! PlaceViewController
+            placeController.viewModel = self.viewModel
             placeController.currentUser = currentUser
             placeController.indexPass = currTitle
         }

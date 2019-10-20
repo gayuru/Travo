@@ -11,52 +11,34 @@ import CoreData
 import UIKit
 
 class Users {
-    private var userCoreDate = HardCodedUsersCoreData.init()
-    private var users:[String:User]
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let managedContext: NSManagedObjectContext
     static let shared = Users()
-    var user : [UserCoreData] = []
+    var coreDataUsersList : [UserCoreData] = []
+    var user:UserCoreData?
     
     let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
     init() {
         print(urls[urls.count-1] as URL)
-        users = userCoreDate.getUsersList()
         managedContext = appDelegate.persistentContainer.viewContext
     }
     
-    func getAllUsers() -> [User]{
-        var list:[User] = [User]()
-        for (_, user) in self.users {
-            list.append(user)
-        }
-        return list
-    }
-    
-    func addUser(user:User)->Bool{
-//        let dictionaryKey = user.getEmail()
-//        if (users[dictionaryKey]  != nil) {
-//            return false
-//        }
-//        users.updateValue(user, forKey: dictionaryKey)
+    func addCoreDataUser(name:String, password:String, email:String,image:UIImage)->Bool{
         let userEntity = NSEntityDescription.entity(forEntityName: "UserCoreData", in: managedContext)!
         let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! UserCoreData
-//
-//        @NSManaged public var aboutMe: String?
-//        @NSManaged public var citiesVisited: [String]?
-//        @NSManaged public var email: String?
-//        @NSManaged var favourites: [Place]?
-//        @NSManaged public var interests: String?
-//        @NSManaged public var name: String?
-//        @NSManaged public var password: String?
+
         
-        nsUser.setValue(user.getUsername(), forKey: "name")
-        nsUser.setValue("", forKey: "password")
-        nsUser.setValue("", forKey: "email")
-        nsUser.setValue("", forKey: "aboutMe")
-        nsUser.setValue("", forKey: "interests")
-        nsUser.setValue([""], forKey: "citiesVisited")
+        // Signup Variables
+        nsUser.setValue(name, forKey: "name")
+        nsUser.setValue(password, forKey: "password")
+        nsUser.setValue(email, forKey: "email")
+        let data = image.pngData() as NSData?
+        nsUser.userImage = data
+        // Variables that are unpopulated for a new user
+        nsUser.setValue("I am a very enthusiastic student and I think this is a strong point of mine. My friends say that I am a very funny and an interesting person with a good sense of humor.", forKey: "aboutMe")
+        nsUser.setValue("Listening to music has always been my go to activity for all occasions. My love for music can be traced back to when I was a child", forKey: "interests")
+        nsUser.setValue(["Melbourne"], forKey: "citiesVisited")
         nsUser.setValue([], forKey: "favourites")
         
         do{
@@ -64,34 +46,46 @@ class Users {
             getUser()
         }catch let error as NSError{
             print(error, error.userInfo)
+            return false
         }
         return true
     }
-    
+
     func getUser(){
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCoreData")
             let results = try managedContext.fetch(fetchRequest)
-            user = results as! [UserCoreData]
+            coreDataUsersList = results as! [UserCoreData]
         }catch let error as NSError{
             print("Could not retrive users \(error), \(error.userInfo) ")
         }
     }
     
-    func removeUser(user:User)->Bool{
-        let dictionaryKey = user.getEmail()
-        if (users[dictionaryKey] != nil) {
-            users.removeValue(forKey: dictionaryKey)
-            return true
+    // Nuclear remove option for coredata
+    func removeUser()->Bool{
+        managedContext.delete(self.user!)
+        do{
+            try managedContext.save()
+        }catch let error as NSError{
+            print(error, error.userInfo)
+            return false
         }
-        return false
+        return true
     }
     
-    func findUserByEmail(email:String)->User?{
-        return users[email]
+    func retrieveUser()->UserCoreData?{
+        getUser()
+        return coreDataUsersList.last
     }
     
-    
+    // Trigger This To manually update core data
+    func updateCoreData(){
+        do{
+            try managedContext.save()
+        }catch let error as NSError{
+            print(error, error.userInfo)
+        }
+    }
 //    func addToFavourites(place:Place)->Bool{
 //        if(self.getFavourites().count<=0) {
 //            self.getFavourites?.append(place)

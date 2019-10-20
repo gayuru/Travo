@@ -7,48 +7,49 @@
 //
 
 import Foundation
+import UIKit
 
 class UsersViewModel {
     private var users:Users
-    private var loggedInUser:User?
+    private var loggedInUser:UserCoreData?
     
     init() {
         users = Users.init()
     }
     
-    // TODO Make sure this sets the logged in user Properly
     func existingUserFound()->Bool{
-        if users.getAllUsers().count > 0 {
-            loggedInUser = users.findUserByEmail(email: "email1")
-            return true
+        guard let user = users.retrieveUser() else {
+            return false
         }
-        return false
+        loggedInUser = user
+        return true
     }
     
     func authenticate(email:String?, password:String?)->Bool{
         if (email == nil || password == nil) {
             return false
         }
-        let attemptedUser:User? = users.findUserByEmail(email: email!)
-
-        if (attemptedUser != nil) {
-            // Above already checks for nil presence
-            if (attemptedUser!.getPassword() == password) {
-                loggedInUser = attemptedUser
-                return true
-            }
+        guard let user = users.retrieveUser() else {
             return false
+        }
+        // Above already checks for nil presence
+        if (user.getPassword() == password) {
+            loggedInUser = user
+            return true
         }
         return false
     }
     
-    func createUser(username:String?, email:String?, password:String?, aboutMeDesc:String?,interests:String?)->Bool{
-        if let validName = username, let validEmail = email, let validPassword = password, let validAboutMeDesc = aboutMeDesc, let validInterests = interests{
+    func createUser(username:String?, email:String?, password:String?,image:UIImage?)->Bool{
+        if let validName = username, let validEmail = email, let validPassword = password{
             if (!validName.isEmpty ||  !validEmail.isEmpty || !validPassword.isEmpty) {
-                let newUser:User = User.init(name: validName, password: validPassword, email: validEmail, aboutMeDesc: validAboutMeDesc,interests: validInterests)
-                let added:Bool = self.users.addUser(user: newUser)
+                var profileImage = image
+                if profileImage == nil {
+                    profileImage = UIImage(named: "profile")
+                }
+                let added:Bool = users.addCoreDataUser(name: validName, password: validPassword, email: validEmail,image: profileImage!)
                 if (added == true) {
-                    loggedInUser = newUser
+                    loggedInUser = users.retrieveUser()
                     return true
                 }
             }
@@ -56,7 +57,8 @@ class UsersViewModel {
         return false
     }
     
-    func getCurrentUser()->User?{
+    func getCurrentUser()->UserCoreData?{
         return self.loggedInUser
     }
+    
 }
