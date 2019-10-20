@@ -43,6 +43,7 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate, UIPopov
             let homeViewController = segue.destination as! HomeViewController
             // Segue will not be triggered unless the usersViewModel is not nil
             homeViewController.loggedInUser = usersViewModel!.getCurrentUser()
+            homeViewController.usersVM = usersViewModel
         }
     }
     

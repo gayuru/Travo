@@ -12,7 +12,6 @@ import SwiftyJSON
 
 protocol Refresh {
     func updateUI()
-    func updateCategoryUI()
 }
 
 class RestRequest{
@@ -22,8 +21,8 @@ class RestRequest{
     var delegate:Refresh?
     //Foursquare API
     //make constants later
-//    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-//    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
+    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
 //
 //    private let clientID:String = "2GFA3DH4LWHPGX0JKT3B0UL0HOFTKBHXDBNRD1A1TLBYYBBC"
 //    private let clientSecret:String = "IWPJCKIB4J0JJ5OVYCXSO0G1ZQPK5CFZHFFD1VJKEKVCDGNS"
@@ -33,13 +32,13 @@ class RestRequest{
     
 //    private let clientID:String = "2AD05IB5KU4KQT2JWO5DTN0Z24S4RKOW3TKCE33TK0HD3ZWG"
 //    private let clientSecret:String = "SKUFMM1BXLXA00EC4MCKLRLR4HTSPVATYRVWDCJEWKHOTZVR"
-//
+
 //    private let clientID:String = "OGSXUYYLFVXNYSRVORE4URWVUMX3MNRTHYHHKZ40XZONWTRF"
 //    private let clientSecret:String = "UAA3AEVPZS0TOBR0AUSFX5LQTMIBM2UWKSRND4RHHO4HATKG"
     
-    private let clientID:String = "XY34X0LNUG14QZLTNDS4AMURQIJUI12EOSJDMLDOXK13OZGV"
-    private let clientSecret:String = "ISXKTZ5QLMWO4R4IC2UYOSNVNKBDCR5OSHGDE5VT12FF21VS"
-    
+//    private let clientID:String = "XY34X0LNUG14QZLTNDS4AMURQIJUI12EOSJDMLDOXK13OZGV"
+//    private let clientSecret:String = "ISXKTZ5QLMWO4R4IC2UYOSNVNKBDCR5OSHGDE5VT12FF21VS"
+//
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
     private let categoryEndPoint:String = "https://api.foursquare.com/v2/venues/search"
@@ -50,7 +49,7 @@ class RestRequest{
     let APP_ID = "63629684ee2d8bbc99dde8055cd35d19"
     
     var count:Int = 0
-    var numPlaces = 50
+    var numPlaces = 10
     var weather:Int = 0;
     var apiCalls:Int = 0;
     var places:[Place]{
@@ -135,16 +134,16 @@ class RestRequest{
                     case .success(let value):
                         let json = JSON(value)
                         if json.count > 0 {
+                            if json["meta"]["code"] == 429{
+                               print("Quote Exceeded")
+                            }
                             let place = json["response"]["venue"]
                             let placeLat = place["location"]["lat"].doubleValue
                             let placeLng = place["location"]["lng"].doubleValue
                             let placeObject = self.getPlaceObject(p: place)
                             self.getWeatherParam(lat: String(placeLat), lng: String(placeLng))
                             self.updatePlaceArr(place: placeObject, weather: self.weather)
-                        }else{
-                            print("Quote Exceeded")
                         }
-                       
                     case .failure(let err):
                         print(err)
                     }
@@ -240,63 +239,7 @@ class RestRequest{
     func sortPopularity(category:String) -> [Place]{
         return self._places.sorted(by: { $0.starRating > $1.starRating })
     }
-    
 
-    func getPlaceByCategory(categoryId:String)->[Place]{
-        let params = [
-            "client_id": clientID,
-            "client_secret" : clientSecret,
-            "v":"20191003",
-            "ll": "\(lat!),\(lng!)",
-            "limit":"10",
-            "categoryId":categoryId] as [String:Any]
-        Alamofire.request(categoryEndPoint,method: .get,parameters: params).responseJSON { (response) in
-            if response.result.isSuccess{
-                switch response.result{
-                case .success(let value):
-                    let json = JSON(value)
-                    if json.count > 0 {
-                        let place = json["response"]["venues"][0]
-                        let placeObject = self.getPlaceObject(p: place)
-                        self.updateCategoryPlaceArr(place: placeObject)
-                    }else{
-                        print("Quote Exceeded")
-                    }
-                case .failure(let err):
-                    print("Category Error :\(err)")
-                }
-            }
-        }
-        
-        return categoryPlaces
-    }
-
-    
-    func updateCategoryPlaceArr(place:Place){
-        let tempPlace = place
-        //keeps track of the number of places added
-        self.count += 1
-        //checks if all the places are added so the arraay to notify the view
-        self._categoryPlaces.append(tempPlace)
-        if(self.count  == self.numPlaces){
-            if let del = self.delegate{
-                DispatchQueue.main.async {
-                    del.updateCategoryUI()
-                }
-            }
-        }
-    }
-
-//    private func getListOfPlacesChosenByCategory(_ category:String)->[Place]{
-//        var chosenPlaces = [Place]()
-//        for place in places {
-//            if (place.categoryBelonging.contains(category)) {
-//                chosenPlaces.append(place)
-//            }
-//        }
-//        return chosenPlaces
-//    }
-    
     //lists out the elements which are not in the first 6 of the popular list and by how close it is
     func sortRecommended() -> [Place]{
         let tempPlaces = self.sortPopularity(category: "")

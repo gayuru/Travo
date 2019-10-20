@@ -23,7 +23,7 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
     @IBOutlet var categoryCollection: UICollectionView!
     @IBOutlet var recommendedCollection: UICollectionView!
     var loggedInUser:UserCoreData?
-    
+    var usersVM:UsersViewModel!
     
     let locationManager = CLLocationManager()
     var viewModel = PlacesViewModel()
@@ -77,13 +77,6 @@ class HomeViewController: UIViewController,Refresh,CLLocationManagerDelegate{
         tempCategory = categoryViewModel.getCategories()
         self.view.isUserInteractionEnabled = true
         SVProgressHUD.dismiss()
-    }
-    
-    func updateCategoryUI() {
-        viewCount = 1
-//        tempPopular = viewModel.getPlaceByCategory(category: self.categoryId)
-        popularPlaces.reloadData()
-        recommendedCollection.reloadData()
     }
     
     //Write the didUpdateLocations method here:
@@ -223,13 +216,6 @@ extension HomeViewController : UICollectionViewDelegate,UICollectionViewDataSour
                 categoryId = "4bf58dd8d48988d1f6931735"
                 break
             }
-//            self.tempRecommended = viewModel.getPlaceByCategory(category: currentCategory)
-//            self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-//            self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-            self.tempPopular = viewModel.getPlaceByCategory(category: categoryId)
-            self.popularPlaces.reloadData()
-            print(tempCategory[selectedCategoryIndex].getName())
-            
             self.categoryCollection.reloadData()
         }
     }
@@ -279,32 +265,17 @@ extension HomeViewController{
     @objc func likeButtonTapped(sender:UIButton){
         if sender.currentImage == UIImage(named: "heart") {
             if ((loggedInUser?.addToFavourites(place: tempRecommended[sender.tag]))!){
-                sender.setImage(UIImage(named:"like"), for: .normal)
+                if(usersVM.addFavourites(place: tempRecommended[sender.tag])){
+                    sender.setImage(UIImage(named:"like"), for: .normal)
+                    print(usersVM.getCurrentUser())
+                }
             }
         }else{
             sender.setImage(UIImage(named:"heart"), for: .normal)
             _ = loggedInUser?.removeFavourites(place: tempRecommended[sender.tag])
         }
     }
-    
-    @objc func categoryButtonClicked(sender:UIButton){
-        currentCategory = tempCategory[sender.tag].getName()
-//
-//        if sender.tag == 0{
-//            previousTag  = previousButton.tag
-//            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
-//        }else{
-//            previousTag = previousButton.tag
-//            previousButton.setImage(UIImage(named: tempCategory[previousTag].getImage()), for: .normal)
-//        }
-//        sender.setImage(UIImage(named: tempCategory[sender.tag].getEnabledImage()), for: .normal)
-//        self.previousButton = sender
 
-//        self.tempRecommended = viewModel.getRecommended(category: self.currentCategory)
-//        self.tempPopular = viewModel.getPopularity(category: self.currentCategory)
-//        self.recommendedCollection.reloadData()
-//        self.popularPlaces.reloadData()
-    }
 }
 
 

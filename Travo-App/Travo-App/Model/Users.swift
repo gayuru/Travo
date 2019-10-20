@@ -32,14 +32,7 @@ class Users {
 //        users.updateValue(user, forKey: dictionaryKey)
         let userEntity = NSEntityDescription.entity(forEntityName: "UserCoreData", in: managedContext)!
         let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! UserCoreData
-//
-//        @NSManaged public var aboutMe: String?
-//        @NSManaged public var citiesVisited: [String]?
-//        @NSManaged public var email: String?
-//        @NSManaged var favourites: [Place]?
-//        @NSManaged public var interests: String?
-//        @NSManaged public var name: String?
-//        @NSManaged public var password: String?
+
         
         // Signup Variables
         nsUser.setValue(name, forKey: "name")
@@ -54,6 +47,22 @@ class Users {
         do{
             try managedContext.save()
             getUser()
+        }catch let error as NSError{
+            print(error, error.userInfo)
+            return false
+        }
+        return true
+    }
+    
+    func addToFavourites(place:Place)->Bool{
+
+        let userEntity = NSEntityDescription.entity(forEntityName: "UserCoreData", in: managedContext)!
+        let nsUser = NSManagedObject(entity: userEntity, insertInto: managedContext) as! UserCoreData
+        
+        nsUser.setValue(place, forKey: "favourites")
+        
+        do{
+            try managedContext.save()
         }catch let error as NSError{
             print(error, error.userInfo)
             return false

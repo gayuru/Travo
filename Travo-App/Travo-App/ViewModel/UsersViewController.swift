@@ -70,6 +70,7 @@ class UsersViewController: UIViewController, UITextFieldDelegate {
         if (segue.identifier == "SegueToHome") {
             let homeViewController = segue.destination as! HomeViewController
             homeViewController.loggedInUser = usersViewModel.getCurrentUser()
+            homeViewController.usersVM = self.usersViewModel
         } else if (segue.identifier == "SegueToRegister") {
             let registerUserViewController = segue.destination as! RegisterUserViewController
             registerUserViewController.usersViewModel = self.usersViewModel
