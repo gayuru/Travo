@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1110"
+   LastUpgradeVersion = "1030"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-               BuildableName = "Travo-App.app"
-               BlueprintName = "Travo-App"
+               BlueprintIdentifier = "55770ED5235B2191006898CE"
+               BuildableName = "Travo-AppTests.xctest"
+               BlueprintName = "Travo-AppTests"
                ReferencedContainer = "container:Travo-App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,16 +32,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55971C71232E7AEF0018ABF8"
-               BuildableName = "Travo-AppUITests.xctest"
-               BlueprintName = "Travo-AppUITests"
-               ReferencedContainer = "container:Travo-App.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "55770ED5235B2191006898CE"
                BuildableName = "Travo-AppTests.xctest"
                BlueprintName = "Travo-AppTests"
@@ -49,15 +39,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-            BuildableName = "Travo-App.app"
-            BlueprintName = "Travo-App"
-            ReferencedContainer = "container:Travo-App.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -71,16 +52,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-            BuildableName = "Travo-App.app"
-            BlueprintName = "Travo-App"
+            BlueprintIdentifier = "55770ED5235B2191006898CE"
+            BuildableName = "Travo-AppTests.xctest"
+            BlueprintName = "Travo-AppTests"
             ReferencedContainer = "container:Travo-App.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,16 +70,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7783A64C23036FFA00ED25F3"
-            BuildableName = "Travo-App.app"
-            BlueprintName = "Travo-App"
+            BlueprintIdentifier = "55770ED5235B2191006898CE"
+            BuildableName = "Travo-AppTests.xctest"
+            BlueprintName = "Travo-AppTests"
             ReferencedContainer = "container:Travo-App.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

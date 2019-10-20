@@ -13,6 +13,16 @@
 		556015912331F93600302676 /* FeelingLuckyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556015902331F93600302676 /* FeelingLuckyViewController.swift */; };
 		5571DBCF2325D29D00C9BE2F /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */; };
 		5571DBD32325E03F00C9BE2F /* Place.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5571DBD22325E03F00C9BE2F /* Place.storyboard */; };
+		5591023D235B25D000928C45 /* Pods_Travo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5591023C235B25D000928C45 /* Pods_Travo_App.framework */; };
+		5591023E235B2B0400928C45 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B120223570C4D00005D66 /* RestRequest.swift */; };
+		5591023F235B2B0400928C45 /* UserCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF9ABE234D2A4100D648C5 /* UserCoreData+CoreDataClass.swift */; };
+		55910240235B2B0400928C45 /* UserCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BF9ABF234D2A4100D648C5 /* UserCoreData+CoreDataProperties.swift */; };
+		55910241235B2B0400928C45 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77425D0423272E4C00C6B844 /* Place.swift */; };
+		55910242235B2B0400928C45 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E330F42329073D009514CC /* Weather.swift */; };
+		55910244235B2B0400928C45 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D08882331C10300B5BA64 /* Category.swift */; };
+		55910245235B2B0400928C45 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D088A2331C18000B5BA64 /* Categories.swift */; };
+		5591024A235B2BE700928C45 /* Travo_RestRequest_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55910249235B2BE700928C45 /* Travo_RestRequest_Test.swift */; };
+		5591024C235B2DC900928C45 /* Travo_Weather_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5591024B235B2DC900928C45 /* Travo_Weather_Test.swift */; };
 		55971C68232E56970018ABF8 /* PlacesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */; };
 		55971C6A232E56A40018ABF8 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C69232E56A40018ABF8 /* FavouritesViewController.swift */; };
 		55971C6D232E62400018ABF8 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55971C6C232E62400018ABF8 /* PlaceViewController.swift */; };
@@ -52,6 +62,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		55770EDB235B2191006898CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7783A64523036FFA00ED25F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7783A64C23036FFA00ED25F3;
+			remoteInfo = "Travo-App";
+		};
 		55971C77232E7AEF0018ABF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7783A64523036FFA00ED25F3 /* Project object */;
@@ -69,6 +86,11 @@
 		556015902331F93600302676 /* FeelingLuckyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingLuckyViewController.swift; sourceTree = "<group>"; };
 		5571DBCE2325D29D00C9BE2F /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		5571DBD22325E03F00C9BE2F /* Place.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Place.storyboard; sourceTree = "<group>"; };
+		55770ED6235B2191006898CE /* Travo-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Travo-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55770EDA235B2191006898CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5591023C235B25D000928C45 /* Pods_Travo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Travo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55910249235B2BE700928C45 /* Travo_RestRequest_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travo_RestRequest_Test.swift; sourceTree = "<group>"; };
+		5591024B235B2DC900928C45 /* Travo_Weather_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travo_Weather_Test.swift; sourceTree = "<group>"; };
 		55971C67232E56970018ABF8 /* PlacesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCollectionViewCell.swift; sourceTree = "<group>"; };
 		55971C69232E56A40018ABF8 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavouritesViewController.swift; path = Favourites/FavouritesViewController.swift; sourceTree = "<group>"; };
 		55971C6C232E62400018ABF8 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +137,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		55770ED3235B2191006898CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5591023D235B25D000928C45 /* Pods_Travo_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55971C6F232E7AEF0018ABF8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,10 +167,21 @@
 		0A00F46991022B5555A88391 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5591023C235B25D000928C45 /* Pods_Travo_App.framework */,
 				5DEB89ECF460947E65491E61 /* Pods_Travo_App.framework */,
 				3F8DCE4824A35FC1F61D2A0B /* Pods_Travo_App_Travo_AppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		55770ED7235B2191006898CE /* Travo-AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				55770EDA235B2191006898CE /* Info.plist */,
+				55910249235B2BE700928C45 /* Travo_RestRequest_Test.swift */,
+				5591024B235B2DC900928C45 /* Travo_Weather_Test.swift */,
+			);
+			path = "Travo-AppTests";
 			sourceTree = "<group>";
 		};
 		55971C64232E55450018ABF8 /* Recovered References */ = {
@@ -164,6 +205,7 @@
 			children = (
 				7783A64F23036FFA00ED25F3 /* Travo-App */,
 				55971C73232E7AEF0018ABF8 /* Travo-AppUITests */,
+				55770ED7235B2191006898CE /* Travo-AppTests */,
 				7783A64E23036FFA00ED25F3 /* Products */,
 				55971C64232E55450018ABF8 /* Recovered References */,
 				D4DE7AB1473CF6EB08ACB114 /* Pods */,
@@ -176,6 +218,7 @@
 			children = (
 				7783A64D23036FFA00ED25F3 /* Travo-App.app */,
 				55971C72232E7AEF0018ABF8 /* Travo-AppUITests.xctest */,
+				55770ED6235B2191006898CE /* Travo-AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -265,6 +308,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		55770ED5235B2191006898CE /* Travo-AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55770EDF235B2191006898CE /* Build configuration list for PBXNativeTarget "Travo-AppTests" */;
+			buildPhases = (
+				55770ED2235B2191006898CE /* Sources */,
+				55770ED3235B2191006898CE /* Frameworks */,
+				55770ED4235B2191006898CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55770EDC235B2191006898CE /* PBXTargetDependency */,
+			);
+			name = "Travo-AppTests";
+			productName = "Travo-AppTests";
+			productReference = 55770ED6235B2191006898CE /* Travo-AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		55971C71232E7AEF0018ABF8 /* Travo-AppUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55971C79232E7AEF0018ABF8 /* Build configuration list for PBXNativeTarget "Travo-AppUITests" */;
@@ -314,6 +375,10 @@
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Sogyal Thundup Sherpa";
 				TargetAttributes = {
+					55770ED5235B2191006898CE = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 7783A64C23036FFA00ED25F3;
+					};
 					55971C71232E7AEF0018ABF8 = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 7783A64C23036FFA00ED25F3;
@@ -338,11 +403,19 @@
 			targets = (
 				7783A64C23036FFA00ED25F3 /* Travo-App */,
 				55971C71232E7AEF0018ABF8 /* Travo-AppUITests */,
+				55770ED5235B2191006898CE /* Travo-AppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		55770ED4235B2191006898CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55971C70232E7AEF0018ABF8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +525,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		55770ED2235B2191006898CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5591024A235B2BE700928C45 /* Travo_RestRequest_Test.swift in Sources */,
+				5591023E235B2B0400928C45 /* RestRequest.swift in Sources */,
+				5591023F235B2B0400928C45 /* UserCoreData+CoreDataClass.swift in Sources */,
+				55910240235B2B0400928C45 /* UserCoreData+CoreDataProperties.swift in Sources */,
+				55910241235B2B0400928C45 /* Place.swift in Sources */,
+				55910242235B2B0400928C45 /* Weather.swift in Sources */,
+				5591024C235B2DC900928C45 /* Travo_Weather_Test.swift in Sources */,
+				55910244235B2B0400928C45 /* Category.swift in Sources */,
+				55910245235B2B0400928C45 /* Categories.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55971C6E232E7AEF0018ABF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -498,6 +587,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		55770EDC235B2191006898CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7783A64C23036FFA00ED25F3 /* Travo-App */;
+			targetProxy = 55770EDB235B2191006898CE /* PBXContainerItemProxy */;
+		};
 		55971C78232E7AEF0018ABF8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7783A64C23036FFA00ED25F3 /* Travo-App */;
@@ -525,6 +619,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		55770EDD235B2191006898CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64FAE0B831057CDFBA064D2B /* Pods-Travo-App.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 56CT9TQ9TD;
+				ENABLE_TESTABILITY = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
+				INFOPLIST_FILE = "Travo-AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "RMIT.Travo-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travo-App.app/Travo-App";
+			};
+			name = Debug;
+		};
+		55770EDE235B2191006898CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 56CT9TQ9TD;
+				ENABLE_TESTABILITY = NO;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Pods/**";
+				INFOPLIST_FILE = "Travo-AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "RMIT.Travo-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travo-App.app/Travo-App";
+			};
+			name = Release;
+		};
 		55971C7A232E7AEF0018ABF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CFDA496C2A0A648605C56A81 /* Pods-Travo-App-Travo-AppUITests.debug.xcconfig */;
@@ -689,7 +828,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6XNC2755U2;
+				DEVELOPMENT_TEAM = 56CT9TQ9TD;
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -708,7 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6XNC2755U2;
+				DEVELOPMENT_TEAM = 56CT9TQ9TD;
 				INFOPLIST_FILE = "Travo-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -724,6 +863,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		55770EDF235B2191006898CE /* Build configuration list for PBXNativeTarget "Travo-AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55770EDD235B2191006898CE /* Debug */,
+				55770EDE235B2191006898CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		55971C79232E7AEF0018ABF8 /* Build configuration list for PBXNativeTarget "Travo-AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
