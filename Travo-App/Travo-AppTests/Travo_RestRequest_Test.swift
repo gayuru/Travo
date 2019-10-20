@@ -35,19 +35,6 @@ class Travo_RestRequest_Test: XCTestCase, Refresh  {
         request = RestRequest.init(lat: "", lng: "")
     }
     
-    func testWeatherRequest() {
-        /* Pre Condition :
-         * Request is initialized by the setup without issue
-         * Request has an assigned Delegate
-         */
-        
-        // Action: Perform Rest Request to Open Weather Map for Weather Code
-        request.getWeatherParam(lat: lat, lng: lng)
-        
-        // Expected Result : Weather variable is not 0
-        XCTAssert(request.weather != 0)
-    }
-    
     func testSortPlaces() {
         /* Pre Condition : Request Places Array has 2 values
          * Array[0] has a lower rating than Array[1]
