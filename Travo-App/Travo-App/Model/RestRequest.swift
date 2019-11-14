@@ -20,12 +20,8 @@ class RestRequest{
     private var _categoryPlaces:[Place]=[]
     var delegate:Refresh?
     //Foursquare API
-    private let clientID:String = "RLIALBIFXO3A2I4NSEGUF3QKXIN4YLND403X35E1D4COANPG"
-    private let clientSecret:String = "1LFL3MIMPYNCZ4FS3DH2I3KUIZPDENARKVDBJONBFI4VETPQ"
-    
-    /* Please use this if the above apis number of requests exceed*/
-//    private let clientID:String = "KJHSX33MJHXLEOBMIQDUQLLV1FCF02OWJEVGLX31C03RPWO4"
-//    private let clientSecret:String = "BUIITJTGK2QHPGWOEZYLI1B3APHNQ5ZP55DHMJDTFCYNBLNK"
+    private let clientID:String = "MyClientId"
+    private let clientSecret:String = "MyClientSecret"
     
     private let recommendedEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
@@ -34,7 +30,7 @@ class RestRequest{
     //Weather API
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-    let APP_ID = "63629684ee2d8bbc99dde8055cd35d19"
+    let APP_ID = "MyWeatherAppId"
     
     var count:Int = 0
     var numPlaces = 10
