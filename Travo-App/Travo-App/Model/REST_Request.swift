@@ -24,15 +24,15 @@ class REST_Request{
     var numPlaces:Int = 10
     //Foursquare API
     //make constants later
-    private let clientID:String = "TZVHFQG3SMODPGCALX3SL1AORYSFXGO05UGP0IENVEI1EW2T"
-    private let clientSecret:String = "VWL3NGD0EZOAUYYDGOT4J5FABPEGVWUKPK5B5E3UOWQEHAQG"
+    private let clientID:String = "MyClientId"
+    private let clientSecret:String = "MyClientSecret"
     private let venueRecEndPoint:String = "https://api.foursquare.com/v2/venues/explore"
     private let detailPlaceEndPoint:String = "https://api.foursquare.com/v2/venues/"
     
     //Weather API
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-    let APP_ID = "63629684ee2d8bbc99dde8055cd35d19"
+    let APP_ID = "MyWeatherAppId"
     
     var weather:Int = 0;
     let group = DispatchGroup()
