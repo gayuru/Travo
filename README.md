@@ -2,8 +2,8 @@
   <br>
   <a href="https://github.com/gayuru/Travo"><img src="https://i.ibb.co/B2hrVVY/Logo.png" alt="Travo" width="50"></a> Travo 
 </h1>
-<p align="Center">Your companion that will not make you feel lost when you go to a new city</p>
-<img src="https://i.postimg.cc/RZr6RYSj/Screen-Shot-2019-11-15-at-11-59-51-am.png" height="500" alt="Travo"><img src="/app-demo.gif" height="500" alt="Travo">
+<p align="Center">Your companion that will not make you feel lost when you go to a new city <br><br>
+<img src="/app-demo.gif" height="500" alt="Travo"></p>
 
 ## What is Travo? ##
 🤔Travo is your one stop travel companion when you visit a new place and feel lost just open our app and look for popular places nearby along with recommended places by user ratings. Travo utilizes Foursquare API to provide the user with a large collection of places near them alongside providing weather information using OpenWeather about the place they are going to visit.
