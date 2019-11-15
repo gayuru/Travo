@@ -3,10 +3,7 @@
   <a href="https://github.com/gayuru/Travo"><img src="https://i.ibb.co/B2hrVVY/Logo.png" alt="Travo" width="50"></a> Travo 
 </h1>
 <p align="Center">Your companion that will not make you feel lost when you go to a new city</p>
-<img src="https://i.postimg.cc/RZr6RYSj/Screen-Shot-2019-11-15-at-11-59-51-am.png" height="500" alt="Travo">
-
-
-![](https://media.giphy.com/media/iJtdg0cSCAVrEA3WCR/giphy.gif)
+<img src="https://i.postimg.cc/RZr6RYSj/Screen-Shot-2019-11-15-at-11-59-51-am.png" height="500" alt="Travo">img src="/app-demo.gif" height="500" alt="Travo">
 
 ## What is Travo? ##
 🤔Travo is your one stop travel companion when you visit a new place and feel lost just open our app and look for popular places nearby along with recommended places by user ratings. Travo utilizes Foursquare API to provide the user with a large collection of places near them alongside providing weather information using OpenWeather about the place they are going to visit.
@@ -35,6 +32,7 @@ Starting off with Travo is easy as it can get but surely you do need some creden
 - [Gayuru Gunawardena](https://gayurug.com/)
 - [Sogyal Sherpa](https://github.com/sogyals429)
 - [Jun Cheong](https://github.com/rmit-s3591154-jun-cheong)
+
 
 <div align="center">
   <sub>Built with ❤︎ by Team iSwift for  <a href="http://www1.rmit.edu.au/browse/;CURPOS=1?QRY=+keywords=COSC2471&course=COSC2471"> iPhone Software Engineering </a>module 🔖
