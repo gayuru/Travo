@@ -33,8 +33,8 @@ Starting off with Travo is easy as it can get but surely you do need some creden
 - [Sogyal Sherpa](https://github.com/sogyals429)
 - [Jun Cheong](https://github.com/rmit-s3591154-jun-cheong)
 
-## License
-- Travo is licensed under the **MIT License** ⚖️
+## License ⚖️
+- Travo is licensed under the **MIT License.** 
 
 <div align="center">
   <sub>Built with ❤︎ by Team iSwift for  <a href="http://www1.rmit.edu.au/browse/;CURPOS=1?QRY=+keywords=COSC2471&course=COSC2471"> iPhone Software Engineering </a>module 🔖
