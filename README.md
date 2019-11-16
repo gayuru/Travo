@@ -2,7 +2,7 @@
   <br>
   <a href="https://github.com/gayuru/Travo"><img src="https://i.ibb.co/B2hrVVY/Logo.png" alt="Travo" width="50"></a> Travo 
 </h1>
-<p align="Center">Your companion that will not make you feel lost when you go to a new city <br><br>
+<p align="Center"> 💛 Your companion that will not make you feel lost when you go to a new city 🌆<br><br>
 <img src="/app-demo.gif" height="500" alt="Travo"></p>
 
 ## What is Travo? ##
